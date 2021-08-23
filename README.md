@@ -1,5 +1,15 @@
 # Argumentative Proposition Classifier
+![version](https://img.shields.io/badge/version-0.1-blue)
+![last-update](https://img.shields.io/badge/last_update-08/23/2021-orange)
+![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
+
 Implementation of a classifier of argumentative prepositions.
+
+## Dependencies
+The implemented solutions depend on or make use of the following libraries and .jar files:
+- JDK 16
+- MySQL Connector 8.0.22
+- Snake YAML 1.9
 
 ## Authors
 Created on Aug 18, 2021  
