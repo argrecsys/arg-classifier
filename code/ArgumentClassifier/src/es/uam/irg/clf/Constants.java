@@ -13,7 +13,7 @@ public class Constants {
     
     // Public system constants
     public static final String INPUT_FOLDER = "../../dataset/";
-    public static final String DATASET_FILEPATH = INPUT_FOLDER + "proposition.csv";
+    public static final String DATASET_FILEPATH = INPUT_FOLDER + "propositions.csv";
     public static final String LANG_EN = "en";
     public static final String LANG_ES = "es";
     public static final String MDB_SETUP_FILEPATH = "Resources/config/mdb_setup.yaml";
