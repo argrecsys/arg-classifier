@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.nlp.am;
+package es.uam.irg.clf;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Program {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(">> ARGMINER BEGINS");
+        System.out.println(">> ARG-CLASSIFIER BEGINS");
         
         // Program hyperparameters with default values
         String language = Constants.LANG_ES;
@@ -28,17 +28,17 @@ public class Program {
         System.out.format(">> Language selected: %s\n", language);
         
         // Run program
-        ArgumentMiner miner = new ArgumentMiner(language, true);
+        ArgumentClassifier miner = new ArgumentClassifier(language, true);
         boolean result = miner.runProgram();
         
         if (result) {
-            System.out.println(">> The Argument Miner engine was executed correctly.");
+            System.out.println(">> The Argument Classifier engine was executed correctly.");
         }
         else {
-            System.err.println(">> The Argument Miner engine had an unexpected error.");
+            System.err.println(">> The Argument Classifier engine had an unexpected error.");
         }
         
-        System.out.println(">> ARGMINER ENDS");
+        System.out.println(">> ARG-CLASSIFIER ENDS");
     }
     
 }

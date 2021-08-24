@@ -9,6 +9,7 @@ Implementation of a classifier of argumentative prepositions.
 The implemented solutions depend on or make use of the following libraries and .jar files:
 - JDK 16
 - MySQL Connector 8.0.22
+- MongoDB Java Driver 3.4.3
 - Snake YAML 1.9
 
 ## Authors

@@ -11,8 +11,8 @@ import java.sql.Statement;
  * @author Nico
  */
 public class DBConnector {
+    
     // Private attributes
-
     private Connection connection;
 
     // ============
@@ -23,76 +23,29 @@ public class DBConnector {
      *
      * @param driverClassName the class name of the driver
      * @param driver an instance of the driver
+     * 
+     * @throws java.lang.Exception
      */
     public DBConnector(String driverClassName, Driver driver) throws Exception {
         this.connection = null;
         try {
             DriverManager.registerDriver(driver);
             Class.forName(driverClassName);
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             throw e;
         }
-    }
-
-    public Connection getConnection() {
-        return this.connection;
     }
     
     // ===========================
     // DATABASE MANAGEMENT METHODS
     // ===========================
     /**
-     * Acquires a connection to a database according to the parameters of the given URL
-     *
-     * @param url the URL with the information of the server, database name, user name and user password
-     */
-    public void connect(String url) throws Exception {
-        try {
-            this.disconnect();
-            this.connection = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
-
-    /**
-     * Closes the connection to the database
-     */
-    public void disconnect() {
-        try {
-            if (this.connection != null) {
-                this.connection.close();
-                this.connection = null;
-            }
-        } catch (SQLException e) {
-        }
-    }
-
-    /**
-     * TRUE if connection is established, FALSE if not
-     * @return 
-     */
-    public boolean isConnected() {
-        return this.connection != null;
-    }
-
-    /**
-     * Prepares the database connection for batch queries.
-     * Note that a connection has to be previously opened (connect method)
-     */
-    public Statement openBatch() throws Exception {
-        try {
-            Statement stm = this.connection.createStatement();
-            this.connection.setAutoCommit(false);
-            return stm;
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
-
-    /**
      * Executes the current query batch.
      * Note that a query batch has to be previously created (openBatch method)
+     *
+     * @param stm a static SQL statement and returning the results it produce
+     *
+     * @throws java.lang.Exception
      */
     public void closeBatch(Statement stm) throws Exception {
         try {
@@ -105,91 +58,46 @@ public class DBConnector {
             throw e;
         }
     }
-
+    
     /**
-     * Closes the connection to the database. Method invoked by the 'garbage collection' system
-     */
-    public void finalice() {
-        this.disconnect();
-    }
-
-    /**
-     * Selects several records of the database.
-     * Note that a connection has to be previously opened (connect method)
+     * Acquires a connection to a database according to the parameters of the given URL
      *
-     * @param query Select SQL query
-     *
-     * @return records returned by the database
+     * @param url the URL with the information of the server, database name, user name and user password
+     * 
+     * @throws java.lang.Exception
      */
-    public ResultSet executeSelect(String query) throws Exception {
-        ResultSet rs = null;
+    public void connect(String url) throws Exception {
         try {
-            Statement stm = this.connection.createStatement();
-            rs = stm.executeQuery(query);
+            this.disconnect();
+            this.connection = DriverManager.getConnection(url);
         } catch (SQLException e) {
             throw e;
         }
-        return rs;
     }
-
+    
     /**
-     * Inserts a record in the database.
-     * Note that a connection has to be previously opened (connect method)
-     *
-     * @param query the Insert SQL query to execute
-     * @param batchMode a boolean indicating whether the insert has to be executed in batch mode
-     *
-     * @return number of inserted rows
+     * Closes the connection to the database
      */
-    public int executeInsert(String query, boolean batchMode, Statement stm) throws Exception {
-        int numRows = 0;
+    public void disconnect() {
         try {
-            if (batchMode) {
-                stm.addBatch(query);
-            } else {
-                stm = this.connection.createStatement();
-                numRows = stm.executeUpdate(query);
-                stm.close();
+            if (this.connection != null) {
+                this.connection.close();
+                this.connection = null;
             }
         } catch (SQLException e) {
-            throw e;
         }
-        return numRows;
     }
-
-    /**
-     * Makes an update in the database.
-     * Note that a connection has to be previously opened (connect method)
-     *
-     * @param query the Update SQL query to execute
-     * @param batchMode a boolean indicating whether the update has to be executed in batch mode
-     *
-     * @return number of updated records
-     */
-    public int executeUpdate(String query, boolean batchMode, Statement stm) throws Exception {
-        int numRows = 0;
-        try {
-            if (batchMode) {
-                stm.addBatch(query);
-            } else {
-                stm = this.connection.createStatement();
-                numRows = stm.executeUpdate(query);
-                stm.close();
-            }
-        } catch (SQLException e) {
-            throw e;
-        }
-        return numRows;
-    }
-
+    
     /**
      * Erases records from the database.
      * Note that a connection has to be previously opened (connect method)
      *
      * @param query the Delete SQL query to execute
-     * @param batchMode a boolean indicating whether the delete has to be executed in batch mode
+     * @param batchMode a boolean indicating whether the delete has to be executed in batch mode 
+     * @param stm a static SQL statement and returning the results it produce
      *
      * @return number of deleted records
+     * @throws java.lang.Exception
      */
     public int executeDelete(String query, boolean batchMode, Statement stm) throws Exception {
         int numRows = 0;
@@ -206,4 +114,119 @@ public class DBConnector {
         }
         return numRows;
     }
+    
+    /**
+     * Inserts a record in the database.
+     * Note that a connection has to be previously opened (connect method)
+     * 
+     * @param query the Insert SQL query to execute
+     * @param batchMode a boolean indicating whether the insert has to be executed in batch mode
+     * @param stm a static SQL statement and returning the results it produce
+     * 
+     * @return number of inserted rows
+     * @throws java.lang.Exception
+     */
+    public int executeInsert(String query, boolean batchMode, Statement stm) throws Exception {
+        int numRows = 0;
+        try {
+            if (batchMode) {
+                stm.addBatch(query);
+            } else {
+                stm = this.connection.createStatement();
+                numRows = stm.executeUpdate(query);
+                stm.close();
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return numRows;
+    }
+    
+    /**
+     * Selects several records of the database.
+     * Note that a connection has to be previously opened (connect method)
+     *
+     * @param query Select SQL query
+     *
+     * @return records returned by the database
+     * @throws java.lang.Exception
+     */
+    public ResultSet executeSelect(String query) throws Exception {
+        ResultSet rs = null;
+        try {
+            Statement stm = this.connection.createStatement();
+            rs = stm.executeQuery(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+        return rs;
+    }
+    
+    /**
+     * Makes an update in the database.
+     * Note that a connection has to be previously opened (connect method)
+     *
+     * @param query the Update SQL query to execute
+     * @param batchMode a boolean indicating whether the update has to be executed in batch mode
+     * @param stm a static SQL statement and returning the results it produce
+     *
+     * @return number of updated records
+     * @throws java.lang.Exception
+     */
+    public int executeUpdate(String query, boolean batchMode, Statement stm) throws Exception {
+        int numRows = 0;
+        try {
+            if (batchMode) {
+                stm.addBatch(query);
+            } else {
+                stm = this.connection.createStatement();
+                numRows = stm.executeUpdate(query);
+                stm.close();
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return numRows;
+    }
+    
+    /**
+     * Closes the connection to the database. Method invoked by the 'garbage collection' system
+     */
+    public void finalice() {
+        this.disconnect();
+    }
+    
+    /**
+     * @return a connection object
+     */
+    public Connection getConnection() {
+        return this.connection;
+    }
+    
+    /**
+     * TRUE if connection is established, FALSE if not
+     * @return
+     */
+    public boolean isConnected() {
+        return this.connection != null;
+    }
+    
+    /**
+     * Prepares the database connection for batch queries.
+     * Note that a connection has to be previously opened (connect method)
+     *
+     * @return a static SQL statement
+     *
+     * @throws java.lang.Exception
+     */
+    public Statement openBatch() throws Exception {
+        try {
+            Statement stm = this.connection.createStatement();
+            this.connection.setAutoCommit(false);
+            return stm;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+    
 }
