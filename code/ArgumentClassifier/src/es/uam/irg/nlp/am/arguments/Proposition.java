@@ -12,11 +12,20 @@ package es.uam.irg.nlp.am.arguments;
  */
 public class Proposition {
     
+    // Class members
+    private String label;
     private int proposalID;
     private int sentenceID;
     private String text;
-    private String label;
     
+    /**
+     * Class constructor.
+     * 
+     * @param proposalID
+     * @param sentenceID
+     * @param text
+     * @param label 
+     */
     public Proposition(int proposalID, int sentenceID, String text, String label) {
         this.proposalID = proposalID;
         this.sentenceID = sentenceID;
@@ -24,6 +33,22 @@ public class Proposition {
         this.label = label;
     }
     
+    public String getLabel() {
+        return this.label;
+    }
+    
+    public int getProposalID() {
+        return this.proposalID;
+    }
+    
+    public int getSentenceID() {
+        return this.sentenceID;
+    }
+    
+    public String getText() {
+        return this.text;
+    }
+        
     @Override
     public String toString() {
         return String.format("%s-%s > %s [%s]", 

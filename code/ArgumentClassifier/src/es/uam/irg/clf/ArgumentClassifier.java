@@ -8,7 +8,6 @@ package es.uam.irg.clf;
 import es.uam.irg.ml.Dataset;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,8 +20,6 @@ public class ArgumentClassifier {
     // Class members
     private String language;
     private boolean verbose = true;
-    // private Map<String, Object> mdbSetup;
-    // private Map<String, Object> msqlSetup;
     
     /**
      * Class constructor.
@@ -33,8 +30,6 @@ public class ArgumentClassifier {
     public ArgumentClassifier(String language, boolean verbose) {
         this.language = language;
         this.verbose = verbose;
-        // this.mdbSetup = FunctionUtils.getDatabaseConfiguration(Constants.MONGO_DB);
-        // this.msqlSetup = FunctionUtils.getDatabaseConfiguration(Constants.MYSQL_DB);
     }
     
     /**
@@ -47,9 +42,9 @@ public class ArgumentClassifier {
         // ML pipeline
         try {
             // 1. Get raw dataset
-            Dataset ds = new Dataset(this.verbose);
-            ds.createDataset();
+            Dataset ds = new Dataset(this.language, this.verbose);
             List<Proposition> rawData = ds.getDataset();
+            System.out.println(">> N proposition: " + rawData.size());
             System.out.println(rawData);
             
             // 2. Transform dataset

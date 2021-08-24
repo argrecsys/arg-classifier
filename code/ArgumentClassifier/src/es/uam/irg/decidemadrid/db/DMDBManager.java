@@ -3,9 +3,11 @@ package es.uam.irg.decidemadrid.db;
 import es.uam.irg.db.MySQLDBConnector;
 import es.uam.irg.decidemadrid.entities.DMProposal;
 import es.uam.irg.decidemadrid.entities.DMComment;
+import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.utils.FunctionUtils;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DMDBManager {
@@ -26,6 +28,22 @@ public class DMDBManager {
     public DMDBManager(String dbServer, String dbName, String dbUserName, String dbUserPassword) throws Exception {
         this.db = new MySQLDBConnector();
         this.db.connect(dbServer, dbName, dbUserName, dbUserPassword);
+    }
+    
+    public DMDBManager(Map<String, Object> setup) throws Exception {
+        if (setup != null && setup.size() == 4) {
+            String dbServer = setup.get("db_server").toString();
+            String dbName = setup.get("db_name").toString();
+            String dbUserName = setup.get("db_user_name").toString();
+            String dbUserPassword = setup.get("db_user_pw").toString();
+
+            this.db = new MySQLDBConnector();
+            this.db.connect(dbServer, dbName, dbUserName, dbUserPassword);
+        }
+        else {
+            this.db = new MySQLDBConnector();
+            this.db.connect(DB_SERVER, DB_NAME, DB_USERNAME, DB_USERPASSWORD);
+        }
     }
 
     @Override
@@ -111,6 +129,39 @@ public class DMDBManager {
         }
         rs.close();
 
+        return proposals;
+    }
+    
+    public Map<Integer, DMProposal> selectProposals(int topN, List<ArgumentLinker> lexicon) throws Exception {
+        Map<Integer, DMProposal> proposals = new HashMap<>();
+        String whereCond = "";
+        
+        for (int i = 0; i < lexicon.size(); i++) {
+            whereCond += (i > 0 ? " OR " : "") + "summary LIKE '% " + lexicon.get(i).linker + " %'";
+        }
+        
+        String query = "SELECT id, title, userId, date, summary, text, numComments, numSupports " +
+                       "  FROM proposals " + 
+                       " WHERE " + whereCond +
+                       " ORDER BY LENGTH(summary) " +
+                       " LIMIT " + topN + ";";
+        ResultSet rs = this.db.executeSelect(query);
+        
+        while (rs != null && rs.next()) {
+            int id = rs.getInt("id");
+            String title = rs.getString("title");
+            int userId = rs.getInt("userId");
+            String date = rs.getString("date");
+            String summary = rs.getString("summary");
+            String text = rs.getString("text");
+            int numComments = rs.getInt("numComments");
+            int numSupports = rs.getInt("numSupports");
+
+            DMProposal proposal = new DMProposal(id, title, userId, date, summary, text, numComments, numSupports);
+            proposals.put(id, proposal);
+        }
+        rs.close();
+        
         return proposals;
     }
     

@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.1-blue)
-![last-update](https://img.shields.io/badge/last_update-08/23/2021-orange)
+![version](https://img.shields.io/badge/version-0.2-blue)
+![last-update](https://img.shields.io/badge/last_update-08/24/2021-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a classifier of argumentative prepositions.
@@ -8,9 +8,11 @@ Implementation of a classifier of argumentative prepositions.
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries and .jar files:
 - JDK 16
+- Stanford CoreNLP 4.2.2
 - MySQL Connector 8.0.22
 - MongoDB Java Driver 3.4.3
 - Snake YAML 1.9
+- JSON Java 20210307
 
 ## Authors
 Created on Aug 18, 2021  

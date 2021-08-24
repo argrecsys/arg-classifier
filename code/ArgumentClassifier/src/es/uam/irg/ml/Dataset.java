@@ -7,8 +7,12 @@ package es.uam.irg.ml;
 
 import es.uam.irg.clf.ArgumentClassifier;
 import es.uam.irg.clf.Constants;
+import es.uam.irg.decidemadrid.db.DMDBManager;
 import es.uam.irg.decidemadrid.db.MongoDbManager;
+import es.uam.irg.decidemadrid.entities.DMProposal;
 import es.uam.irg.io.IOManager;
+import es.uam.irg.nlp.am.arguments.ArgumentEngine;
+import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
@@ -26,6 +30,8 @@ import org.bson.Document;
 public class Dataset {
     
     private String filepath;
+    private String language;
+    private ArgumentLinkerManager lnkManager;
     private Map<String, Object> mdbSetup;
     private Map<String, Object> msqlSetup;
     private boolean verbose;
@@ -33,13 +39,16 @@ public class Dataset {
     /**
      * Class constructor
      * 
+     * @param language
      * @param verbose 
      */
-    public Dataset(boolean verbose) {
+    public Dataset(String language, boolean verbose) {
+        this.language = language;
         this.verbose = verbose;
         this.filepath  = Constants.DATASET_FILEPATH;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(Constants.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(Constants.MYSQL_DB);
+        this.lnkManager = createLinkerManager(language);
     }
     
     /**
@@ -47,13 +56,37 @@ public class Dataset {
      * @return 
      */
     public boolean createDataset() {
-        boolean result = false;
+        List<Proposition> dataset = new ArrayList<>();
         
+        // Temporary variables
+        ArgumentEngine argEngine = new ArgumentEngine(this.language);
+        Map<Integer, DMProposal> proposals = getProposals();
         Map<Integer, List<Integer>> sentWithArgs = getSentencesWithArguments();
-        if (this.verbose) {
-            System.out.println(sentWithArgs);
+        int proposalID;
+        int sentenceID;
+        List<String> sentences;
+        String label;
+        
+        // Analize argumentative proposals
+        for (Map.Entry<Integer, DMProposal> entry : proposals.entrySet()) {
+            proposalID = entry.getKey();
+            sentences = argEngine.getSentences(entry.getValue().getSummary());
+            
+            for (int i=0; i < sentences.size(); i++) {
+                sentenceID = i + 1;
+                label = "0";
+                
+                if (sentWithArgs.containsKey(proposalID)) {
+                    if (sentWithArgs.get(proposalID).contains(sentenceID)) {
+                        label = "1";
+                    }
+                }
+                dataset.add( new Proposition(proposalID, sentenceID, sentences.get(i), label));
+            }
         }
         
+        // Save dataset file to disk
+        boolean result = IOManager.saveDatasetToCsvFile(this.filepath, dataset);
         return result;
     }
     
@@ -62,19 +95,48 @@ public class Dataset {
      * @return 
      */
     public List<Proposition> getDataset() {
-        List<Proposition> dataset = IOManager.readDataset(this.filepath);
+        List<Proposition> dataset = IOManager.readDatasetToCsvFile(this.filepath);
         return dataset;
     }
     
     /**
+     * Create the linker manager object.
      * 
+     * @param lang
+     * @param verbose
+     * @return
+     */
+    private ArgumentLinkerManager createLinkerManager(String lang) {
+        return IOManager.readLinkerTaxonomy(lang, this.verbose);
+    }
+    
+    
+    private Map<Integer, DMProposal> getProposals() {
+        Map<Integer, DMProposal> proposals = null;
+        
+        try {
+            DMDBManager dbManager = new DMDBManager(this.msqlSetup);
+            proposals = dbManager.selectProposals(Integer.MAX_VALUE, this.lnkManager.getLexicon(false));
+            
+            if (this.verbose) {
+                System.out.println(">> Number of proposals: " + proposals.size());
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return proposals;
+    }
+    /**
+     *
      * @return 
      */
     private Map<Integer, List<Integer>> getSentencesWithArguments() {
         Map<Integer, List<Integer>> sentWithArgs = new HashMap<>();
         
         try {
-            MongoDbManager dbManager = new MongoDbManager(mdbSetup);
+            MongoDbManager dbManager = new MongoDbManager(this.mdbSetup);
             List<Document> sentences = dbManager.getDocumentArgumentIDs();
             
             for (Document doc : sentences) {
