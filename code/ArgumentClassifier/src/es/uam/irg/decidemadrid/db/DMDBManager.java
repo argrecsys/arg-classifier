@@ -143,7 +143,6 @@ public class DMDBManager {
         String query = "SELECT id, title, userId, date, summary, text, numComments, numSupports " +
                        "  FROM proposals " + 
                        " WHERE " + whereCond +
-                       " ORDER BY LENGTH(summary) " +
                        " LIMIT " + topN + ";";
         ResultSet rs = this.db.executeSelect(query);
         

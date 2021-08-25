@@ -5,7 +5,7 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.clf.Constants;
+import es.uam.irg.ml.Constants;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;

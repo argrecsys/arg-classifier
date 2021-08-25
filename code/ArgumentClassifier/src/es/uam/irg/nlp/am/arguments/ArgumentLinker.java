@@ -5,7 +5,7 @@
  */
 package es.uam.irg.nlp.am.arguments;
 
-import es.uam.irg.clf.Constants;
+import es.uam.irg.ml.Constants;
 import org.bson.Document;
 import org.json.JSONObject;
 

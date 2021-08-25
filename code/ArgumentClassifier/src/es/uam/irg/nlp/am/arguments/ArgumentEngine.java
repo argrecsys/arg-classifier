@@ -5,10 +5,8 @@
  */
 package es.uam.irg.nlp.am.arguments;
 
-import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.util.CoreMap;
-import es.uam.irg.clf.Constants;
+import es.uam.irg.ml.Constants;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -35,6 +33,25 @@ public class ArgumentEngine {
     }
     
     /**
+     * 
+     * @param docText
+     * @return 
+     */
+    public CoreDocument createCoreNlpDocument(String docText) {
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(this.props);
+        CoreDocument document = pipeline.processToCoreDocument(docText);
+        return document;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public String getCurrentLanguage() {
+        return this.language;
+    }
+    
+    /**
      * Divides a paragraph into sentences.
      * 
      * @param docText a string representing the text of a document (a paragraph).
@@ -43,16 +60,10 @@ public class ArgumentEngine {
     public List<String> getSentences(String docText) {
         List<String> sentences = new ArrayList<>();
         
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(this.props);
-        Annotation annotation = new Annotation(docText);
-        pipeline.annotate(annotation);
-        
-        List<CoreMap> coreSents = annotation.get(CoreAnnotations.SentencesAnnotation.class);
-        for (int i = 0; i < coreSents.size(); i++) {
-            CoreMap sentence = coreSents.get(i);
-            String sentenceText = sentence.toString();
-            sentences.add(sentenceText);
-        }
+        CoreDocument nlpDoc = createCoreNlpDocument(docText);
+        nlpDoc.sentences().forEach(sent -> {
+            sentences.add(sent.text());
+        });
         
         return sentences;
     }

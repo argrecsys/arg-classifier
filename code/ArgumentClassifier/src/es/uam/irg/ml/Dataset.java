@@ -5,8 +5,6 @@
  */
 package es.uam.irg.ml;
 
-import es.uam.irg.clf.ArgumentClassifier;
-import es.uam.irg.clf.Constants;
 import es.uam.irg.decidemadrid.db.DMDBManager;
 import es.uam.irg.decidemadrid.db.MongoDbManager;
 import es.uam.irg.decidemadrid.entities.DMProposal;
@@ -30,25 +28,25 @@ import org.bson.Document;
 public class Dataset {
     
     private String filepath;
-    private String language;
     private ArgumentLinkerManager lnkManager;
     private Map<String, Object> mdbSetup;
     private Map<String, Object> msqlSetup;
+    private final ArgumentEngine argEngine;
     private boolean verbose;
     
     /**
      * Class constructor
      * 
-     * @param language
+     * @param argEngine
      * @param verbose 
      */
-    public Dataset(String language, boolean verbose) {
-        this.language = language;
+    public Dataset(ArgumentEngine argEngine, boolean verbose) {
+        this.argEngine = argEngine;
         this.verbose = verbose;
         this.filepath  = Constants.DATASET_FILEPATH;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(Constants.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(Constants.MYSQL_DB);
-        this.lnkManager = createLinkerManager(language);
+        this.lnkManager = createLinkerManager(argEngine.getCurrentLanguage());
     }
     
     /**
@@ -59,7 +57,6 @@ public class Dataset {
         List<Proposition> dataset = new ArrayList<>();
         
         // Temporary variables
-        ArgumentEngine argEngine = new ArgumentEngine(this.language);
         Map<Integer, DMProposal> proposals = getProposals();
         Map<Integer, List<Integer>> sentWithArgs = getSentencesWithArguments();
         int proposalID;
@@ -110,7 +107,10 @@ public class Dataset {
         return IOManager.readLinkerTaxonomy(lang, this.verbose);
     }
     
-    
+    /**
+     * 
+     * @return 
+     */
     private Map<Integer, DMProposal> getProposals() {
         Map<Integer, DMProposal> proposals = null;
         
@@ -128,6 +128,7 @@ public class Dataset {
         
         return proposals;
     }
+    
     /**
      *
      * @return 

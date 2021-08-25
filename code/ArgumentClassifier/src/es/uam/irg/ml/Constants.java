@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.clf;
+package es.uam.irg.ml;
 
 /**
  *
