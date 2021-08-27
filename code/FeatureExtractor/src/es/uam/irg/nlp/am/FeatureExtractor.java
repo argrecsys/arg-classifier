@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.ml;
+package es.uam.irg.nlp.am;
 
+import es.uam.irg.io.Dataset;
 import edu.stanford.nlp.pipeline.CoreDocument;
+import es.uam.irg.io.IOManager;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import java.util.ArrayList;
@@ -17,30 +19,29 @@ import java.util.logging.Logger;
  *
  * @author ansegura
  */
-public class ArgumentClassifier {
+public class FeatureExtractor {
     
     // Class members
-    private boolean verbose = true;
     private ArgumentEngine argEngine;
-    
-    public static enum Mode {
-        ARG_DET, 
-        ARG_CLF
-    }
+    private boolean createDataset;
+    private boolean verbose;
     
     /**
      * Class constructor.
      * 
      * @param language
+     * @param createDataset
      * @param verbose 
      */
-    public ArgumentClassifier(String language, boolean verbose) {
+    public FeatureExtractor(String language, boolean createDataset, boolean verbose) {
         this.argEngine = new ArgumentEngine(language);
+        this.createDataset = createDataset;
         this.verbose = verbose;
     }
     
     /**
      *
+     * @param mode
      * @return 
      */
     public boolean runProgram(String mode) {
@@ -48,32 +49,37 @@ public class ArgumentClassifier {
         
         // ML pipeline
         try {
-            // 1. Get raw dataset
-            Dataset ds = new Dataset(this.argEngine, this.verbose);
-            List<Proposition> rawData = ds.getDataset();
-            System.out.println(">> N proposition: " + rawData.size());
-            // System.out.println(rawData);
+            List<TextFeature> features = null;
+            List<Proposition> rawData;
             
-            // 2. Create model
-            Object model = null;
+            // 1. Create/get data (raw dataset)
+            Dataset ds = new Dataset(this.argEngine, this.verbose);
+            
+            if (this.createDataset) {
+                rawData = ds.createDataset();
+            }
+            else {
+                rawData = ds.getDataset();
+            }
+            System.out.println(">> N proposition: " + rawData.size());
+            
+            // 2. Extract features (temp dataset)
             if (mode.equals(Mode.ARG_DET.name())) {
-                System.out.println(">> Argument Detection");
-                model = createArgumentDetectionModel(rawData);
+                System.out.println(">> Argument detection features");
+                features = extractArgumentDetectionFeatures(rawData);
             }
             else if (mode.equals(Mode.ARG_CLF.name())) {
-                System.out.println(">> Argument Classification");
-                model = createArgumentClassificationModel(rawData);
+                System.out.println(">> Argument classification features");
+                features = extractArgumentClassificationFeatures(rawData);
             }
             
-            // 3. Train ML model
-            //var classifier = createClassifier();
-            
-            // 4. Evaluate it
-            
-            result = true;
+            // 3. Save results (final dataset)
+            if (features != null) {
+                result = IOManager.saveTextFeatures(Constants.FEATURES_FILEPATH, features);
+            }
         }
         catch (Exception ex) {
-            Logger.getLogger(ArgumentClassifier.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return result;
@@ -84,8 +90,8 @@ public class ArgumentClassifier {
      * @param rawData
      * @return 
      */
-    private Object createArgumentClassificationModel(List<Proposition> rawData) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private List<TextFeature> extractArgumentClassificationFeatures(List<Proposition> rawData) {
+        return null;
     }
 
     /**
@@ -93,10 +99,14 @@ public class ArgumentClassifier {
      * @param rawData
      * @return 
      */
-    private Object createArgumentDetectionModel(List<Proposition> rawData) {
+    private List<TextFeature> extractArgumentDetectionFeatures(List<Proposition> rawData) {
         List<TextFeature> features = new ArrayList<>();
-        
+        int i = 0;
         for (Proposition prop : rawData) {
+            if (i == 5) {
+                break;
+            }
+            i++;
             CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(prop.getText());
             TextFeature tf = new TextFeature(nlpDoc);
             tf.process();
@@ -108,8 +118,12 @@ public class ArgumentClassifier {
         
         System.out.println("Total propositions: " + rawData.size());
         System.out.println("Total propositions with features: " + features.size());
-        
-        return null;
+        return features;
+    }
+    
+    public static enum Mode {
+        ARG_DET,
+        ARG_CLF
     }
     
 }

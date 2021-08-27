@@ -6,7 +6,7 @@
 package es.uam.irg.nlp.am.arguments;
 
 import edu.stanford.nlp.pipeline.*;
-import es.uam.irg.ml.Constants;
+import es.uam.irg.nlp.am.Constants;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;

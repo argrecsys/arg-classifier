@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.ml;
+package es.uam.irg.nlp.am;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
+import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +52,9 @@ public class TextFeature {
         this.adverbs = new ArrayList<>();
         this.verbs = new ArrayList<>();
         this.modalAuxs = new ArrayList<>();
+        this.wordCouples = new ArrayList<>();
         this.punctuation = new ArrayList<>();
+        this.keyWords = new ArrayList<>();
         this.isValid = false;
     }
     
@@ -75,6 +78,20 @@ public class TextFeature {
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
+    @Override
+    public String toString() {
+        String str = "{'unigrams': %s, 'bigrams': %s, 'trigrams': %s, 'adverbs': %s, 'verbs': %s, 'modal_aux': %s,"
+                   + " 'word_couples': %s, 'punctuation': %s, 'key_words': %s, 'text_length': %d, 'avg_word_length': %d,"
+                   + " 'number_punct_marks': %d, 'parse_tree_depth': %d, 'number_sub_clauses': %d}";
+        str = String.format(str, listToString(unigrams), listToString(bigrams), listToString(trigrams), listToString(adverbs), 
+                listToString(verbs), listToString(modalAuxs), listToString(wordCouples), listToString(punctuation), 
+                listToString(keyWords), textLength, avgWordLength, numberPunctMarks, parseTreeDepth, numberSubclauses);
+        return str;
+    }
     /**
      * 
      */
@@ -131,6 +148,15 @@ public class TextFeature {
             }
         }
         
+    }
+    
+    /**
+     * 
+     * @param list
+     * @return 
+     */
+    private String listToString(List<String> list) {
+        return "[" + FunctionUtils.listToString(list) + "]";
     }
     
 }

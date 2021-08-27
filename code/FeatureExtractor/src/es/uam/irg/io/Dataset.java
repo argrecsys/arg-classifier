@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.ml;
+package es.uam.irg.io;
 
 import es.uam.irg.decidemadrid.db.DMDBManager;
 import es.uam.irg.decidemadrid.db.MongoDbManager;
 import es.uam.irg.decidemadrid.entities.DMProposal;
-import es.uam.irg.io.IOManager;
+import es.uam.irg.nlp.am.Constants;
+import es.uam.irg.nlp.am.FeatureExtractor;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -51,9 +52,10 @@ public class Dataset {
     
     /**
      * 
-     * @return 
+     * @return
+     * @throws Exception 
      */
-    public boolean createDataset() {
+    public List<Proposition> createDataset() throws Exception {
         List<Proposition> dataset = new ArrayList<>();
         
         // Temporary variables
@@ -83,8 +85,11 @@ public class Dataset {
         }
         
         // Save dataset file to disk
-        boolean result = IOManager.saveDatasetToCsvFile(this.filepath, dataset);
-        return result;
+        if (!IOManager.saveDatasetToCsvFile(this.filepath, dataset)) {
+            throw new Exception("Exception - the file could not be created.");
+        }
+        
+        return dataset;
     }
     
     /**
@@ -156,7 +161,7 @@ public class Dataset {
             }
         }
         catch (NumberFormatException ex) {
-            Logger.getLogger(ArgumentClassifier.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return sentWithArgs;

@@ -5,7 +5,8 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.ml.Constants;
+import es.uam.irg.nlp.am.Constants;
+import es.uam.irg.nlp.am.TextFeature;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -200,6 +201,7 @@ public class IOManager {
                         prop.getProposalID(), prop.getSentenceID(), prop.getText(), prop.getLabel());
                 fileWriter.write(line);
             }
+            
             fileWriter.close();
             result = true;
             
@@ -211,7 +213,43 @@ public class IOManager {
         
         return result;
     }
-
+    
+    /**
+     * 
+     * @param filepath
+     * @param features
+     * @return 
+     */
+    public static boolean saveTextFeatures(String filepath, List<TextFeature> features) {
+        boolean result = false;
+        
+        try {
+            FileOutputStream file = new FileOutputStream(filepath);
+            OutputStreamWriter fileWriter = new OutputStreamWriter(file, StandardCharsets.UTF_8);
+            
+            fileWriter.write("[\n");
+            for (TextFeature feature : features) {
+                fileWriter.write("  " + feature.toString() + ",\n");
+            }
+            fileWriter.write("]\n");
+            
+            fileWriter.close();
+            result = true;
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    /**
+     * 
+     * @param data
+     * @return 
+     */
     private static String getTextField(String[] data) {
         String text = "";
         for (int i = 2; i < data.length - 1; i++) {

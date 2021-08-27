@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uam.irg.ml;
+package es.uam.irg.nlp.am;
 
 /**
  *
@@ -16,11 +16,12 @@ public class Program {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(">> ARG-CLASSIFIER BEGINS");
+        System.out.println(">> FEAT-EXTRACTOR BEGINS");
         
         // Program hyperparameters with default values
         String language = Constants.LANG_ES;
-        String mode = ArgumentClassifier.Mode.ARG_DET.name();
+        String mode = FeatureExtractor.Mode.ARG_DET.name();
+        boolean createDataset = false;
         
         // Read input parameters
         if (args.length > 0) {
@@ -28,22 +29,26 @@ public class Program {
             
             if (args.length > 1) {
                 mode = args[1].toUpperCase();
+                
+                if (args.length > 2) {
+                    createDataset = Boolean.parseBoolean(args[2]);
+                }
             }
         }
         System.out.format(">> Language selected: %s\n", language);
         
         // Run program
-        ArgumentClassifier miner = new ArgumentClassifier(language, true);
+        FeatureExtractor miner = new FeatureExtractor(language, createDataset, true);
         boolean result = miner.runProgram(mode);
         
         if (result) {
-            System.out.println(">> The Argument Classifier engine was executed correctly.");
+            System.out.println(">> The Feature Extractor engine was executed correctly.");
         }
         else {
-            System.err.println(">> The Argument Classifier engine had an unexpected error.");
+            System.err.println(">> The Feature Extractor engine had an unexpected error.");
         }
         
-        System.out.println(">> ARG-CLASSIFIER ENDS");
+        System.out.println(">> FEAT-EXTRACTOR ENDS");
     }
     
 }
