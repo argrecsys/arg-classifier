@@ -22,21 +22,18 @@ import java.util.logging.Logger;
 public class FeatureExtractor {
     
     // Class members
-    private ArgumentEngine argEngine;
-    private boolean createDataset;
-    private boolean verbose;
+    private final ArgumentEngine argEngine;
+    private boolean datasetExists;
     
     /**
      * Class constructor.
      * 
      * @param language
-     * @param createDataset
-     * @param verbose 
+     * @param datasetExists
      */
-    public FeatureExtractor(String language, boolean createDataset, boolean verbose) {
+    public FeatureExtractor(String language, boolean datasetExists) {
         this.argEngine = new ArgumentEngine(language);
-        this.createDataset = createDataset;
-        this.verbose = verbose;
+        this.datasetExists = datasetExists;
     }
     
     /**
@@ -53,13 +50,12 @@ public class FeatureExtractor {
             List<Proposition> rawData;
             
             // 1. Create/get data (raw dataset)
-            Dataset ds = new Dataset(this.argEngine, this.verbose);
-            
-            if (this.createDataset) {
-                rawData = ds.createDataset();
+            Dataset ds = new Dataset(this.argEngine);
+            if (this.datasetExists) {
+                rawData = ds.getDataset();
             }
             else {
-                rawData = ds.getDataset();
+                rawData = ds.createDataset();
             }
             System.out.println(">> N proposition: " + rawData.size());
             
@@ -108,16 +104,15 @@ public class FeatureExtractor {
             }
             i++;
             CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(prop.getText());
-            TextFeature tf = new TextFeature(nlpDoc);
-            tf.process();
+            TextFeature tf = new TextFeature(nlpDoc, true);
             
             if (tf.isValid()) {
                 features.add(tf);
             }
         }
         
-        System.out.println("Total propositions: " + rawData.size());
-        System.out.println("Total propositions with features: " + features.size());
+        System.out.println(">> Total propositions: " + rawData.size());
+        System.out.println(">> Total propositions with features: " + features.size());
         return features;
     }
     

@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class TextFeature {
     
+    // Class contants
     public final static int MIN_LENGTH = 3;
     
     // Class variables
@@ -41,8 +42,9 @@ public class TextFeature {
     /**
      * 
      * @param nlpDoc 
+     * @param process 
      */
-    public TextFeature(CoreDocument nlpDoc) {
+    public TextFeature(CoreDocument nlpDoc, boolean process) {
         this.nlpDoc = nlpDoc;
         this.text = this.nlpDoc.text();
         this.textLength = this.text.length();
@@ -56,6 +58,10 @@ public class TextFeature {
         this.punctuation = new ArrayList<>();
         this.keyWords = new ArrayList<>();
         this.isValid = false;
+        
+        if (process) {
+            this.extraction();
+        }
     }
     
     /**
@@ -69,7 +75,7 @@ public class TextFeature {
     /**
      * 
      */
-    public void process() {
+    public void extraction() {
         
         // NLP-processing
         if (this.textLength >= MIN_LENGTH) {

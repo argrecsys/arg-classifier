@@ -32,18 +32,15 @@ public class Dataset {
     private ArgumentLinkerManager lnkManager;
     private Map<String, Object> mdbSetup;
     private Map<String, Object> msqlSetup;
-    private final ArgumentEngine argEngine;
-    private boolean verbose;
+    private ArgumentEngine argEngine;
     
     /**
      * Class constructor
      * 
      * @param argEngine
-     * @param verbose 
      */
-    public Dataset(ArgumentEngine argEngine, boolean verbose) {
+    public Dataset(ArgumentEngine argEngine) {
         this.argEngine = argEngine;
-        this.verbose = verbose;
         this.filepath  = Constants.DATASET_FILEPATH;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(Constants.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(Constants.MYSQL_DB);
@@ -109,7 +106,7 @@ public class Dataset {
      * @return
      */
     private ArgumentLinkerManager createLinkerManager(String lang) {
-        return IOManager.readLinkerTaxonomy(lang, this.verbose);
+        return IOManager.readLinkerTaxonomy(lang, true);
     }
     
     /**
@@ -122,10 +119,7 @@ public class Dataset {
         try {
             DMDBManager dbManager = new DMDBManager(this.msqlSetup);
             proposals = dbManager.selectProposals(Integer.MAX_VALUE, this.lnkManager.getLexicon(false));
-            
-            if (this.verbose) {
-                System.out.println(">> Number of proposals: " + proposals.size());
-            }
+            System.out.println(">> Number of proposals: " + proposals.size());
         }
         catch (Exception ex) {
             Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
