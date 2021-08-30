@@ -6,7 +6,6 @@
 package es.uam.irg.nlp.am;
 
 import es.uam.irg.io.Dataset;
-import edu.stanford.nlp.pipeline.CoreDocument;
 import es.uam.irg.io.IOManager;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -38,10 +37,10 @@ public class FeatureExtractor {
     
     /**
      *
-     * @param mode
+     * @param extractionMode
      * @return 
      */
-    public boolean runProgram(String mode) {
+    public boolean runProgram(String extractionMode) {
         boolean result = false;
         
         // ML pipeline
@@ -60,11 +59,11 @@ public class FeatureExtractor {
             System.out.println(">> N proposition: " + rawData.size());
             
             // 2. Extract features (temp dataset)
-            if (mode.equals(Mode.ARG_DET.name())) {
+            if (extractionMode.equals(Mode.ARG_DET.name())) {
                 System.out.println(">> Argument detection features");
                 features = extractArgumentDetectionFeatures(rawData);
             }
-            else if (mode.equals(Mode.ARG_CLF.name())) {
+            else if (extractionMode.equals(Mode.ARG_CLF.name())) {
                 System.out.println(">> Argument classification features");
                 features = extractArgumentClassificationFeatures(rawData);
             }
@@ -103,9 +102,10 @@ public class FeatureExtractor {
                 break;
             }
             i++;
-            CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(prop.getText());
-            TextFeature tf = new TextFeature(nlpDoc, true);
             
+            TextFeature tf = new TextFeature(this.argEngine, prop.getText());
+            
+            tf.extraction();
             if (tf.isValid()) {
                 features.add(tf);
             }

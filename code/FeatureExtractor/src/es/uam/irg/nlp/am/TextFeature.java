@@ -7,6 +7,9 @@ package es.uam.irg.nlp.am;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.trees.Tree;
+import es.uam.irg.nlp.am.arguments.ArgumentEngine;
+import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +23,14 @@ public class TextFeature {
     // Class contants
     public final static int MIN_LENGTH = 3;
     
-    // Class variables
     private List<String> adverbs;    
+    // Class variables
+    private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
     private boolean isValid;
     private List<String> keyWords;
     private List<String> modalAuxs;
-    private CoreDocument nlpDoc;
     private int numberPunctMarks;
     private int numberSubclauses;
     private int parseTreeDepth;
@@ -41,13 +44,12 @@ public class TextFeature {
     
     /**
      * 
-     * @param nlpDoc 
-     * @param process 
+     * @param argEngine
+     * @param text
      */
-    public TextFeature(CoreDocument nlpDoc, boolean process) {
-        this.nlpDoc = nlpDoc;
-        this.text = this.nlpDoc.text();
-        this.textLength = this.text.length();
+    public TextFeature(ArgumentEngine argEngine, String text) {
+        this.argEngine = argEngine;
+        this.text = text;
         this.unigrams = new ArrayList<>();
         this.bigrams = new ArrayList<>();
         this.trigrams = new ArrayList<>();
@@ -57,19 +59,12 @@ public class TextFeature {
         this.wordCouples = new ArrayList<>();
         this.punctuation = new ArrayList<>();
         this.keyWords = new ArrayList<>();
+        this.textLength = text.length();
+        this.avgWordLength = 0;
+        this.numberPunctMarks = 0;
+        this.parseTreeDepth = 0;
+        this.numberSubclauses = 0;
         this.isValid = false;
-        
-        if (process) {
-            this.extraction();
-        }
-    }
-    
-    /**
-     * 
-     * @return 
-     */
-    public boolean isValid() {
-        return this.isValid;
     }
     
     /**
@@ -82,6 +77,14 @@ public class TextFeature {
             extractFeatures();            
             this.isValid = true;
         }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public boolean isValid() {
+        return this.isValid;
     }
     
     /**
@@ -98,6 +101,7 @@ public class TextFeature {
                 listToString(keyWords), textLength, avgWordLength, numberPunctMarks, parseTreeDepth, numberSubclauses);
         return str;
     }
+    
     /**
      * 
      */
@@ -105,7 +109,9 @@ public class TextFeature {
         String currWord;
         String posTag;
         
-        for (CoreLabel token : this.nlpDoc.tokens()) {
+        CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
+        
+        for (CoreLabel token : nlpDoc.tokens()) {
             currWord = token.word();
             posTag = token.tag();
             
@@ -152,8 +158,25 @@ public class TextFeature {
                 wordN_2 = wordN_1;
                 wordN_1 = word;
             }
+            
+            List<Phrase> phraseList = getPhraseList();
+            for (Phrase frase : phraseList) {
+                if (frase.depth > this.parseTreeDepth) {
+                    this.parseTreeDepth = frase.depth;
+                }
+            }
         }
         
+    }
+    
+    /**
+     * Get phrase list.
+     * 
+     */
+    private List<Phrase> getPhraseList() {
+        Tree tree = this.argEngine.getTree(this.text);
+        List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
+        return phraseList;
     }
     
     /**

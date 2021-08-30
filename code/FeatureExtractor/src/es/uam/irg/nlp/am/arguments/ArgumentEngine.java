@@ -5,7 +5,10 @@
  */
 package es.uam.irg.nlp.am.arguments;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.*;
+import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import es.uam.irg.nlp.am.Constants;
 import java.io.*;
 import java.util.*;
@@ -20,7 +23,7 @@ public class ArgumentEngine {
     
     // Class members
     private String language;
-    private Properties props;
+    private StanfordCoreNLP pipeline;
     
     /**
      * Class constructor.
@@ -29,17 +32,16 @@ public class ArgumentEngine {
      */
     public ArgumentEngine(String lang) {
         this.language = lang;
-        setProperties();
+        createPipeline();
     }
     
     /**
      * 
-     * @param docText
+     * @param text
      * @return 
      */
-    public CoreDocument createCoreNlpDocument(String docText) {
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(this.props);
-        CoreDocument document = pipeline.processToCoreDocument(docText);
+    public CoreDocument createCoreNlpDocument(String text) {
+        CoreDocument document = pipeline.processToCoreDocument(text);
         return document;
     }
     
@@ -50,17 +52,29 @@ public class ArgumentEngine {
     public String getCurrentLanguage() {
         return this.language;
     }
+    /**
+     *
+     * @param tree
+     * @return
+     */
+    public List<Phrase> getPhraseList(Tree tree) {
+        List<Phrase> syntagmaList = new ArrayList<>();
+        if (tree != null) {
+            getPhraseList(tree, 0, syntagmaList);
+        }
+        return syntagmaList;
+    }
     
     /**
      * Divides a paragraph into sentences.
      * 
-     * @param docText a string representing the text of a document (a paragraph).
+     * @param text a string representing the text of a document (a paragraph).
      * @return 
      */
-    public List<String> getSentences(String docText) {
+    public List<String> getSentences(String text) {
         List<String> sentences = new ArrayList<>();
         
-        CoreDocument nlpDoc = createCoreNlpDocument(docText);
+        CoreDocument nlpDoc = createCoreNlpDocument(text);
         nlpDoc.sentences().forEach(sent -> {
             sentences.add(sent.text());
         });
@@ -69,24 +83,62 @@ public class ArgumentEngine {
     }
     
     /**
+     * 
+     * @param text
+     * @return 
+     */
+    public Tree getTree(String text) {
+        Annotation annotation = new Annotation(text);
+        pipeline.annotate(annotation);
+        Tree tree = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0).get(TreeCoreAnnotations.TreeAnnotation.class);
+        return tree;
+    }
+    
+    /**
      * Configures CoreNLP properties according to the specified language.
      */
-    private void setProperties() {
-        this.props = new Properties();
+    private void createPipeline() {
+        Properties props = new Properties();
         
         try {
             if (language.equals(Constants.LANG_EN)) {
-                this.props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, sentiment");
+                props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, sentiment");
             }
             else if (language.equals(Constants.LANG_ES)) {
-                this.props.load(new FileInputStream(Constants.SPANISH_PROPERTIES));
+                props.load(new FileInputStream(Constants.SPANISH_PROPERTIES));
             }
+            this.pipeline = new StanfordCoreNLP(props);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ArgumentEngine.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ArgumentEngine.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+    
+    /**
+     * 
+     * @param tree
+     * @param depth
+     * @param syntagmaList
+     * @return 
+     */
+    private String getPhraseList(Tree tree, int depth, List<Phrase> syntagmaList) {
+        String text = "";
+        
+        if (tree.numChildren() == 0) {
+            text = tree.value() + " ";
+        }
+        else {
+            for (Tree node : tree.children()) {
+                text += getPhraseList(node, depth + 1, syntagmaList);
+            }
+            if (text.split(" ").length > 1)
+                syntagmaList.add( new Phrase(text.trim(), tree.value(), depth));
+        }
+        
+        return text;
     }
     
 }
