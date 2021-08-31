@@ -11,6 +11,7 @@ import es.uam.irg.decidemadrid.entities.DMProposal;
 import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.FeatureExtractor;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
+import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import es.uam.irg.utils.FunctionUtils;
@@ -61,7 +62,7 @@ public class Dataset {
         int proposalID;
         int sentenceID;
         List<String> sentences;
-        String label;
+        ArgumentLinker linker;
         
         // Analize argumentative proposals
         for (Map.Entry<Integer, DMProposal> entry : proposals.entrySet()) {
@@ -70,14 +71,14 @@ public class Dataset {
             
             for (int i=0; i < sentences.size(); i++) {
                 sentenceID = i + 1;
-                label = "0";
+                linker = new ArgumentLinker();
                 
                 if (sentWithArgs.containsKey(proposalID)) {
                     if (sentWithArgs.get(proposalID).contains(sentenceID)) {
-                        label = "1";
+                        linker = null;
                     }
                 }
-                dataset.add( new Proposition(proposalID, sentenceID, sentences.get(i), label));
+                dataset.add( new Proposition(proposalID, sentenceID, sentences.get(i), linker));
             }
         }
         

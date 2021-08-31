@@ -21,7 +21,7 @@ public class Program {
         // Program hyperparameters with default values
         String language = Constants.LANG_ES;
         String extractionMode = FeatureExtractor.Mode.ARG_DET.name();
-        boolean datasetExists = true;
+        boolean createDataset = true;
         
         // Read input parameters
         if (args.length > 0) {
@@ -31,15 +31,15 @@ public class Program {
                 extractionMode = args[1].toUpperCase();
                 
                 if (args.length > 2) {
-                    datasetExists = Boolean.parseBoolean(args[2]);
+                    createDataset = Boolean.parseBoolean(args[2]);
                 }
             }
         }
         System.out.format(">> Language selected: %s, extraction mode: %s and create dataset: %s\n", 
-                language, extractionMode, !datasetExists);
+                language, extractionMode, createDataset);
         
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, datasetExists);
+        FeatureExtractor miner = new FeatureExtractor(language, createDataset);
         boolean result = miner.runProgram(extractionMode);
         
         if (result) {

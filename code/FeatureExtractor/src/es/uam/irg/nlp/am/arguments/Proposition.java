@@ -11,9 +11,9 @@ package es.uam.irg.nlp.am.arguments;
  * @author ansegura
  */
 public class Proposition {
+    private ArgumentLinker linker;
     
     // Class members
-    private String label;
     private int proposalID;
     private int sentenceID;
     private String text;
@@ -23,18 +23,18 @@ public class Proposition {
      * 
      * @param proposalID
      * @param sentenceID
-     * @param text
-     * @param label 
+     * @param text 
+     * @param linker 
      */
-    public Proposition(int proposalID, int sentenceID, String text, String label) {
+    public Proposition(int proposalID, int sentenceID, String text, ArgumentLinker linker) {
         this.proposalID = proposalID;
         this.sentenceID = sentenceID;
         this.text = text;
-        this.label = label;
+        this.linker = linker;
     }
     
-    public String getLabel() {
-        return this.label;
+    public ArgumentLinker getLinker() {
+        return this.linker;
     }
     
     public int getProposalID() {
@@ -52,7 +52,7 @@ public class Proposition {
     @Override
     public String toString() {
         return String.format("%s-%s > %s [%s]", 
-                this.proposalID, this.sentenceID, this.text, this.label);
+                this.proposalID, this.sentenceID, this.text, this.linker);
     }
     
 }

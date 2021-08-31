@@ -52,18 +52,23 @@ public class IOManager {
                 int proposalID;
                 int sentenceID;
                 String text;
-                String label;
+                String linker;
+                String category;
+                String subCategory;
                 
                 fileReader.readLine();
                 while ((row = fileReader.readLine()) != null) {
                     String[] data = row.split(",");
+                    int n = data.length;
                     
-                    if (data.length >= 4) {
+                    if (n >= 6) {
                         proposalID = Integer.parseInt(data[0]);
                         sentenceID = Integer.parseInt(data[1]);
                         text = getTextField(data);
-                        label = data[data.length -1];
-                        dataset.add( new Proposition(proposalID, sentenceID, text, label));
+                        linker = data[n -3];
+                        category = data[n -2];
+                        subCategory = data[n -1];
+                        dataset.add( new Proposition(proposalID, sentenceID, text, new ArgumentLinker(category, subCategory, "", linker)));
                     }
                 }
                 
@@ -195,10 +200,11 @@ public class IOManager {
             FileOutputStream file = new FileOutputStream(filepath);
             OutputStreamWriter fileWriter = new OutputStreamWriter(file, StandardCharsets.UTF_8);
             
-            fileWriter.write("proposal_id,sentence_id,text,label\n");
+            fileWriter.write("proposal_id,sentence_id,text,linker_value,category,sub_category\n");
             for (Proposition prop : dataset) {
-                String line = String.format("%s,%s,\"%s\",%s\n", 
-                        prop.getProposalID(), prop.getSentenceID(), prop.getText(), prop.getLabel());
+                ArgumentLinker linker = prop.getLinker();
+                String line = String.format("%s,%s,\"%s\",%s,%s,%s\n", 
+                        prop.getProposalID(), prop.getSentenceID(), prop.getText(), linker.linker, linker.category, linker.subCategory);
                 fileWriter.write(line);
             }
             
@@ -252,7 +258,7 @@ public class IOManager {
      */
     private static String getTextField(String[] data) {
         String text = "";
-        for (int i = 2; i < data.length - 1; i++) {
+        for (int i = 2; i < data.length - 3; i++) {
             text += (!"".equals(text)? "," : "") + data[i];
         }
         if (text.charAt(0) == '"') {

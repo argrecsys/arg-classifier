@@ -22,17 +22,17 @@ public class FeatureExtractor {
     
     // Class members
     private final ArgumentEngine argEngine;
-    private boolean datasetExists;
+    private boolean createDataset;
     
     /**
      * Class constructor.
      * 
      * @param language
-     * @param datasetExists
+     * @param createDataset
      */
-    public FeatureExtractor(String language, boolean datasetExists) {
+    public FeatureExtractor(String language, boolean createDataset) {
         this.argEngine = new ArgumentEngine(language);
-        this.datasetExists = datasetExists;
+        this.createDataset = createDataset;
     }
     
     /**
@@ -50,11 +50,11 @@ public class FeatureExtractor {
             
             // 1. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine);
-            if (this.datasetExists) {
-                rawData = ds.getDataset();
+            if (this.createDataset) {
+                rawData = ds.createDataset();
             }
             else {
-                rawData = ds.createDataset();
+                rawData = ds.getDataset();
             }
             System.out.println(">> N proposition: " + rawData.size());
             
