@@ -56,7 +56,7 @@ public class FeatureExtractor {
             else {
                 rawData = ds.getDataset();
             }
-            System.out.println(">> N proposition: " + rawData.size());
+            System.out.println(">> Total propositions: " + rawData.size());
             
             // 2. Extract features (temp dataset)
             if (extractionMode.equals(Mode.ARG_DET.name())) {
@@ -70,6 +70,7 @@ public class FeatureExtractor {
             
             // 3. Save results (final dataset)
             if (features != null) {
+                System.out.println(">> Total propositions with features: " + features.size());
                 result = IOManager.saveTextFeatures(Constants.FEATURES_FILEPATH, features);
             }
         }
@@ -96,13 +97,8 @@ public class FeatureExtractor {
      */
     private List<TextFeature> extractArgumentDetectionFeatures(List<Proposition> rawData) {
         List<TextFeature> features = new ArrayList<>();
-        int i = 0;
+        
         for (Proposition prop : rawData) {
-            if (i == 5) {
-                break;
-            }
-            i++;
-            
             TextFeature tf = new TextFeature(this.argEngine, prop.getText());
             
             tf.extraction();
@@ -111,8 +107,6 @@ public class FeatureExtractor {
             }
         }
         
-        System.out.println(">> Total propositions: " + rawData.size());
-        System.out.println(">> Total propositions with features: " + features.size());
         return features;
     }
     
