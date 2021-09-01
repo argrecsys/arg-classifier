@@ -21,7 +21,7 @@ public class Program {
         // Program hyperparameters with default values
         String language = Constants.LANG_ES;
         String extractionMode = FeatureExtractor.Mode.ARG_DET.name();
-        boolean createDataset = true;
+        boolean createDataset = false;
         
         // Read input parameters
         if (args.length > 0) {

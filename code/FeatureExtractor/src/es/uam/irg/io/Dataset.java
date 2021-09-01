@@ -58,7 +58,7 @@ public class Dataset {
         
         // Temporary variables
         Map<Integer, DMProposal> proposals = getProposals();
-        Map<Integer, List<Integer>> sentWithArgs = getSentencesWithArguments();
+        Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = getSentencesWithArguments();
         int proposalID;
         int sentenceID;
         List<String> sentences;
@@ -71,11 +71,11 @@ public class Dataset {
             
             for (int i=0; i < sentences.size(); i++) {
                 sentenceID = i + 1;
-                linker = new ArgumentLinker();
+                linker = new ArgumentLinker("-", "-", "-", "-");
                 
                 if (sentWithArgs.containsKey(proposalID)) {
-                    if (sentWithArgs.get(proposalID).contains(sentenceID)) {
-                        linker = null;
+                    if (sentWithArgs.get(proposalID).containsKey(sentenceID)) {
+                        linker = sentWithArgs.get(proposalID).get(sentenceID);
                     }
                 }
                 dataset.add( new Proposition(proposalID, sentenceID, sentences.get(i), linker));
@@ -133,25 +133,27 @@ public class Dataset {
      *
      * @return 
      */
-    private Map<Integer, List<Integer>> getSentencesWithArguments() {
-        Map<Integer, List<Integer>> sentWithArgs = new HashMap<>();
+    private Map<Integer, Map<Integer, ArgumentLinker>> getSentencesWithArguments() {
+        Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = new HashMap<>();
         
         try {
             MongoDbManager dbManager = new MongoDbManager(this.mdbSetup);
-            List<Document> sentences = dbManager.getDocumentArgumentIDs();
+            List<Document> sentences = dbManager.getDocumentsWithArguments();
+            String[] tokens;
+            ArgumentLinker linker;
             
             for (Document doc : sentences) {
-                String argumentID = doc.getString("argumentID");
-                String[] tokens = argumentID.split("-");
-                
+                tokens = doc.getString("argumentID").split("-");
+                linker = new ArgumentLinker(doc.get("linker", Document.class));
+
                 if (tokens.length == 2) {
                     int sentID = Integer.parseInt(tokens[0]);
                     int argID = Integer.parseInt(tokens[1]);
                             
                     if (!sentWithArgs.containsKey(sentID)) {
-                        sentWithArgs.put(sentID, new ArrayList<>());
+                        sentWithArgs.put(sentID, new HashMap<>());
                     }
-                    sentWithArgs.get(sentID).add(argID);
+                    sentWithArgs.get(sentID).put(argID, linker);
                 }
             }
         }

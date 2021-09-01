@@ -82,15 +82,14 @@ public class MongoDbManager {
      * 
      * @return 
      */
-    public List<Document> getDocumentArgumentIDs() {
+    public List<Document> getDocumentsWithArguments() {
         List<Document> docs = new ArrayList<>();
         
         try {
             String collName = "annotations";
             MongoCollection<Document> collection = db.getCollection(collName);
-            BasicDBObject fields = new BasicDBObject("argumentID", 1);
             
-            for (Document doc : collection.find().projection(fields)) {
+            for (Document doc : collection.find()) {
                 docs.add(doc);
             }
         }
