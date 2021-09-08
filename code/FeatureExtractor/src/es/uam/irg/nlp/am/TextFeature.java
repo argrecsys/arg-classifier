@@ -9,6 +9,7 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.trees.Tree;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
+import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class TextFeature {
     private List<String> bigrams;
     private boolean isValid;
     private List<String> keyWords;
+    private List<ArgumentLinker> lexicon;
     private List<String> modalAuxs;
     private int numberPunctMarks;
     private int numberSubclauses;
@@ -45,10 +47,12 @@ public class TextFeature {
     /**
      * 
      * @param argEngine
+     * @param lexicon
      * @param text
      */
-    public TextFeature(ArgumentEngine argEngine, String text) {
+    public TextFeature(ArgumentEngine argEngine, List<ArgumentLinker> lexicon, String text) {
         this.argEngine = argEngine;
+        this.lexicon = lexicon;
         this.text = text;
         this.unigrams = new ArrayList<>();
         this.bigrams = new ArrayList<>();

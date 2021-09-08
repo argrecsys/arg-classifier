@@ -12,7 +12,6 @@ import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.FeatureExtractor;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
-import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
@@ -29,23 +28,25 @@ import org.bson.Document;
  */
 public class Dataset {
     
+    // Class members
+    private ArgumentEngine argEngine;
     private String filepath;
-    private ArgumentLinkerManager lnkManager;
+    private List<ArgumentLinker> lexicon;
     private Map<String, Object> mdbSetup;
     private Map<String, Object> msqlSetup;
-    private ArgumentEngine argEngine;
     
     /**
      * Class constructor
      * 
      * @param argEngine
+     * @param lexicon
      */
-    public Dataset(ArgumentEngine argEngine) {
+    public Dataset(ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
+        this.lexicon = lexicon;
         this.filepath  = Constants.DATASET_FILEPATH;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(Constants.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(Constants.MYSQL_DB);
-        this.lnkManager = createLinkerManager(argEngine.getCurrentLanguage());
     }
     
     /**
@@ -100,17 +101,6 @@ public class Dataset {
     }
     
     /**
-     * Create the linker manager object.
-     * 
-     * @param lang
-     * @param verbose
-     * @return
-     */
-    private ArgumentLinkerManager createLinkerManager(String lang) {
-        return IOManager.readLinkerTaxonomy(lang, true);
-    }
-    
-    /**
      * 
      * @return 
      */
@@ -119,7 +109,7 @@ public class Dataset {
         
         try {
             DMDBManager dbManager = new DMDBManager(this.msqlSetup);
-            proposals = dbManager.selectProposals(Integer.MAX_VALUE, this.lnkManager.getLexicon(false));
+            proposals = dbManager.selectProposals(Integer.MAX_VALUE, this.lexicon);
             System.out.println(">> Number of proposals: " + proposals.size());
         }
         catch (Exception ex) {
