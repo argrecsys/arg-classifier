@@ -23,8 +23,8 @@ public class TextFeature {
     // Class contants
     public final static int MIN_LENGTH = 3;
     
-    private List<String> adverbs;    
     // Class variables
+    private List<String> adverbs;    
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
@@ -74,8 +74,7 @@ public class TextFeature {
         
         // NLP-processing
         if (this.textLength >= MIN_LENGTH) {
-            extractFeatures();            
-            this.isValid = true;
+            extractFeatures();
         }
     }
     
@@ -106,44 +105,47 @@ public class TextFeature {
      * 
      */
     private void extractFeatures() {
+        CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
         String currWord;
         String posTag;
         
-        CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
-        
+        // 1. Split sentences into words
         for (CoreLabel token : nlpDoc.tokens()) {
             currWord = token.word();
             posTag = token.tag();
             
             // Adding words
-            if (!posTag.equals("PUNCT")) {
+            if (posTag.equals("PUNCT")) {
+                this.punctuation.add(currWord);
+            }
+            else {
                 this.unigrams.add(currWord);
                 this.avgWordLength += currWord.length();
-            }
-            
-            // Adding POS tags
-            if (posTag.equals("ADV")) {
-                this.adverbs.add(currWord);
-            }
-            else if (posTag.equals("VERB")) {
-                this.verbs.add(currWord);
-            }
-            else if (posTag.equals("AUX")) {
-                this.modalAuxs.add(currWord);
-            }
-            else if (posTag.equals("PUNCT")) {
-                this.punctuation.add(currWord);
+                
+                // Adding POS tags
+                if (posTag.equals("ADV")) {
+                    this.adverbs.add(currWord);
+                }
+                else if (posTag.equals("VERB")) {
+                    this.verbs.add(currWord);
+                }
+                else if (posTag.equals("AUX")) {
+                    this.modalAuxs.add(currWord);
+                }
             }
         }
         
+        // If the sentence has valid words
         if (this.unigrams.size() > 0) {
             this.avgWordLength /= this.unigrams.size();
             this.numberPunctMarks = this.punctuation.size();
             
+            // 2. Group them into n-grams
             String bigram;
             String trigram;
             String wordN_1 = "";
             String wordN_2 = "";
+            
             for (String word : this.unigrams) {
 
                 if (!wordN_1.equals("")) {
@@ -159,19 +161,30 @@ public class TextFeature {
                 wordN_1 = word;
             }
             
+            // 3. Group them into couple-of-words
+            // TO-DO
+            
+            // 4. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
+            
             for (Phrase frase : phraseList) {
                 if (frase.depth > this.parseTreeDepth) {
                     this.parseTreeDepth = frase.depth;
                 }
             }
+            this.numberSubclauses = phraseList.size();
+            
+            // 5. Get list of keywords
+            
+            
+            this.isValid = true;
         }
         
     }
     
     /**
      * Get phrase list.
-     * 
+     * @return 
      */
     private List<Phrase> getPhraseList() {
         Tree tree = this.argEngine.getTree(this.text);
