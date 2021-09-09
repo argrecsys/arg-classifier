@@ -166,7 +166,7 @@ public class TextFeature {
             }
             
             // 3. Group them into couple-of-words
-            // TO-DO
+            List<String> keyWords = getLinkerList();
             
             // 4. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
@@ -184,6 +184,25 @@ public class TextFeature {
             this.isValid = true;
         }
         
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    private List<String> getLinkerList() {
+        List<String> linkers = new ArrayList<>();
+        
+        for (ArgumentLinker linker : this.lexicon) {
+            for (int i = 0; i < this.unigrams.size(); i++) {
+                
+                if (linker.equals(unigrams.get(i))) {
+                    
+                }
+            }
+        }
+        
+        return linkers;
     }
     
     /**
