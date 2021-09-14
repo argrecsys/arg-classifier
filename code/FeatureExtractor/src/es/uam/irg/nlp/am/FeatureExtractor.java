@@ -53,7 +53,7 @@ public class FeatureExtractor {
             List<Proposition> rawData;
             
             // 1. Get lexicon of linkers
-            List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(false);
+            List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
             
             // 2. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine, lexicon);
