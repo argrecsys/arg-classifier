@@ -5,6 +5,7 @@
  */
 package es.uam.irg.nlp.am;
 
+import es.uam.irg.utils.FeatureUtils;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.trees.Tree;
@@ -12,11 +13,8 @@ import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FunctionUtils;
-import es.uam.irg.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -142,12 +140,12 @@ public class TextFeature {
             }
         }
         
-        // If the sentence has valid words...
+        // 2. If the sentence has valid words...
         if (this.unigrams.size() > 0) {
             this.avgWordLength /= this.unigrams.size();
             this.numberPunctMarks = this.punctuation.size();
             
-            // 2. Group them into n-grams
+            // 2.1 Group them into n-grams
             String bigram;
             String trigram;
             String wordN_1 = "";
@@ -168,10 +166,7 @@ public class TextFeature {
                 wordN_1 = word;
             }
             
-            // 3. Group them into couple-of-words
-            // TO-DO
-            
-            // 4. Create the parse tree
+            // 2.2. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
             
             for (Phrase frase : phraseList) {
@@ -181,36 +176,17 @@ public class TextFeature {
             }
             this.numberSubclauses = phraseList.size();
             
-            // 5. Get list of keywords
-            this.keyWords = getUsedLinkerList();
+            // 2.3. Group them into couple-of-words
+            String[] tokens = this.unigrams.toArray(new String[0]);
+            this.wordCouples = FeatureUtils.getWordCouples(tokens);
             
-            // 6. Save state
+            // 2.4. Get list of keywords
+            this.keyWords = FeatureUtils.getUsedLinkerList(tokens, this.lexicon);
+            
+            // 2.5. Save state
             this.isValid = true;
         }
         
-    }
-    
-    /**
-     * 
-     * @param tokens
-     * @param ixStart
-     * @param nTokens
-     * @return 
-     */
-    private String getNGram(String[] tokens, int ixStart, int nTokens) {
-        String nGram = "";
-        
-        try {
-            if (tokens.length > 0) {
-                String[] subList = FunctionUtils.getSubArray(tokens, ixStart, nTokens);
-                nGram = FunctionUtils.arrayToString(subList, Constants.NGRAMS_DELIMITER);
-            }
-        }
-        catch (Exception ex) {
-            Logger.getLogger(ArgumentEngine.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return nGram.toLowerCase();
     }
     
     /**
@@ -221,30 +197,6 @@ public class TextFeature {
         Tree tree = this.argEngine.getTree(this.text);
         List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
         return phraseList;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    private List<String> getUsedLinkerList() {
-        List<String> linkers = new ArrayList<>();
-        String nGram;
-        String[] tokens = this.unigrams.toArray(new String[0]);
-        
-        for (int i = 0; i < tokens.length; i++) {
-            for (ArgumentLinker linker : this.lexicon) {
-                nGram = getNGram(tokens, i, i + linker.nTokens);
-                
-                if (linker.isEquals(nGram) && !linkers.contains(linker.linker)) {
-                    linkers.add(linker.linker);
-                    i += linker.nTokens - 1;
-                    break;
-                }
-            }
-        }
-        
-        return linkers;
     }
     
     /**
