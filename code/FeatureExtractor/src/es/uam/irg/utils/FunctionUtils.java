@@ -49,8 +49,8 @@ public class FunctionUtils {
      * @param list
      * @return 
      */
-    public static String listToString(List<String> list) {
-        return list.stream().collect(Collectors.joining("','", "'", "'"));
+    public static String listToString(List<String> list, String sep) {
+        return list.stream().collect(Collectors.joining(sep+","+sep, sep, sep));
     }
     
     /**

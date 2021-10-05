@@ -229,17 +229,19 @@ public class IOManager {
     public static boolean saveTextFeatures(String filepath, List<TextFeature> features) {
         boolean result = false;
         
+        // Create JSON text
+        String jsonText = "{\n";
+        for (TextFeature feature : features) {
+            jsonText += "  \"" + feature.getID() + "\": " +  feature.toString() + ",\n";
+        }
+        jsonText = jsonText.substring(0, jsonText.length()-2) + "\n}";
+        
         try {
-            FileOutputStream file = new FileOutputStream(filepath);
-            OutputStreamWriter fileWriter = new OutputStreamWriter(file, StandardCharsets.UTF_8);
-            
-            fileWriter.write("[\n");
-            for (TextFeature feature : features) {
-                fileWriter.write("  '" + feature.getID() + "': " +  feature.toString() + ",\n");
-            }
-            fileWriter.write("]\n");
-            
+            // Save JSON text
+            OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(filepath), StandardCharsets.UTF_8);
+            fileWriter.write(jsonText);
             fileWriter.close();
+            
             result = true;
             
         } catch (FileNotFoundException ex) {
