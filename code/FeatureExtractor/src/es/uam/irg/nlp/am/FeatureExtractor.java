@@ -117,7 +117,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
         
         for (Proposition prop : rawData) {
-            TextFeature tf = new TextFeature(this.argEngine, lexicon, prop.getText());
+            TextFeature tf = new TextFeature(this.argEngine, lexicon, prop.getID(), prop.getText());
             
             tf.extraction();
             if (tf.isValid()) {

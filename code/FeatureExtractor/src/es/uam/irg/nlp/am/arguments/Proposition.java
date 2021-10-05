@@ -33,6 +33,10 @@ public class Proposition {
         this.linker = linker;
     }
     
+    public String getID() {
+        return String.format("%d-%d", this.proposalID, this.sentenceID);
+    }
+    
     public ArgumentLinker getLinker() {
         return this.linker;
     }

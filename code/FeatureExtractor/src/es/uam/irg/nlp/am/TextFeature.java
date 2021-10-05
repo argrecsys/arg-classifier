@@ -30,6 +30,7 @@ public class TextFeature {
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
+    private String id;
     private boolean isValid;
     private List<String> keyWords;
     private List<ArgumentLinker> lexicon;
@@ -51,9 +52,10 @@ public class TextFeature {
      * @param lexicon
      * @param text
      */
-    public TextFeature(ArgumentEngine argEngine, List<ArgumentLinker> lexicon, String text) {
+    public TextFeature(ArgumentEngine argEngine, List<ArgumentLinker> lexicon, String id, String text) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
+        this.id = id;
         this.text = text;
         this.unigrams = new ArrayList<>();
         this.bigrams = new ArrayList<>();
@@ -81,6 +83,10 @@ public class TextFeature {
         if (this.textLength >= MIN_LENGTH) {
             extractFeatures();
         }
+    }
+    
+    public String getID() {
+        return this.id;
     }
     
     /**

@@ -235,7 +235,7 @@ public class IOManager {
             
             fileWriter.write("[\n");
             for (TextFeature feature : features) {
-                fileWriter.write("  " + feature.toString() + ",\n");
+                fileWriter.write("  '" + feature.getID() + "': " +  feature.toString() + ",\n");
             }
             fileWriter.write("]\n");
             
