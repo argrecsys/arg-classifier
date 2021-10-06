@@ -1,7 +1,7 @@
 {
 	"unigrams": true,
-	"bigrams": true,
-	"trigrams": true,
+	"bigrams": false,
+	"trigrams": false,
 	"adverbs": true,
 	"verbs": true,
 	"modal_aux": true,
