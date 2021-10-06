@@ -47,3 +47,23 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         print(e)
         
     return result
+
+# Util function - Convert the values of a dict of dicts to a list
+def convert_dict_dict_to_list(dict_dict:dict, key:str) -> list:
+    values = []
+    
+    for k, v in dict_dict.items():
+        value = v.get(key, "")
+        values.append(value)
+    
+    return values
+        
+# Util function - Transform a categorical list to a numeric list
+def convert_categ_to_num(catg_list:list) -> dict:
+    label_dict = {}
+    
+    for value in catg_list:
+        if not value in label_dict:
+            label_dict[value] = len(label_dict) + 1
+    
+    return label_dict

@@ -15,6 +15,7 @@ from datetime import datetime
 # Import ML libraries
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
 
 ######################
 ### CORE FUNCTIONS ###
@@ -27,13 +28,16 @@ def read_data_setup() -> dict:
     return setup
 
 # Read JSON file of features
-def read_feature_file(filepath:str) -> dict:
+def read_feature_file(output_path:str) -> dict:
+    filepath = output_path + "features.json"
     features = ul.get_dict_from_json(filepath, "utf-8")
     return features
 
 # Read CSV file of labels
-def read_label_file(filepath:str) -> dict:
+def read_label_file(output_path:str) -> dict:
     labels = {}
+    
+    filepath = output_path + "propositions.csv"
     lines = ul.get_list_from_plain_file(filepath, "utf-8")
     
     if len(lines) > 1:
@@ -50,8 +54,13 @@ def read_label_file(filepath:str) -> dict:
     
     return labels
 
-# Create dataset
-def create_dataset(features:dict, labels:dict, setup:dict, lower:bool=True) -> list:
+# Core function - Transform labels
+def get_label_dict(labels:dict, y_label:str) -> dict:
+    catg_list = ul.convert_dict_dict_to_list(labels, y_label)
+    return ul.convert_categ_to_num(catg_list)
+
+# Core function - Create dataset
+def create_dataset(features:dict, labels:dict, y_label:str, setup:dict, lower:bool=True) -> list:
     corpus = []
     text_length = []
     avg_word_length = []
@@ -61,9 +70,9 @@ def create_dataset(features:dict, labels:dict, setup:dict, lower:bool=True) -> l
     label_list = []
     
     for k, v in features.items():
-        label = labels.get(k, None)
+        label_data = labels.get(k, None)
         
-        if label is not None:
+        if label_data is not None:
             
             # Add vocabulary
             feat_data = []
@@ -88,7 +97,7 @@ def create_dataset(features:dict, labels:dict, setup:dict, lower:bool=True) -> l
                 parse_tree_depth.append(v["parse_tree_depth"])
                 number_sub_clauses.append(v["number_sub_clauses"])
             
-            label_list.append(label["category"])
+            label_list.append(label_data[y_label])
         else:
             print('Missing label:', k)
         
@@ -121,28 +130,28 @@ if __name__ == "__main__":
     
     # 0. Program variables
     output_path = "../../../dataset/"
+    y_label = "category"
     data_setup = read_data_setup()
     
     # 1. Create dataset
-    filepath = output_path + "features.json"
-    features = read_feature_file(filepath)
+    features = read_feature_file(output_path)
+    labels = read_label_file(output_path)
+    label_dict = get_label_dict(labels, y_label)
     
-    filepath = output_path + "propositions.csv"
-    labels = read_label_file(filepath)
-    
-    dataset = create_dataset(features, labels, data_setup)
-    
+    dataset = create_dataset(features, labels, y_label, data_setup)
     filepath = output_path + "dataset.csv"
     dataset.to_csv(filepath, index=False)
     
     # 2. Split dataset into train/test (0.8/0.2)
     perc_train = 0.8
+    state = 42
     X = dataset.loc[:, ~dataset.columns.isin(["label"])]
-    y = dataset["label"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1-perc_train), random_state=42)
+    y = pd.Series([label_dict[l] for l in dataset["label"]])
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1-perc_train), random_state=state)
     
     # 3. Train model
-    
+    nv_clf = MultinomialNB()
+    nv_clf.fit(X_train, y_train)
     
     # 4. Test model
     
@@ -151,4 +160,3 @@ if __name__ == "__main__":
 #####################
 #### END PROGRAM ####
 #####################
-
