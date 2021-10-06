@@ -14,6 +14,7 @@ from datetime import datetime
 
 # Import ML libraries
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
 
 ######################
 ### CORE FUNCTIONS ###
@@ -131,18 +132,23 @@ if __name__ == "__main__":
     
     dataset = create_dataset(features, labels, data_setup)
     
-    # 2. Export dataset
     filepath = output_path + "dataset.csv"
     dataset.to_csv(filepath, index=False)
     
-    # 3. Split dataset (train/test)
+    # 2. Split dataset into train/test (0.8/0.2)
+    perc_train = 0.8
+    X = dataset.loc[:, ~dataset.columns.isin(["label"])]
+    y = dataset["label"]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1-perc_train), random_state=42)
     
-    # 4. Train model
+    # 3. Train model
     
-    # 5. Test model
+    
+    # 4. Test model
     
     
     print(">> END PROGRAM:", str(datetime.now()))
 #####################
 #### END PROGRAM ####
 #####################
+
