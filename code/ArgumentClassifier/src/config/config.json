@@ -1,0 +1,12 @@
+{
+	"unigrams": true,
+	"bigrams": true,
+	"trigrams": true,
+	"adverbs": true,
+	"verbs": true,
+	"modal_aux": true,
+	"word_couples": true,
+	"punctuation": true,
+	"key_words": true,
+	"stats": true
+}
