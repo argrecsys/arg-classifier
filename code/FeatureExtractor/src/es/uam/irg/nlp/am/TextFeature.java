@@ -212,7 +212,11 @@ public class TextFeature {
      */
     private String listToString(List<String> list) {
         String separator = "\"";
-        return "[" + FunctionUtils.listToString(list, separator) + "]";
+        String result = FunctionUtils.listToString(list, separator);
+        if (result.equals("\"\"")) {
+            result = "";
+        }
+        return "[" + result + "]";
     }
     
 }

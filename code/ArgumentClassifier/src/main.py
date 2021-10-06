@@ -41,7 +41,7 @@ def read_label_file(filepath:str) -> dict:
             n = len(data)
             
             # Save data
-            prop_id = data[0]+"-"+data[1]
+            prop_id = data[0] + "-" + data[1]
             linker = data[n-3]
             category = data[n-2]
             sub_category = data[n-1]
@@ -134,6 +134,13 @@ if __name__ == "__main__":
     # 2. Export dataset
     filepath = output_path + "dataset.csv"
     dataset.to_csv(filepath, index=False)
+    
+    # 3. Split dataset (train/test)
+    
+    # 4. Train model
+    
+    # 5. Test model
+    
     
     print(">> END PROGRAM:", str(datetime.now()))
 #####################

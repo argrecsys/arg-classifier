@@ -16,7 +16,7 @@ def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
     lines = []
     
     try:
-        with open(filepath, "r", encoding=encoding) as file:
+        with open(filepath, mode="r", encoding=encoding) as file:
             lines = file.readlines()
     except Exception as e:
         print(e)
@@ -28,8 +28,8 @@ def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
     result = dict()
 
     try:
-        with open(json_path, "r", encoding=encoding) as f:
-            result = json.load(f)
+        with open(json_path, mode="r", encoding=encoding) as file:
+            result = json.load(file)
     except Exception as e:
         print(e)
         
@@ -40,8 +40,8 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
     result = dict()
     
     try:
-        with open(yaml_path, "r", encoding=encoding) as f:
-            yaml_file = f.read()
+        with open(yaml_path, mode="r", encoding=encoding) as file:
+            yaml_file = file.read()
             result = yaml.load(yaml_file, Loader=yaml.FullLoader)
     except Exception as e:
         print(e)
