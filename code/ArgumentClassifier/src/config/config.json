@@ -12,6 +12,7 @@
 		"stats": true
 	},
 	"model_state": 42,
+	"output_path": "../../../dataset/",
 	"perc_test": 0.2,
 	"task": "identification",
 	"y_label": "category"

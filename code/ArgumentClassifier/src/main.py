@@ -36,26 +36,26 @@ if __name__ == "__main__":
     if len(app_setup):
         
         # 1. Program variables
-        output_path = "../../../dataset/"
-        task = app_setup["task"]
         data_setup = app_setup["data"]
-        perc_test = app_setup["perc_test"]
         model_state = app_setup["model_state"]
+        output_path = app_setup["output_path"]
+        perc_test = app_setup["perc_test"]
+        task_type = app_setup["task"]
         y_label = app_setup["y_label"]
+        engine = eng.MLEngine(task_type=task_type, verbose=True)
         
         # 2. Read dataset
-        dataset, label_dict = eng.create_dataset(output_path, y_label, data_setup)
-        filepath = output_path + "dataset.csv"
-        dataset.to_csv(filepath, index=False)
+        dataset, label_dict = engine.create_dataset(output_path, y_label, data_setup)
+        #dataset.to_csv(output_path + "dataset.csv", index=False)
         
         # 3. Split dataset
-        X_train, X_test, y_train, y_test = eng.split_dataset(dataset, label_dict, perc_test, model_state)
+        X_train, X_test, y_train, y_test = engine.split_dataset(dataset,perc_test, model_state)
         
         # 4. Train model
-        clf = eng.create_model("nb", X_train, y_train)
+        clf = engine.create_model("nb", X_train, y_train)
         
         # 5. Test model
-        eng.test_model(clf, X_train, y_train, True)
+        engine.test_model(clf, X_train, y_train)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
