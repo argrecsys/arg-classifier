@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: Oct 06, 2021
+    Updated on: Oct 07, 2021
     Description: Library with utility functions
 """
 

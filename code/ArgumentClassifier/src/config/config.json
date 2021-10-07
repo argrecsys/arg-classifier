@@ -1,12 +1,18 @@
 {
-	"unigrams": true,
-	"bigrams": false,
-	"trigrams": false,
-	"adverbs": true,
-	"verbs": true,
-	"modal_aux": true,
-	"word_couples": true,
-	"punctuation": true,
-	"key_words": true,
-	"stats": true
+	"data": {
+		"unigrams": true,
+		"bigrams": false,
+		"trigrams": false,
+		"adverbs": true,
+		"verbs": true,
+		"modal_aux": true,
+		"word_couples": true,
+		"punctuation": true,
+		"key_words": true,
+		"stats": true
+	},
+	"model_state": 42,
+	"perc_test": 0.2,
+	"task": "identification",
+	"y_label": "category"
 }

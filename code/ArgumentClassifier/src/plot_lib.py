@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Oct  7 06:58:05 2021
-
-@author: ansegura
+    Created by: Andres Segura Tinoco
+    Version: 1.0.0
+    Created on: Oct 07, 2021
+    Updated on: Oct 07, 2021
+    Description: Plot library.
 """
+
+# Import Python
 import matplotlib.pyplot as plt
 
 # since sklearn 0.22, you can use sklearn.metrics.plot_confusion_matrix()
