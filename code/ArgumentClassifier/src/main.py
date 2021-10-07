@@ -7,8 +7,11 @@
     Description: Main class of the argument classifier.
 """
 
+# Import Custom libraries
+import util_lib as cul
+import plot_lib as cpl
+
 # Import Python base libraries
-import util_lib as ul
 import pandas as pd
 from datetime import datetime
 
@@ -16,6 +19,11 @@ from datetime import datetime
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_predict
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import precision_score, recall_score
+from sklearn.metrics import f1_score
 
 ######################
 ### CORE FUNCTIONS ###
@@ -24,13 +32,13 @@ from sklearn.naive_bayes import MultinomialNB
 # Read data configuration
 def read_data_setup() -> dict:
     filepath = "config/config.json"
-    setup = ul.get_dict_from_json(filepath)
+    setup = cul.get_dict_from_json(filepath)
     return setup
 
 # Read JSON file of features
 def read_feature_file(output_path:str) -> dict:
     filepath = output_path + "features.json"
-    features = ul.get_dict_from_json(filepath, "utf-8")
+    features = cul.get_dict_from_json(filepath, "utf-8")
     return features
 
 # Read CSV file of labels
@@ -38,7 +46,7 @@ def read_label_file(output_path:str) -> dict:
     labels = {}
     
     filepath = output_path + "propositions.csv"
-    lines = ul.get_list_from_plain_file(filepath, "utf-8")
+    lines = cul.get_list_from_plain_file(filepath, "utf-8")
     
     if len(lines) > 1:
         for line in lines[1:]:
@@ -56,8 +64,8 @@ def read_label_file(output_path:str) -> dict:
 
 # Core function - Transform labels
 def get_label_dict(labels:dict, y_label:str) -> dict:
-    catg_list = ul.convert_dict_dict_to_list(labels, y_label)
-    return ul.convert_categ_to_num(catg_list)
+    catg_list = cul.convert_dict_dict_to_list(labels, y_label)
+    return cul.convert_categ_to_num(catg_list)
 
 # Core function - Create dataset
 def create_dataset(features:dict, labels:dict, y_label:str, setup:dict, lower:bool=True) -> list:
@@ -154,7 +162,18 @@ if __name__ == "__main__":
     nv_clf.fit(X_train, y_train)
     
     # 4. Test model
+    cv_result = cross_val_score(nv_clf, X_train, y_train, cv=5, scoring="accuracy")
+    print(cv_result)
     
+    y_train_pred = cross_val_predict(nv_clf, X_train, y_train, cv=5)
+    conf_mx = confusion_matrix(y_train, y_train_pred)
+    cpl.plot_confusion_matrix(conf_mx)
+    print(conf_mx)
+    
+    m_precision = precision_score(y_train, y_train_pred, average='micro')
+    m_recall = recall_score(y_train, y_train_pred, average='micro')
+    m_f1 = f1_score(y_train, y_train_pred, average='micro')
+    print("precision:", m_precision, ", recall:", m_recall, ", f1-score:", m_f1)
     
     print(">> END PROGRAM:", str(datetime.now()))
 #####################
