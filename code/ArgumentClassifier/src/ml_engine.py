@@ -14,7 +14,6 @@ import util_lib as cul
 # Import Python base libraries
 import os
 import enum
-import numpy as np
 import pandas as pd
 
 # Import ML libraries
@@ -22,10 +21,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score, recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import roc_auc_score
+from sklearn.preprocessing import OneHotEncoder
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
@@ -79,6 +81,7 @@ class MLEngine:
     # Core function - Create dataset
     def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
         corpus = []
+        key_words = []
         text_length = []
         avg_word_length = []
         number_punct_marks = []
@@ -102,11 +105,16 @@ class MLEngine:
                 feat_data += v["modal_aux"] if setup["modal_aux"] and len(v["modal_aux"]) > 0 else []
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
-                feat_data += v["key_words"] if setup["key_words"] and len(v["key_words"]) > 0 else []
                 
                 # Transform to lower case and save vocabulary
                 feat_data = [ele.lower() if lower_case else ele for ele in feat_data]
                 corpus.append(feat_data)
+                
+                if setup["key_words"]:
+                    kw_name = "kw_none"
+                    if len(v["key_words"]) > 0:
+                        kw_name = "kw_" + v["key_words"][0].replace(" ", "_")
+                    key_words.append([kw_name])
                 
                 if setup["stats"]:
                     text_length.append(v["text_length"])
@@ -118,7 +126,7 @@ class MLEngine:
                 label_list.append(label_data[y_label])
             else:
                 print('Missing label:', k)
-            
+        
         # Word vectorization
         vectorizer = CountVectorizer(analyzer=lambda x: x)
         data = vectorizer.fit_transform(corpus).toarray()
@@ -126,6 +134,14 @@ class MLEngine:
         
         # Create dataframe
         df = pd.DataFrame(data, columns=columns)
+        
+        # Add keywords with one-hot-encoding
+        if ["key_words"]:
+            cat_encoder = OneHotEncoder()
+            key_words_1hot = cat_encoder.fit_transform(key_words)
+            kw_categories = cat_encoder.categories_[0]
+            df_kw = pd.DataFrame(key_words_1hot.toarray(), columns=kw_categories)
+            df = pd.concat([df, df_kw], axis=1)
         
         # Add extra columns
         if setup["stats"]:
@@ -143,6 +159,30 @@ class MLEngine:
         df[self.label_column] = label_list
         
         return df
+    
+    # Core function - Calculate difference between real and predicted
+    def __calculate_errors(self, y_real, y_pred) -> tuple:
+        conf_mx = confusion_matrix(y_real, y_pred)
+        accuracy = accuracy_score(y_real, y_pred)
+        
+        if self.task_type == TaskType.IDENTIFICATION.value:
+            precision = precision_score(y_real, y_pred)
+            recall = recall_score(y_real, y_pred)
+            f1 = f1_score(y_real, y_pred)
+            roc_score = roc_auc_score(y_real, y_pred)
+            
+        elif self.task_type == TaskType.CLASSIFICATION.value:
+            precision = precision_score(y_real, y_pred, average='micro')
+            recall = recall_score(y_real, y_pred, average='micro')
+            f1 = f1_score(y_real, y_pred, average='micro')
+            roc_score= 0
+            
+        if self.verbose:
+            print(conf_mx)
+            print("accuracy:", accuracy, ", precision:", precision, ", recall:", recall, ", f1-score:", f1, ", roc_curve:", roc_score)
+            #cpl.plot_confusion_matrix(conf_mx)
+        
+        return accuracy, precision, recall, f1, roc_score 
     
     # Core function - Transform labels
     def __get_label_dict(self, label_list:list) -> dict:
@@ -206,30 +246,17 @@ class MLEngine:
             clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=2, random_state=model_state)
             clf.fit(X_train, y_train)
         
-        return clf
+        return clf   
+    
+    # ML function - Validate model
+    def validate_model(self, clf, X_train, y_train):
+        print("- Validating model:")
+        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
+        self.__calculate_errors(y_train, y_train_pred)
     
     # ML function - Test model
-    def test_model(self, clf, X_train, y_train):
-        cv_result = cross_val_score(clf, X_train, y_train, cv=5, scoring="accuracy")
-        accuracy = np.mean(cv_result)
-        
-        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
-        conf_mx = confusion_matrix(y_train, y_train_pred)
-        
-        if self.task_type == TaskType.IDENTIFICATION.value:
-            m_precision = precision_score(y_train, y_train_pred)
-            m_recall = recall_score(y_train, y_train_pred)
-            m_f1 = f1_score(y_train, y_train_pred)
-            
-        elif self.task_type == TaskType.CLASSIFICATION.value:
-            m_precision = precision_score(y_train, y_train_pred, average='micro')
-            m_recall = recall_score(y_train, y_train_pred, average='micro')
-            m_f1 = f1_score(y_train, y_train_pred, average='micro')
-        
-        if self.verbose:
-            print(cv_result)
-            #cpl.plot_confusion_matrix(conf_mx)
-            print(conf_mx)
-            print("accuracy:", accuracy, ", precision:", m_precision, ", recall:", m_recall, ", f1-score:", m_f1)
-        
-        return m_precision, m_recall, m_f1
+    def test_model(self, clf, X_test, y_test):
+        print("- Testing model:")
+        y_test_pred = clf.predict(X_test)
+        self.__calculate_errors(y_test, y_test_pred)
+    

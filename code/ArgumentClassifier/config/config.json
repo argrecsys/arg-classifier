@@ -1,5 +1,5 @@
 {
-	"force_create_dataset": false,
+	"force_create_dataset": true,
 	"data": {
 		"unigrams": true,
 		"bigrams": false,

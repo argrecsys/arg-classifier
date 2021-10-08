@@ -31,6 +31,7 @@ def start_app():
     if len(app_setup):
         
         # 1. Program variables
+        ml_algo = "nb"
         force_create_dataset = app_setup["force_create_dataset"]
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
@@ -47,10 +48,13 @@ def start_app():
         X_train, X_test, y_train, y_test = engine.split_dataset(dataset,perc_test, model_state)
         
         # 4. Train model
-        clf = engine.create_model("nb", X_train, y_train, model_state)
+        clf = engine.create_model(ml_algo, X_train, y_train, model_state)
         
-        # 5. Test model
-        engine.test_model(clf, X_train, y_train)
+        # 5. Validate model - Estimating model performance
+        engine.validate_model(clf, X_train, y_train)
+        
+        # 6. Test model
+        engine.test_model(clf, X_test, y_test)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
