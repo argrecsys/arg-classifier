@@ -9,11 +9,12 @@
 
 # Import Custom libraries
 import util_lib as cul
-import plot_lib as cpl
+#import plot_lib as cpl
 
 # Import Python base libraries
 import os
 import enum
+import numpy as np
 import pandas as pd
 
 # Import ML libraries
@@ -24,7 +25,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
@@ -210,10 +211,10 @@ class MLEngine:
     # ML function - Test model
     def test_model(self, clf, X_train, y_train):
         cv_result = cross_val_score(clf, X_train, y_train, cv=5, scoring="accuracy")
-            
+        accuracy = np.mean(cv_result)
+        
         y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
         conf_mx = confusion_matrix(y_train, y_train_pred)
-        accuracy = accuracy_score(y_train, y_train_pred)
         
         if self.task_type == TaskType.IDENTIFICATION.value:
             m_precision = precision_score(y_train, y_train_pred)

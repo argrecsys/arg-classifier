@@ -20,17 +20,12 @@ from datetime import datetime
 
 # Read data configuration
 def read_app_setup() -> dict:
-    filepath = "config/config.json"
+    filepath = "../config/config.json"
     setup = cul.get_dict_from_json(filepath)
     return setup
 
-#####################
-### START PROGRAM ###
-#####################
-if __name__ == "__main__":
-    print('>> START PROGRAM:', str(datetime.now()))
-    
-    # 0. Read app configuration
+# Start application
+def start_app():
     app_setup = read_app_setup()
     
     if len(app_setup):
@@ -59,7 +54,13 @@ if __name__ == "__main__":
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
-        
+
+#####################
+### START PROGRAM ###
+#####################
+if __name__ == "__main__":
+    print('>> START PROGRAM:', str(datetime.now()))
+    start_app()    
     print(">> END PROGRAM:", str(datetime.now()))
 #####################
 #### END PROGRAM ####

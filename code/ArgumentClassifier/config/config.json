@@ -2,7 +2,7 @@
 	"force_create_dataset": false,
 	"data": {
 		"unigrams": true,
-		"bigrams": true,
+		"bigrams": false,
 		"trigrams": false,
 		"adverbs": true,
 		"verbs": true,
