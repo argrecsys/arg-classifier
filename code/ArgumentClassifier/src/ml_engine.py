@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 0.5.0
     Created on: Oct 07, 2021
-    Updated on: Oct 07, 2021
+    Updated on: Oct 08, 2021
     Description: ML engine class.
 """
 
@@ -12,6 +12,7 @@ import util_lib as cul
 import plot_lib as cpl
 
 # Import Python base libraries
+import os
 import enum
 import pandas as pd
 
@@ -19,11 +20,11 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import precision_score, recall_score
-from sklearn.metrics import f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
@@ -74,13 +75,8 @@ class MLEngine:
         
         return labels
     
-    # Core function - Transform labels
-    def __get_label_dict(self, labels:dict, y_label:str) -> dict:
-        catg_list = cul.convert_dict_dict_to_list(labels, y_label)
-        return cul.convert_categ_to_num(catg_list)
-    
     # Core function - Create dataset
-    def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict, lower:bool=True) -> list:
+    def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
         corpus = []
         text_length = []
         avg_word_length = []
@@ -88,6 +84,7 @@ class MLEngine:
         parse_tree_depth = []
         number_sub_clauses = []
         label_list = []
+        lower_case = True
         
         for k, v in features.items():
             label_data = labels.get(k, None)
@@ -107,7 +104,7 @@ class MLEngine:
                 feat_data += v["key_words"] if setup["key_words"] and len(v["key_words"]) > 0 else []
                 
                 # Transform to lower case and save vocabulary
-                feat_data = [ele.lower() if lower else ele for ele in feat_data]
+                feat_data = [ele.lower() if lower_case else ele for ele in feat_data]
                 corpus.append(feat_data)
                 
                 if setup["stats"]:
@@ -137,6 +134,18 @@ class MLEngine:
             df["parse_tree_depth"] = parse_tree_depth
             df["number_sub_clauses"] = number_sub_clauses
         
+        # Calculate DataFrame sparsity
+        df_sparsity = cul.calc_df_sparsity(df)
+        print('DataFrame sparsity:', df_sparsity)
+        
+        # Added label column
+        df[self.label_column] = label_list
+        
+        return df
+    
+    # Core function - Transform labels
+    def __get_label_dict(self, label_list:list) -> dict:
+        
         # Update label field
         label_dict = {}
         if self.task_type == TaskType.IDENTIFICATION.value:
@@ -147,22 +156,30 @@ class MLEngine:
             label_dict = cul.convert_categ_to_num(label_list)
             label_list = [label_dict[item] for item in label_list]
             label_dict = {v: k for k, v in label_dict.items()}
-            
-        # Added label column
-        df[self.label_column] = label_list
         
-        return df, label_dict
+        return label_dict, label_list
     
     ####################
     ### ML FUNCTIONS ###
     ####################
     
     # ML function - Create dataset
-    def create_dataset(self, output_path:str, y_label:str, data_setup:dict) -> tuple:
+    def create_dataset(self, output_path:str, force_create_dataset:bool, y_label:str, data_setup:dict) -> tuple:
+        dataset = None
+        label_dict = {}
+        df_filepath = output_path + "dataset.csv"
         
-        features = self.__read_feature_file(output_path)
-        labels = self.__read_label_file(output_path)
-        dataset, label_dict = self.__create_dataset(features, labels, y_label, data_setup)
+        if force_create_dataset or not os.path.exists(df_filepath):
+            features = self.__read_feature_file(output_path)
+            labels = self.__read_label_file(output_path)
+            dataset = self.__create_dataset(features, labels, y_label, data_setup)
+            dataset.to_csv(df_filepath, index=False)
+        else:
+            dataset = pd.read_csv(df_filepath)
+        
+        if dataset is not None:
+            label_dict, label_list = self.__get_label_dict(dataset[self.label_column].tolist())
+            dataset[self.label_column] = label_list
         
         return dataset, label_dict
     
@@ -175,11 +192,17 @@ class MLEngine:
         return X_train, X_test, y_train, y_test
     
     # ML function - Create model
-    def create_model(self, algorithm, X_train, y_train):
+    def create_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
         clf = None
         
         if algorithm == "nb":
+            # Naive Bayes
             clf = MultinomialNB()
+            clf.fit(X_train, y_train)
+        
+        elif algorithm == "gb":
+            # Gradient Boosting
+            clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=2, random_state=model_state)
             clf.fit(X_train, y_train)
         
         return clf
@@ -190,7 +213,8 @@ class MLEngine:
             
         y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
         conf_mx = confusion_matrix(y_train, y_train_pred)
-            
+        accuracy = accuracy_score(y_train, y_train_pred)
+        
         if self.task_type == TaskType.IDENTIFICATION.value:
             m_precision = precision_score(y_train, y_train_pred)
             m_recall = recall_score(y_train, y_train_pred)
@@ -205,6 +229,6 @@ class MLEngine:
             print(cv_result)
             #cpl.plot_confusion_matrix(conf_mx)
             print(conf_mx)
-            print("precision:", m_precision, ", recall:", m_recall, ", f1-score:", m_f1)
+            print("accuracy:", accuracy, ", precision:", m_precision, ", recall:", m_recall, ", f1-score:", m_f1)
         
         return m_precision, m_recall, m_f1

@@ -1,7 +1,8 @@
 {
+	"force_create_dataset": false,
 	"data": {
 		"unigrams": true,
-		"bigrams": false,
+		"bigrams": true,
 		"trigrams": false,
 		"adverbs": true,
 		"verbs": true,

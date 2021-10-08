@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.2.0
+    Version: 0.3.0
     Created on: Aug 27, 2021
-    Updated on: Oct 07, 2021
+    Updated on: Oct 08, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -36,6 +36,7 @@ if __name__ == "__main__":
     if len(app_setup):
         
         # 1. Program variables
+        force_create_dataset = app_setup["force_create_dataset"]
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
         output_path = app_setup["output_path"]
@@ -45,14 +46,13 @@ if __name__ == "__main__":
         engine = eng.MLEngine(task_type=task_type, verbose=True)
         
         # 2. Read dataset
-        dataset, label_dict = engine.create_dataset(output_path, y_label, data_setup)
-        #dataset.to_csv(output_path + "dataset.csv", index=False)
+        dataset, label_dict = engine.create_dataset(output_path, force_create_dataset, y_label, data_setup)
         
         # 3. Split dataset
         X_train, X_test, y_train, y_test = engine.split_dataset(dataset,perc_test, model_state)
         
         # 4. Train model
-        clf = engine.create_model("nb", X_train, y_train)
+        clf = engine.create_model("nb", X_train, y_train, model_state)
         
         # 5. Test model
         engine.test_model(clf, X_train, y_train)

@@ -3,13 +3,14 @@
     Created by: Andres Segura Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: Oct 07, 2021
+    Updated on: Oct 08, 2021
     Description: Library with utility functions
 """
 
 # Import Python
 import json
 import yaml
+import pandas as pd
 
 # Util function - Read list from plain file
 def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
@@ -67,3 +68,8 @@ def convert_categ_to_num(catg_list:list) -> dict:
             label_dict[value] = len(label_dict)
     
     return label_dict
+
+# Util function - calculate DataFrame sparsity
+def calc_df_sparsity(df:pd.DataFrame) -> float:
+    sparsity = (df.to_numpy() == 0).mean()
+    return sparsity
