@@ -15,6 +15,9 @@ import org.json.JSONObject;
  */
 public class ArgumentLinker {
     
+    // Class constant
+    public final static String NO_ARGUMENT = "-";
+    
     // Class members
     public String category;
     public String linker;

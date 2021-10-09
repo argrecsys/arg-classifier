@@ -49,8 +49,18 @@ public class FeatureUtils {
      * @param tokens
      * @return 
      */
-    public static List<String> getWordCouples(String[] tokens) {
+    public static List<String> getWordCouples(List<String> tokens) {
         List<String> wordCouples = new ArrayList<>();
+        String wordPairs;
+        
+        for (int i=0; i < tokens.size() - 1; i++) {
+            for (int j=i+1; j < tokens.size(); j++) {
+                wordPairs = tokens.get(i) + "-" + tokens.get(j);
+                if (!wordCouples.contains(wordPairs)) {
+                    wordCouples.add(wordPairs);
+                }
+            }
+        }
         
         return wordCouples;
     }

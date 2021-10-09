@@ -14,6 +14,7 @@ import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,7 +34,6 @@ public class TextFeature {
     private String id;
     private boolean isValid;
     private List<String> keyWords;
-    private List<ArgumentLinker> lexicon;
     private List<String> modalAuxs;
     private int numberPunctMarks;
     private int numberSubclauses;
@@ -49,12 +49,12 @@ public class TextFeature {
     /**
      * 
      * @param argEngine
-     * @param lexicon
+     * @param id
      * @param text
+     * @param linker 
      */
-    public TextFeature(ArgumentEngine argEngine, List<ArgumentLinker> lexicon, String id, String text) {
+    public TextFeature(ArgumentEngine argEngine, String id, String text, ArgumentLinker linker) {
         this.argEngine = argEngine;
-        this.lexicon = lexicon;
         this.id = id;
         this.text = text;
         this.unigrams = new ArrayList<>();
@@ -65,12 +65,19 @@ public class TextFeature {
         this.modalAuxs = new ArrayList<>();
         this.wordCouples = new ArrayList<>();
         this.punctuation = new ArrayList<>();
-        this.keyWords = new ArrayList<>();
         this.textLength = text.length();
         this.avgWordLength = 0;
         this.numberPunctMarks = 0;
         this.parseTreeDepth = 0;
         this.numberSubclauses = 0;
+        
+        if (linker.linker.equals(ArgumentLinker.NO_ARGUMENT)) {
+            this.keyWords = new ArrayList<>();
+        }
+        else {
+            this.keyWords = Arrays.asList(linker.linker);
+        }
+        
         this.isValid = false;
     }
     
@@ -183,13 +190,9 @@ public class TextFeature {
             this.numberSubclauses = phraseList.size();
             
             // 2.3. Group them into couple-of-words
-            String[] tokens = this.unigrams.toArray(new String[0]);
-            this.wordCouples = FeatureUtils.getWordCouples(tokens);
+            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams);
             
-            // 2.4. Get list of keywords
-            this.keyWords = FeatureUtils.getUsedLinkerList(tokens, this.lexicon);
-            
-            // 2.5. Save state
+            // 2.4. Save state
             this.isValid = true;
         }
         
