@@ -190,7 +190,7 @@ public class TextFeature {
             this.numberSubclauses = phraseList.size();
             
             // 2.3. Group them into couple-of-words
-            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams);
+            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams, true);
             
             // 2.4. Save state
             this.isValid = true;

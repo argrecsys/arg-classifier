@@ -47,16 +47,17 @@ public class FeatureUtils {
     /**
      * 
      * @param tokens
+     * @param removeEquals
      * @return 
      */
-    public static List<String> getWordCouples(List<String> tokens) {
+    public static List<String> getWordCouples(List<String> tokens, boolean removeEquals) {
         List<String> wordCouples = new ArrayList<>();
         String wordPairs;
         
         for (int i=0; i < tokens.size() - 1; i++) {
             for (int j=i+1; j < tokens.size(); j++) {
                 wordPairs = tokens.get(i) + "-" + tokens.get(j);
-                if (!wordCouples.contains(wordPairs)) {
+                if (!removeEquals || !wordCouples.contains(wordPairs)) {
                     wordCouples.add(wordPairs);
                 }
             }
