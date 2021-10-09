@@ -64,6 +64,7 @@ def convert_categ_to_num(catg_list:list) -> dict:
     label_dict = {}
     
     for value in catg_list:
+        value = value.lower()
         if not value in label_dict:
             label_dict[value] = len(label_dict)
     

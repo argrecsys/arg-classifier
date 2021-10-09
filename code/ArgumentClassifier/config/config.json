@@ -1,19 +1,19 @@
 {
-	"force_create_dataset": true,
 	"data": {
+		"force_create": true,
 		"unigrams": true,
 		"bigrams": false,
 		"trigrams": false,
-		"adverbs": true,
-		"verbs": true,
-		"modal_aux": true,
 		"word_couples": true,
 		"punctuation": true,
 		"key_words": true,
+		"adverbs": false,
+		"verbs": false,
+		"modal_aux": false,
 		"stats": true
 	},
 	"model_state": 42,
-	"output_path": "../../../dataset/",
+	"output_folder": "../../../dataset/",
 	"perc_test": 0.2,
 	"task": "identification",
 	"y_label": "category"

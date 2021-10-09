@@ -9,7 +9,7 @@
 
 # Import Custom libraries
 import util_lib as cul
-import ml_engine as eng
+import ml.engine as eng
 
 # Import Python base libraries
 from datetime import datetime
@@ -32,29 +32,28 @@ def start_app():
         
         # 1. Program variables
         ml_algo = "nb"
-        force_create_dataset = app_setup["force_create_dataset"]
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
-        output_path = app_setup["output_path"]
+        output_folder = app_setup["output_folder"]
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
         y_label = app_setup["y_label"]
-        engine = eng.MLEngine(task_type=task_type, verbose=True)
+        ml_ngx = eng.MLEngine(task_type=task_type, verbose=True)
         
         # 2. Read dataset
-        dataset, label_dict = engine.create_dataset(output_path, force_create_dataset, y_label, data_setup)
+        dataset, label_dict = ml_ngx.create_dataset(output_folder, y_label, data_setup)
         
         # 3. Split dataset
-        X_train, X_test, y_train, y_test = engine.split_dataset(dataset,perc_test, model_state)
+        X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
         
         # 4. Train model
-        clf = engine.create_model(ml_algo, X_train, y_train, model_state)
+        clf = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
         
         # 5. Validate model - Estimating model performance
-        engine.validate_model(clf, X_train, y_train)
+        ml_ngx.validate_model(clf, X_train, y_train)
         
         # 6. Test model
-        engine.test_model(clf, X_test, y_test)
+        ml_ngx.test_model(clf, X_test, y_test)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))

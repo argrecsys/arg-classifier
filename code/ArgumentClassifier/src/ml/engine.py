@@ -81,6 +81,8 @@ class MLEngine:
     # Core function - Create dataset
     def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
         corpus = []
+        
+        # Temp variables
         key_words = []
         text_length = []
         avg_word_length = []
@@ -100,14 +102,17 @@ class MLEngine:
                 feat_data += v["unigrams"] if setup["unigrams"] and len(v["unigrams"]) > 0 else []
                 feat_data += v["bigrams"] if setup["bigrams"] and len(v["bigrams"]) > 0 else []
                 feat_data += v["trigrams"] if setup["trigrams"] and len(v["trigrams"]) > 0 else []
-                feat_data += v["adverbs"] if setup["adverbs"] and len(v["adverbs"]) > 0 else []
-                feat_data += v["verbs"] if setup["verbs"] and len(v["verbs"]) > 0 else []
-                feat_data += v["modal_aux"] if setup["modal_aux"] and len(v["modal_aux"]) > 0 else []
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 
+                # Categorical features
+                feat_data += v["adverbs"] if setup["adverbs"] and len(v["adverbs"]) > 0 else []
+                feat_data += v["verbs"] if setup["verbs"] and len(v["verbs"]) > 0 else []
+                feat_data += v["modal_aux"] if setup["modal_aux"] and len(v["modal_aux"]) > 0 else []
+                
                 # Transform to lower case and save vocabulary
-                feat_data = [ele.lower() if lower_case else ele for ele in feat_data]
+                if lower_case:
+                    feat_data = [ele.lower() for ele in feat_data]
                 corpus.append(feat_data)
                 
                 if setup["key_words"]:
@@ -205,14 +210,15 @@ class MLEngine:
     ####################
     
     # ML function - Create dataset
-    def create_dataset(self, output_path:str, force_create_dataset:bool, y_label:str, data_setup:dict) -> tuple:
+    def create_dataset(self, output_folder:str, y_label:str, data_setup:dict) -> tuple:
         dataset = None
         label_dict = {}
-        df_filepath = output_path + "dataset.csv"
+        force_create_dataset = data_setup.get("force_create", False)
+        df_filepath = output_folder + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
-            features = self.__read_feature_file(output_path)
-            labels = self.__read_label_file(output_path)
+            features = self.__read_feature_file(output_folder)
+            labels = self.__read_label_file(output_folder)
             dataset = self.__create_dataset(features, labels, y_label, data_setup)
             dataset.to_csv(df_filepath, index=False)
         else:
