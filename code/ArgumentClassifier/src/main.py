@@ -34,6 +34,7 @@ def start_app():
         ml_algo = "nb"
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
+        model_folder = app_setup["model_folder"]
         output_folder = app_setup["output_folder"]
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
@@ -54,6 +55,9 @@ def start_app():
         
         # 6. Test model
         ml_ngx.test_model(clf, X_test, y_test)
+        
+        # 7. Create and save model
+        ml_ngx.create_save_model(model_folder, ml_algo, dataset, model_state)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))

@@ -15,6 +15,7 @@ import util_lib as cul
 import os
 import enum
 import pandas as pd
+import joblib as jl
 
 # Import ML libraries
 from sklearn.feature_extraction.text import CountVectorizer
@@ -121,7 +122,7 @@ class MLEngine:
                         kw_name = "kw_" + v["key_words"][0].replace(" ", "_")
                     key_words.append([kw_name])
                 
-                if setup["stats"]:
+                if setup["text_stats"]:
                     text_length.append(v["text_length"])
                     avg_word_length.append(v["avg_word_length"])
                     number_punct_marks.append(v["number_punct_marks"])
@@ -149,7 +150,7 @@ class MLEngine:
             df = pd.concat([df, df_kw], axis=1)
         
         # Add extra columns
-        if setup["stats"]:
+        if setup["text_stats"]:
             df["text_length"] = text_length
             df["avg_word_length"] = avg_word_length
             df["number_punct_marks"] = number_punct_marks
@@ -265,4 +266,19 @@ class MLEngine:
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
         self.__calculate_errors(y_test, y_test_pred)
+    
+    # ML function - Creates and save final model
+    def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int) -> bool:
+        result = False
+        filepath = model_folder + algorithm + "_model.joblib"
+        X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
+        y = dataset[self.label_column]
+        
+        clf = self.create_model(algorithm, X, y, model_state)
+        
+        # Model persistence
+        jl.dump(clf, filepath) 
+        result = os.path.exists(filepath)
+        
+        return result
     

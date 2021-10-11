@@ -4,15 +4,16 @@
 		"unigrams": true,
 		"bigrams": false,
 		"trigrams": false,
-		"word_couples": true,
+		"word_couples": false,
 		"punctuation": true,
 		"key_words": true,
 		"adverbs": false,
 		"verbs": false,
 		"modal_aux": false,
-		"stats": true
+		"text_stats": true
 	},
 	"model_state": 42,
+	"model_folder": "../../../model/",
 	"output_folder": "../../../dataset/",
 	"perc_test": 0.2,
 	"task": "identification",
