@@ -45,15 +45,6 @@ public class FunctionUtils {
     }
     
     /**
-     * 
-     * @param list
-     * @return 
-     */
-    public static String listToString(List<String> list, String sep) {
-        return list.stream().collect(Collectors.joining(sep+","+sep, sep, sep));
-    }
-    
-    /**
      *
      * @param array
      * @return
@@ -98,6 +89,28 @@ public class FunctionUtils {
         }
         
         return newArray;
+    }
+    
+    
+    /**
+     * 
+     * @param <T>
+     * @param map
+     * @return 
+     */
+    public static <T> List<T> listFromMapKeys(Map<T, ?> map) {
+        List<T> list = new ArrayList<>(map.keySet());
+        return list;
+    }
+    
+    /**
+     *
+     * @param list
+     * @param sep
+     * @return
+     */
+    public static String listToString(List<String> list, String sep) {
+        return list.stream().collect(Collectors.joining(sep+","+sep, sep, sep));
     }
     
     /**

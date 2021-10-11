@@ -182,11 +182,11 @@ public class TextFeature {
             // 2.2. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
             
-            for (Phrase frase : phraseList) {
+            phraseList.forEach((Phrase frase) -> {
                 if (frase.depth > this.parseTreeDepth) {
                     this.parseTreeDepth = frase.depth;
                 }
-            }
+            });
             this.numberSubclauses = phraseList.size();
             
             // 2.3. Group them into couple-of-words

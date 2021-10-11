@@ -8,7 +8,6 @@ package es.uam.irg.utils;
 import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,22 +27,23 @@ public class FeatureUtils {
      * @return 
      */
     public static List<String> getUsedLinkerList(String[] tokens, List<ArgumentLinker> lexicon) {
-        List<String> linkers = new ArrayList<>();
+        Map<String, Boolean> linkers = new HashMap<>();
         String nGram;
         
         for (int i = 0; i < tokens.length; i++) {
             for (ArgumentLinker linker : lexicon) {
                 nGram = getNGram(tokens, i, i + linker.nTokens);
                 
-                if (linker.isEquals(nGram) && !linkers.contains(linker.linker)) {
-                    linkers.add(linker.linker);
+                if (linker.isEquals(nGram) && !linkers.containsKey(linker.linker)) {
+                    linkers.put(linker.linker, true);
                     i += linker.nTokens - 1;
                     break;
                 }
             }
         }
         
-        return linkers;
+        // Convert map keys to arraylist
+        return FunctionUtils.listFromMapKeys(linkers);
     }
     
     /**
@@ -65,11 +65,11 @@ public class FeatureUtils {
             }
         }
         
-        List<String> list = new ArrayList<>(wordCouples.keySet());
-        return list;
+        // Convert map keys to arraylist
+        return FunctionUtils.listFromMapKeys(wordCouples);
     }
     
-        /**
+    /**
      * 
      * @param tokens
      * @param ixStart
