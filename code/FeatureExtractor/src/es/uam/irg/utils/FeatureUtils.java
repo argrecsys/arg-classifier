@@ -9,7 +9,9 @@ import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,19 +53,20 @@ public class FeatureUtils {
      * @return 
      */
     public static List<String> getWordCouples(List<String> tokens, boolean removeEquals) {
-        List<String> wordCouples = new ArrayList<>();
+        Map<String, Boolean> wordCouples = new HashMap<>();
         String wordPairs;
         
         for (int i=0; i < tokens.size() - 1; i++) {
             for (int j=i+1; j < tokens.size(); j++) {
                 wordPairs = tokens.get(i) + "-" + tokens.get(j);
-                if (!removeEquals || !wordCouples.contains(wordPairs)) {
-                    wordCouples.add(wordPairs);
+                if (!removeEquals || !wordCouples.containsKey(wordPairs)) {
+                    wordCouples.put(wordPairs, true);
                 }
             }
         }
         
-        return wordCouples;
+        List<String> list = new ArrayList<>(wordCouples.keySet());
+        return list;
     }
     
         /**
