@@ -18,6 +18,7 @@ import java.util.Map;
  */
 public class ArgumentLinkerManager {
     
+    // Class variable
     private Map<String, Map<String, List<ArgumentLinker>>> taxonomy;
 
     /**

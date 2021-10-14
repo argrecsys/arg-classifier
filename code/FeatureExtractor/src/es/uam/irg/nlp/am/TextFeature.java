@@ -5,13 +5,13 @@
  */
 package es.uam.irg.nlp.am;
 
-import es.uam.irg.utils.FeatureUtils;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.trees.Tree;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
+import es.uam.irg.utils.FeatureUtils;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +86,10 @@ public class TextFeature {
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getID() {
         return this.id;
     }

@@ -116,14 +116,14 @@ public class FeatureExtractor {
     private List<TextFeature> extractArgumentDetectionFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
         List<TextFeature> features = new ArrayList<>();
         
-        for (Proposition prop : rawData) {
+        rawData.forEach((Proposition prop) -> {
             TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), lexicon);
             
             tf.extraction();
             if (tf.isValid()) {
                 features.add(tf);
             }
-        }
+        });
         
         return features;
     }
