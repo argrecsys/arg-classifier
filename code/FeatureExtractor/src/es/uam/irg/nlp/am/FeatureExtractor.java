@@ -89,11 +89,9 @@ public class FeatureExtractor {
     }
     
     /**
-     * Create the linker manager object.
-     *
+     * 
      * @param lang
-     * @param verbose
-     * @return
+     * @return 
      */
     private ArgumentLinkerManager createLinkerManager(String lang) {
         return IOManager.readLinkerTaxonomy(lang, true);
@@ -102,6 +100,7 @@ public class FeatureExtractor {
     /**
      * 
      * @param rawData
+     * @param lexicon
      * @return 
      */
     private List<TextFeature> extractArgumentClassificationFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
@@ -111,13 +110,14 @@ public class FeatureExtractor {
     /**
      * 
      * @param rawData
+     * @param lexicon
      * @return 
      */
     private List<TextFeature> extractArgumentDetectionFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
         List<TextFeature> features = new ArrayList<>();
         
         for (Proposition prop : rawData) {
-            TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), prop.getLinker());
+            TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), lexicon);
             
             tf.extraction();
             if (tf.isValid()) {

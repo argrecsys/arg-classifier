@@ -22,12 +22,13 @@ public class FeatureUtils {
     
     /**
      * 
-     * @param tokens
+     * @param vocabulary
      * @param lexicon
      * @return 
      */
-    public static List<String> getUsedLinkerList(String[] tokens, List<ArgumentLinker> lexicon) {
+    public static List<String> getUsedLinkerList(List<String> vocabulary, List<ArgumentLinker> lexicon) {
         Map<String, Boolean> linkers = new HashMap<>();
+        String[] tokens = vocabulary.toArray(new String[0]);
         String nGram;
         
         for (int i = 0; i < tokens.length; i++) {
@@ -48,17 +49,17 @@ public class FeatureUtils {
     
     /**
      * 
-     * @param tokens
+     * @param vocabulary
      * @param removeEquals
      * @return 
      */
-    public static List<String> getWordCouples(List<String> tokens, boolean removeEquals) {
+    public static List<String> getWordCouples(List<String> vocabulary, boolean removeEquals) {
         Map<String, Boolean> wordCouples = new HashMap<>();
         String wordPairs;
         
-        for (int i=0; i < tokens.size() - 1; i++) {
-            for (int j=i+1; j < tokens.size(); j++) {
-                wordPairs = tokens.get(i) + "-" + tokens.get(j);
+        for (int i=0; i < vocabulary.size() - 1; i++) {
+            for (int j=i+1; j < vocabulary.size(); j++) {
+                wordPairs = vocabulary.get(i) + "-" + vocabulary.get(j);
                 if (!removeEquals || !wordCouples.containsKey(wordPairs)) {
                     wordCouples.put(wordPairs, true);
                 }
