@@ -98,9 +98,9 @@ class MLEngine:
         vcb_corpus = []
         adverbs_mtx = []
         verbs_mtx = []
-        modal_aux_mtx = []
         key_words_mtx = []
         text_length = []
+        modal_auxiliary = []
         avg_word_length = []
         number_punct_marks = []
         parse_tree_depth = []
@@ -132,10 +132,6 @@ class MLEngine:
                 # Verbs matrix
                 if setup["verbs"]:
                     verbs_mtx.append(self.__value_to_features(v["verbs"], "vb"))
-                    
-                # Modal aux matrix
-                if setup["modal_aux"]:
-                    modal_aux_mtx.append(self.__value_to_features(v["modal_aux"], "mda"))
                 
                 # Keyword matrix
                 if setup["key_words"]:
@@ -143,6 +139,7 @@ class MLEngine:
                 
                 # Save text statistics
                 if setup["text_stats"]:
+                    modal_auxiliary.append(len(v["modal_aux"]))
                     text_length.append(v["text_length"])
                     avg_word_length.append(v["avg_word_length"])
                     number_punct_marks.append(v["number_punct_marks"])
@@ -167,18 +164,14 @@ class MLEngine:
             df_vb = cul.create_df_from_sparse_matrix(verbs_mtx)
             df = pd.concat([df, df_vb], axis=1)
         
-        # Add modal aux matrix to main df
-        if setup["modal_aux"]:
-            df_mda = cul.create_df_from_sparse_matrix(modal_aux_mtx)
-            df = pd.concat([df, df_mda], axis=1)
-        
         # Add keywords matrix to main df
         if setup["key_words"]:
             df_kw = cul.create_df_from_sparse_matrix(key_words_mtx)
             df = pd.concat([df, df_kw], axis=1)
         
-        # Add extra columns
+        # Add extra columns - text stats
         if setup["text_stats"]:
+            df["stats_modal_auxiliary"] = modal_auxiliary
             df["stats_text_length"] = text_length
             df["stats_avg_word_length"] = avg_word_length
             df["stats_number_punct_marks"] = number_punct_marks

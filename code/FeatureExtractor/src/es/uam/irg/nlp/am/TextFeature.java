@@ -76,7 +76,7 @@ public class TextFeature {
     }
     
     /**
-     * 
+     * Runs feature extraction method.
      */
     public void extraction() {
         
@@ -139,11 +139,11 @@ public class TextFeature {
                 this.avgWordLength += currWord.length();
                 
                 // Adding POS tags
-                if (posTag.equals("ADV")) {
-                    this.adverbs.add(currWord);
-                }
-                else if (posTag.equals("VERB")) {
+                if (posTag.equals("VERB") && currWord.length() > 1) {
                     this.verbs.add(currWord);
+                }
+                else if (posTag.equals("ADV")) {
+                    this.adverbs.add(currWord);
                 }
                 else if (posTag.equals("AUX")) {
                     this.modalAuxs.add(currWord);

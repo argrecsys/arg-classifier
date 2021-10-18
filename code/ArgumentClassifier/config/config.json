@@ -6,10 +6,9 @@
 		"trigrams": false,
 		"word_couples": false,
 		"punctuation": true,
-		"key_words": true,
 		"adverbs": true,
 		"verbs": true,
-		"modal_aux": true,
+		"key_words": true,
 		"text_stats": true
 	},
 	"model_state": 42,
