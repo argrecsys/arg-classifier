@@ -280,13 +280,13 @@ class MLEngine:
     def validate_model(self, clf, X_train, y_train):
         print("- Validating model:")
         y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
-        self.__calculate_errors(y_train, y_train_pred)
+        return self.__calculate_errors(y_train, y_train_pred)
     
     # ML function - Test model
     def test_model(self, clf, X_test, y_test):
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
-        self.__calculate_errors(y_test, y_test_pred)
+        return self.__calculate_errors(y_test, y_test_pred)
     
     # ML function - Creates and save final model
     def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int) -> bool:

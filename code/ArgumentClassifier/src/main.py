@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.3.0
+    Version: 0.4.0
     Created on: Aug 27, 2021
-    Updated on: Oct 08, 2021
+    Updated on: Oct 18, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -24,6 +24,13 @@ def read_app_setup() -> dict:
     setup = cul.get_dict_from_json(filepath)
     return setup
 
+# Save model result
+def save_results(result_folder:str, data:list) -> bool:
+    filepath = result_folder + "metrics.csv"
+    header = ["dataset", "configuration", "method", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    result = cul.save_append_csv_data(filepath, header, data)
+    return result
+
 # Start application
 def start_app():
     app_setup = read_app_setup()
@@ -31,11 +38,12 @@ def start_app():
     if len(app_setup):
         
         # 1. Program variables
-        ml_algo = "nb"
+        ml_algo = "gb"
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
         model_folder = app_setup["model_folder"]
         output_folder = app_setup["output_folder"]
+        result_folder = app_setup["result_folder"]
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
         y_label = app_setup["y_label"]
@@ -51,14 +59,19 @@ def start_app():
         clf = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
         
         # 5. Validate model - Estimating model performance
-        ml_ngx.validate_model(clf, X_train, y_train)
+        metrics_val = ml_ngx.validate_model(clf, X_train, y_train)
         
         # 6. Test model
-        ml_ngx.test_model(clf, X_test, y_test)
+        metrics_test = ml_ngx.test_model(clf, X_test, y_test)
         
         # 7. Create and save model
         ml_ngx.create_save_model(model_folder, ml_algo, dataset, model_state)
         
+        # 8. Save model params and results
+        results = []
+        results.append(["dataset 1", "validation", ml_algo, *metrics_val, datetime.now()])
+        results.append(["dataset 1", "test", ml_algo, *metrics_test, datetime.now()])
+        save_results(result_folder, results)
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
 

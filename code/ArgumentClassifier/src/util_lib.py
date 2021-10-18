@@ -8,12 +8,14 @@
 """
 
 # Import Python
+import os
+import csv
 import json
 import yaml
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Util function - Read list from plain file
+# File function - Read list from plain file
 def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
     lines = []
     
@@ -25,7 +27,7 @@ def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
     
     return lines
 
-# Util function - Read dict from JSON file
+# File function - Read dict from JSON file
 def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
     result = dict()
 
@@ -37,7 +39,7 @@ def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# Util function - Read dict from YAML file
+# File function - Read dict from YAML file
 def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
     result = dict()
     
@@ -48,6 +50,25 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
     except Exception as e:
         print(e)
         
+    return result
+
+# File function - Save or update CSV data
+def save_append_csv_data(filepath:str, header:list, data:list, encoding:str="utf-8") -> bool:
+    result = False
+    mode = "a" if os.path.exists(filepath) else "w"
+    
+    try:    
+        with open(filepath, mode, newline="", encoding=encoding) as f:
+            write = csv.writer(f)
+            if mode == "w":
+                write.writerow(header)
+            for row in data:
+                write.writerow(row)
+        result = True
+    
+    except Exception as e:
+        print("Error:", e)
+    
     return result
 
 # Util function - Convert the values of a dict of dicts to a list
