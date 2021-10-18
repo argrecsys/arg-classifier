@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: Oct 08, 2021
+    Updated on: Oct 18, 2021
     Description: Library with utility functions
 """
 
@@ -11,6 +11,7 @@
 import json
 import yaml
 import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
 
 # Util function - Read list from plain file
 def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
@@ -70,7 +71,20 @@ def convert_categ_to_num(catg_list:list) -> dict:
     
     return label_dict
 
-# Util function - calculate DataFrame sparsity
+# Util function - Calculate DataFrame sparsity
 def calc_df_sparsity(df:pd.DataFrame) -> float:
     sparsity = (df.to_numpy() == 0).mean()
     return sparsity
+
+# Util function - Creates a DataFrame from a sparse matrix using CountVectorizer data structure
+def create_df_from_sparse_matrix(matrix:list) -> pd.DataFrame:
+    
+    # Word vectorization
+    vectorizer = CountVectorizer(analyzer=lambda x: x)
+    data = vectorizer.fit_transform(matrix).toarray()
+    columns = vectorizer.get_feature_names()
+        
+    # Create dataframe
+    df = pd.DataFrame(data, columns=columns)
+    
+    return df

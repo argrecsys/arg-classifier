@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.5.0
+    Version: 0.6.0
     Created on: Oct 07, 2021
-    Updated on: Oct 08, 2021
+    Updated on: Oct 18, 2021
     Description: ML engine class.
 """
 
@@ -18,7 +18,6 @@ import pandas as pd
 import joblib as jl
 
 # Import ML libraries
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
@@ -28,7 +27,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
-from sklearn.preprocessing import OneHotEncoder
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
@@ -38,7 +36,7 @@ class TaskType(enum.Enum):
     def __str__(self):
         return self.value
 
-# Machine Learning class
+# Machine Learning API class
 class MLEngine:
     
     # Constructor
@@ -79,20 +77,37 @@ class MLEngine:
         
         return labels
     
+    # Core function - Convert a list of values to a feature vector
+    def __value_to_features(self, values, prefix):
+        key_words = []
+        
+        if len(values):
+            for kw in values:
+                kw_name = prefix + "_" + kw.lower().replace(" ", "_")
+                key_words.append(kw_name)
+        else:
+            kw_name = prefix + "_none"
+            key_words.append(kw_name)
+    
+        return key_words
+    
     # Core function - Create dataset
     def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
-        corpus = []
         
         # Temp variables
-        key_words = []
+        vcb_corpus = []
+        adverbs_mtx = []
+        verbs_mtx = []
+        modal_aux_mtx = []
+        key_words_mtx = []
         text_length = []
         avg_word_length = []
         number_punct_marks = []
         parse_tree_depth = []
         number_sub_clauses = []
         label_list = []
-        lower_case = True
         
+        # Create corpus
         for k, v in features.items():
             label_data = labels.get(k, None)
             
@@ -106,22 +121,27 @@ class MLEngine:
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 
-                # Categorical features
-                feat_data += v["adverbs"] if setup["adverbs"] and len(v["adverbs"]) > 0 else []
-                feat_data += v["verbs"] if setup["verbs"] and len(v["verbs"]) > 0 else []
-                feat_data += v["modal_aux"] if setup["modal_aux"] and len(v["modal_aux"]) > 0 else []
-                
                 # Transform to lower case and save vocabulary
-                if lower_case:
-                    feat_data = [ele.lower() for ele in feat_data]
-                corpus.append(feat_data)
+                feat_data = [ele.lower() for ele in feat_data]
+                vcb_corpus.append(feat_data)
                 
+                # Adverbs matrix
+                if setup["adverbs"]:
+                    adverbs_mtx.append(self.__value_to_features(v["adverbs"], "avb"))
+                
+                # Verbs matrix
+                if setup["verbs"]:
+                    verbs_mtx.append(self.__value_to_features(v["verbs"], "vb"))
+                    
+                # Modal aux matrix
+                if setup["modal_aux"]:
+                    modal_aux_mtx.append(self.__value_to_features(v["modal_aux"], "mda"))
+                
+                # Keyword matrix
                 if setup["key_words"]:
-                    kw_name = "kw_none"
-                    if len(v["key_words"]) > 0:
-                        kw_name = "kw_" + v["key_words"][0].replace(" ", "_")
-                    key_words.append([kw_name])
+                    key_words_mtx.append(self.__value_to_features(v["key_words"], "kw"))
                 
+                # Save text statistics
                 if setup["text_stats"]:
                     text_length.append(v["text_length"])
                     avg_word_length.append(v["avg_word_length"])
@@ -129,40 +149,48 @@ class MLEngine:
                     parse_tree_depth.append(v["parse_tree_depth"])
                     number_sub_clauses.append(v["number_sub_clauses"])
                 
+                # Save label
                 label_list.append(label_data[y_label])
             else:
                 print('Missing label:', k)
         
-        # Word vectorization
-        vectorizer = CountVectorizer(analyzer=lambda x: x)
-        data = vectorizer.fit_transform(corpus).toarray()
-        columns = vectorizer.get_feature_names()
+        # Create main dataframe
+        df = cul.create_df_from_sparse_matrix(vcb_corpus)
         
-        # Create dataframe
-        df = pd.DataFrame(data, columns=columns)
+        # Add adverbs matrix to main df
+        if setup["adverbs"]:
+            df_adv = cul.create_df_from_sparse_matrix(adverbs_mtx)
+            df = pd.concat([df, df_adv], axis=1)
         
-        # Add keywords with one-hot-encoding
-        if ["key_words"]:
-            cat_encoder = OneHotEncoder()
-            key_words_1hot = cat_encoder.fit_transform(key_words)
-            kw_categories = cat_encoder.categories_[0]
-            df_kw = pd.DataFrame(key_words_1hot.toarray(), columns=kw_categories)
+        # Add verbs matrix to main df
+        if setup["verbs"]:
+            df_vb = cul.create_df_from_sparse_matrix(verbs_mtx)
+            df = pd.concat([df, df_vb], axis=1)
+        
+        # Add modal aux matrix to main df
+        if setup["modal_aux"]:
+            df_mda = cul.create_df_from_sparse_matrix(modal_aux_mtx)
+            df = pd.concat([df, df_mda], axis=1)
+        
+        # Add keywords matrix to main df
+        if setup["key_words"]:
+            df_kw = cul.create_df_from_sparse_matrix(key_words_mtx)
             df = pd.concat([df, df_kw], axis=1)
         
         # Add extra columns
         if setup["text_stats"]:
-            df["text_length"] = text_length
-            df["avg_word_length"] = avg_word_length
-            df["number_punct_marks"] = number_punct_marks
-            df["parse_tree_depth"] = parse_tree_depth
-            df["number_sub_clauses"] = number_sub_clauses
+            df["stats_text_length"] = text_length
+            df["stats_avg_word_length"] = avg_word_length
+            df["stats_number_punct_marks"] = number_punct_marks
+            df["stats_parse_tree_depth"] = parse_tree_depth
+            df["stats_number_sub_clauses"] = number_sub_clauses
+        
+        # Added label column
+        df[self.label_column] = label_list
         
         # Calculate DataFrame sparsity
         df_sparsity = cul.calc_df_sparsity(df)
         print('DataFrame sparsity:', df_sparsity)
-        
-        # Added label column
-        df[self.label_column] = label_list
         
         return df
     
@@ -206,9 +234,9 @@ class MLEngine:
         
         return label_dict, label_list
     
-    ####################
-    ### ML FUNCTIONS ###
-    ####################
+    ###########################
+    ### ML PUBLIC FUNCTIONS ###
+    ###########################
     
     # ML function - Create dataset
     def create_dataset(self, output_folder:str, y_label:str, data_setup:dict) -> tuple:

@@ -7,9 +7,9 @@
 		"word_couples": false,
 		"punctuation": true,
 		"key_words": true,
-		"adverbs": false,
-		"verbs": false,
-		"modal_aux": false,
+		"adverbs": true,
+		"verbs": true,
+		"modal_aux": true,
 		"text_stats": true
 	},
 	"model_state": 42,
