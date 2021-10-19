@@ -74,7 +74,7 @@ def start_app():
         results = []
         results.append(["dataset 1", "validation", ml_algo, *metrics_val, datetime.now()])
         results.append(["dataset 1", "test", ml_algo, *metrics_test, datetime.now()])
-        save_results(result_folder, results)
+        fnl_clf = save_results(result_folder, results)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))

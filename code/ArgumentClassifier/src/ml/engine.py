@@ -237,17 +237,19 @@ class MLEngine:
         return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
     
     # ML function - Creates and save final model
-    def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int) -> bool:
-        result = False
-        filepath = model_folder + algorithm + "_model.joblib"
+    def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int):
+        filepath = model_folder + algorithm.replace(" ", "_") + "_model.joblib"
         X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
         y = dataset[self.label_column]
+        print(len(X), len(y))
         
+        # Create final model
         clf = self.create_model(algorithm, X, y, model_state)
         
         # Model persistence
         jl.dump(clf, filepath) 
-        result = os.path.exists(filepath)
+        if not os.path.exists(filepath):
+            clf = None
         
-        return result
+        return clf
     
