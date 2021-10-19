@@ -3,16 +3,18 @@
     Created by: Andres Segura Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: Oct 18, 2021
+    Updated on: Oct 19, 2021
     Description: Library with utility functions
 """
 
-# Import Python
+# Import Python base libraries
 import os
 import csv
 import json
 import yaml
 import pandas as pd
+
+# Import ML libraries
 from sklearn.feature_extraction.text import CountVectorizer
 
 # File function - Read list from plain file

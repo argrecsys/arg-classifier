@@ -3,17 +3,16 @@
     Created by: Andres Segura Tinoco
     Version: 0.6.0
     Created on: Oct 07, 2021
-    Updated on: Oct 18, 2021
+    Updated on: Oct 19, 2021
     Description: ML engine class.
 """
 
 # Import Custom libraries
 import util_lib as cul
-#import plot_lib as cpl
+import ml.utility as mlu
 
 # Import Python base libraries
 import os
-import enum
 import pandas as pd
 import joblib as jl
 
@@ -22,19 +21,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_score, recall_score
-from sklearn.metrics import f1_score
-from sklearn.metrics import roc_auc_score
-
-# Using enum class create the task type enumeration
-class TaskType(enum.Enum):
-    IDENTIFICATION = 'identification'
-    CLASSIFICATION = 'classification'
-    
-    def __str__(self):
-        return self.value
 
 # Machine Learning API class
 class MLEngine:
@@ -77,20 +63,6 @@ class MLEngine:
         
         return labels
     
-    # Core function - Convert a list of values to a feature vector
-    def __value_to_features(self, values, prefix):
-        key_words = []
-        
-        if len(values):
-            for kw in values:
-                kw_name = prefix + "_" + kw.lower().replace(" ", "_")
-                key_words.append(kw_name)
-        else:
-            kw_name = prefix + "_none"
-            key_words.append(kw_name)
-    
-        return key_words
-    
     # Core function - Create dataset
     def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
         
@@ -127,15 +99,15 @@ class MLEngine:
                 
                 # Adverbs matrix
                 if setup["adverbs"]:
-                    adverbs_mtx.append(self.__value_to_features(v["adverbs"], "avb"))
+                    adverbs_mtx.append(mlu.value_to_features(v["adverbs"], "avb"))
                 
                 # Verbs matrix
                 if setup["verbs"]:
-                    verbs_mtx.append(self.__value_to_features(v["verbs"], "vb"))
+                    verbs_mtx.append(mlu.value_to_features(v["verbs"], "vb"))
                 
                 # Keyword matrix
                 if setup["key_words"]:
-                    key_words_mtx.append(self.__value_to_features(v["key_words"], "kw"))
+                    key_words_mtx.append(mlu.value_to_features(v["key_words"], "kw"))
                 
                 # Save text statistics
                 if setup["text_stats"]:
@@ -187,46 +159,6 @@ class MLEngine:
         
         return df
     
-    # Core function - Calculate difference between real and predicted
-    def __calculate_errors(self, y_real, y_pred) -> tuple:
-        conf_mx = confusion_matrix(y_real, y_pred)
-        accuracy = accuracy_score(y_real, y_pred)
-        
-        if self.task_type == TaskType.IDENTIFICATION.value:
-            precision = precision_score(y_real, y_pred)
-            recall = recall_score(y_real, y_pred)
-            f1 = f1_score(y_real, y_pred)
-            roc_score = roc_auc_score(y_real, y_pred)
-            
-        elif self.task_type == TaskType.CLASSIFICATION.value:
-            precision = precision_score(y_real, y_pred, average='micro')
-            recall = recall_score(y_real, y_pred, average='micro')
-            f1 = f1_score(y_real, y_pred, average='micro')
-            roc_score= 0
-            
-        if self.verbose:
-            print(conf_mx)
-            print("accuracy:", accuracy, ", precision:", precision, ", recall:", recall, ", f1-score:", f1, ", roc_curve:", roc_score)
-            #cpl.plot_confusion_matrix(conf_mx)
-        
-        return accuracy, precision, recall, f1, roc_score 
-    
-    # Core function - Transform labels
-    def __get_label_dict(self, label_list:list) -> dict:
-        
-        # Update label field
-        label_dict = {}
-        if self.task_type == TaskType.IDENTIFICATION.value:
-            label_dict = { 0: "no", 1: "yes" }
-            label_list = [0 if item == "-" else 1 for item in label_list]
-            
-        elif self.task_type == TaskType.CLASSIFICATION.value:
-            label_dict = cul.convert_categ_to_num(label_list)
-            label_list = [label_dict[item] for item in label_list]
-            label_dict = {v: k for k, v in label_dict.items()}
-        
-        return label_dict, label_list
-    
     ###########################
     ### ML PUBLIC FUNCTIONS ###
     ###########################
@@ -247,7 +179,7 @@ class MLEngine:
             dataset = pd.read_csv(df_filepath)
         
         if dataset is not None:
-            label_dict, label_list = self.__get_label_dict(dataset[self.label_column].tolist())
+            label_dict, label_list = mlu.get_label_dict(self.task_type, dataset[self.label_column].tolist())
             dataset[self.label_column] = label_list
         
         return dataset, label_dict
@@ -280,13 +212,14 @@ class MLEngine:
     def validate_model(self, clf, X_train, y_train):
         print("- Validating model:")
         y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
-        return self.__calculate_errors(y_train, y_train_pred)
+        return mlu.calculate_errors(self.task_type, y_train, y_train_pred, self.verbose)
     
     # ML function - Test model
     def test_model(self, clf, X_test, y_test):
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
-        return self.__calculate_errors(y_test, y_test_pred)
+        print(type(y_test), type(y_test_pred))
+        return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
     
     # ML function - Creates and save final model
     def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int) -> bool:
