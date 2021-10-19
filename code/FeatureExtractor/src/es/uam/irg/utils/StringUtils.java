@@ -31,6 +31,19 @@ public class StringUtils {
     
     /**
      * 
+     * @param punctMark
+     * @return 
+     */
+    public static String cleanPuntuationMark(String punctMark) {
+        String newPunctMark = punctMark;
+        if (punctMark.length() > 1 && punctMark.charAt(0) == punctMark.charAt(1)) {
+            newPunctMark = punctMark.charAt(0) + "+";
+        }
+        return newPunctMark;
+    }
+    
+    /**
+     * 
      * @param text
      * @param direction
      * @return 
@@ -79,8 +92,21 @@ public class StringUtils {
      * @return
      */
     public static boolean isEmpty(String str) {
-        boolean isEmpty = (str == null || str.trim().length() == 0);
-        return isEmpty;
+        return (str == null || str.trim().length() == 0);
+    }
+    
+    /**
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isValidWord(String str) {
+        // Checks if the String is null or empty
+        if (isEmpty(str)) {
+            return false;
+        }
+        
+        return Character.isLetter(str.charAt(0));
     }
     
     /**
@@ -224,7 +250,7 @@ public class StringUtils {
      * @return a string which all its characters are ASCII
      */
     public static String toASCII(String s) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         int n = s.length();
         for (int i = 0; i < n; i++) {
             char c = s.charAt(i);

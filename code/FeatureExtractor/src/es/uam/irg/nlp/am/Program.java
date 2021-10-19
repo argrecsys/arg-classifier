@@ -22,6 +22,7 @@ public class Program {
         String language = Constants.LANG_ES;
         String extractionMode = FeatureExtractor.Mode.ARG_DET.name();
         boolean createDataset = false;
+        boolean filterNonwords = true;
         
         // Read input parameters
         if (args.length > 0) {
@@ -32,14 +33,18 @@ public class Program {
                 
                 if (args.length > 2) {
                     createDataset = Boolean.parseBoolean(args[2]);
+                    
+                    if (args.length > 3) {
+                        filterNonwords = Boolean.parseBoolean(args[3]);
+                    }
                 }
             }
         }
-        System.out.format(">> Language selected: %s, extraction mode: %s and create dataset: %s\n", 
-                language, extractionMode, createDataset);
+        System.out.format(">> Language selected: %s, extraction mode: %s, create dataset: %s, and filter non-words: %s\n", 
+                language, extractionMode, createDataset, filterNonwords);
         
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, createDataset);
+        FeatureExtractor miner = new FeatureExtractor(language, createDataset, filterNonwords);
         boolean result = miner.runProgram(extractionMode);
         
         if (result) {

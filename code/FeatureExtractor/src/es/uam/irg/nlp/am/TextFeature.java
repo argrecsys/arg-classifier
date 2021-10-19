@@ -13,6 +13,7 @@ import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FeatureUtils;
 import es.uam.irg.utils.FunctionUtils;
+import es.uam.irg.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,12 +25,14 @@ public class TextFeature {
     
     // Class contants
     public final static int MIN_LENGTH = 3;
+    public final static String SPECIAL_PUNCT = "¡!¿?'%:";
     
     // Class variables
     private List<String> adverbs;    
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
+    private boolean filterNonwords;
     private String id;
     private boolean isValid;
     private List<String> keyWords;
@@ -53,9 +56,10 @@ public class TextFeature {
      * @param text
      * @param lexicon
      */
-    public TextFeature(ArgumentEngine argEngine, String id, String text, List<ArgumentLinker> lexicon) {
+    public TextFeature(ArgumentEngine argEngine, String id, String text, List<ArgumentLinker> lexicon, boolean filterNonwords) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
+        this.filterNonwords = filterNonwords;
         this.id = id;
         this.text = text;
         this.unigrams = new ArrayList<>();
@@ -131,10 +135,12 @@ public class TextFeature {
             posTag = token.tag();
             
             // Adding words
-            if (posTag.equals("PUNCT") || currWord.equals("'")) {
-                this.punctuation.add(currWord);
+            if ((posTag.equals("PUNCT") && !currWord.startsWith("etc")) || SPECIAL_PUNCT.indexOf(currWord.charAt(0)) >= 0) {
+                String puntMark = StringUtils.cleanPuntuationMark(currWord);
+                this.punctuation.add(puntMark);
             }
-            else {
+            else if (!filterNonwords || StringUtils.isValidWord(currWord)) {
+                // Second filter
                 this.unigrams.add(currWord);
                 this.avgWordLength += currWord.length();
                 

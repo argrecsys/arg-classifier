@@ -25,6 +25,7 @@ public class FeatureExtractor {
     // Class members
     private final ArgumentEngine argEngine;
     private boolean createDataset;
+    private boolean filterNonwords;
     private ArgumentLinkerManager lnkManager;
     
     /**
@@ -32,10 +33,12 @@ public class FeatureExtractor {
      * 
      * @param language
      * @param createDataset
+     * @param filterNonwords
      */
-    public FeatureExtractor(String language, boolean createDataset) {
+    public FeatureExtractor(String language, boolean createDataset, boolean filterNonwords) {
         this.argEngine = new ArgumentEngine(language);
         this.createDataset = createDataset;
+        this.filterNonwords = filterNonwords;
         this.lnkManager = createLinkerManager(language);
     }
     
@@ -117,7 +120,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
         
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), lexicon);
+            TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), lexicon, filterNonwords);
             
             tf.extraction();
             if (tf.isValid()) {
