@@ -17,3 +17,11 @@ class TaskType(enum.Enum):
     
     def __str__(self):
         return self.value
+
+# Using enum class create the model type enumeration
+class ModelType(enum.Enum):
+    NAIVE_BAYES = "naive bayes"
+    GRADIENT_BOOSTING = "gradient boosting"
+    
+    def __str__(self):
+        return self.value

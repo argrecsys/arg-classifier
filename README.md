@@ -1,14 +1,14 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.3-blue)
-![last-update](https://img.shields.io/badge/last_update-10/6/2021-orange)
+![version](https://img.shields.io/badge/version-0.4-blue)
+![last-update](https://img.shields.io/badge/last_update-10/18/2021-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
-Implementation of a classifier of argumentative prepositions.
+Implementation of a classifier of argumentative prepositions. The solution is composed of 2 sub-solutions, the first one is in charge of extracting NLP features from each preposition and the second one is the classifier itself.
 
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
 
-- Java solution:
+- Feature extractor (Java solution):
   - JDK 16
   - Stanford CoreNLP 4.2.2
   - MySQL Connector 8.0.22
@@ -16,7 +16,7 @@ The implemented solutions depend on or make use of the following libraries:
   - Snake YAML 1.9
   - JSON Java 20210307
 
-- Python solution:
+- Argument classifier (Python solution):
   - python 3.8.x
   - sklearn 0.24.2
 

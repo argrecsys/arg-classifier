@@ -10,6 +10,7 @@
 # Import Custom libraries
 import util_lib as cul
 import ml.utility as mlu
+from ml.constant import ModelType
 
 # Import Python base libraries
 import os
@@ -71,8 +72,8 @@ class MLEngine:
         adverbs_mtx = []
         verbs_mtx = []
         key_words_mtx = []
-        text_length = []
         modal_auxiliary = []
+        text_length = []
         avg_word_length = []
         number_punct_marks = []
         parse_tree_depth = []
@@ -196,17 +197,32 @@ class MLEngine:
     def create_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
         clf = None
         
-        if algorithm == "nb":
+        if algorithm == ModelType.NAIVE_BAYES.value:
             # Naive Bayes
             clf = MultinomialNB()
             clf.fit(X_train, y_train)
         
-        elif algorithm == "gb":
+        elif algorithm == ModelType.GRADIENT_BOOSTING.value:
             # Gradient Boosting
             clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=2, random_state=model_state)
             clf.fit(X_train, y_train)
         
-        return clf   
+        return clf
+    
+    # ML function - Create and fit (with grid search) model
+    def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
+        clf = None
+    
+        if algorithm == ModelType.NAIVE_BAYES.value:
+            # Naive Bayes
+            clf = MultinomialNB()
+            clf.fit(X_train, y_train)
+        
+        elif algorithm == ModelType.GRADIENT_BOOSTING.value:
+            # Gradient Boosting
+            ""
+        
+        return clf
     
     # ML function - Validate model
     def validate_model(self, clf, X_train, y_train):
@@ -218,7 +234,6 @@ class MLEngine:
     def test_model(self, clf, X_test, y_test):
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
-        print(type(y_test), type(y_test_pred))
         return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
     
     # ML function - Creates and save final model

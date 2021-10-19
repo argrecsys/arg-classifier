@@ -3,13 +3,14 @@
     Created by: Andres Segura Tinoco
     Version: 0.4.0
     Created on: Aug 27, 2021
-    Updated on: Oct 18, 2021
+    Updated on: Oct 19, 2021
     Description: Main class of the argument classifier.
 """
 
 # Import Custom libraries
 import util_lib as cul
-import ml.engine as eng
+import ml.engine as mle
+from ml.constant import ModelType
 
 # Import Python base libraries
 from datetime import datetime
@@ -37,8 +38,8 @@ def start_app():
     
     if len(app_setup):
         
-        # 1. Program variables
-        ml_algo = "gb"
+        # 0. Program variables
+        ml_algo = ModelType.GRADIENT_BOOSTING.value
         data_setup = app_setup["data"]
         model_state = app_setup["model_state"]
         model_folder = app_setup["model_folder"]
@@ -47,7 +48,9 @@ def start_app():
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
         y_label = app_setup["y_label"]
-        ml_ngx = eng.MLEngine(task_type=task_type, verbose=True)
+        
+        # 1. Machine Learning engine object
+        ml_ngx = mle.MLEngine(task_type=task_type, verbose=True)
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(output_folder, y_label, data_setup)
@@ -72,6 +75,7 @@ def start_app():
         results.append(["dataset 1", "validation", ml_algo, *metrics_val, datetime.now()])
         results.append(["dataset 1", "test", ml_algo, *metrics_test, datetime.now()])
         save_results(result_folder, results)
+        
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
 
