@@ -54,6 +54,16 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
+# File function - Get max value from column from CSV file
+def get_max_value_from_csv_file(filepath:str, column:str) -> int:
+    max_value = 0
+    
+    if os.path.exists(filepath):
+        df = pd.read_csv(filepath)
+        max_value = df["id"].max()
+    
+    return max_value
+
 # File function - Save or update CSV data
 def save_append_csv_data(filepath:str, header:list, data:list, encoding:str="utf-8") -> bool:
     result = False

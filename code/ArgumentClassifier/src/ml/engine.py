@@ -212,7 +212,8 @@ class MLEngine:
     # ML function - Create and fit (with grid search) model
     def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
         clf = None
-    
+        params = {}
+        
         if algorithm == ModelType.NAIVE_BAYES.value:
             # Naive Bayes
             clf = MultinomialNB()
@@ -222,7 +223,7 @@ class MLEngine:
             # Gradient Boosting
             ""
         
-        return clf
+        return clf, params
     
     # ML function - Validate model
     def validate_model(self, clf, X_train, y_train):
@@ -237,11 +238,10 @@ class MLEngine:
         return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
     
     # ML function - Creates and save final model
-    def create_save_model(self, model_folder:str, algorithm:str, dataset:pd.DataFrame, model_state:int):
-        filepath = model_folder + algorithm.replace(" ", "_") + "_model.joblib"
+    def create_save_model(self, model_folder:str, model_id:int, algorithm:str, dataset:pd.DataFrame, model_state:int):
+        filepath = model_folder + algorithm.replace(" ", "_") + "_model_" + str(model_id) + ".joblib"
         X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
         y = dataset[self.label_column]
-        print(len(X), len(y))
         
         # Create final model
         clf = self.create_model(algorithm, X, y, model_state)

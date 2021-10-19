@@ -13,6 +13,7 @@ import ml.engine as mle
 from ml.constant import ModelType
 
 # Import Python base libraries
+import json
 from datetime import datetime
 
 ######################
@@ -26,11 +27,16 @@ def read_app_setup() -> dict:
     return setup
 
 # Save model result
-def save_results(result_folder:str, data:list) -> bool:
+def save_results(result_folder:str, data:list) -> int:
     filepath = result_folder + "metrics.csv"
-    header = ["dataset", "configuration", "method", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    model_id = cul.get_max_value_from_csv_file(filepath, "id") + 1
+    header = ["id", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    data = [[model_id] + row for row in data]
     result = cul.save_append_csv_data(filepath, header, data)
-    return result
+    
+    if not result:
+        model_id = 0
+    return model_id
 
 # Start application
 def start_app():
@@ -60,6 +66,7 @@ def start_app():
         
         # 4. Train model
         clf = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
+        params = {}
         
         # 5. Validate model - Estimating model performance
         metrics_val = ml_ngx.validate_model(clf, X_train, y_train)
@@ -67,14 +74,15 @@ def start_app():
         # 6. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test)
         
-        # 7. Create and save model
-        ml_ngx.create_save_model(model_folder, ml_algo, dataset, model_state)
-        
-        # 8. Save model params and results
+        # 7. Save model params and results
         results = []
-        results.append(["dataset 1", "validation", ml_algo, *metrics_val, datetime.now()])
-        results.append(["dataset 1", "test", ml_algo, *metrics_test, datetime.now()])
-        fnl_clf = save_results(result_folder, results)
+        results.append(["dataset 1", "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
+        results.append(["dataset 1", "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
+        model_id = save_results(result_folder, results)
+        
+        # 8. Create and save model
+        if model_id > 0:
+            fnl_clf = ml_ngx.create_save_model(model_folder, model_id, ml_algo, dataset, model_state)
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
