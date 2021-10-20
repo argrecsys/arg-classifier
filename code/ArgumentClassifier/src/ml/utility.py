@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.1.0
+    Version: 0.2.0
     Created on: Oct 19, 2021
-    Updated on: Oct 19, 2021
+    Updated on: Oct 20, 2021
     Description: ML engine utility functions.
 """
 
@@ -27,6 +27,7 @@ def get_label_dict(task_type:str, label_list:list) -> dict:
     # Update label field
     label_dict = {}
     if task_type == TaskType.IDENTIFICATION.value:
+        # Labels: non-argumentative or argumentative
         label_dict = { 0: "no", 1: "yes" }
         label_list = [0 if item == "-" else 1 for item in label_list]
         

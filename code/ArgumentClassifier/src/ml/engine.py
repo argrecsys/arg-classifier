@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 0.6.0
     Created on: Oct 07, 2021
-    Updated on: Oct 19, 2021
+    Updated on: Oct 20, 2021
     Description: ML engine class.
 """
 
@@ -22,6 +22,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import GridSearchCV
 
 # Machine Learning API class
 class MLEngine:
@@ -32,6 +33,7 @@ class MLEngine:
         self.label_column = "label"
         self.task_type = task_type
         self.verbose = verbose
+        self.cv_value = 5
         
     ######################
     ### UTIL FUNCTIONS ###
@@ -193,9 +195,10 @@ class MLEngine:
         
         return X_train, X_test, y_train, y_test
     
-    # ML function - Create model
+    # ML function - Create model with default params
     def create_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
         clf = None
+        params = {}
         
         if algorithm == ModelType.NAIVE_BAYES.value:
             # Naive Bayes
@@ -204,10 +207,12 @@ class MLEngine:
         
         elif algorithm == ModelType.GRADIENT_BOOSTING.value:
             # Gradient Boosting
-            clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=2, random_state=model_state)
+            params = {'learning_rate': 0.01, 'n_estimators': 100, 'max_depth': 5, 'random_state': model_state}
+            clf = GradientBoostingClassifier(**params)
             clf.fit(X_train, y_train)
         
-        return clf
+        # Return model and model params
+        return clf, params
     
     # ML function - Create and fit (with grid search) model
     def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
@@ -221,14 +226,23 @@ class MLEngine:
         
         elif algorithm == ModelType.GRADIENT_BOOSTING.value:
             # Gradient Boosting
-            ""
+            space = {'learning_rate': [0.15,0.1,0.05,0.01,0.001],
+                     'n_estimators': [50,100,250,500,750],
+                     'max_depth': [1,2,3,4,5],
+                     'random_state': [model_state]}
+            tuning = GridSearchCV(estimator=GradientBoostingClassifier(), param_grid=space, 
+                                  scoring='accuracy', cv=self.cv_value)
+            tuning.fit(X_train, y_train)
+            params = tuning.best_params_
+            clf = tuning.best_estimator_
         
+        # Return model and model params
         return clf, params
     
     # ML function - Validate model
     def validate_model(self, clf, X_train, y_train):
         print("- Validating model:")
-        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=5)
+        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=self.cv_value)
         return mlu.calculate_errors(self.task_type, y_train, y_train_pred, self.verbose)
     
     # ML function - Test model

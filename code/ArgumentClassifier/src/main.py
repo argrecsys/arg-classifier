@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.4.0
+    Version: 0.5.0
     Created on: Aug 27, 2021
-    Updated on: Oct 19, 2021
+    Updated on: Oct 20, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -65,8 +65,8 @@ def start_app():
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
         
         # 4. Train model
-        clf = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
-        params = {}
+        clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
+        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state)
         
         # 5. Validate model - Estimating model performance
         metrics_val = ml_ngx.validate_model(clf, X_train, y_train)
