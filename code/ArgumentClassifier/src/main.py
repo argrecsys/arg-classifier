@@ -47,6 +47,7 @@ def start_app():
         # 0. Program variables
         ml_algo = ModelType.GRADIENT_BOOSTING.value
         data_setup = app_setup["data"]
+        language = app_setup["language"]
         model_state = app_setup["model_state"]
         model_folder = app_setup["model_folder"]
         output_folder = app_setup["output_folder"]
@@ -56,7 +57,7 @@ def start_app():
         y_label = app_setup["y_label"]
         
         # 1. Machine Learning engine object
-        ml_ngx = mle.MLEngine(task_type=task_type, verbose=True)
+        ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(output_folder, y_label, data_setup)

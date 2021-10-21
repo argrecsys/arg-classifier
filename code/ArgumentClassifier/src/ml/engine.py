@@ -16,6 +16,7 @@ from ml.constant import ModelType
 import os
 import pandas as pd
 import joblib as jl
+from nltk.corpus import stopwords
 
 # Import ML libraries
 from sklearn.model_selection import train_test_split
@@ -28,9 +29,10 @@ from sklearn.model_selection import GridSearchCV
 class MLEngine:
     
     # Constructor
-    def __init__(self, task_type:str, verbose:bool=True):
+    def __init__(self, language:str, task_type:str, verbose:bool=True):
         self.encoding = "utf-8"
         self.label_column = "label"
+        self.language = language
         self.task_type = task_type
         self.verbose = verbose
         self.cv_value = 5
@@ -82,6 +84,9 @@ class MLEngine:
         number_sub_clauses = []
         label_list = []
         
+        # Create dictionary of stopwords
+        dict_stopwords = dict.fromkeys(stopwords.words(self.language), True)
+        
         # Create corpus
         for k, v in features.items():
             label_data = labels.get(k, None)
@@ -97,7 +102,10 @@ class MLEngine:
                 feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 
                 # Transform to lower case and save vocabulary
-                feat_data = [ele.lower() for ele in feat_data]
+                if setup["remove_stopwords"] and len(dict_stopwords):
+                    feat_data = [ele.lower() for ele in feat_data if ele not in dict_stopwords]
+                else:
+                    feat_data = [ele.lower() for ele in feat_data]
                 vcb_corpus.append(feat_data)
                 
                 # Adverbs matrix
