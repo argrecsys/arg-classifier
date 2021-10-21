@@ -85,7 +85,7 @@ class MLEngine:
         label_list = []
         
         # Create dictionary of stopwords
-        dict_stopwords = dict.fromkeys(stopwords.words(self.language), True)
+        set_stopwords = set(stopwords.words(self.language))
         
         # Create corpus
         for k, v in features.items():
@@ -101,12 +101,16 @@ class MLEngine:
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 
-                # Transform to lower case and save vocabulary
-                if setup["remove_stopwords"] and len(dict_stopwords):
-                    feat_data = [ele.lower() for ele in feat_data if ele not in dict_stopwords]
+                # Transform words to lower case, remove stopwords and save vocabulary
+                vocabulary = []
+                if setup["remove_stopwords"] and len(set_stopwords):
+                    for ele in feat_data:
+                        ele = ele.lower() 
+                        if ele not in set_stopwords:
+                            vocabulary.append(ele)
                 else:
-                    feat_data = [ele.lower() for ele in feat_data]
-                vcb_corpus.append(feat_data)
+                    vocabulary = [ele.lower() for ele in feat_data]
+                vcb_corpus.append(vocabulary)
                 
                 # Adverbs matrix
                 if setup["adverbs"]:
