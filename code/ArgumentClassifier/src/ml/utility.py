@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.2.0
+    Version: 0.3.0
     Created on: Oct 19, 2021
-    Updated on: Oct 20, 2021
+    Updated on: Oct 22, 2021
     Description: ML engine utility functions.
 """
 
@@ -75,3 +75,15 @@ def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:
         #cpl.plot_confusion_matrix(conf_mx)
     
     return accuracy, precision, recall, f1, roc_score
+
+# Core function - Calculates mislabeled records
+def calc_mislabeled_records(index, y_real, y_pred):
+    records = {"t1_error":[], "t2_error":[]}
+        
+    for ix, real, pred in zip(index, y_real, y_pred):
+        if real == 1 and pred == 0:
+            records["t2_error"].append(ix)
+        elif real == 0 and pred == 1:
+            records["t1_error"].append(ix)
+    
+    return records

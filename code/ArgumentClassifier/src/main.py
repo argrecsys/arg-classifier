@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 0.5.0
     Created on: Aug 27, 2021
-    Updated on: Oct 20, 2021
+    Updated on: Oct 22, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -75,13 +75,17 @@ def start_app():
         # 6. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test)
         
-        # 7. Save model params and results
+        # 7. Error analysis
+        error_ids = ml_ngx.get_mislabeled_records()
+        print(error_ids)
+        
+        # 8. Save model params and results
         results = []
         results.append(["dataset 1", "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
         results.append(["dataset 1", "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
         model_id = save_results(result_folder, results)
         
-        # 8. Create and save model
+        # 9. Create and save model
         if model_id > 0:
             fnl_clf = ml_ngx.create_save_model(model_folder, model_id, ml_algo, dataset, model_state)
         

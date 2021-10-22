@@ -36,6 +36,7 @@ class MLEngine:
         self.task_type = task_type
         self.verbose = verbose
         self.cv_value = 5
+        self.mislabeled_records = {"t1_error":[], "t2_error":[]}
         
     ######################
     ### UTIL FUNCTIONS ###
@@ -261,7 +262,15 @@ class MLEngine:
     def test_model(self, clf, X_test, y_test):
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
+        
+        # Calculate mislabeled records
+        self.mislabeled_records = mlu.calc_mislabeled_records(X_test.index, y_test, y_test_pred)
+        
         return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
+    
+    # ML function - Get ids of mislabeled records
+    def get_mislabeled_records(self) -> dict:
+        return self.mislabeled_records
     
     # ML function - Creates and save final model
     def create_save_model(self, model_folder:str, model_id:int, algorithm:str, dataset:pd.DataFrame, model_state:int):
