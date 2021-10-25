@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.5.0
+    Version: 0.5.5
     Created on: Aug 27, 2021
-    Updated on: Oct 22, 2021
+    Updated on: Oct 25, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -25,6 +25,14 @@ def read_app_setup() -> dict:
     filepath = "../config/config.json"
     setup = cul.get_dict_from_json(filepath)
     return setup
+
+# Save error analysis
+def save_error_ids(error_ids, X_test):
+    
+    for k, v in error_ids.items():
+        print(k, ':', v)
+        #for rid in v:
+        #    print(rid, X_test.loc[rid])
 
 # Save model result
 def save_results(result_folder:str, data:list) -> int:
@@ -77,7 +85,7 @@ def start_app():
         
         # 7. Error analysis
         error_ids = ml_ngx.get_mislabeled_records()
-        print(error_ids)
+        save_error_ids(error_ids, X_test)
         
         # 8. Save model params and results
         results = []
