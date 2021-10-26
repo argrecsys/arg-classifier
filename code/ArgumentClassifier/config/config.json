@@ -2,11 +2,11 @@
 	"data": {
 		"force_create": true,
 		"remove_stopwords": true,
+		"punctuation": true,
 		"unigrams": true,
 		"bigrams": false,
 		"trigrams": false,
 		"word_couples": false,
-		"punctuation": true,
 		"adverbs": true,
 		"verbs": true,
 		"key_words": true,

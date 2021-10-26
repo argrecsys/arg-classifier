@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 0.6.0
     Created on: Oct 07, 2021
-    Updated on: Oct 20, 2021
+    Updated on: Oct 26, 2021
     Description: ML engine class.
 """
 
@@ -94,15 +94,15 @@ class MLEngine:
             
             if label_data is not None:
                 
-                # Add vocabulary
+                # Add vocabulary (steps -1, -2, -3, -4, -5)
                 feat_data = []
+                feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 feat_data += v["unigrams"] if setup["unigrams"] and len(v["unigrams"]) > 0 else []
                 feat_data += v["bigrams"] if setup["bigrams"] and len(v["bigrams"]) > 0 else []
                 feat_data += v["trigrams"] if setup["trigrams"] and len(v["trigrams"]) > 0 else []
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
-                feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 
-                # Transform words to lower case, remove stopwords and save vocabulary
+                # Transform words to lower case, remove stopwords and save vocabulary (step -0)
                 vocabulary = []
                 if setup["remove_stopwords"] and len(set_stopwords):
                     for ele in feat_data:
@@ -113,19 +113,19 @@ class MLEngine:
                     vocabulary = [ele.lower() for ele in feat_data]
                 vcb_corpus.append(vocabulary)
                 
-                # Adverbs matrix
+                # Adverbs matrix (step -6)
                 if setup["adverbs"]:
                     adverbs_mtx.append(mlu.value_to_features(v["adverbs"], "avb"))
                 
-                # Verbs matrix
+                # Verbs matrix (step -7)
                 if setup["verbs"]:
                     verbs_mtx.append(mlu.value_to_features(v["verbs"], "vb"))
                 
-                # Keyword matrix
+                # Keyword matrix (step -8)
                 if setup["key_words"]:
                     key_words_mtx.append(mlu.value_to_features(v["key_words"], "kw"))
                 
-                # Save text statistics
+                # Save text statistics (step -9)
                 if setup["text_stats"]:
                     modal_auxiliary.append(len(v["modal_aux"]))
                     text_length.append(v["text_length"])

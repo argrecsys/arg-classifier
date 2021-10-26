@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andres Segura Tinoco
-    Version: 0.5.5
+    Version: 0.6.0
     Created on: Aug 27, 2021
-    Updated on: Oct 25, 2021
+    Updated on: Oct 26, 2021
     Description: Main class of the argument classifier.
 """
 
@@ -25,6 +25,23 @@ def read_app_setup() -> dict:
     filepath = "../config/config.json"
     setup = cul.get_dict_from_json(filepath)
     return setup
+
+# Return current dataset name composed by a coding map
+def get_curr_dataset_name(setup:dict) -> str:
+    ds_name = "dataset"
+    
+    ds_name += "-0" if setup["remove_stopwords"] else ""
+    ds_name += "-1" if setup["punctuation"] else ""
+    ds_name += "-2" if setup["unigrams"] else ""
+    ds_name += "-3" if setup["bigrams"] else ""
+    ds_name += "-4" if setup["trigrams"] else ""
+    ds_name += "-5" if setup["word_couples"] else ""
+    ds_name += "-6" if setup["adverbs"] else ""
+    ds_name += "-7" if setup["verbs"] else ""
+    ds_name += "-8" if setup["key_words"] else ""
+    ds_name += "-9" if setup["text_stats"] else ""
+    
+    return ds_name
 
 # Save error analysis
 def save_error_ids(error_ids, X_test):
@@ -62,6 +79,7 @@ def start_app():
         result_folder = app_setup["result_folder"]
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
+        curr_dataset = get_curr_dataset_name(data_setup)
         y_label = app_setup["y_label"]
         
         # 1. Machine Learning engine object
@@ -89,8 +107,8 @@ def start_app():
         
         # 8. Save model params and results
         results = []
-        results.append(["dataset 1", "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
-        results.append(["dataset 1", "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
+        results.append([curr_dataset, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
+        results.append([curr_dataset, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
         model_id = save_results(result_folder, results)
         
         # 9. Create and save model
