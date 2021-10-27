@@ -13,6 +13,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -100,6 +101,18 @@ public class FunctionUtils {
      */
     public static <T> List<T> listFromMapKeys(Map<T, ?> map) {
         List<T> list = new ArrayList<>(map.keySet());
+        return list;
+    }
+    
+        /**
+     * 
+     * @param <T>
+     * @param set
+     * @return 
+     */
+    public static <T> List<T> listFromSet(Set<T> set) {
+        List<T> list = new ArrayList<>();
+        list.addAll(set);
         return list;
     }
     

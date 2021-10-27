@@ -28,7 +28,7 @@ def read_app_setup() -> dict:
 
 # Return current dataset name composed by a coding map
 def get_curr_dataset_name(setup:dict) -> str:
-    ds_name = "dataset"
+    ds_name = "ds"
     
     ds_name += "-0" if setup["remove_stopwords"] else ""
     ds_name += "-1" if setup["punctuation"] else ""

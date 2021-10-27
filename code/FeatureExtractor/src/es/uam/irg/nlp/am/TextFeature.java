@@ -194,7 +194,7 @@ public class TextFeature {
             this.numberSubclauses = phraseList.size();
             
             // 2.3. Group them into couple-of-words
-            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams, true);
+            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams);
             
             // 2.4. Get list of keywords
             this.keyWords = FeatureUtils.getUsedLinkerList(this.unigrams, this.lexicon);

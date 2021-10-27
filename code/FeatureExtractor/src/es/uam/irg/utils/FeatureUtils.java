@@ -8,9 +8,9 @@ package es.uam.irg.utils;
 import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +27,7 @@ public class FeatureUtils {
      * @return 
      */
     public static List<String> getUsedLinkerList(List<String> vocabulary, List<ArgumentLinker> lexicon) {
-        Map<String, Boolean> linkers = new HashMap<>();
+        Set<String> linkers = new HashSet<>();
         String[] tokens = vocabulary.toArray(new String[0]);
         String nGram;
         
@@ -35,8 +35,8 @@ public class FeatureUtils {
             for (ArgumentLinker linker : lexicon) {
                 nGram = getNGram(tokens, i, i + linker.nTokens);
                 
-                if (linker.isEquals(nGram) && !linkers.containsKey(linker.linker)) {
-                    linkers.put(linker.linker, true);
+                if (linker.isEquals(nGram)) {
+                    linkers.add(linker.linker);
                     i += linker.nTokens - 1;
                     break;
                 }
@@ -44,30 +44,27 @@ public class FeatureUtils {
         }
         
         // Convert map keys to arraylist
-        return FunctionUtils.listFromMapKeys(linkers);
+        return FunctionUtils.listFromSet(linkers);
     }
     
     /**
      * 
      * @param vocabulary
-     * @param removeEquals
      * @return 
      */
-    public static List<String> getWordCouples(List<String> vocabulary, boolean removeEquals) {
-        Map<String, Boolean> wordCouples = new HashMap<>();
+    public static List<String> getWordCouples(List<String> vocabulary) {
+        Set<String> wordCouples = new HashSet<>();
         String wordPairs;
         
         for (int i=0; i < vocabulary.size() - 1; i++) {
             for (int j=i+1; j < vocabulary.size(); j++) {
                 wordPairs = vocabulary.get(i) + "-" + vocabulary.get(j);
-                if (!removeEquals || !wordCouples.containsKey(wordPairs)) {
-                    wordCouples.put(wordPairs, true);
-                }
+                wordCouples.add(wordPairs);
             }
         }
         
         // Convert map keys to arraylist
-        return FunctionUtils.listFromMapKeys(wordCouples);
+        return FunctionUtils.listFromSet(wordCouples);
     }
     
     /**
