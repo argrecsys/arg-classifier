@@ -1,5 +1,8 @@
 package es.uam.irg.utils;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -87,6 +90,26 @@ public class StringUtils {
     }
     
     /**
+     * 
+     * @param str
+     * @param dateFormat
+     * @return 
+     */
+    public static boolean isDateTime(String str, String dateFormat) {
+        DateFormat sdf = new SimpleDateFormat(dateFormat);
+        sdf.setLenient(false);
+        
+        try {
+            sdf.parse(str);
+        }
+        catch (ParseException e) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
      *
      * @param str
      * @return
@@ -96,17 +119,38 @@ public class StringUtils {
     }
     
     /**
+     * 
+     * @param str
+     * @return 
+     */
+    public static boolean isNumeric(String str) {
+ 
+        if (isEmpty(str)) {
+            return false;
+        }
+ 
+        try {
+            Double.parseDouble(str);
+        }
+        catch (NumberFormatException e) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
      *
      * @param str
      * @return
      */
-    public static boolean isValidWord(String str) {
-        // Checks if the String is null or empty
+    public static boolean isValidToken(String str) {
+        
         if (isEmpty(str)) {
             return false;
         }
         
-        return Character.isLetter(str.charAt(0));
+        return (Character.isLetter(str.charAt(0)) || (str.charAt(0) == '$' && str.charAt(str.length()-1) == '$'));
     }
     
     /**

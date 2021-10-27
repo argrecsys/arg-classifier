@@ -32,7 +32,6 @@ public class TextFeature {
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
-    private boolean filterNonwords;
     private String id;
     private boolean isValid;
     private List<String> keyWords;
@@ -56,10 +55,9 @@ public class TextFeature {
      * @param text
      * @param lexicon
      */
-    public TextFeature(ArgumentEngine argEngine, String id, String text, List<ArgumentLinker> lexicon, boolean filterNonwords) {
+    public TextFeature(ArgumentEngine argEngine, String id, String text, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
-        this.filterNonwords = filterNonwords;
         this.id = id;
         this.text = text;
         this.unigrams = new ArrayList<>();
@@ -139,20 +137,33 @@ public class TextFeature {
                 String puntMark = StringUtils.cleanPuntuationMark(currWord);
                 this.punctuation.add(puntMark);
             }
-            else if (!filterNonwords || StringUtils.isValidWord(currWord)) {
-                // Second filter
-                this.unigrams.add(currWord);
-                this.avgWordLength += currWord.length();
+            else {
+                // First filter
+                if (StringUtils.isNumeric(currWord)) {
+                    currWord = "$number$";
+                }
+                else if (StringUtils.isDateTime(currWord, "dd/MM/yyyy")) {
+                    currWord = "$date$";
+                }
+                else if (StringUtils.isDateTime(currWord, "HH:mm")) {
+                    currWord = "$time$";
+                }
                 
-                // Adding POS tags
-                if (posTag.equals("VERB") && currWord.length() > 1) {
-                    this.verbs.add(currWord);
-                }
-                else if (posTag.equals("ADV")) {
-                    this.adverbs.add(currWord);
-                }
-                else if (posTag.equals("AUX")) {
-                    this.modalAuxs.add(currWord);
+                // Second filter
+                if (StringUtils.isValidToken(currWord)) {
+                    this.unigrams.add(currWord);
+                    this.avgWordLength += currWord.length();
+
+                    // Adding POS tags
+                    if (posTag.equals("VERB") && currWord.length() > 1) {
+                        this.verbs.add(currWord);
+                    }
+                    else if (posTag.equals("ADV")) {
+                        this.adverbs.add(currWord);
+                    }
+                    else if (posTag.equals("AUX")) {
+                        this.modalAuxs.add(currWord);
+                    }
                 }
             }
         }
