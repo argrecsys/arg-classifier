@@ -180,19 +180,21 @@ public class TextFeature {
             String wordN_2 = "";
             
             for (String word : this.unigrams) {
-
-                if (!wordN_1.equals("")) {
-                    bigram = wordN_1 + "-" + word;
-                    this.bigrams.add(bigram);
-
-                    if (!wordN_2.equals("")) {
-                        trigram = wordN_2 + "-" + wordN_1 + "-" + word;
-                        this.trigrams.add(trigram);
-                    }
+                bigram = (wordN_1.isEmpty() ? "$init$" : wordN_1) + "-" + word;
+                this.bigrams.add(bigram);
+                
+                if (!wordN_1.isEmpty()) {
+                    trigram = (wordN_2.isEmpty() ? "$init$" : wordN_2) + "-" + bigram;
+                    this.trigrams.add(trigram);
                 }
+                
                 wordN_2 = wordN_1;
                 wordN_1 = word;
             }
+            bigram = wordN_1 + "-$end$";
+            trigram = wordN_2 + "-" + bigram;
+            this.bigrams.add(bigram);
+            this.trigrams.add(trigram);
             
             // 2.2. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
@@ -210,7 +212,7 @@ public class TextFeature {
             // 2.4. Get list of keywords
             this.keyWords = FeatureUtils.getUsedLinkerList(this.unigrams, this.lexicon);
             
-            // 2.5. Save state
+            // 2.5. Save valid state
             this.isValid = true;
         }
         
