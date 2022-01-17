@@ -5,7 +5,6 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.nlp.am.Constants;
 import es.uam.irg.nlp.am.TextFeature;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
@@ -34,6 +33,8 @@ import org.yaml.snakeyaml.Yaml;
  * @author ansegura
  */
 public class IOManager {
+
+    private static final String LEXICON_FILEPATH = "Resources/dataset/argument_lexicon_{}.csv";
 
     private static final HashSet<String> INVALID_LINKERS = new HashSet(Arrays.asList("e", "ni", "o", "y"));
     private static final HashSet<String> VALID_LINKERS = new HashSet();
@@ -97,7 +98,7 @@ public class IOManager {
      */
     public static ArgumentLinkerManager readLinkerTaxonomy(String lang, boolean verbose) {
         ArgumentLinkerManager linkers = new ArgumentLinkerManager();
-        String lexiconFilepath = Constants.LEXICON_FILEPATH.replace("{}", lang);
+        String lexiconFilepath = LEXICON_FILEPATH.replace("{}", lang);
 
         try {
             // Get the file

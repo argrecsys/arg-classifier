@@ -22,9 +22,12 @@ import java.util.logging.Logger;
  */
 public class FeatureExtractor {
 
+    // Class constants
+    private static final String FEATURES_FILEPATH = "../../dataset/features.json";
+
     // Class members
     private final ArgumentEngine argEngine;
-    private boolean createDataset;
+    private final boolean createDataset;
     private ArgumentLinkerManager lnkManager;
 
     /**
@@ -76,7 +79,7 @@ public class FeatureExtractor {
             // 4. Save results (final dataset)
             if (features != null) {
                 System.out.println(">> Total propositions with features: " + features.size());
-                result = IOManager.saveTextFeatures(Constants.FEATURES_FILEPATH, features);
+                result = IOManager.saveTextFeatures(FEATURES_FILEPATH, features);
             }
         } catch (Exception ex) {
             Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);

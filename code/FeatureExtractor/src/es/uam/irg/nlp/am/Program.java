@@ -19,7 +19,7 @@ public class Program {
         System.out.println(">> FEAT-EXTRACTOR BEGINS");
 
         // Program hyperparameters with default values
-        String language = Constants.LANG_ES;
+        String language = "es";
         String extractionMode = FeatureExtractor.Mode.ARG_DET.name();
         boolean createDataset = false;
 
