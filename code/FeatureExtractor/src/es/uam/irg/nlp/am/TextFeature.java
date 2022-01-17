@@ -22,13 +22,13 @@ import java.util.List;
  * @author ansegura
  */
 public class TextFeature {
-    
+
     // Class contants
-    public final static int MIN_LENGTH = 3;
-    public final static String SPECIAL_PUNCT = "¡!¿?'%:";
-    
+    public static final int MIN_LENGTH = 3;
+    public static final String SPECIAL_PUNCT = "¡!¿?'%:";
+
     // Class variables
-    private List<String> adverbs;    
+    private List<String> adverbs;
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
@@ -47,9 +47,9 @@ public class TextFeature {
     private List<String> unigrams;
     private List<String> verbs;
     private List<String> wordCouples;
-    
+
     /**
-     * 
+     *
      * @param argEngine
      * @param id
      * @param text
@@ -76,26 +76,26 @@ public class TextFeature {
         this.numberSubclauses = 0;
         this.isValid = false;
     }
-    
+
     /**
      * Runs feature extraction method.
      */
     public void extraction() {
-        
+
         // NLP-processing
         if (this.textLength >= MIN_LENGTH) {
             extractFeatures();
         }
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getID() {
         return this.id;
     }
-    
+
     /**
      *
      * @return
@@ -103,52 +103,49 @@ public class TextFeature {
     public boolean isValid() {
         return this.isValid;
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
         String str = "{\"unigrams\": %s, \"bigrams\": %s, \"trigrams\": %s, \"adverbs\": %s, \"verbs\": %s, \"modal_aux\": %s,"
-                   + " \"word_couples\": %s, \"punctuation\": %s, \"key_words\": %s, \"text_length\": %d, \"avg_word_length\": %d,"
-                   + " \"number_punct_marks\": %d, \"parse_tree_depth\": %d, \"number_sub_clauses\": %d}";
-        str = String.format(str, listToString(unigrams), listToString(bigrams), listToString(trigrams), listToString(adverbs), 
-                listToString(verbs), listToString(modalAuxs), listToString(wordCouples), listToString(punctuation), 
+                + " \"word_couples\": %s, \"punctuation\": %s, \"key_words\": %s, \"text_length\": %d, \"avg_word_length\": %d,"
+                + " \"number_punct_marks\": %d, \"parse_tree_depth\": %d, \"number_sub_clauses\": %d}";
+        str = String.format(str, listToString(unigrams), listToString(bigrams), listToString(trigrams), listToString(adverbs),
+                listToString(verbs), listToString(modalAuxs), listToString(wordCouples), listToString(punctuation),
                 listToString(keyWords), textLength, avgWordLength, numberPunctMarks, parseTreeDepth, numberSubclauses);
         return str;
     }
-    
+
     /**
-     * 
+     *
      */
     private void extractFeatures() {
         CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
         String currWord;
         String posTag;
-        
+
         // 1. Split sentences into words
         for (CoreLabel token : nlpDoc.tokens()) {
             currWord = token.word();
             posTag = token.tag();
-            
+
             // Adding words
             if ((posTag.equals("PUNCT") && !currWord.startsWith("etc")) || SPECIAL_PUNCT.indexOf(currWord.charAt(0)) >= 0) {
                 String puntMark = StringUtils.cleanPuntuationMark(currWord);
                 this.punctuation.add(puntMark);
-            }
-            else {
+            } else {
                 // First filter
                 if (StringUtils.isNumeric(currWord)) {
                     currWord = "$number$";
-                }
-                else if (StringUtils.isDateTime(currWord, "dd/MM/yyyy")) {
+                } else if (StringUtils.isDateTime(currWord, "dd/MM/yyyy")) {
                     currWord = "$date$";
-                }
-                else if (StringUtils.isDateTime(currWord, "HH:mm")) {
+                } else if (StringUtils.isDateTime(currWord, "HH:mm")) {
                     currWord = "$time$";
                 }
-                
+
                 // Second filter
                 if (StringUtils.isValidToken(currWord)) {
                     this.unigrams.add(currWord);
@@ -157,37 +154,35 @@ public class TextFeature {
                     // Adding POS tags
                     if (posTag.equals("VERB") && currWord.length() > 1) {
                         this.verbs.add(currWord);
-                    }
-                    else if (posTag.equals("ADV")) {
+                    } else if (posTag.equals("ADV")) {
                         this.adverbs.add(currWord);
-                    }
-                    else if (posTag.equals("AUX")) {
+                    } else if (posTag.equals("AUX")) {
                         this.modalAuxs.add(currWord);
                     }
                 }
             }
         }
-        
+
         // 2. If the sentence has valid words...
         if (this.unigrams.size() > 0) {
             this.avgWordLength /= this.unigrams.size();
             this.numberPunctMarks = this.punctuation.size();
-            
+
             // 2.1 Group them into n-grams
             String bigram;
             String trigram;
             String wordN_1 = "";
             String wordN_2 = "";
-            
+
             for (String word : this.unigrams) {
                 bigram = (wordN_1.isEmpty() ? "$init$" : wordN_1) + "-" + word;
                 this.bigrams.add(bigram);
-                
+
                 if (!wordN_1.isEmpty()) {
                     trigram = (wordN_2.isEmpty() ? "$init$" : wordN_2) + "-" + bigram;
                     this.trigrams.add(trigram);
                 }
-                
+
                 wordN_2 = wordN_1;
                 wordN_1 = word;
             }
@@ -195,43 +190,44 @@ public class TextFeature {
             trigram = wordN_2 + "-" + bigram;
             this.bigrams.add(bigram);
             this.trigrams.add(trigram);
-            
+
             // 2.2. Create the parse tree
             List<Phrase> phraseList = getPhraseList();
-            
+
             phraseList.forEach((Phrase frase) -> {
                 if (frase.depth > this.parseTreeDepth) {
                     this.parseTreeDepth = frase.depth;
                 }
             });
             this.numberSubclauses = phraseList.size();
-            
+
             // 2.3. Group them into couple-of-words
             this.wordCouples = FeatureUtils.getWordCouples(this.unigrams);
-            
+
             // 2.4. Get list of keywords
             this.keyWords = FeatureUtils.getUsedLinkerList(this.unigrams, this.lexicon);
-            
+
             // 2.5. Save valid state
             this.isValid = true;
         }
-        
+
     }
-    
+
     /**
      * Get phrase list.
-     * @return 
+     *
+     * @return
      */
     private List<Phrase> getPhraseList() {
         Tree tree = this.argEngine.getTree(this.text);
         List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
         return phraseList;
     }
-    
+
     /**
-     * 
+     *
      * @param list
-     * @return 
+     * @return
      */
     private String listToString(List<String> list) {
         String separator = "\"";
@@ -241,5 +237,5 @@ public class TextFeature {
         }
         return "[" + result + "]";
     }
-    
+
 }

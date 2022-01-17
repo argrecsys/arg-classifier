@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class StringUtils {
-    
+
     // Class contants
     public static final String CLEAN_BOTH = "both";
     public static final String CLEAN_LEFT = "left";
@@ -31,11 +31,11 @@ public class StringUtils {
             + "\u00C5\u00E5" // ring
             + "\u00C7\u00E7" // cedilla
             ;
-    
+
     /**
-     * 
+     *
      * @param punctMark
-     * @return 
+     * @return
      */
     public static String cleanPuntuationMark(String punctMark) {
         String newPunctMark = punctMark;
@@ -44,12 +44,12 @@ public class StringUtils {
         }
         return newPunctMark;
     }
-    
+
     /**
-     * 
+     *
      * @param text
      * @param direction
-     * @return 
+     * @return
      */
     public static String cleanText(String text, String direction) {
         String newText = rightCleanText(text);
@@ -58,12 +58,12 @@ public class StringUtils {
         }
         return newText.trim();
     }
-    
+
     /**
-     * 
+     *
      * @param str
      * @param delimiter
-     * @return 
+     * @return
      */
     public static String getFirstToken(String str, String delimiter) {
         String firstToken = "";
@@ -73,12 +73,12 @@ public class StringUtils {
         }
         return firstToken;
     }
-    
+
     /**
-     * 
+     *
      * @param str
      * @param delimiter
-     * @return 
+     * @return
      */
     public static String getLastToken(String str, String delimiter) {
         String lastToken = "";
@@ -88,27 +88,26 @@ public class StringUtils {
         }
         return lastToken;
     }
-    
+
     /**
-     * 
+     *
      * @param str
      * @param dateFormat
-     * @return 
+     * @return
      */
     public static boolean isDateTime(String str, String dateFormat) {
         DateFormat sdf = new SimpleDateFormat(dateFormat);
         sdf.setLenient(false);
-        
+
         try {
             sdf.parse(str);
-        }
-        catch (ParseException e) {
+        } catch (ParseException e) {
             return false;
         }
-        
+
         return true;
     }
-    
+
     /**
      *
      * @param str
@@ -117,61 +116,63 @@ public class StringUtils {
     public static boolean isEmpty(String str) {
         return (str == null || str.trim().length() == 0);
     }
-    
+
     /**
-     * 
+     *
      * @param str
-     * @return 
+     * @return
      */
     public static boolean isNumeric(String str) {
- 
+
         if (isEmpty(str)) {
             return false;
         }
- 
+
         try {
             Double.parseDouble(str);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
-        
+
         return true;
     }
-    
+
     /**
      *
      * @param str
      * @return
      */
     public static boolean isValidToken(String str) {
-        
+
         if (isEmpty(str)) {
             return false;
         }
-        
-        return (Character.isLetter(str.charAt(0)) || (str.charAt(0) == '$' && str.charAt(str.length()-1) == '$'));
+
+        return (Character.isLetter(str.charAt(0)) || (str.charAt(0) == '$' && str.charAt(str.length() - 1) == '$'));
     }
-    
+
     /**
-     * <p>Left pad a String with spaces (' ').</p>
+     * <p>
+     * Left pad a String with spaces (' ').</p>
      *
-     * @param str  the String to pad out, may be null
-     * @param size  the size to pad to
-     * @return left padded String or original String if no padding is necessary, {@code null} if null String input
+     * @param str the String to pad out, may be null
+     * @param size the size to pad to
+     * @return left padded String or original String if no padding is necessary,
+     * {@code null} if null String input
      */
     public static String leftPad(String str, int size) {
         return leftPad(str, size, ' ');
     }
-    
+
     /**
      * Left pad a String with spaces (' ').
-     * 
      *
-     * @param str  the String to pad out, may be null
-     * @param size  the size to pad to
-     * @param padChar  the character to pad with
-     * @return left padded String or original String if no padding is necessary, {@code null} if null String input
+     *
+     * @param str the String to pad out, may be null
+     * @param size the size to pad to
+     * @param padChar the character to pad with
+     * @return left padded String or original String if no padding is necessary,
+     * {@code null} if null String input
      */
     public static String leftPad(String str, int size, char padChar) {
         if (str == null) {
@@ -179,7 +180,7 @@ public class StringUtils {
         }
         return repeat(padChar, size).concat(str);
     }
-    
+
     /**
      * Computes the Levensthein distance between two given strings.
      *
@@ -197,7 +198,7 @@ public class StringUtils {
         char s_i; // ith character of s
         char t_j; // jth character of t
         int cost; // cost
-        
+
         // Step 1    
         n = s.length();
         m = t.length();
@@ -241,12 +242,12 @@ public class StringUtils {
         // Step 7
         return d[n][m];
     }
-    
+
     /**
      * Returns padding using the specified delimiter repeated to a given length.
      *
-     * @param ch  character to repeat
-     * @param repeat  number of times to repeat char, negative treated as zero
+     * @param ch character to repeat
+     * @param repeat number of times to repeat char, negative treated as zero
      * @return String with repeated character
      * @see #repeat(String, int)
      */
@@ -258,23 +259,22 @@ public class StringUtils {
         Arrays.fill(buf, ch);
         return new String(buf);
     }
-    
+
     /**
-     * 
+     *
      * @param str
-     * @return 
+     * @return
      */
-    public static String reverse(String str)
-    { 
+    public static String reverse(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.reverse();
         return sb.toString();
     }
-    
+
     /**
-     * 
+     *
      * @param s
-     * @return 
+     * @return
      */
     public static String splitCamelCaseString(String s) {
         LinkedList<String> tokens = _splitCamelCaseString(s);
@@ -285,7 +285,7 @@ public class StringUtils {
         s2 = s2.trim();
         return s2;
     }
-    
+
     /**
      * Converts a non ASCII string to an ASCII string.
      *
@@ -309,9 +309,10 @@ public class StringUtils {
         }
         return sb.toString();
     }
-    
+
     /**
      * Accept a string, like aCamelString
+     *
      * @param s
      * @return a list containing strings, in this case, [a, Camel, String]
      */
@@ -322,13 +323,13 @@ public class StringUtils {
         }
         return result;
     }
-    
+
     /**
-     * 
+     *
      * @param a
      * @param b
      * @param c
-     * @return 
+     * @return
      */
     private static int minimum(int a, int b, int c) {
         int mi;
@@ -343,7 +344,7 @@ public class StringUtils {
 
         return mi;
     }
-    
+
     /**
      *
      * @param text
@@ -356,5 +357,5 @@ public class StringUtils {
         newText = newText.replaceAll("\\!+$", "");
         return newText;
     }
-    
+
 }

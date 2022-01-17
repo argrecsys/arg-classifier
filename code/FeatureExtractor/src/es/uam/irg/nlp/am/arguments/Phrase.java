@@ -10,28 +10,28 @@ package es.uam.irg.nlp.am.arguments;
  * @author ansegura
  */
 public class Phrase {
-    
+
     // Class members
-    public int depth;    
+    public int depth;
     public String function;
     public String text;
-    
+
     /**
      * Class constructor.
-     * 
+     *
      * @param text
      * @param function
-     * @param depth 
+     * @param depth
      */
     public Phrase(String text, String function, int depth) {
         this.text = text;
         this.function = function;
         this.depth = depth;
-    }    
-    
+    }
+
     @Override
     public String toString() {
         return String.format("%s > %s [%s]", this.text, this.function, this.depth);
     }
-    
+
 }

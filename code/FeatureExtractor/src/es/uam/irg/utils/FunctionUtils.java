@@ -6,7 +6,6 @@
 package es.uam.irg.utils;
 
 import es.uam.irg.io.IOManager;
-import es.uam.irg.nlp.am.Constants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -21,7 +20,13 @@ import java.util.stream.Collectors;
  * @author ansegura
  */
 public class FunctionUtils {
-    
+
+    // Class constants
+    public static final String MONGO_DB = "MONGO_DB";
+    public static final String MYSQL_DB = "MYSQL_DB";
+    private static final String MSQL_SETUP_FILEPATH = "Resources/config/msql_setup.yaml";
+    private static final String MDB_SETUP_FILEPATH = "Resources/config/mdb_setup.yaml";
+
     /**
      *
      * @param <T>
@@ -31,20 +36,20 @@ public class FunctionUtils {
      */
     public static <T> String arrayToString(T[] array, String delimiter) {
         String result = "";
-        
+
         if (array != null && array.length > 0) {
             StringBuilder sb = new StringBuilder();
-            
+
             for (T item : array) {
                 sb.append(item.toString()).append(delimiter);
             }
-            
+
             result = sb.deleteCharAt(sb.length() - 1).toString();
         }
-        
+
         return result;
     }
-    
+
     /**
      *
      * @param array
@@ -54,25 +59,24 @@ public class FunctionUtils {
         array = array.replace("[", "").replace("]", "");
         return new ArrayList<>(Arrays.asList(array.split(",")));
     }
-    
+
     /**
-     * 
+     *
      * @param dbType
-     * @return 
+     * @return
      */
     public static Map<String, Object> getDatabaseConfiguration(String dbType) {
         Map<String, Object> setup = null;
-        
-        if (dbType.equals(Constants.MYSQL_DB)) {
-            setup = IOManager.readYamlFile(Constants.MSQL_SETUP_FILEPATH);
+
+        if (dbType.equals(MYSQL_DB)) {
+            setup = IOManager.readYamlFile(MSQL_SETUP_FILEPATH);
+        } else if (dbType.equals(MONGO_DB)) {
+            setup = IOManager.readYamlFile(MDB_SETUP_FILEPATH);
         }
-        else if (dbType.equals(Constants.MONGO_DB)) {
-            setup = IOManager.readYamlFile(Constants.MDB_SETUP_FILEPATH);
-        }
-        
+
         return setup;
     }
-    
+
     /**
      *
      * @param <T>
@@ -84,38 +88,37 @@ public class FunctionUtils {
      */
     public static <T> T[] getSubArray(T[] array, int startIx, int endIndex) throws Exception {
         T[] newArray = null;
-        
+
         if (startIx >= 0 && endIndex <= array.length) {
             newArray = Arrays.copyOfRange(array, startIx, endIndex);
         }
-        
+
         return newArray;
     }
-    
-    
+
     /**
-     * 
+     *
      * @param <T>
      * @param map
-     * @return 
+     * @return
      */
     public static <T> List<T> listFromMapKeys(Map<T, ?> map) {
         List<T> list = new ArrayList<>(map.keySet());
         return list;
     }
-    
+
     /**
-     * 
+     *
      * @param <T>
      * @param set
-     * @return 
+     * @return
      */
     public static <T> List<T> listFromSet(Set<T> set) {
         List<T> list = new ArrayList<>();
         list.addAll(set);
         return list;
     }
-    
+
     /**
      *
      * @param list
@@ -123,9 +126,9 @@ public class FunctionUtils {
      * @return
      */
     public static String listToString(List<String> list, String sep) {
-        return list.stream().collect(Collectors.joining(sep+","+sep, sep, sep));
+        return list.stream().collect(Collectors.joining(sep + "," + sep, sep, sep));
     }
-    
+
     /**
      *
      * @param map
@@ -139,8 +142,8 @@ public class FunctionUtils {
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
-        
+
         return reverseSortedMap;
     }
-    
+
 }

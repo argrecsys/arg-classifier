@@ -17,7 +17,7 @@ import java.util.Map;
  * @author ansegura
  */
 public class ArgumentLinkerManager {
-    
+
     // Class variable
     private Map<String, Map<String, List<ArgumentLinker>>> taxonomy;
 
@@ -34,25 +34,23 @@ public class ArgumentLinkerManager {
      * @param linker
      */
     public void addLinker(ArgumentLinker linker) {
-        
+
         Map<String, List<ArgumentLinker>> subcategory;
         if (this.taxonomy.containsKey(linker.category)) {
             subcategory = this.taxonomy.get(linker.category);
-        }
-        else {
+        } else {
             subcategory = new HashMap<>();
             this.taxonomy.put(linker.category, subcategory);
         }
-        
+
         List<ArgumentLinker> linkers;
         if (subcategory.containsKey(linker.subCategory)) {
             linkers = subcategory.get(linker.subCategory);
-        }
-        else {
+        } else {
             linkers = new ArrayList<>();
             subcategory.put(linker.subCategory, linkers);
         }
-        
+
         linkers.add(linker);
     }
 
@@ -68,26 +66,26 @@ public class ArgumentLinkerManager {
         ArgumentLinker linker = new ArgumentLinker(category, subCategory, relationType, linkerText);
         this.addLinker(linker);
     }
-    
+
     /**
-     * 
+     *
      * @param sorted
-     * @return 
+     * @return
      */
     public List<ArgumentLinker> getLexicon(boolean sorted) {
         List<ArgumentLinker> lexicon = new ArrayList<>();
-        
+
         this.taxonomy.entrySet().forEach(entry -> {
             for (Map.Entry<String, List<ArgumentLinker>> subentry : entry.getValue().entrySet()) {
                 List<ArgumentLinker> items = subentry.getValue();
-                
+
                 for (int i = 0; i < items.size(); i++) {
                     ArgumentLinker currLinker = items.get(i);
                     lexicon.add(currLinker);
                 }
             }
         });
-        
+
         // Sort list
         if (sorted) {
             Collections.sort(lexicon, new Comparator<ArgumentLinker>() {
@@ -97,10 +95,10 @@ public class ArgumentLinkerManager {
                 }
             });
         }
-        
+
         return lexicon;
     }
-    
+
     /**
      *
      * @return
@@ -108,13 +106,13 @@ public class ArgumentLinkerManager {
     public Map<String, Map<String, List<ArgumentLinker>>> getTaxonomy() {
         return this.taxonomy;
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean isEmpty() {
         return (this.taxonomy.isEmpty());
     }
-    
+
 }
