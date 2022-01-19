@@ -1,0 +1,17 @@
+{
+    "createDataset": true,
+    "extractionMode": "detection",
+    "language": "es",
+    "linkers": {
+        "en": {
+            "invalidAspects": ["also", "thing", "mine", "sometimes", "too", "other"],
+            "invalidLinkers": ["and", "or"],
+            "validLinkers": []
+        },
+        "es": {
+            "invalidAspects": ["tambien", "cosa", "mia", "veces", "ademas", "demas"],
+            "invalidLinkers": ["o", "y"],
+            "validLinkers": []
+        }
+    }
+}

@@ -25,7 +25,7 @@ public class ArgumentEngine {
     private static final String SPANISH_PROPERTIES = "Resources/config/StanfordCoreNLP-spanish.properties";
 
     // Class members
-    private String language;
+    private final String language;
     private StanfordCoreNLP pipeline;
 
     /**

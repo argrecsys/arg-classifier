@@ -62,20 +62,24 @@ public class MongoDbManager {
      */
     public MongoDbManager(Map<String, Object> setup) {
         try {
-            if (setup != null && setup.size() == 3) {
+            if (setup != null && setup.size() == 4) {
                 String client = setup.get("db_server").toString();
                 int port = Integer.parseInt(setup.get("db_port").toString());
                 String database = setup.get("db_name").toString();
+                String collection = setup.get("db_collection").toString();
 
                 this.mongoClient = new MongoClient(client, port);
                 this.db = mongoClient.getDatabase(database);
+                this.collName = collection;
             } else {
-                this.mongoClient = new MongoClient(DB_SERVER, DB_PORT);
-                this.db = mongoClient.getDatabase(DB_NAME);
+                this.mongoClient = null;
+                this.db = null;
+                this.collName = null;
             }
         } catch (Exception ex) {
             this.mongoClient = null;
             this.db = null;
+            this.collName = null;
         }
     }
 

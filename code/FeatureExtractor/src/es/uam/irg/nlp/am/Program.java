@@ -1,9 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Copyright 2021
+ * Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
 package es.uam.irg.nlp.am;
+
+import es.uam.irg.utils.InitParams;
+import java.util.HashSet;
+import java.util.Map;
 
 /**
  *
@@ -18,28 +34,19 @@ public class Program {
         // TODO code application logic here
         System.out.println(">> FEAT-EXTRACTOR BEGINS");
 
-        // Program hyperparameters with default values
-        String language = "es";
-        String extractionMode = FeatureExtractor.Mode.ARG_DET.name();
-        boolean createDataset = false;
-
-        // Read input parameters
-        if (args.length > 0) {
-            language = args[0].toLowerCase();
-
-            if (args.length > 1) {
-                extractionMode = args[1].toUpperCase();
-
-                if (args.length > 2) {
-                    createDataset = Boolean.parseBoolean(args[2]);
-                }
-            }
-        }
-        System.out.format(">> Language selected: %s, extraction mode: %s, and create dataset: %s\n",
-                language, extractionMode, createDataset);
+        // Program hyperparameters from JSON config file
+        Map<String, Object> params = InitParams.readInitParams();
+        String language = (String) params.get("language");
+        boolean createDataset = (boolean) params.get("createDataset");
+        String extractionMode = (String) params.get("extractionMode");
+        Map<String, HashSet<String>> linkers = (Map<String, HashSet<String>>) params.get("linkers");
+        HashSet<String> validLinkers = linkers.get("validLinkers");
+        HashSet<String> invalidLinkers = linkers.get("invalidLinkers");
+        System.out.format(">> Analysis language: %s, Create dataset? %s, Extraction mode: %s, Valid linkers: %s, Invalid linkers: %s\n",
+                language, createDataset, extractionMode, validLinkers, invalidLinkers);
 
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, createDataset);
+        FeatureExtractor miner = new FeatureExtractor(language, createDataset, validLinkers, invalidLinkers);
         boolean result = miner.runProgram(extractionMode);
 
         if (result) {
