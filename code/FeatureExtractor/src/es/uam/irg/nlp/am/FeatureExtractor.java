@@ -1,7 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Copyright 2021
+ * Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
 package es.uam.irg.nlp.am;
 
@@ -12,6 +24,7 @@ import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,25 +34,30 @@ import java.util.logging.Logger;
  * @author ansegura
  */
 public class FeatureExtractor {
-
+    
     // Class constants
+    private static final String ARG_CLF = "classification";
+    private static final String ARG_DET = "detection";
     private static final String FEATURES_FILEPATH = "../../dataset/features.json";
+    private static final boolean VERBOSE = true;
 
     // Class members
     private final ArgumentEngine argEngine;
     private final boolean createDataset;
-    private ArgumentLinkerManager lnkManager;
+    private final ArgumentLinkerManager lnkManager;
 
     /**
      * Class constructor.
      *
      * @param language
      * @param createDataset
+     * @param validLinkers
+     * @param invalidLinkers
      */
-    public FeatureExtractor(String language, boolean createDataset) {
+    public FeatureExtractor(String language, boolean createDataset, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
         this.argEngine = new ArgumentEngine(language);
         this.createDataset = createDataset;
-        this.lnkManager = createLinkerManager(language);
+        this.lnkManager = createLinkerManager(language, validLinkers, invalidLinkers);
     }
 
     /**
@@ -68,10 +86,10 @@ public class FeatureExtractor {
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features (temp dataset)
-            if (extractionMode.equals(Mode.ARG_DET.name())) {
+            if (extractionMode.equals(ARG_DET)) {
                 System.out.println(">> Argument detection features");
                 features = extractArgumentDetectionFeatures(rawData, lexicon);
-            } else if (extractionMode.equals(Mode.ARG_CLF.name())) {
+            } else if (extractionMode.equals(ARG_CLF)) {
                 System.out.println(">> Argument classification features");
                 features = extractArgumentClassificationFeatures(rawData, lexicon);
             }
@@ -89,12 +107,15 @@ public class FeatureExtractor {
     }
 
     /**
+     * Create the linker manager object.
      *
      * @param lang
+     * @param validLinkers
+     * @param invalidLinkers
      * @return
      */
-    private ArgumentLinkerManager createLinkerManager(String lang) {
-        return IOManager.readLinkerTaxonomy(lang, true);
+    private ArgumentLinkerManager createLinkerManager(String lang, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
+        return IOManager.readLinkerTaxonomy(lang, validLinkers, invalidLinkers, VERBOSE);
     }
 
     /**
@@ -126,11 +147,6 @@ public class FeatureExtractor {
         });
 
         return features;
-    }
-
-    public static enum Mode {
-        ARG_DET,
-        ARG_CLF
     }
 
 }

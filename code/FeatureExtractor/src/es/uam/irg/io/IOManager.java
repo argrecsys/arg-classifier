@@ -1,7 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Copyright 2021
+ * Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
 package es.uam.irg.io;
 
@@ -34,10 +46,8 @@ import org.yaml.snakeyaml.Yaml;
  */
 public class IOManager {
 
+    // Class constants
     private static final String LEXICON_FILEPATH = "Resources/dataset/argument_lexicon_{}.csv";
-
-    private static final HashSet<String> INVALID_LINKERS = new HashSet(Arrays.asList("e", "ni", "o", "y"));
-    private static final HashSet<String> VALID_LINKERS = new HashSet();
 
     /**
      *
@@ -91,12 +101,15 @@ public class IOManager {
     }
 
     /**
-     *
+     * Loads the taxonomy and lexicon of argumentative linkers.
+     * 
      * @param lang
+     * @param validLinkers
+     * @param invalidLinkers
      * @param verbose
-     * @return
+     * @return 
      */
-    public static ArgumentLinkerManager readLinkerTaxonomy(String lang, boolean verbose) {
+    public static ArgumentLinkerManager readLinkerTaxonomy(String lang, HashSet<String> validLinkers, HashSet<String> invalidLinkers, boolean verbose) {
         ArgumentLinkerManager linkers = new ArgumentLinkerManager();
         String lexiconFilepath = LEXICON_FILEPATH.replace("{}", lang);
 
@@ -124,7 +137,7 @@ public class IOManager {
                         linker = data[5];
 
                         // If the linker is a valid one and also not invalid... then add it
-                        if ((VALID_LINKERS.isEmpty() || VALID_LINKERS.contains(linker)) && (!INVALID_LINKERS.contains(linker))) {
+                        if ((validLinkers.isEmpty() || validLinkers.contains(linker)) && (!invalidLinkers.contains(linker))) {
                             linkers.addLinker(category, subCategory, relationType, linker);
                         }
                     }
