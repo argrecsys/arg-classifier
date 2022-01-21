@@ -1,7 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Copyright 2021
+ * Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
 package es.uam.irg.io;
 
@@ -32,7 +44,6 @@ public class Dataset {
 
     // Class members
     private ArgumentEngine argEngine;
-    private String filepath;
     private List<ArgumentLinker> lexicon;
     private Map<String, Object> mdbSetup;
     private Map<String, Object> msqlSetup;
@@ -46,7 +57,6 @@ public class Dataset {
     public Dataset(ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
-        this.filepath = DATASET_FILEPATH;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MYSQL_DB);
     }
@@ -85,7 +95,7 @@ public class Dataset {
         }
 
         // Save dataset file to disk
-        if (!IOManager.saveDatasetToCsvFile(this.filepath, dataset)) {
+        if (!IOManager.saveDatasetToCsvFile(DATASET_FILEPATH, dataset)) {
             throw new Exception("Exception - the file could not be created.");
         }
 
@@ -97,7 +107,7 @@ public class Dataset {
      * @return
      */
     public List<Proposition> getDataset() {
-        List<Proposition> dataset = IOManager.readDatasetToCsvFile(this.filepath);
+        List<Proposition> dataset = IOManager.readDatasetToCsvFile(DATASET_FILEPATH);
         return dataset;
     }
 
@@ -110,7 +120,7 @@ public class Dataset {
 
         try {
             DMDBManager dbManager = new DMDBManager(this.msqlSetup);
-            proposals = dbManager.selectProposals(Integer.MAX_VALUE, this.lexicon);
+            proposals = dbManager.selectProposals(this.lexicon);
             System.out.println(">> Number of proposals: " + proposals.size());
         } catch (Exception ex) {
             Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,22 +138,33 @@ public class Dataset {
 
         try {
             MongoDbManager dbManager = new MongoDbManager(this.mdbSetup);
-            List<Document> sentences = dbManager.getDocumentsWithArguments();
+            List<Document> sentences = dbManager.getDocumentsWithArguments(false);
+            System.out.println(">> Total sentences with arguments: " + sentences.size());
+            
+            // Temp variables
             String[] tokens;
+            int nTokens;
             ArgumentLinker linker;
 
             for (Document doc : sentences) {
                 tokens = doc.getString("argumentID").split("-");
+                nTokens = tokens.length;
                 linker = new ArgumentLinker(doc.get("linker", Document.class));
 
-                if (tokens.length == 2) {
-                    int sentID = Integer.parseInt(tokens[0]);
-                    int argID = Integer.parseInt(tokens[1]);
+                if (nTokens > 2) {
+                    int docID = Integer.parseInt(tokens[nTokens - 3]);
+                    int sentID = Integer.parseInt(tokens[nTokens - 2]);
+//                    int argID = Integer.parseInt(tokens[nTokens - 1]);
+//                    int annoID = 1000 * sentID + argID;
 
-                    if (!sentWithArgs.containsKey(sentID)) {
-                        sentWithArgs.put(sentID, new HashMap<>());
+                    if (!sentWithArgs.containsKey(docID)) {
+                        sentWithArgs.put(docID, new HashMap<>());
                     }
-                    sentWithArgs.get(sentID).put(argID, linker);
+                    if (!sentWithArgs.get(docID).containsKey(sentID)) {
+                        sentWithArgs.get(docID).put(sentID, linker);
+                    }
+                } else {
+                    System.out.println("-- ERROR!!!!!!!!!!!!");
                 }
             }
         } catch (NumberFormatException ex) {
