@@ -46,8 +46,8 @@ public class Program {
                 language, createDataset, extractionMode, validLinkers, invalidLinkers);
 
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, createDataset, validLinkers, invalidLinkers);
-        boolean result = miner.runProgram(extractionMode);
+        FeatureExtractor miner = new FeatureExtractor(language, validLinkers, invalidLinkers);
+        boolean result = miner.runProgram(extractionMode, createDataset);
 
         if (result) {
             System.out.println(">> The Feature Extractor engine was executed correctly.");

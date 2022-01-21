@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * @author ansegura
  */
 public class FeatureExtractor {
-    
+
     // Class constants
     private static final String ARG_CLF = "classification";
     private static final String ARG_DET = "detection";
@@ -43,29 +43,28 @@ public class FeatureExtractor {
 
     // Class members
     private final ArgumentEngine argEngine;
-    private final boolean createDataset;
     private final ArgumentLinkerManager lnkManager;
 
     /**
      * Class constructor.
      *
      * @param language
-     * @param createDataset
      * @param validLinkers
      * @param invalidLinkers
      */
-    public FeatureExtractor(String language, boolean createDataset, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
+    public FeatureExtractor(String language, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
         this.argEngine = new ArgumentEngine(language);
-        this.createDataset = createDataset;
         this.lnkManager = createLinkerManager(language, validLinkers, invalidLinkers);
     }
 
     /**
+     * Extracts the characteristics of the proposition file.
      *
      * @param extractionMode
+     * @param createDataset
      * @return
      */
-    public boolean runProgram(String extractionMode) {
+    public boolean runProgram(String extractionMode, boolean createDataset) {
         boolean result = false;
 
         // ML pipeline
@@ -78,7 +77,7 @@ public class FeatureExtractor {
 
             // 2. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine, lexicon);
-            if (this.createDataset) {
+            if (createDataset) {
                 rawData = ds.createDataset();
             } else {
                 rawData = ds.getDataset();
@@ -89,9 +88,13 @@ public class FeatureExtractor {
             if (extractionMode.equals(ARG_DET)) {
                 System.out.println(">> Argument detection features");
                 features = extractArgumentDetectionFeatures(rawData, lexicon);
+
             } else if (extractionMode.equals(ARG_CLF)) {
                 System.out.println(">> Argument classification features");
                 features = extractArgumentClassificationFeatures(rawData, lexicon);
+
+            } else {
+                System.err.println(">> Method not supported.");
             }
 
             // 4. Save results (final dataset)

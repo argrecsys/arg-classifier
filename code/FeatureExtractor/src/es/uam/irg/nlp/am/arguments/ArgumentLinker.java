@@ -1,7 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Copyright 2021
+ * Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
 package es.uam.irg.nlp.am.arguments;
 
@@ -14,9 +26,6 @@ import org.json.JSONObject;
  * @author ansegura
  */
 public class ArgumentLinker {
-
-    // Class constant
-    public static final String NO_ARGUMENT = "-";
 
     // Class members
     public String category;
@@ -63,6 +72,19 @@ public class ArgumentLinker {
         this.spLinker = linker.replace(" ", FeatureUtils.NGRAMS_DELIMITER);
     }
 
+    /**
+     *
+     * @param lnk
+     * @return
+     */
+    public boolean equals(ArgumentLinker lnk) {
+        return this.linker.equals(lnk.linker);
+    }
+
+    /**
+     *
+     * @return
+     */
     public Document getDocument() {
         Document doc = new Document();
         doc.append("linker", this.linker)
@@ -73,6 +95,10 @@ public class ArgumentLinker {
         return doc;
     }
 
+    /**
+     *
+     * @return
+     */
     public JSONObject getJSON() {
         JSONObject json = new JSONObject();
         json.put("linker", this.linker);
@@ -92,6 +118,10 @@ public class ArgumentLinker {
         return this.spLinker.equals(nGram);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return String.format("%s > %s > [%s] %s (%s)", this.category, this.subCategory, this.nTokens, this.linker, this.relationType);
