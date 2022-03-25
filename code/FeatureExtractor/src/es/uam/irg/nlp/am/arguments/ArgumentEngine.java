@@ -113,7 +113,7 @@ public class ArgumentEngine {
     }
 
     /**
-     * Configures CoreNLP properties according to the specified language.
+     * Creates the Stanford CoreNLP pipeline according to the specified language.
      */
     private void createPipeline() {
         Properties props = new Properties();

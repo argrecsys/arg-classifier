@@ -40,7 +40,7 @@ import org.bson.Document;
 public class Dataset {
 
     // Class constants
-    private static final String DATASET_FILEPATH = "../../dataset/propositions.csv";
+    private static final String DATASET_FILEPATH = "../../data/target/propositions.csv";
 
     // Class members
     private ArgumentEngine argEngine;
