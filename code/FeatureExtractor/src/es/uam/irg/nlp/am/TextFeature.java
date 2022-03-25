@@ -231,7 +231,7 @@ public class TextFeature {
      * @return
      */
     private List<Phrase> getPhraseList() {
-        Tree tree = this.argEngine.getTree(this.text);
+        Tree tree = this.argEngine.getConstituencyTree(this.text);
         List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
         return phraseList;
     }

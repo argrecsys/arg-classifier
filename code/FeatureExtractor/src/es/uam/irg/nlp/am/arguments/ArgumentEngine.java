@@ -21,6 +21,7 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
+import edu.stanford.nlp.util.CoreMap;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -103,15 +104,16 @@ public class ArgumentEngine {
      * @param text
      * @return
      */
-    public Tree getTree(String text) {
+    public Tree getConstituencyTree(String text) {
         Annotation annotation = new Annotation(text);
         pipeline.annotate(annotation);
-        Tree tree = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0).get(TreeCoreAnnotations.TreeAnnotation.class);
+        CoreMap sentence = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
+        Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
         return tree;
     }
 
     /**
-     * Configures CoreNLP properties according to the specified language.
+     * Creates the Stanford CoreNLP pipeline according to the specified language.
      */
     private void createPipeline() {
         Properties props = new Properties();

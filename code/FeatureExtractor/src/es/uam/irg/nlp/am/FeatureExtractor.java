@@ -38,7 +38,7 @@ public class FeatureExtractor {
     // Class constants
     private static final String ARG_CLF = "classification";
     private static final String ARG_DET = "detection";
-    private static final String FEATURES_FILEPATH = "../../dataset/features.json";
+    private static final String FEATURES_FILEPATH = "../../data/target/features.json";
     private static final boolean VERBOSE = true;
 
     // Class members
