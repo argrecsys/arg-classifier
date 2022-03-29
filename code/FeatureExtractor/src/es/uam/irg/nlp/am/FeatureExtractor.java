@@ -43,18 +43,21 @@ public class FeatureExtractor {
 
     // Class members
     private final ArgumentEngine argEngine;
+    private final Integer[] customProposalIds;
     private final ArgumentLinkerManager lnkManager;
 
     /**
      * Class constructor.
      *
      * @param language
+     * @param customProposalIds
      * @param validLinkers
      * @param invalidLinkers
      */
-    public FeatureExtractor(String language, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
+    public FeatureExtractor(String language, Integer[] customProposalIds, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
         this.argEngine = new ArgumentEngine(language);
         this.lnkManager = createLinkerManager(language, validLinkers, invalidLinkers);
+        this.customProposalIds = customProposalIds;
     }
 
     /**
@@ -76,9 +79,9 @@ public class FeatureExtractor {
             List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
 
             // 2. Create/get data (raw dataset)
-            Dataset ds = new Dataset(this.argEngine, lexicon);
+            Dataset ds = new Dataset(this.argEngine);
             if (createDataset) {
-                rawData = ds.createDataset();
+                rawData = ds.createDataset(customProposalIds);
             } else {
                 rawData = ds.getDataset();
             }
@@ -141,7 +144,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
 
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new TextFeature(this.argEngine, prop.getID(), prop.getText(), lexicon);
+            TextFeature tf = new TextFeature(this.argEngine, prop.getId(), prop.getText(), lexicon);
 
             tf.extraction();
             if (tf.isValid()) {

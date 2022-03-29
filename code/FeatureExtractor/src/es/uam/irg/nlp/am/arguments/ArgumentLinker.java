@@ -22,8 +22,7 @@ import org.bson.Document;
 import org.json.JSONObject;
 
 /**
- *
- * @author ansegura
+ * Argument linker class.
  */
 public class ArgumentLinker {
 
@@ -34,13 +33,6 @@ public class ArgumentLinker {
     public String relationType;
     public String subCategory;
     private String spLinker;
-
-    /**
-     * Empty constructor.
-     */
-    public ArgumentLinker() {
-        this("", "", "", "");
-    }
 
     /**
      * Regular constructor.
@@ -60,6 +52,7 @@ public class ArgumentLinker {
     }
 
     /**
+     * Alternative constructor.
      *
      * @param doc
      */
