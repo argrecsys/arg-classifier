@@ -28,8 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author ansegura
+ * Class of the argument extractor engine.
  */
 public class ArgumentEngine {
 
@@ -113,7 +112,8 @@ public class ArgumentEngine {
     }
 
     /**
-     * Creates the Stanford CoreNLP pipeline according to the specified language.
+     * Creates the Stanford CoreNLP pipeline according to the specified
+     * language.
      */
     private void createPipeline() {
         Properties props = new Properties();

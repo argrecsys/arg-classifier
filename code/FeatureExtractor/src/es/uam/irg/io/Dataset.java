@@ -34,13 +34,12 @@ import java.util.logging.Logger;
 import org.bson.Document;
 
 /**
- *
- * @author ansegura
+ * Creates and returns the main dataset of the ML pipeline.
  */
 public class Dataset {
 
     // Class constants
-    private static final String DATASET_FILEPATH = "../../data/target/propositions.csv";
+    private static final String DATASET_FILEPATH = "../../data/source/propositions.csv";
 
     // Class members
     private ArgumentEngine argEngine;
@@ -52,24 +51,23 @@ public class Dataset {
      * Class constructor
      *
      * @param argEngine
-     * @param lexicon
      */
-    public Dataset(ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
+    public Dataset(ArgumentEngine argEngine) {
         this.argEngine = argEngine;
-        this.lexicon = lexicon;
         this.mdbSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MONGO_DB);
         this.msqlSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MYSQL_DB);
     }
 
     /**
      *
+     * @param customProposalIds
      * @return @throws Exception
      */
-    public List<Proposition> createDataset() throws Exception {
+    public List<Proposition> createDataset(Integer[] customProposalIds) throws Exception {
         List<Proposition> dataset = new ArrayList<>();
 
         // Temporary variables
-        Map<Integer, DMProposal> proposals = getProposals();
+        Map<Integer, DMProposal> proposals = getProposals(customProposalIds);
         Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = getSentencesWithArguments();
         int proposalID;
         int sentenceID;
@@ -115,12 +113,12 @@ public class Dataset {
      *
      * @return
      */
-    private Map<Integer, DMProposal> getProposals() {
+    private Map<Integer, DMProposal> getProposals(Integer[] customProposalIds) {
         Map<Integer, DMProposal> proposals = null;
 
         try {
             DMDBManager dbManager = new DMDBManager(this.msqlSetup);
-            proposals = dbManager.selectProposals(this.lexicon);
+            proposals = dbManager.selectProposals(customProposalIds);
             System.out.println(">> Number of proposals: " + proposals.size());
         } catch (Exception ex) {
             Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,7 +126,7 @@ public class Dataset {
 
         return proposals;
     }
-
+    
     /**
      *
      * @return
@@ -140,7 +138,7 @@ public class Dataset {
             MongoDbManager dbManager = new MongoDbManager(this.mdbSetup);
             List<Document> sentences = dbManager.getDocumentsWithArguments(false);
             System.out.println(">> Total sentences with arguments: " + sentences.size());
-            
+
             // Temp variables
             String[] tokens;
             int nTokens;
@@ -154,8 +152,6 @@ public class Dataset {
                 if (nTokens > 2) {
                     int docID = Integer.parseInt(tokens[nTokens - 3]);
                     int sentID = Integer.parseInt(tokens[nTokens - 2]);
-//                    int argID = Integer.parseInt(tokens[nTokens - 1]);
-//                    int annoID = 1000 * sentID + argID;
 
                     if (!sentWithArgs.containsKey(docID)) {
                         sentWithArgs.put(docID, new HashMap<>());
@@ -164,7 +160,7 @@ public class Dataset {
                         sentWithArgs.get(docID).put(sentID, linker);
                     }
                 } else {
-                    System.out.println("-- ERROR!!!!!!!!!!!!");
+                    System.out.println("-- ERROR!");
                 }
             }
         } catch (NumberFormatException ex) {

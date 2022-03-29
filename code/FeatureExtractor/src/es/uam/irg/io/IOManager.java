@@ -64,8 +64,8 @@ public class IOManager {
             if (csvFile.exists()) {
                 BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
                 String row;
-                int proposalID;
-                int sentenceID;
+                int proposalId;
+                int sentenceId;
                 String text;
                 String linker;
                 String category;
@@ -77,13 +77,13 @@ public class IOManager {
                     int n = data.length;
 
                     if (n >= 6) {
-                        proposalID = Integer.parseInt(data[0]);
-                        sentenceID = Integer.parseInt(data[1]);
+                        proposalId = Integer.parseInt(data[0]);
+                        sentenceId = Integer.parseInt(data[1]);
                         text = getTextField(data);
                         linker = data[n - 3];
                         category = data[n - 2];
                         subCategory = data[n - 1];
-                        dataset.add(new Proposition(proposalID, sentenceID, text, new ArgumentLinker(category, subCategory, "", linker)));
+                        dataset.add(new Proposition(proposalId, sentenceId, text, new ArgumentLinker(category, subCategory, "", linker)));
                     }
                 }
 
@@ -101,12 +101,12 @@ public class IOManager {
 
     /**
      * Loads the taxonomy and lexicon of argumentative linkers.
-     * 
+     *
      * @param lang
      * @param validLinkers
      * @param invalidLinkers
      * @param verbose
-     * @return 
+     * @return
      */
     public static ArgumentLinkerManager readLinkerTaxonomy(String lang, HashSet<String> validLinkers, HashSet<String> invalidLinkers, boolean verbose) {
         ArgumentLinkerManager linkers = new ArgumentLinkerManager();
@@ -217,7 +217,7 @@ public class IOManager {
             for (Proposition prop : dataset) {
                 ArgumentLinker linker = prop.getLinker();
                 String line = String.format("%s,%s,\"%s\",%s,%s,%s\n",
-                        prop.getProposalID(), prop.getSentenceID(), prop.getText(), linker.linker, linker.category, linker.subCategory);
+                        prop.getProposalId(), prop.getSentenceId(), prop.getText(), linker.linker, linker.category, linker.subCategory);
                 fileWriter.write(line);
             }
 
@@ -267,6 +267,8 @@ public class IOManager {
     }
 
     /**
+     * Gets the text of the proposition, even if it is divided into several
+     * columns.
      *
      * @param data
      * @return

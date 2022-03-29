@@ -18,9 +18,8 @@
 package es.uam.irg.nlp.am.arguments;
 
 /**
- * Class representing a statement or assertion that expresses a judgement or opinion.
- *
- * @author ansegura
+ * Class representing a statement or assertion that expresses a judgement or
+ * opinion.
  */
 public class Proposition {
 
@@ -45,7 +44,7 @@ public class Proposition {
         this.linker = linker;
     }
 
-    public String getID() {
+    public String getId() {
         return String.format("%d-%d", this.proposalID, this.sentenceID);
     }
 
@@ -53,11 +52,11 @@ public class Proposition {
         return this.linker;
     }
 
-    public int getProposalID() {
+    public int getProposalId() {
         return this.proposalID;
     }
 
-    public int getSentenceID() {
+    public int getSentenceId() {
         return this.sentenceID;
     }
 

@@ -37,6 +37,7 @@ public class Program {
         // Program hyperparameters from JSON config file
         Map<String, Object> params = InitParams.readInitParams();
         String language = (String) params.get("language");
+        Integer[] customProposalIds = (Integer[]) params.get("customProposals");
         boolean createDataset = (boolean) params.get("createDataset");
         String extractionMode = (String) params.get("extractionMode");
         Map<String, HashSet<String>> linkers = (Map<String, HashSet<String>>) params.get("linkers");
@@ -46,7 +47,7 @@ public class Program {
                 language, createDataset, extractionMode, validLinkers, invalidLinkers);
 
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, validLinkers, invalidLinkers);
+        FeatureExtractor miner = new FeatureExtractor(language, customProposalIds, validLinkers, invalidLinkers);
         boolean result = miner.runProgram(extractionMode, createDataset);
 
         if (result) {

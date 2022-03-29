@@ -1,9 +1,9 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.6.10-blue)
-![last-update](https://img.shields.io/badge/last_update-3/25/2022-orange)
+![version](https://img.shields.io/badge/version-0.7.0-blue)
+![last-update](https://img.shields.io/badge/last_update-3/29/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
-Implementation of a simple but efficient classifier of argumentative prepositions. The solution is composed of a pipeline of 2 systems, the first one is in charge of automatically extracting the NLP features of each preposition (coming from textual content), and the second one is the classifier which is trained from the output of the first system (features file).
+Implementation of a traditional classifier of argumentative prepositions trained with previously extracted features/metadata and manually annotated argumentative phrases. The solution is composed of a 2-module pipeline, the first one is in charge of automatically extracting the NLP features of each preposition (coming from textual content), and the second one is the classifier that is trained from the output of the first module (specifically, from the features.json file).
 
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
