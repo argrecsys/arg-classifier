@@ -19,6 +19,7 @@ package es.uam.irg.io;
 
 import es.uam.irg.decidemadrid.db.DMDBManager;
 import es.uam.irg.decidemadrid.db.MongoDbManager;
+import es.uam.irg.decidemadrid.entities.DMComment;
 import es.uam.irg.decidemadrid.entities.DMProposal;
 import es.uam.irg.nlp.am.FeatureExtractor;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
@@ -67,7 +68,22 @@ public class Dataset {
         List<Proposition> dataset = new ArrayList<>();
 
         // Temporary variables
-        Map<Integer, DMProposal> proposals = getProposals(customProposalIds);
+        Map<Integer, DMProposal> proposals = null;
+        Map<Integer, DMComment> proposalComments = null;
+        
+        try {
+            DMDBManager dbManager = new DMDBManager(this.msqlSetup);
+
+            proposals = dbManager.selectProposals2(customProposalIds);
+            System.out.println(">> Number of proposals: " + proposals.size());
+
+            proposalComments = dbManager.selectComments();
+            System.out.println(">> Number of comments: " + proposalComments.size());
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = getSentencesWithArguments();
         int proposalID;
         int sentenceID;
@@ -109,24 +125,6 @@ public class Dataset {
         return dataset;
     }
 
-    /**
-     *
-     * @return
-     */
-    private Map<Integer, DMProposal> getProposals(Integer[] customProposalIds) {
-        Map<Integer, DMProposal> proposals = null;
-
-        try {
-            DMDBManager dbManager = new DMDBManager(this.msqlSetup);
-            proposals = dbManager.selectProposals(customProposalIds);
-            System.out.println(">> Number of proposals: " + proposals.size());
-        } catch (Exception ex) {
-            Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return proposals;
-    }
-    
     /**
      *
      * @return
