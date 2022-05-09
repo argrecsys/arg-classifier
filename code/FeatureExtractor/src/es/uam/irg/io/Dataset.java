@@ -18,10 +18,10 @@
 package es.uam.irg.io;
 
 import es.uam.irg.decidemadrid.db.DMDBManager;
-import es.uam.irg.decidemadrid.db.MongoDbManager;
 import es.uam.irg.decidemadrid.entities.DMComment;
 import es.uam.irg.decidemadrid.entities.DMProposal;
 import es.uam.irg.nlp.am.FeatureExtractor;
+import es.uam.irg.nlp.am.arguments.Argument;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -77,7 +77,7 @@ public class Dataset {
             proposals = dbManager.selectProposals2(customProposalIds);
             System.out.println(">> Number of proposals: " + proposals.size());
 
-            proposalComments = dbManager.selectComments();
+            proposalComments = dbManager.selectComments2(customProposalIds);
             System.out.println(">> Number of comments: " + proposalComments.size());
 
         } catch (Exception ex) {
@@ -91,22 +91,22 @@ public class Dataset {
         ArgumentLinker linker;
 
         // Analize argumentative proposals
-        for (Map.Entry<Integer, DMProposal> entry : proposals.entrySet()) {
-            proposalID = entry.getKey();
-            sentences = argEngine.getSentences(entry.getValue().getSummary());
-
-            for (int i = 0; i < sentences.size(); i++) {
-                sentenceID = i + 1;
-                linker = new ArgumentLinker("-", "-", "-", "-");
-
-                if (sentWithArgs.containsKey(proposalID)) {
-                    if (sentWithArgs.get(proposalID).containsKey(sentenceID)) {
-                        linker = sentWithArgs.get(proposalID).get(sentenceID);
-                    }
-                }
-                dataset.add(new Proposition(proposalID, sentenceID, sentences.get(i), linker));
-            }
-        }
+//        for (Map.Entry<Integer, DMProposal> entry : proposals.entrySet()) {
+//            proposalID = entry.getKey();
+//            sentences = argEngine.getSentences(entry.getValue().getSummary());
+//
+//            for (int i = 0; i < sentences.size(); i++) {
+//                sentenceID = i + 1;
+//                linker = new ArgumentLinker("-", "-", "-", "-");
+//
+//                if (sentWithArgs.containsKey(proposalID)) {
+//                    if (sentWithArgs.get(proposalID).containsKey(sentenceID)) {
+//                        linker = sentWithArgs.get(proposalID).get(sentenceID);
+//                    }
+//                }
+//                dataset.add(new Proposition(proposalID, sentenceID, sentences.get(i), linker));
+//            }
+//        }
 
         // Save dataset file to disk
         if (!IOManager.saveDatasetToCsvFile(DATASET_FILEPATH, dataset)) {
@@ -133,8 +133,8 @@ public class Dataset {
         Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = new HashMap<>();
 
         try {
-            MongoDbManager dbManager = new MongoDbManager(this.mdbSetup);
-            List<Document> sentences = dbManager.getDocumentsWithArguments(false);
+            
+            Map<Integer, Argument> sentences = IOManager.readArgumentList();
             System.out.println(">> Total sentences with arguments: " + sentences.size());
 
             // Temp variables
@@ -142,25 +142,25 @@ public class Dataset {
             int nTokens;
             ArgumentLinker linker;
 
-            for (Document doc : sentences) {
-                tokens = doc.getString("argumentID").split("-");
-                nTokens = tokens.length;
-                linker = new ArgumentLinker(doc.get("linker", Document.class));
-
-                if (nTokens > 2) {
-                    int docID = Integer.parseInt(tokens[nTokens - 3]);
-                    int sentID = Integer.parseInt(tokens[nTokens - 2]);
-
-                    if (!sentWithArgs.containsKey(docID)) {
-                        sentWithArgs.put(docID, new HashMap<>());
-                    }
-                    if (!sentWithArgs.get(docID).containsKey(sentID)) {
-                        sentWithArgs.get(docID).put(sentID, linker);
-                    }
-                } else {
-                    System.out.println("-- ERROR!");
-                }
-            }
+//            for (Document doc : sentences) {
+//                tokens = doc.getString("argumentID").split("-");
+//                nTokens = tokens.length;
+//                linker = new ArgumentLinker(doc.get("linker", Document.class));
+//
+//                if (nTokens > 2) {
+//                    int docID = Integer.parseInt(tokens[nTokens - 3]);
+//                    int sentID = Integer.parseInt(tokens[nTokens - 2]);
+//
+//                    if (!sentWithArgs.containsKey(docID)) {
+//                        sentWithArgs.put(docID, new HashMap<>());
+//                    }
+//                    if (!sentWithArgs.get(docID).containsKey(sentID)) {
+//                        sentWithArgs.get(docID).put(sentID, linker);
+//                    }
+//                } else {
+//                    System.out.println("-- ERROR!");
+//                }
+//            }
         } catch (NumberFormatException ex) {
             Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
         }

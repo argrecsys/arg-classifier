@@ -18,6 +18,7 @@
 package es.uam.irg.io;
 
 import es.uam.irg.nlp.am.TextFeature;
+import es.uam.irg.nlp.am.arguments.Argument;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -83,7 +84,7 @@ public class IOManager {
                         linker = data[n - 3];
                         category = data[n - 2];
                         subCategory = data[n - 1];
-                        dataset.add(new Proposition(proposalId, sentenceId, text, new ArgumentLinker(category, subCategory, "", linker)));
+                        dataset.add(new Proposition(proposalId, -1, sentenceId, text, new ArgumentLinker(category, subCategory, "", linker)));
                     }
                 }
 
@@ -285,6 +286,10 @@ public class IOManager {
             text = text.substring(0, text.length() - 1);
         }
         return text;
+    }
+
+    static Map<Integer, Argument> readArgumentList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

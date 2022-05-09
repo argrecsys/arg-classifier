@@ -72,8 +72,8 @@ public class FeatureExtractor {
 
         // ML pipeline
         try {
+            List<Proposition> rawData = null;
             List<TextFeature> features = null;
-            List<Proposition> rawData;
 
             // 1. Get lexicon of linkers
             List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);

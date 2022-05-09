@@ -38,8 +38,8 @@ public class Program {
         Map<String, Object> params = InitParams.readInitParams();
         String language = (String) params.get("language");
         Integer[] customProposalIds = (Integer[]) params.get("customProposals");
-        boolean createDataset = (boolean) params.get("createDataset");
         String extractionMode = (String) params.get("extractionMode");
+        boolean createDataset = (boolean) params.get("createDataset");
         Map<String, HashSet<String>> linkers = (Map<String, HashSet<String>>) params.get("linkers");
         HashSet<String> validLinkers = linkers.get("validLinkers");
         HashSet<String> invalidLinkers = linkers.get("invalidLinkers");
