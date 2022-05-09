@@ -23,23 +23,25 @@ package es.uam.irg.nlp.am.arguments;
  */
 public class Proposition {
 
-    // Class members
-    private ArgumentLinker linker;
-    private int proposalID;
-    private int sentenceID;
-    private String text;
+    private final int commentId;
+    private final ArgumentLinker linker;
+    private final int proposalID;
+    private final int sentenceID;
+    private final String text;
 
     /**
      * Class constructor.
      *
-     * @param proposalID
-     * @param sentenceID
+     * @param proposalId
+     * @param commentId
+     * @param sentenceId
      * @param text
      * @param linker
      */
-    public Proposition(int proposalID, int sentenceID, String text, ArgumentLinker linker) {
-        this.proposalID = proposalID;
-        this.sentenceID = sentenceID;
+    public Proposition(int proposalId, int commentId, int sentenceId, String text, ArgumentLinker linker) {
+        this.proposalID = proposalId;
+        this.commentId = commentId;
+        this.sentenceID = sentenceId;
         this.text = text;
         this.linker = linker;
     }
