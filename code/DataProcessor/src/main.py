@@ -32,27 +32,72 @@ def read_input_dataset(folder_path:str) -> dict:
 # Processing dataset from JSON to CSV
 def process_dataset(in_dataset:list, language:str) -> list:
     out_dataset = []
-    comment_id = '0'
-    comment_id = '0'
+    header = ["sent_id", "sent_text", "sent_label"]
     
+    # Method constants
+    DOT_MARK = '.'
+    VALID_SENT_SIZE = 3
+    LABEL_SPAM = 'SPAM'
+    
+    # for-in loop
+    comment_id = '0'
+    comment_id = '0'
     for row in in_dataset:
+        
+        # Read basic info
         if 'proposal_id' in row:
             proposal_id = row['proposal_id']
         elif 'comment_id' in row:
             comment_id = row['comment_id']
-        record_id = proposal_id + "-" + comment_id
+        text = row['text']
         tokens = row['tokens']
         spans = row['spans']
-        relations = row['relations']
+        print(text)
         
-        print(record_id, len(tokens), len(spans), len(relations))
+        # Identify dot marks
+        dot_marks = [token for token in tokens if token['text'] == DOT_MARK]
+        if len(dot_marks) == 0:
+            dot_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
+            
+        # Annotate sentences
+        sent_id = 0
+        sent_text = ''
+        ix_start = 0
+        for dot in dot_marks:
+            ix_end = dot['end']
+            sent_text = text[ix_start : ix_end]
+            sent_text = sent_text.strip()
+            
+            # It is a valid sentence
+            if len(sent_text) >= VALID_SENT_SIZE: 
+                labels = []
+                
+                for span in spans:
+                    if span['start'] >= ix_start and span['end'] <= ix_end:
+                        label = span['label']
+                        if label not in labels and label != "LINKER":
+                            labels.append(label)
+                
+                if len(labels) == 0:
+                    labels.append(LABEL_SPAM)
+                
+                # Save outcome
+                for i, label in enumerate(labels):
+                    record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
+                    out_dataset.append([record_id, sent_text, label])
+                    
+                # Update sentence number
+                sent_id += 1
+            
+            # Update start index
+            ix_start = ix_end + 1
     
-    return out_dataset
+    # Return outcome
+    return out_dataset, header
 
 # Save CSV output dataset
-def save_output_dataset(dataset:list, folder_path:str) -> bool:
+def save_output_dataset(folder_path:str, header:list, dataset:list) -> bool:
     filepath = folder_path + "sentences.csv"
-    header = [""]
     result = fl.save_csv_data(filepath, header, dataset)
     return result
 
@@ -71,10 +116,10 @@ def start_app():
         print(" - Total number of records read:", len(json_dataset))
         
         # 2. Processing dataset
-        csv_dataset = process_dataset(json_dataset, language)
+        csv_dataset, header = process_dataset(json_dataset, language)
         
         # 3. Save CSV output dataset
-        result = save_output_dataset(csv_dataset, data_folder)
+        result = save_output_dataset(data_folder, header, csv_dataset)
         
         if result:
             print(" - Successful transformation")

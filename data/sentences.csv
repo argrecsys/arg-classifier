@@ -1,1 +1,73 @@
-""
+sent_id,sent_text,sent_label
+19-0-0-0,Unir el centro con Madrid Río de forma peatonal,MAJOR_CLAIM
+19-0-0-0,"El centro turístico y comercial de Madrid está sólo a 700 metros de la Casa de Campo y de Madrid Rio, pero las conexiones a él son terribles.",PREMISE
+19-0-1-0,Propongo unirlo con calles peatonales y arboladas.,CLAIM
+19-0-0-0,En Madrid tenemos la suerte de tener la Casa de Campo muy cerca del centro de la ciudad.,CLAIM
+19-0-1-0,"Sólo 700 metros separan el pulmón verde de la capital con Plaza de España y la Gran Vía a través de la cuesta de San Vicente, pero curiosamente, los Madrileños y turistas no usan esta vía para disfrutar de Madrid Rio o la Casa de Campo, ya que la calle Cuesta de San Vicente u otras que conectan el centro con la casa de campo están tremendamente contaminadas y son peligrosas para circular con bicicleta.",PREMISE
+19-0-2-0,"Peligrosas en dos sentidos: 1 El peligro físico, ya que los coches van a una velocidad tremenda y en el túnel de Ferraz hay tráfico e incidentes y 2 el peligro al que nos expone la contaminación de los coches.",PREMISE
+19-0-3-0,"Subir la cuesta con la bicicleta o andando, genera una sensación de malestar  producido por la contaminación.",SPAM
+19-0-4-0,"Me imagino que para la gente que corre en Madrid Río será peor aún, ya que después de hacer ejercicio la contaminación afecta más.",PREMISE
+19-0-5-0,"Esta calle es especialmente peligrosa en este sentido porque se unen dos factores: La entrada de la Nacional 5 con el tráfico que eso conlleva y que la cuesta es muy pronunciada, haciendo que los coches consuman más gasolina y generen más emisiones.",PREMISE
+19-0-6-0,Con mi propuesta pido que se estudie una solución para esta vía y otras paralelas.,CLAIM
+19-0-7-0,"No sé si la solución es el soterramiento, ya que es muy costoso, o si es la de priorizar el servicio público y peatonal, y desviar el tráfico por otras entradas a la capital.",PREMISE
+19-17391-0-0,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",CLAIM
+19-17391-0-1,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",PREMISE
+19-17391-1-0,Es necesario acabar con eso.,PREMISE
+19-17486-0-0,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",CLAIM
+19-17486-0-1,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",PREMISE
+19-47209-0-0,Una propuesta muy sensata.,SPAM
+19-17767-0-0,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",CLAIM
+19-17767-0-1,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",PREMISE
+19-18078-0-0,Totalmente de acuerdo con tu propuesta.,CLAIM
+19-18078-1-0,"Sin embargo, tengo entendido que una vez acabadas las obras del Museo de Colecciones Reales 2016 se reabrirá un acceso al Campo del Moro desde la Explanada de La Almudena.",PREMISE
+19-18386-0-0,Aprovechar la reforma de Plaza España para unirlo peatonal mente con Madrid Río.,SPAM
+19-49078-0-0,Totalmente a favor de tu propuesta.,SPAM
+19-19178-0-0,Muchas gracias por estos 300 apoyos.,SPAM
+19-19178-1-0,"Si de verdad creéis que esta propuesta debe llegar a contemplarse, por favor compartid el hilo.",SPAM
+19-19178-2-0,Con una cuesta de San Vicente peatonal o más accesible podría ser una pasada bajar a Madrid Rio/Casa de campo rodeados del Campo del Moro y el Templo de Debod.,CLAIM
+19-19178-3-0,"Ya que se va a reformar la Plaza de España, no veo mejor momento para sacar a debate esta propuesta.",PREMISE
+19-19750-0-0,"Existe la creencia de que soterrar es caro, cuando realmente este tipo de túnel se denomina falso túnel, ya que consiste en abrir la calle, excavar 4 o 5 metros y cubrirlo con vigas y asfalto, sin tuneladoras.",PREMISE
+19-19750-1-0,No obstante la idea de continuar el túnel que ahora existe más allá de Príncipe Pío hasta Plaza de España para conectar con el túnel de Bailén es la única salida.,PREMISE
+19-19750-2-0,"Recordemos que esta vía es el único gran acceso desde el Oeste al Centro de la ciudad, carece de alternativas, dada la orografía tan especial de Madrid.",PREMISE
+19-19750-3-0,Sin embargo parece sensato establecer por sentido un carril-bus y un carril-servicio a 30 km/h.,PREMISE
+19-19750-4-0,Por lo que tendríamos 4 carriles pacificados y un inmenso bulevar.,PREMISE
+19-19750-5-0,"Pensemos en hacer la Puerta de San Vicente practicable como acceso al río, algo aplicable a la Puerta de Toledo y Alcalá.",PREMISE
+19-32465-0-0,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",CLAIM
+19-32465-0-1,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",PREMISE
+19-49076-0-0,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",CLAIM
+19-49076-0-1,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",PREMISE
+19-49076-1-0,"Además, como dice, no sería el mismo tipo de soterramiento.",PREMISE
+19-49076-2-0,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",CLAIM
+19-49076-2-1,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",PREMISE
+19-49076-3-0,Es un problema que requiere de una solución.,PREMISE
+19-49275-0-0,Yo no veo que sea tan fácil como lo plantea Zamuntx.,CLAIM
+19-49275-1-0,"Si pudiera hacerse según su idea, problemas 0 pero resulta que bajo la cuesta de San Viciente, pasa el trazado de la red de Renfe que va dirección a Pirámides, así como el trazado de la línea 10 de Metro.",PREMISE
+19-49275-2-0,"Por no decir, la cantidad de tuberías y cableados que discurren bajo el suelo de esa calle.",PREMISE
+19-49275-3-0,"No comparo ni las distancias a soterrar, ni el coste de ese soterramiento, pero no es tan fácil como parece.",PREMISE
+19-49275-4-0,"Si se quiere facilitar la conectividad entre el centro de la ciudad, y el Manzanares y la Casa de campo, no se necesita soterrar el tráfico de la cuesta de San Vicente.",PREMISE
+19-49275-5-0,"Personalmente, apostaría por reducir el número de carriles de la calzada actualmente hay tres por sentido, más el carril bus/taxi.",PREMISE
+19-49275-6-0,"Dos carriles serían más que suficientes, se podría aumentar el ancho de la acera a ambos lados de la calle, e incluso se podría construir un carril seguro para los ciclistas.",PREMISE
+19-49275-7-0,"Desde luego, más económico puede ser.",PREMISE
+19-49749-0-0,Lo cierto es que la viabilidad de la propuesta deberían decirla expertos.,CLAIM
+19-49749-1-0,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",CLAIM
+19-49749-1-1,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",PREMISE
+19-49749-2-0,"Además, tampoco hay que buscar el coste cero, porque si se quiere solucionar este problema, habrá que barajar entre distintas opciones, pero se tendrá que invertir dinero y buscar una solución que no sea un apaño para salir del paso, porque en ese caso no se soluciona el problema, sino que se evita afrontarlo.",PREMISE
+19-51540-0-0,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",CLAIM
+19-51540-0-1,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",PREMISE
+19-51540-1-0,El cierre de los parques historicos por la noche es necesario para evitar el vandalismo.,PREMISE
+19-51540-2-0,"Se debería hacer un estudio serio sobre las alternativas, pero lo mejor serían los aparcamientos disuasorios y pensar que cualquier reducción de carriles afectaria también a los autobues de la EMT como pasa en ODonnell.",PREMISE
+19-19795-0-0,Recuperación del espacio público para los ciudadanos.,SPAM
+19-61819-0-0,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",CLAIM
+19-61819-0-1,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",PREMISE
+19-78277-0-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,CLAIM
+19-78277-0-1,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,PREMISE
+19-78277-1-0,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,SPAM
+19-78277-2-0,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,SPAM
+19-78277-3-0,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",SPAM
+19-78277-4-0,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",PREMISE
+19-78277-5-0,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",PREMISE
+19-83953-0-0,"La cuesta es un infierno; a medida que subes se estrecha la carretera y las aceras de tal manera que si te cruzas con un autobús de subida y otro de bajada, casi te arroyan.",CLAIM
+19-83953-1-0,"Y lo de llevar a tú hijo de la mano imposible sólo en fila india Es centro histórico y por la calle Segovia pasan a cualquier hora y día autobuses turístimos de enorme tamaño, que además paran para recoger a los turistas sin consideración a los demás.",PREMISE
+19-83953-2-0,Es increible.,SPAM
+19-137601-0-0,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,CLAIM
+19-137601-0-1,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,PREMISE
