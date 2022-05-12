@@ -8,36 +8,11 @@
 """
 
 # Import Python base libraries
-import os
 import csv
 import json
 import yaml
-import pandas as pd
 
-# File function - Read list from plain file
-def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
-    lines = []
-    
-    try:
-        with open(filepath, mode="r", encoding=encoding) as file:
-            lines = file.readlines()
-    except Exception as e:
-        print(e)
-    
-    return lines
-
-# File function - Read dict from JSON file
-def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
-    result = {}
-
-    try:
-        with open(json_path, mode="r", encoding=encoding) as file:
-            result = json.load(file)
-    except Exception as e:
-        print(e)
-        
-    return result
-
+# Read list from JSONL (json lines format) file
 def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> dict:
     result = {}
 
@@ -53,7 +28,31 @@ def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# File function - Read dict from YAML file
+# Read list from plain file
+def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
+    lines = []
+    
+    try:
+        with open(filepath, mode="r", encoding=encoding) as file:
+            lines = file.readlines()
+    except Exception as e:
+        print(e)
+    
+    return lines
+
+# Read dict from JSON file
+def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
+    result = {}
+
+    try:
+        with open(json_path, mode="r", encoding=encoding) as file:
+            result = json.load(file)
+    except Exception as e:
+        print(e)
+        
+    return result
+
+# Read dict from YAML file
 def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
     result = {}
     
@@ -66,17 +65,7 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# File function - Get max value from column from CSV file
-def get_max_value_from_csv_file(filepath:str, column:str) -> int:
-    max_value = 0
-    
-    if os.path.exists(filepath):
-        df = pd.read_csv(filepath)
-        max_value = df["id"].max()
-    
-    return max_value
-
-# File function - Save or update CSV data
+# Save or update CSV data
 def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:
     result = False
     
@@ -87,7 +76,7 @@ def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:s
                 write.writerow(header)
             for row in data:
                 write.writerow(row)
-        result = True
+            result = True
     
     except Exception as e:
         print("Error:", e)

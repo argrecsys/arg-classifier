@@ -32,6 +32,20 @@ def read_input_dataset(folder_path:str) -> dict:
 # Processing dataset from JSON to CSV
 def process_dataset(in_dataset:list, language:str) -> list:
     out_dataset = []
+    comment_id = '0'
+    comment_id = '0'
+    
+    for row in in_dataset:
+        if 'proposal_id' in row:
+            proposal_id = row['proposal_id']
+        elif 'comment_id' in row:
+            comment_id = row['comment_id']
+        record_id = proposal_id + "-" + comment_id
+        tokens = row['tokens']
+        spans = row['spans']
+        relations = row['relations']
+        
+        print(record_id, len(tokens), len(spans), len(relations))
     
     return out_dataset
 
