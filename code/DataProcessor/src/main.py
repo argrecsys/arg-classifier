@@ -29,6 +29,12 @@ def read_input_dataset(folder_path:str) -> dict:
     dataset = fl.get_list_from_jsonl(filepath)
     return dataset
 
+# Save CSV output dataset
+def save_output_dataset(folder_path:str, header:list, dataset:list) -> bool:
+    filepath = folder_path + "sentences.csv"
+    result = fl.save_csv_data(filepath, header, dataset)
+    return result
+
 # Processing dataset from JSON to CSV
 def process_dataset(in_dataset:list, language:str) -> list:
     out_dataset = []
@@ -52,7 +58,6 @@ def process_dataset(in_dataset:list, language:str) -> list:
         text = row['text']
         tokens = row['tokens']
         spans = row['spans']
-        print(text)
         
         # Identify dot marks
         dot_marks = [token for token in tokens if token['text'] == DOT_MARK]
@@ -95,12 +100,6 @@ def process_dataset(in_dataset:list, language:str) -> list:
     # Return outcome
     return out_dataset, header
 
-# Save CSV output dataset
-def save_output_dataset(folder_path:str, header:list, dataset:list) -> bool:
-    filepath = folder_path + "sentences.csv"
-    result = fl.save_csv_data(filepath, header, dataset)
-    return result
-
 # Start application
 def start_app():
     app_setup = read_app_setup()
@@ -120,6 +119,7 @@ def start_app():
         
         # 3. Save CSV output dataset
         result = save_output_dataset(data_folder, header, csv_dataset)
+        print(" - Total number of records saved:", len(csv_dataset))
         
         if result:
             print(" - Successful transformation")

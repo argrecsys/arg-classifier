@@ -3,7 +3,7 @@
     Created by: Andres Segura Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: May 11, 2022
+    Updated on: May 12, 2022
     Description: Files library with utility functions
 """
 
@@ -65,7 +65,7 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# Save or update CSV data
+# Save or update a CSV data
 def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:
     result = False
     
