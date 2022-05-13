@@ -23,53 +23,39 @@ package es.uam.irg.nlp.am.arguments;
  */
 public class Proposition {
 
-    private final int commentId;
-    private final ArgumentLinker linker;
-    private final int proposalID;
-    private final int sentenceID;
+    private final String id;
     private final String text;
+    private final String type;
 
     /**
      * Class constructor.
      *
-     * @param proposalId
-     * @param commentId
-     * @param sentenceId
+     * @param id
      * @param text
-     * @param linker
+     * @param type
      */
-    public Proposition(int proposalId, int commentId, int sentenceId, String text, ArgumentLinker linker) {
-        this.proposalID = proposalId;
-        this.commentId = commentId;
-        this.sentenceID = sentenceId;
+    public Proposition(String id, String text, String type) {
+        this.id = id;
         this.text = text;
-        this.linker = linker;
+        this.type = type;
     }
 
     public String getId() {
-        return String.format("%d-%d", this.proposalID, this.sentenceID);
-    }
-
-    public ArgumentLinker getLinker() {
-        return this.linker;
-    }
-
-    public int getProposalId() {
-        return this.proposalID;
-    }
-
-    public int getSentenceId() {
-        return this.sentenceID;
+        return this.id;
     }
 
     public String getText() {
         return this.text;
     }
 
+    public String getType() {
+        return this.type;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s-%s > %s [%s]",
-                this.proposalID, this.sentenceID, this.text, this.linker);
+        return String.format("%[s] %s -> %s",
+                this.id, this.text, this.text, this.type);
     }
 
 }

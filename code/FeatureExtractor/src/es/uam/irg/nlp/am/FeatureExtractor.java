@@ -30,8 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author ansegura
+ * Extractor of argumentative features from textual content.
  */
 public class FeatureExtractor {
 
@@ -43,36 +42,31 @@ public class FeatureExtractor {
 
     // Class members
     private final ArgumentEngine argEngine;
-    private final Integer[] customProposalIds;
     private final ArgumentLinkerManager lnkManager;
 
     /**
      * Class constructor.
      *
      * @param language
-     * @param customProposalIds
      * @param validLinkers
      * @param invalidLinkers
      */
-    public FeatureExtractor(String language, Integer[] customProposalIds, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
+    public FeatureExtractor(String language, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
         this.argEngine = new ArgumentEngine(language);
         this.lnkManager = createLinkerManager(language, validLinkers, invalidLinkers);
-        this.customProposalIds = customProposalIds;
     }
 
     /**
      * Extracts the characteristics of the proposition file.
      *
      * @param extractionMode
-     * @param createDataset
      * @return
      */
-    public boolean runProgram(String extractionMode, boolean createDataset) {
+    public boolean runProgram(String extractionMode) {
         boolean result = false;
 
         // ML pipeline
         try {
-            List<Proposition> rawData = null;
             List<TextFeature> features = null;
 
             // 1. Get lexicon of linkers
@@ -80,11 +74,8 @@ public class FeatureExtractor {
 
             // 2. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine);
-            if (createDataset) {
-                rawData = ds.createDataset(customProposalIds);
-            } else {
-                rawData = ds.getDataset();
-            }
+            List<Proposition> rawData = ds.getDataset();
+
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features (temp dataset)

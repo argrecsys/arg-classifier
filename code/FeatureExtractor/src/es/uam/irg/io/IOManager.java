@@ -18,7 +18,6 @@
 package es.uam.irg.io;
 
 import es.uam.irg.nlp.am.TextFeature;
-import es.uam.irg.nlp.am.arguments.Argument;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -41,8 +40,8 @@ import java.util.logging.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 /**
- *
- * @author ansegura
+ * Support class containing static methods that allow reading and writing files
+ * from a directory.
  */
 public class IOManager {
 
@@ -54,7 +53,7 @@ public class IOManager {
      * @param filepath
      * @return
      */
-    public static List<Proposition> readDatasetToCsvFile(String filepath) {
+    public static List<Proposition> readDatasetFromCsvFile(String filepath) {
         List<Proposition> dataset = new ArrayList<>();
 
         try {
@@ -65,26 +64,20 @@ public class IOManager {
             if (csvFile.exists()) {
                 BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
                 String row;
-                int proposalId;
-                int sentenceId;
+                String id;
                 String text;
-                String linker;
-                String category;
-                String subCategory;
+                String type;
 
                 fileReader.readLine();
                 while ((row = fileReader.readLine()) != null) {
                     String[] data = row.split(",");
                     int n = data.length;
 
-                    if (n >= 6) {
-                        proposalId = Integer.parseInt(data[0]);
-                        sentenceId = Integer.parseInt(data[1]);
+                    if (n == 3) {
+                        id = data[0];
                         text = getTextField(data);
-                        linker = data[n - 3];
-                        category = data[n - 2];
-                        subCategory = data[n - 1];
-                        dataset.add(new Proposition(proposalId, -1, sentenceId, text, new ArgumentLinker(category, subCategory, "", linker)));
+                        type = data[n - 1];
+                        dataset.add(new Proposition(id, text, type));
                     }
                 }
 
@@ -204,39 +197,6 @@ public class IOManager {
     /**
      *
      * @param filepath
-     * @param dataset
-     * @return
-     */
-    public static boolean saveDatasetToCsvFile(String filepath, List<Proposition> dataset) {
-        boolean result = false;
-
-        try {
-            FileOutputStream file = new FileOutputStream(filepath);
-            OutputStreamWriter fileWriter = new OutputStreamWriter(file, StandardCharsets.UTF_8);
-
-            fileWriter.write("proposal_id,sentence_id,text,linker_value,category,sub_category\n");
-            for (Proposition prop : dataset) {
-                ArgumentLinker linker = prop.getLinker();
-                String line = String.format("%s,%s,\"%s\",%s,%s,%s\n",
-                        prop.getProposalId(), prop.getSentenceId(), prop.getText(), linker.linker, linker.category, linker.subCategory);
-                fileWriter.write(line);
-            }
-
-            fileWriter.close();
-            result = true;
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return result;
-    }
-
-    /**
-     *
-     * @param filepath
      * @param features
      * @return
      */
@@ -276,7 +236,7 @@ public class IOManager {
      */
     private static String getTextField(String[] data) {
         String text = "";
-        for (int i = 2; i < data.length - 3; i++) {
+        for (int i = 1; i < data.length - 1; i++) {
             text += (!"".equals(text) ? "," : "") + data[i];
         }
         if (text.charAt(0) == '"') {
@@ -286,10 +246,6 @@ public class IOManager {
             text = text.substring(0, text.length() - 1);
         }
         return text;
-    }
-
-    static Map<Integer, Argument> readArgumentList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
