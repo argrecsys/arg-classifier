@@ -22,8 +22,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 /**
- *
- * @author ansegura
+ * Starting point of the argument mining module.
  */
 public class Program {
 
@@ -37,18 +36,16 @@ public class Program {
         // Program hyperparameters from JSON config file
         Map<String, Object> params = InitParams.readInitParams();
         String language = (String) params.get("language");
-        Integer[] customProposalIds = (Integer[]) params.get("customProposals");
         String extractionMode = (String) params.get("extractionMode");
-        boolean createDataset = (boolean) params.get("createDataset");
         Map<String, HashSet<String>> linkers = (Map<String, HashSet<String>>) params.get("linkers");
         HashSet<String> validLinkers = linkers.get("validLinkers");
         HashSet<String> invalidLinkers = linkers.get("invalidLinkers");
-        System.out.format(">> Analysis language: %s, Create dataset? %s, Extraction mode: %s, Valid linkers: %s, Invalid linkers: %s\n",
-                language, createDataset, extractionMode, validLinkers, invalidLinkers);
+        System.out.format(">> Analysis language: %s, Extraction mode: %s, Valid linkers: %s, Invalid linkers: %s\n",
+                language, extractionMode, validLinkers, invalidLinkers);
 
         // Run program
-        FeatureExtractor miner = new FeatureExtractor(language, customProposalIds, validLinkers, invalidLinkers);
-        boolean result = miner.runProgram(extractionMode, createDataset);
+        FeatureExtractor miner = new FeatureExtractor(language, validLinkers, invalidLinkers);
+        boolean result = miner.runProgram(extractionMode);
 
         if (result) {
             System.out.println(">> The Feature Extractor engine was executed correctly.");

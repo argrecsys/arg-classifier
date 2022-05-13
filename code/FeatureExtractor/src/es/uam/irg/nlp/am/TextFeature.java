@@ -30,8 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author ansegura
+ * Class containing the extracted argumentative features of a text.
  */
 public class TextFeature {
 
@@ -62,12 +61,12 @@ public class TextFeature {
 
     /**
      *
-     * @param argEngine
      * @param id
      * @param text
+     * @param argEngine
      * @param lexicon
      */
-    public TextFeature(ArgumentEngine argEngine, String id, String text, List<ArgumentLinker> lexicon) {
+    public TextFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
         this.id = id;

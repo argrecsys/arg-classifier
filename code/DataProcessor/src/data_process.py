@@ -9,16 +9,19 @@
 
 # Import Python base libraries
 import pandas as pd
+from typing import Final
+
+# Class constants
+DOT_MARK: Final[str] = '.'
+LABEL_NO: Final[str] = 'NO'
+LABEL_YES: Final[str] = 'YES'
+LABEL_SPAM: Final[str] = 'SPAM'
+VALID_SENT_SIZE: Final[int] = 3
 
 # Pre-processing dataset from JSON to CSV
 def pre_process_dataset(in_dataset:list, language:str) -> list:
     out_dataset = []
-    header = ["sent_id", "sent_text", "sent_label"]
-    
-    # Method constants
-    DOT_MARK = '.'
-    VALID_SENT_SIZE = 3
-    LABEL_SPAM = 'SPAM'
+    header = ["sent_id", "sent_text", "sent_label1", "sent_label2"]
     
     # for-in loop
     comment_id = '0'
@@ -62,10 +65,11 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
                     labels.append(LABEL_SPAM)
                 
                 # Save outcome
-                for i, label in enumerate(labels):
+                for i, label1 in enumerate(labels):
                     record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
-                    out_dataset.append([record_id, sent_text, label])
-                    
+                    label2 = LABEL_NO if label1 == LABEL_SPAM else LABEL_YES
+                    out_dataset.append([record_id, sent_text, label1, label2])
+                
                 # Update sentence number
                 sent_id += 1
             

@@ -24,15 +24,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONObject;
 
 /**
- *
- * @author ansegura
+ * Helper for loading application input parameters.
  */
 public class InitParams {
 
@@ -50,15 +48,8 @@ public class InitParams {
 
                 // General parameters
                 String lang = json.getString("language");
-                List<Object> ids = json.getJSONArray("customProposalID").toList();
-                Integer[] customProposals = new Integer[ids.size()];
-                for (int i = 0; i < ids.size(); i++) {
-                    customProposals[i] = Integer.parseInt(ids.get(i).toString());
-                }
                 params.put("language", lang);
-                params.put("customProposals", customProposals);
                 params.put("extractionMode", json.getString("extractionMode"));
-                params.put("createDataset", json.getBoolean("createDataset"));
 
                 // Linkers parameters
                 data = json.getJSONObject("linkers").getJSONObject(lang);

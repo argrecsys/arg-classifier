@@ -62,6 +62,19 @@ public class ArgumentEngine {
 
     /**
      *
+     * @param text
+     * @return
+     */
+    public Tree getConstituencyTree(String text) {
+        Annotation annotation = new Annotation(text);
+        pipeline.annotate(annotation);
+        CoreMap sentence = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
+        Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+        return tree;
+    }
+
+    /**
+     *
      * @return
      */
     public String getCurrentLanguage() {
@@ -96,19 +109,6 @@ public class ArgumentEngine {
         });
 
         return sentences;
-    }
-
-    /**
-     *
-     * @param text
-     * @return
-     */
-    public Tree getConstituencyTree(String text) {
-        Annotation annotation = new Annotation(text);
-        pipeline.annotate(annotation);
-        CoreMap sentence = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
-        Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
-        return tree;
     }
 
     /**

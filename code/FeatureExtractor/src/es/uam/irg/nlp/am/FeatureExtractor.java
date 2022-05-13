@@ -30,49 +30,43 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author ansegura
+ * Extractor of argumentative features from textual content.
  */
 public class FeatureExtractor {
 
     // Class constants
     private static final String ARG_CLF = "classification";
     private static final String ARG_DET = "detection";
-    private static final String FEATURES_FILEPATH = "../../data/target/features.json";
+    private static final String FEATURES_FILEPATH = "../../data/features.json";
     private static final boolean VERBOSE = true;
 
     // Class members
     private final ArgumentEngine argEngine;
-    private final Integer[] customProposalIds;
     private final ArgumentLinkerManager lnkManager;
 
     /**
      * Class constructor.
      *
      * @param language
-     * @param customProposalIds
      * @param validLinkers
      * @param invalidLinkers
      */
-    public FeatureExtractor(String language, Integer[] customProposalIds, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
+    public FeatureExtractor(String language, HashSet<String> validLinkers, HashSet<String> invalidLinkers) {
         this.argEngine = new ArgumentEngine(language);
         this.lnkManager = createLinkerManager(language, validLinkers, invalidLinkers);
-        this.customProposalIds = customProposalIds;
     }
 
     /**
      * Extracts the characteristics of the proposition file.
      *
      * @param extractionMode
-     * @param createDataset
      * @return
      */
-    public boolean runProgram(String extractionMode, boolean createDataset) {
+    public boolean runProgram(String extractionMode) {
         boolean result = false;
 
         // ML pipeline
         try {
-            List<Proposition> rawData = null;
             List<TextFeature> features = null;
 
             // 1. Get lexicon of linkers
@@ -80,11 +74,7 @@ public class FeatureExtractor {
 
             // 2. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine);
-            if (createDataset) {
-                rawData = ds.createDataset(customProposalIds);
-            } else {
-                rawData = ds.getDataset();
-            }
+            List<Proposition> rawData = ds.getDataset();
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features (temp dataset)
@@ -97,7 +87,7 @@ public class FeatureExtractor {
                 features = extractArgumentClassificationFeatures(rawData, lexicon);
 
             } else {
-                System.err.println(">> Method not supported.");
+                System.err.println(">> Task not supported.");
             }
 
             // 4. Save results (final dataset)
@@ -144,7 +134,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
 
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new TextFeature(this.argEngine, prop.getId(), prop.getText(), lexicon);
+            TextFeature tf = new TextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
 
             tf.extraction();
             if (tf.isValid()) {

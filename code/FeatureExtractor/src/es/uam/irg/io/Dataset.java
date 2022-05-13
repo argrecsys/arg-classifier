@@ -17,22 +17,12 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.decidemadrid.db.DMDBManager;
-import es.uam.irg.decidemadrid.entities.DMComment;
-import es.uam.irg.decidemadrid.entities.DMProposal;
-import es.uam.irg.nlp.am.FeatureExtractor;
-import es.uam.irg.nlp.am.arguments.Argument;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Proposition;
-import es.uam.irg.utils.FunctionUtils;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.bson.Document;
 
 /**
  * Creates and returns the main dataset of the ML pipeline.
@@ -40,13 +30,11 @@ import org.bson.Document;
 public class Dataset {
 
     // Class constants
-    private static final String DATASET_FILEPATH = "../../data/source/propositions.csv";
+    private static final String DATASET_FILEPATH = "../../data/sentences.csv";
 
     // Class members
     private ArgumentEngine argEngine;
     private List<ArgumentLinker> lexicon;
-    private Map<String, Object> mdbSetup;
-    private Map<String, Object> msqlSetup;
 
     /**
      * Class constructor
@@ -55,65 +43,6 @@ public class Dataset {
      */
     public Dataset(ArgumentEngine argEngine) {
         this.argEngine = argEngine;
-        this.mdbSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MONGO_DB);
-        this.msqlSetup = FunctionUtils.getDatabaseConfiguration(FunctionUtils.MYSQL_DB);
-    }
-
-    /**
-     *
-     * @param customProposalIds
-     * @return @throws Exception
-     */
-    public List<Proposition> createDataset(Integer[] customProposalIds) throws Exception {
-        List<Proposition> dataset = new ArrayList<>();
-
-        // Temporary variables
-        Map<Integer, DMProposal> proposals = null;
-        Map<Integer, DMComment> proposalComments = null;
-        
-        try {
-            DMDBManager dbManager = new DMDBManager(this.msqlSetup);
-
-            proposals = dbManager.selectProposals2(customProposalIds);
-            System.out.println(">> Number of proposals: " + proposals.size());
-
-            proposalComments = dbManager.selectComments2(customProposalIds);
-            System.out.println(">> Number of comments: " + proposalComments.size());
-
-        } catch (Exception ex) {
-            Logger.getLogger(Dataset.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = getSentencesWithArguments();
-        int proposalID;
-        int sentenceID;
-        List<String> sentences;
-        ArgumentLinker linker;
-
-        // Analize argumentative proposals
-//        for (Map.Entry<Integer, DMProposal> entry : proposals.entrySet()) {
-//            proposalID = entry.getKey();
-//            sentences = argEngine.getSentences(entry.getValue().getSummary());
-//
-//            for (int i = 0; i < sentences.size(); i++) {
-//                sentenceID = i + 1;
-//                linker = new ArgumentLinker("-", "-", "-", "-");
-//
-//                if (sentWithArgs.containsKey(proposalID)) {
-//                    if (sentWithArgs.get(proposalID).containsKey(sentenceID)) {
-//                        linker = sentWithArgs.get(proposalID).get(sentenceID);
-//                    }
-//                }
-//                dataset.add(new Proposition(proposalID, sentenceID, sentences.get(i), linker));
-//            }
-//        }
-
-        // Save dataset file to disk
-        if (!IOManager.saveDatasetToCsvFile(DATASET_FILEPATH, dataset)) {
-            throw new Exception("Exception - the file could not be created.");
-        }
-
-        return dataset;
     }
 
     /**
@@ -121,7 +50,7 @@ public class Dataset {
      * @return
      */
     public List<Proposition> getDataset() {
-        List<Proposition> dataset = IOManager.readDatasetToCsvFile(DATASET_FILEPATH);
+        List<Proposition> dataset = IOManager.readDatasetFromCsvFile(DATASET_FILEPATH);
         return dataset;
     }
 
@@ -132,16 +61,16 @@ public class Dataset {
     private Map<Integer, Map<Integer, ArgumentLinker>> getSentencesWithArguments() {
         Map<Integer, Map<Integer, ArgumentLinker>> sentWithArgs = new HashMap<>();
 
-        try {
-            
-            Map<Integer, Argument> sentences = IOManager.readArgumentList();
-            System.out.println(">> Total sentences with arguments: " + sentences.size());
-
-            // Temp variables
-            String[] tokens;
-            int nTokens;
-            ArgumentLinker linker;
-
+//        try {
+//            
+//            Map<Integer, Argument> sentences = IOManager.readArgumentList();
+//            System.out.println(">> Total sentences with arguments: " + sentences.size());
+//
+//            // Temp variables
+//            String[] tokens;
+//            int nTokens;
+//            ArgumentLinker linker;
+//
 //            for (Document doc : sentences) {
 //                tokens = doc.getString("argumentID").split("-");
 //                nTokens = tokens.length;
@@ -161,10 +90,9 @@ public class Dataset {
 //                    System.out.println("-- ERROR!");
 //                }
 //            }
-        } catch (NumberFormatException ex) {
-            Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+//        } catch (NumberFormatException ex) {
+//            Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         return sentWithArgs;
     }
 
