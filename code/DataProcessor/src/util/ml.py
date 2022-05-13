@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    Created by: Andres Segura Tinoco
+    Created by: Andrés Segura-Tinoco
     Version: 0.2.0
     Created on: May 11, 2022
-    Updated on: May 12, 2022
+    Updated on: May 13, 2022
     Description: ML library with utility functions
 """
 

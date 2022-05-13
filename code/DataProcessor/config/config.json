@@ -1,4 +1,5 @@
 {
+	"data_folder": "../../../data/",
 	"language": "spanish",
-	"data_folder": "../../../data/"
+	"task": "preprocessing"
 }
