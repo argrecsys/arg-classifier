@@ -1,13 +1,14 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.7.6-blue)
-![last-update](https://img.shields.io/badge/last_update-5/12/2022-orange)
+![version](https://img.shields.io/badge/version-0.7.8-blue)
+![last-update](https://img.shields.io/badge/last_update-5/13/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences.
 
-The solution is composed of a pipeline of 5 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data (using the Prodigy tool), the subsequent feature extraction and the final construction and validation of the classification models.
+The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data (using the Prodigy tool), the subsequent feature extraction and the final construction and validation of the classification models.
 
-
+## Pipeline diagram
+![Pipeline diagram](https://raw.githubusercontent.com/argrecsys/arg-classifier/main/image/pipeline-diagram.png)
 
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
