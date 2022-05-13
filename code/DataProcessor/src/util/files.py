@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-    Created by: Andres Segura Tinoco
+    Created by: Andrés Segura-Tinoco
     Version: 1.0.0
     Created on: Oct 06, 2021
-    Updated on: May 11, 2022
+    Updated on: May 13, 2022
     Description: Files library with utility functions
 """
 
 # Import Python base libraries
+import os
 import csv
 import json
 import yaml
+import pandas as pd
 
 # Read list from JSONL (json lines format) file
 def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> dict:
@@ -65,7 +67,7 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# Save or update CSV data
+# Save or update a CSV data
 def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:
     result = False
     
@@ -78,6 +80,19 @@ def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:s
                 write.writerow(row)
             result = True
     
+    except Exception as e:
+        print("Error:", e)
+    
+    return result
+
+# Save dataframe to CSV file
+def save_df_to_csv(df:pd.DataFrame, filepath:str, index=False, encoding:str="utf-8") -> bool:
+    result = False
+    
+    try: 
+        df.to_csv(filepath, index=index, encoding=encoding)
+        result = os.path.exists(filepath)
+        
     except Exception as e:
         print("Error:", e)
     
