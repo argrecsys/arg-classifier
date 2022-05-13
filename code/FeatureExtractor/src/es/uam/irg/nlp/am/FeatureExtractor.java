@@ -37,7 +37,7 @@ public class FeatureExtractor {
     // Class constants
     private static final String ARG_CLF = "classification";
     private static final String ARG_DET = "detection";
-    private static final String FEATURES_FILEPATH = "../../data/target/features.json";
+    private static final String FEATURES_FILEPATH = "../../data/features.json";
     private static final boolean VERBOSE = true;
 
     // Class members
@@ -75,7 +75,6 @@ public class FeatureExtractor {
             // 2. Create/get data (raw dataset)
             Dataset ds = new Dataset(this.argEngine);
             List<Proposition> rawData = ds.getDataset();
-
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features (temp dataset)
@@ -88,7 +87,7 @@ public class FeatureExtractor {
                 features = extractArgumentClassificationFeatures(rawData, lexicon);
 
             } else {
-                System.err.println(">> Method not supported.");
+                System.err.println(">> Task not supported.");
             }
 
             // 4. Save results (final dataset)
@@ -135,7 +134,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
 
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new TextFeature(this.argEngine, prop.getId(), prop.getText(), lexicon);
+            TextFeature tf = new TextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
 
             tf.extraction();
             if (tf.isValid()) {

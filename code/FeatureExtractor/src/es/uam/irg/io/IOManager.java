@@ -73,7 +73,7 @@ public class IOManager {
                     String[] data = row.split(",");
                     int n = data.length;
 
-                    if (n == 3) {
+                    if (n >= 3) {
                         id = data[0];
                         text = getTextField(data);
                         type = data[n - 1];
