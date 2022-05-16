@@ -3,12 +3,13 @@
     Created by: Andres Segura Tinoco
     Version: 0.6.0
     Created on: Aug 27, 2021
-    Updated on: Oct 26, 2021
+    Updated on: May 16, 2022
     Description: Main class of the argument classifier.
 """
 
 # Import Custom libraries
-import util_lib as cul
+from util import files as ufl
+from util import ml as uml
 import ml.engine as mle
 from ml.constant import ModelType
 
@@ -23,7 +24,7 @@ from datetime import datetime
 # Read data configuration
 def read_app_setup() -> dict:
     filepath = "../config/config.json"
-    setup = cul.get_dict_from_json(filepath)
+    setup = ufl.get_dict_from_json(filepath)
     return setup
 
 # Return current dataset name composed by a coding map
@@ -54,10 +55,10 @@ def save_error_ids(error_ids, X_test):
 # Save model result
 def save_results(result_folder:str, data:list) -> int:
     filepath = result_folder + "metrics.csv"
-    model_id = cul.get_max_value_from_csv_file(filepath, "id") + 1
+    model_id = uml.get_max_value_from_csv_file(filepath, "id") + 1
     header = ["id", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
     data = [[model_id] + row for row in data]
-    result = cul.save_append_csv_data(filepath, header, data)
+    result = ufl.save_csv_data(filepath, header, data, mode="a")
     
     if not result:
         model_id = 0
@@ -70,12 +71,12 @@ def start_app():
     if len(app_setup):
         
         # 0. Program variables
-        ml_algo = ModelType.GRADIENT_BOOSTING.value
+        ml_algo = ModelType.NAIVE_BAYES.value
         data_setup = app_setup["data"]
+        data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_state = app_setup["model_state"]
         model_folder = app_setup["model_folder"]
-        output_folder = app_setup["output_folder"]
         result_folder = app_setup["result_folder"]
         perc_test = app_setup["perc_test"]
         task_type = app_setup["task"]
@@ -86,7 +87,7 @@ def start_app():
         ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
         
         # 2. Read dataset
-        dataset, label_dict = ml_ngx.create_dataset(output_folder, y_label, data_setup)
+        dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, data_setup)
         
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
