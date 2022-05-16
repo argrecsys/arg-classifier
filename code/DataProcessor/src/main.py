@@ -38,7 +38,7 @@ def data_preprocessing(language:str, folder_path:str) -> bool:
     print(df)
     
     # 3. Save dataframe to CSV file
-    out_filepath = folder_path + "sentences.csv"
+    out_filepath = folder_path + "propositions.csv"
     result = fl.save_df_to_csv(df, out_filepath)
     print(" - Total number of records saved:", len(df))
     

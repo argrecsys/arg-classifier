@@ -43,6 +43,7 @@ public class TextFeature {
     private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
+    private String dateFormat;
     private String id;
     private boolean isValid;
     private List<String> keyWords;
@@ -69,6 +70,7 @@ public class TextFeature {
     public TextFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
+        this.dateFormat = getDateFormat();
         this.id = id;
         this.text = text;
         this.unigrams = new ArrayList<>();
@@ -147,11 +149,12 @@ public class TextFeature {
             if ((posTag.equals("PUNCT") && !currWord.startsWith("etc")) || SPECIAL_PUNCT.indexOf(currWord.charAt(0)) >= 0) {
                 String puntMark = StringUtils.cleanPuntuationMark(currWord);
                 this.punctuation.add(puntMark);
+
             } else {
                 // First filter
                 if (StringUtils.isNumeric(currWord)) {
                     currWord = "$number$";
-                } else if (StringUtils.isDateTime(currWord, "dd/MM/yyyy")) {
+                } else if (StringUtils.isDateTime(currWord, this.dateFormat)) {
                     currWord = "$date$";
                 } else if (StringUtils.isDateTime(currWord, "HH:mm")) {
                     currWord = "$time$";
@@ -222,6 +225,16 @@ public class TextFeature {
             this.isValid = true;
         }
 
+    }
+
+    /**
+     *
+     * @return
+     */
+    private String getDateFormat() {
+        String lang = this.argEngine.getCurrentLanguage();
+        String format = (lang.equals("en") ? "MM/dd/yyyy" : "dd/MM/yyyy");
+        return format;
     }
 
     /**
