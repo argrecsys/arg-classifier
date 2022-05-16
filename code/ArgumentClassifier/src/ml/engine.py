@@ -8,7 +8,8 @@
 """
 
 # Import Custom libraries
-import util_lib as cul
+from util import files as ufl
+from util import ml as uml
 import ml.utility as mlu
 from ml.constant import ModelType
 
@@ -45,7 +46,7 @@ class MLEngine:
     # Read JSON file of features
     def __read_feature_file(self, output_path:str) -> dict:
         filepath = output_path + "features.json"
-        features = cul.get_dict_from_json(filepath, self.encoding)
+        features = ufl.get_dict_from_json(filepath, self.encoding)
         return features
     
     # Read CSV file of labels
@@ -53,7 +54,7 @@ class MLEngine:
         labels = {}
         
         filepath = output_path + "propositions.csv"
-        lines = cul.get_list_from_plain_file(filepath, self.encoding)
+        lines = ufl.get_list_from_plain_file(filepath, self.encoding)
         
         if len(lines) > 1:
             for line in lines[1:]:
@@ -61,11 +62,10 @@ class MLEngine:
                 n = len(data)
                 
                 # Save data
-                prop_id = data[0] + "-" + data[1]
-                linker = data[n-3]
-                category = data[n-2]
-                sub_category = data[n-1]
-                labels[prop_id] = {"linker": linker, "category": category, "sub_category": sub_category}
+                prop_id = data[0]
+                label1 = data[n-2]
+                label2 = data[n-1]
+                labels[prop_id] = {"sent_label1": label1, "sent_label2": label2}
         
         return labels
     
@@ -140,21 +140,21 @@ class MLEngine:
                 print('Missing label:', k)
         
         # Create main dataframe
-        df = cul.create_df_from_sparse_matrix(vcb_corpus)
+        df = uml.create_df_from_sparse_matrix(vcb_corpus)
         
         # Add adverbs matrix to main df
         if setup["adverbs"]:
-            df_adv = cul.create_df_from_sparse_matrix(adverbs_mtx)
+            df_adv = uml.create_df_from_sparse_matrix(adverbs_mtx)
             df = pd.concat([df, df_adv], axis=1)
         
         # Add verbs matrix to main df
         if setup["verbs"]:
-            df_vb = cul.create_df_from_sparse_matrix(verbs_mtx)
+            df_vb = uml.create_df_from_sparse_matrix(verbs_mtx)
             df = pd.concat([df, df_vb], axis=1)
         
         # Add keywords matrix to main df
         if setup["key_words"]:
-            df_kw = cul.create_df_from_sparse_matrix(key_words_mtx)
+            df_kw = uml.create_df_from_sparse_matrix(key_words_mtx)
             df = pd.concat([df, df_kw], axis=1)
         
         # Add extra columns - text stats
@@ -170,7 +170,7 @@ class MLEngine:
         df[self.label_column] = label_list
         
         # Calculate DataFrame sparsity
-        df_sparsity = cul.calc_df_sparsity(df)
+        df_sparsity = uml.calc_df_sparsity(df)
         print('DataFrame sparsity:', df_sparsity)
         
         return df

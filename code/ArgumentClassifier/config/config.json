@@ -12,12 +12,12 @@
 		"key_words": true,
 		"text_stats": true
 	},
+	"data_folder": "../../../data/",
 	"language": "spanish",
 	"model_folder": "../../../model/",
 	"model_state": 42,
-	"output_folder": "../../../dataset/",
 	"perc_test": 0.2,
 	"result_folder": "../../../result/",
-	"task": "identification",
-	"y_label": "category"
+	"task": "detection",
+	"y_label": "sent_label2"
 }

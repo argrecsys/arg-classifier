@@ -12,7 +12,7 @@ import enum
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
-    IDENTIFICATION = 'identification'
+    DETECTION = 'detection'
     CLASSIFICATION = 'classification'
     
     def __str__(self):

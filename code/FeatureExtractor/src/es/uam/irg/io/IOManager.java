@@ -55,6 +55,7 @@ public class IOManager {
      */
     public static List<Proposition> readDatasetFromCsvFile(String filepath) {
         List<Proposition> dataset = new ArrayList<>();
+        int numLabels = 2;
 
         try {
             // Get the file
@@ -73,10 +74,10 @@ public class IOManager {
                     String[] data = row.split(",");
                     int n = data.length;
 
-                    if (n >= 3) {
+                    if (n >= 4) {
                         id = data[0];
-                        text = getTextField(data);
-                        type = data[n - 1];
+                        text = getTextField(data, numLabels);
+                        type = data[n - numLabels];
                         dataset.add(new Proposition(id, text, type));
                     }
                 }
@@ -232,11 +233,12 @@ public class IOManager {
      * columns.
      *
      * @param data
+     * @param numLabels
      * @return
      */
-    private static String getTextField(String[] data) {
+    private static String getTextField(String[] data, int numLabels) {
         String text = "";
-        for (int i = 1; i < data.length - 1; i++) {
+        for (int i = 1; i < data.length - numLabels; i++) {
             text += (!"".equals(text) ? "," : "") + data[i];
         }
         if (text.charAt(0) == '"') {
