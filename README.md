@@ -1,9 +1,9 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.7.8-blue)
-![last-update](https://img.shields.io/badge/last_update-5/14/2022-orange)
+![version](https://img.shields.io/badge/version-0.7.10-blue)
+![last-update](https://img.shields.io/badge/last_update-5/16/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
-Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences.
+Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the Decide Madrid platform.
 
 The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data (using the Prodigy tool), the subsequent feature extraction and the final construction and validation of the classification models.
 

@@ -17,7 +17,6 @@
  */
 package es.uam.irg.nlp.am;
 
-import es.uam.irg.io.Dataset;
 import es.uam.irg.io.IOManager;
 import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
@@ -38,6 +37,7 @@ public class FeatureExtractor {
     private static final String ARG_CLF = "classification";
     private static final String ARG_DET = "detection";
     private static final String FEATURES_FILEPATH = "../../data/features.json";
+    private static final String PROPOSITIONS_FILEPATH = "../../data/propositions.csv";
     private static final boolean VERBOSE = true;
 
     // Class members
@@ -72,9 +72,8 @@ public class FeatureExtractor {
             // 1. Get lexicon of linkers
             List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
 
-            // 2. Create/get data (raw dataset)
-            Dataset ds = new Dataset(this.argEngine);
-            List<Proposition> rawData = ds.getDataset();
+            // 2. Get sentences data
+            List<Proposition> rawData = getPropositionDataset();
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features (temp dataset)
@@ -143,6 +142,15 @@ public class FeatureExtractor {
         });
 
         return features;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private List<Proposition> getPropositionDataset() {
+        List<Proposition> dataset = IOManager.readDatasetFromCsvFile(PROPOSITIONS_FILEPATH);
+        return dataset;
     }
 
 }

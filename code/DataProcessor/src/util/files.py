@@ -15,9 +15,9 @@ import yaml
 import pandas as pd
 
 # Read list from JSONL (json lines format) file
-def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> dict:
-    result = {}
-
+def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> list:
+    result = []
+    
     try:
         json_list = []
         with open(json_path, mode="r", encoding=encoding) as file:
@@ -31,16 +31,17 @@ def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> dict:
     return result
 
 # Read list from plain file
-def get_list_from_plain_file(filepath:str, encoding:str="utf-8") -> list:
-    lines = []
+def get_list_from_plain_file(file_path:str, encoding:str="utf-8") -> list:
+    result = []
     
     try:
-        with open(filepath, mode="r", encoding=encoding) as file:
-            lines = file.readlines()
+        with open(file_path, mode="r", encoding=encoding) as file:
+            result = file.readlines()
+        
     except Exception as e:
         print(e)
     
-    return lines
+    return result
 
 # Read dict from JSON file
 def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
@@ -49,6 +50,7 @@ def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
     try:
         with open(json_path, mode="r", encoding=encoding) as file:
             result = json.load(file)
+        
     except Exception as e:
         print(e)
         
@@ -62,17 +64,18 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         with open(yaml_path, mode="r", encoding=encoding) as file:
             yaml_file = file.read()
             result = yaml.load(yaml_file, Loader=yaml.FullLoader)
+        
     except Exception as e:
         print(e)
         
     return result
 
 # Save or update a CSV data
-def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:
+def save_csv_data(file_path:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:
     result = False
     
     try:    
-        with open(filepath, mode, newline="", encoding=encoding) as f:
+        with open(file_path, mode, newline="", encoding=encoding) as f:
             write = csv.writer(f)
             if mode == "w":
                 write.writerow(header)
@@ -86,12 +89,12 @@ def save_csv_data(filepath:str, header:list, data:list, mode:str="w", encoding:s
     return result
 
 # Save dataframe to CSV file
-def save_df_to_csv(df:pd.DataFrame, filepath:str, index=False, encoding:str="utf-8") -> bool:
+def save_df_to_csv(df:pd.DataFrame, file_path:str, index=False, encoding:str="utf-8") -> bool:
     result = False
     
     try: 
-        df.to_csv(filepath, index=index, encoding=encoding)
-        result = os.path.exists(filepath)
+        df.to_csv(file_path, index=index, encoding=encoding)
+        result = os.path.exists(file_path)
         
     except Exception as e:
         print("Error:", e)

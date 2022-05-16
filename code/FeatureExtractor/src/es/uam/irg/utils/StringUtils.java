@@ -1,6 +1,24 @@
+/**
+ * Copyright 2021
+ * Ivan Cantador and Andrés Segura-Tinoco
+ * Information Retrieval Group at Universidad Autonoma de Madrid
+ *
+ * This is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This software is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * the current software. If not, see <http://www.gnu.org/licenses/>.
+ */
 package es.uam.irg.utils;
 
 import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -9,9 +27,6 @@ import java.util.LinkedList;
 public class StringUtils {
 
     // Class contants
-    public static final String CLEAN_BOTH = "both";
-    public static final String CLEAN_LEFT = "left";
-    public static final String CLEAN_RIGHT = "right";
     private static final String EMPTY = "";
     private static final String PLAIN_ASCII
             = "AaEeIiOoUu" // grave
@@ -48,15 +63,12 @@ public class StringUtils {
     /**
      *
      * @param text
-     * @param direction
      * @return
      */
-    public static String cleanText(String text, String direction) {
-        String newText = rightCleanText(text);
-        if (direction.equals(CLEAN_BOTH)) {
-            newText = StringUtils.reverse(StringUtils.rightCleanText(StringUtils.reverse(newText)));
-        }
-        return newText.trim();
+    public static String firstChartToLowerCase(String text) {
+        char c[] = text.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
+        return new String(c);
     }
 
     /**
@@ -87,6 +99,21 @@ public class StringUtils {
             lastToken = tokens[tokens.length - 1];
         }
         return lastToken;
+    }
+
+    /**
+     *
+     * @param word
+     * @return
+     */
+    public static boolean isAllInUppercase(String word) {
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (Character.isAlphabetic(c) && !Character.isUpperCase(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -311,6 +338,45 @@ public class StringUtils {
     }
 
     /**
+     *
+     * @param s
+     * @return
+     */
+    public static String toTitleCase(String s) {
+        if (StringUtils.isEmpty(s)) {
+            return "";
+        }
+
+        StringBuilder converted = new StringBuilder();
+
+        boolean convertNext = true;
+        for (char ch : s.toCharArray()) {
+            if (Character.isSpaceChar(ch)) {
+                convertNext = true;
+            } else if (convertNext) {
+                ch = Character.toTitleCase(ch);
+                convertNext = false;
+            } else {
+                ch = Character.toLowerCase(ch);
+            }
+            converted.append(ch);
+        }
+
+        return converted.toString().trim();
+    }
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public static String unaccent(String s) {
+        return Normalizer
+                .normalize(s, Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "");
+    }
+
+    /**
      * Accept a string, like aCamelString
      *
      * @param s
@@ -343,19 +409,6 @@ public class StringUtils {
         }
 
         return mi;
-    }
-
-    /**
-     *
-     * @param text
-     * @return
-     */
-    private static String rightCleanText(String text) {
-        String newText = text.trim();
-        newText = newText.replaceAll("\\.+$", "");
-        newText = newText.replaceAll("\\,+$", "");
-        newText = newText.replaceAll("\\!+$", "");
-        return newText;
     }
 
 }
