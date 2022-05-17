@@ -88,9 +88,10 @@ def save_csv_data(file_path:str, header:list, data:list, mode:str="w", encoding:
 def save_df_to_csv(df:pd.DataFrame, file_path:str, index=False, mode:str="w", encoding:str="utf-8") -> bool:
     result = False
     
-    try: 
-        df.to_csv(file_path, index=index, mode=mode, encoding=encoding)
-        result = os.path.exists(file_path)
+    try:
+        hdr = not os.path.isfile(file_path)
+        df.to_csv(file_path, index=index, mode=mode, encoding=encoding, header=hdr)
+        result = True
         
     except Exception as e:
         print(e)
