@@ -1,5 +1,5 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.7.12-blue)
+![version](https://img.shields.io/badge/version-0.8.0-blue)
 ![last-update](https://img.shields.io/badge/last_update-5/17/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
@@ -10,16 +10,28 @@ The complete solution consists of a pipeline of 6 modules, which are in charge o
 ## Pipeline diagram
 ![Pipeline diagram](https://raw.githubusercontent.com/argrecsys/arg-classifier/main/image/pipeline-diagram.svg)
 
+Below are links to all datasets (both intermediate and final) created and used by the solution:
+- Decide Madrid <a href="https://decide.madrid.es/" target="_blank">platform</a>
+- Proposals <a href="https://github.com/argrecsys/decide-madrid-2019-labels/tree/main/data" target="_blank">JSONL file</a>
+- Annotations <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/annotations.jsonl" target="_blank">JSONL file</a>
+- Propositions <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/propositions.csv" target="_blank">CSV file</a>
+- Features <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/features.json" target="_blank">JSON file</a>
+- Labeled dataset <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/dataset.csv" target="_blank">CSV file</a>
+- Results <a href="https://github.com/argrecsys/arg-classifier/blob/main/results/metrics.csv" target="_blank">CSV file</a>
+
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
+- Data processor (Python module):
+  - python 3.8.x
 
-- Feature extractor (Java solution):
+- Feature extractor (Java module):
   - JDK 16
-  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> 4.3.1
+  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> 4.4.0
+  - <a href="https://mongodb.github.io/mongo-java-driver/" target="_blank">MongoDB Java Driver</a> 3.12.10
   - Snake YAML 1.9
   - JSON Java 20210307
 
-- Argument classifier (Python solution):
+- Argument classifier (Python module):
   - python 3.8.x
   - sklearn 0.24.2
   - nltk 3.6.3

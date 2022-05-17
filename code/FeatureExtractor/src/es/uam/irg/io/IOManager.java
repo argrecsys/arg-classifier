@@ -17,10 +17,10 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.nlp.am.TextFeature;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
+import es.uam.irg.nlp.am.feat.TextFeature;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
