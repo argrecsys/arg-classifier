@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    Created by: Andres Segura Tinoco
+    Created by: Andrés Segura-Tinoco
     Version: 1.0.0
     Created on: Oct 07, 2021
     Updated on: Oct 19, 2021
