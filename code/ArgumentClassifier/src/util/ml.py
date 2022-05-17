@@ -3,12 +3,11 @@
     Created by: Andrés Segura-Tinoco
     Version: 0.2.0
     Created on: May 11, 2022
-    Updated on: May 13, 2022
+    Updated on: May 16, 2022
     Description: ML library with utility functions
 """
 
 # Import Python base libraries
-import os
 import pandas as pd
 
 # Import ML libraries
@@ -52,13 +51,3 @@ def create_df_from_sparse_matrix(matrix:list) -> pd.DataFrame:
     df = pd.DataFrame(data, columns=columns)
     
     return df
-
-# File function - Get max value from column from CSV file
-def get_max_value_from_csv_file(filepath:str, column:str) -> int:
-    max_value = 0
-    
-    if os.path.exists(filepath):
-        df = pd.read_csv(filepath)
-        max_value = df["id"].max()
-    
-    return max_value

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    Created by: Andres Segura Tinoco
-    Version: 0.6.0
+    Created by: Andrés Segura-Tinoco
+    Version: 0.7.0
     Created on: Oct 07, 2021
-    Updated on: Oct 26, 2021
+    Updated on: May 16, 2022
     Description: ML engine class.
 """
 
@@ -44,16 +44,16 @@ class MLEngine:
     ######################
     
     # Read JSON file of features
-    def __read_feature_file(self, output_path:str) -> dict:
-        filepath = output_path + "features.json"
+    def __read_feature_file(self, data_path:str) -> dict:
+        filepath = data_path + "features.json"
         features = ufl.get_dict_from_json(filepath, self.encoding)
         return features
     
     # Read CSV file of labels
-    def __read_label_file(self, output_path:str) -> dict:
+    def __read_label_file(self, data_path:str) -> dict:
         labels = {}
         
-        filepath = output_path + "propositions.csv"
+        filepath = data_path + "propositions.csv"
         lines = ufl.get_list_from_plain_file(filepath, self.encoding)
         
         if len(lines) > 1:
@@ -64,7 +64,7 @@ class MLEngine:
                 # Save data
                 prop_id = data[0]
                 label1 = data[n-2]
-                label2 = data[n-1]
+                label2 = data[n-1][:-1]
                 labels[prop_id] = {"sent_label1": label1, "sent_label2": label2}
         
         return labels
@@ -103,14 +103,9 @@ class MLEngine:
                 feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 
                 # Transform words to lower case, remove stopwords and save vocabulary (step -0)
-                vocabulary = []
+                vocabulary = [ele.lower() for ele in feat_data]
                 if setup["remove_stopwords"] and len(set_stopwords):
-                    for ele in feat_data:
-                        ele = ele.lower() 
-                        if ele not in set_stopwords:
-                            vocabulary.append(ele)
-                else:
-                    vocabulary = [ele.lower() for ele in feat_data]
+                    vocabulary = [ele for ele in vocabulary if ele not in set_stopwords]
                 vcb_corpus.append(vocabulary)
                 
                 # Adverbs matrix (step -6)
@@ -135,7 +130,7 @@ class MLEngine:
                     number_sub_clauses.append(v["number_sub_clauses"])
                 
                 # Save label
-                label_list.append(label_data[y_label])
+                label_list.append(label_data[y_label].lower())
             else:
                 print('Missing label:', k)
         
@@ -180,19 +175,19 @@ class MLEngine:
     ###########################
     
     # ML function - Create dataset
-    def create_dataset(self, output_folder:str, y_label:str, data_setup:dict) -> tuple:
+    def create_dataset(self, data_path:str, y_label:str, data_setup:dict) -> tuple:
         dataset = None
         label_dict = {}
         force_create_dataset = data_setup.get("force_create", False)
-        df_filepath = output_folder + "dataset.csv"
+        df_filepath = data_path + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
-            features = self.__read_feature_file(output_folder)
-            labels = self.__read_label_file(output_folder)
+            features = self.__read_feature_file(data_path)
+            labels = self.__read_label_file(data_path)
             dataset = self.__create_dataset(features, labels, y_label, data_setup)
             dataset.to_csv(df_filepath, index=False)
         else:
-            dataset = pd.read_csv(df_filepath)
+            dataset = ufl.get_df_from_csv(df_filepath)
         
         if dataset is not None:
             label_dict, label_list = mlu.get_label_dict(self.task_type, dataset[self.label_column].tolist())
@@ -288,3 +283,13 @@ class MLEngine:
         
         return clf
     
+    # ML function - Returns the next model id (current + 1)
+    def get_next_model_id(self, filepath:str) -> int:
+        max_value = 0
+        
+        df = ufl.get_df_from_csv(filepath)
+        if df is not None:
+            max_value = df["id"].max()
+        max_value += 1
+        
+        return max_value

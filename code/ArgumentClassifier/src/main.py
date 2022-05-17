@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    Created by: Andres Segura Tinoco
-    Version: 0.6.0
+    Created by: Andrés Segura-Tinoco
+    Version: 0.7.0
     Created on: Aug 27, 2021
     Updated on: May 16, 2022
     Description: Main class of the argument classifier.
@@ -9,7 +9,6 @@
 
 # Import Custom libraries
 from util import files as ufl
-from util import ml as uml
 import ml.engine as mle
 from ml.constant import ModelType
 
@@ -53,9 +52,9 @@ def save_error_ids(error_ids, X_test):
         #    print(rid, X_test.loc[rid])
 
 # Save model result
-def save_results(result_folder:str, data:list) -> int:
+def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     filepath = result_folder + "metrics.csv"
-    model_id = uml.get_max_value_from_csv_file(filepath, "id") + 1
+    model_id = ml_ngx.get_next_model_id(filepath)
     header = ["id", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
     data = [[model_id] + row for row in data]
     result = ufl.save_csv_data(filepath, header, data, mode="a")
@@ -71,7 +70,7 @@ def start_app():
     if len(app_setup):
         
         # 0. Program variables
-        ml_algo = ModelType.NAIVE_BAYES.value
+        ml_algo = ModelType.GRADIENT_BOOSTING.value
         data_setup = app_setup["data"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
@@ -110,7 +109,7 @@ def start_app():
         results = []
         results.append([curr_dataset, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
         results.append([curr_dataset, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
-        model_id = save_results(result_folder, results)
+        model_id = save_results(result_folder, results, ml_ngx)
         
         # 9. Create and save model
         if model_id > 0:
