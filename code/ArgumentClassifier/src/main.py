@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.0
+    Version: 0.8.0
     Created on: Aug 27, 2021
-    Updated on: May 16, 2022
+    Updated on: May 18, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -31,11 +31,11 @@ def get_curr_dataset_name(setup:dict) -> str:
     ds_name = "ds"
     
     ds_name += "-0" if setup["remove_stopwords"] else ""
-    ds_name += "-1" if setup["punctuation"] else ""
-    ds_name += "-2" if setup["unigrams"] else ""
-    ds_name += "-3" if setup["bigrams"] else ""
-    ds_name += "-4" if setup["trigrams"] else ""
-    ds_name += "-5" if setup["word_couples"] else ""
+    ds_name += "-1" if setup["unigrams"] else ""
+    ds_name += "-2" if setup["bigrams"] else ""
+    ds_name += "-3" if setup["trigrams"] else ""
+    ds_name += "-4" if setup["word_couples"] else ""
+    ds_name += "-5" if setup["punctuation"] else ""
     ds_name += "-6" if setup["adverbs"] else ""
     ds_name += "-7" if setup["verbs"] else ""
     ds_name += "-8" if setup["key_words"] else ""
