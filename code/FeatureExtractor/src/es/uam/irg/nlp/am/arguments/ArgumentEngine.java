@@ -22,6 +22,7 @@ import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
+import es.uam.irg.io.IOManager;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -34,19 +35,24 @@ public class ArgumentEngine {
 
     public static final String LANG_EN = "en";
     public static final String LANG_ES = "es";
+    private static final HashSet<String> ENTITY_TYPE = new HashSet(
+            Arrays.asList("PERSON", "LOCATION", "ORGANIZATION", "MISC", "CITY", "STATE_OR_PROVINCE", "COUNTRY", "TITLE"));
     private static final String SPANISH_PROPERTIES = "Resources/config/StanfordCoreNLP-spanish.properties";
 
     // Class members
     private final String language;
     private StanfordCoreNLP pipeline;
+    private final HashSet<String> stopwords;
 
     /**
      * Class constructor.
      *
      * @param lang
+     * @param stopwords
      */
     public ArgumentEngine(String lang) {
         this.language = lang;
+        this.stopwords = getStopwordList(language);
         createPipeline();
     }
 
@@ -79,6 +85,26 @@ public class ArgumentEngine {
      */
     public String getCurrentLanguage() {
         return this.language;
+    }
+
+    /**
+     *
+     * @param text
+     * @return
+     */
+    public List<String> getNamedEntities(String text) {
+        List<String> entities = new ArrayList<>();
+        CoreDocument document = pipeline.processToCoreDocument(text);
+
+        for (CoreEntityMention em : document.entityMentions()) {
+            if (ENTITY_TYPE.contains(em.entityType())) {
+                if (!this.stopwords.contains(em.text().toLowerCase()) || em.entityType().equals("ORGANIZATION") || (em.entityType().equals("MISC") && em.text().length() > 2)) {
+                    entities.add(em.text());
+                }
+            }
+        }
+
+        return entities;
     }
 
     /**
@@ -156,6 +182,15 @@ public class ArgumentEngine {
         }
 
         return text;
+    }
+
+    /**
+     *
+     * @param language
+     * @return
+     */
+    private HashSet<String> getStopwordList(String lang) {
+        return IOManager.readStopwordList(lang, true);
     }
 
 }

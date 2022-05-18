@@ -35,27 +35,37 @@ import java.util.List;
 public class ArgumentFeature extends TextFeature {
 
     // Class variables
-    private List<String> adverbs;
+    private final ArgumentEngine argEngine;
+    private final List<ArgumentLinker> lexicon;
+    private final String dateFormat;
+
+    // Structural features (5)
+    private final int textLength;
+    private final int textPosition;
+    private int tokenCount;
     private int avgWordLength;
-    private List<String> keyWords;
-    private List<String> modalAuxs;
-    private int numberPunctMarks;
-    private int numberSubclauses;
-    private int parseTreeDepth;
-    private List<String> punctuation;
-    private List<String> verbs;
+    private int punctMarksCount;
+
+    // Lexical features (11)
+    private List<String> bowUnigrams;
+    private List<String> bowBigrams;
+    private List<String> bowTrigrams;
+    private List<String> posUnigrams;
+    private List<String> posBigrams;
     private List<String> wordCouples;
-    // Class objects
-    protected ArgumentEngine argEngine;
-    protected List<String> bigrams;
-    protected String dateFormat;
-    protected boolean isValid;
-    protected List<ArgumentLinker> lexicon;
-    // Structural features
-    protected int textLength;
-    protected List<String> trigrams;
-    // Baseline lexical features
-    protected List<String> unigrams;
+    private List<String> entities;
+    private List<String> adverbs;
+    private List<String> verbs;
+    private List<String> nouns;
+    private List<String> modalAuxs;
+
+    // Syntactic features (2)
+    private int parseTreeDepth;
+    private int subClausesCount;
+
+    // Discourse markers (2)
+    private List<String> punctuation;
+    private List<String> keyWords;
 
     /**
      *
@@ -65,46 +75,55 @@ public class ArgumentFeature extends TextFeature {
      * @param lexicon
      */
     public ArgumentFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
+
+        // Base variables
+        this.id = id;
+        this.text = text;
         this.argEngine = argEngine;
         this.lexicon = lexicon;
         this.dateFormat = getDateFormat();
-        this.id = id;
-        this.text = text;
-        this.unigrams = new ArrayList<>();
-        this.bigrams = new ArrayList<>();
-        this.trigrams = new ArrayList<>();
+
+        // Structural features
+        this.textLength = text.length();
+        this.textPosition = getSentencePosition();
+        this.tokenCount = 0;
+        this.avgWordLength = 0;
+        this.punctMarksCount = 0;
+
+        // Lexical features
+        this.bowUnigrams = new ArrayList<>();
+        this.bowBigrams = new ArrayList<>();
+        this.bowTrigrams = new ArrayList<>();
+        this.posUnigrams = new ArrayList<>();
+        this.posBigrams = new ArrayList<>();
+        this.wordCouples = new ArrayList<>();
+        this.entities = new ArrayList<>();
         this.adverbs = new ArrayList<>();
         this.verbs = new ArrayList<>();
+        this.nouns = new ArrayList<>();
         this.modalAuxs = new ArrayList<>();
-        this.wordCouples = new ArrayList<>();
+
+        // Syntactic features
+        this.parseTreeDepth = 0;
+        this.subClausesCount = 0;
+
+        // Discourse markers
         this.punctuation = new ArrayList<>();
         this.keyWords = new ArrayList<>();
-        this.textLength = text.length();
-        this.avgWordLength = 0;
-        this.numberPunctMarks = 0;
-        this.parseTreeDepth = 0;
-        this.numberSubclauses = 0;
-        this.isValid = false;
     }
 
     /**
      * Runs feature extraction method.
-     */
-    @Override
-    public void extraction() {
-
-        // NLP-processing
-        if (this.textLength >= MIN_LENGTH) {
-            extractFeatures();
-        }
-    }
-
-    /**
      *
      * @return
      */
-    public boolean isValid() {
-        return this.isValid;
+    @Override
+    public boolean extraction() {
+        if (this.textLength >= MIN_LENGTH) {
+            // NLP-processing
+            return extractFeatures();
+        }
+        return false;
     }
 
     /**
@@ -113,110 +132,143 @@ public class ArgumentFeature extends TextFeature {
      */
     @Override
     public String toString() {
-        String str = "{\"unigrams\": %s, \"bigrams\": %s, \"trigrams\": %s, \"adverbs\": %s, \"verbs\": %s, \"modal_aux\": %s,"
-                + " \"word_couples\": %s, \"punctuation\": %s, \"key_words\": %s, \"text_length\": %d, \"avg_word_length\": %d,"
+        String str = "{\"bow_unigrams\": %s, \"bow_bigrams\": %s, \"bow_trigrams\": %s, \"pos_unigrams\": %s, \"pos_bigrams\": %s, \"wordCouples\": %s,"
+                + " \"entities\": %s, \"adverbs\": %s, \"verbs\": %s, \"nouns\": %s, \"modal_aux\": %s, \"punctuation\": %s, \"key_words\": %s,"
+                + " \"text_length\": %d, \"text_position\": %d, \"token_count\": %d, \"avg_word_length\": %d,"
                 + " \"number_punct_marks\": %d, \"parse_tree_depth\": %d, \"number_sub_clauses\": %d}";
-        str = String.format(str, listToString(unigrams), listToString(bigrams), listToString(trigrams), listToString(adverbs),
-                listToString(verbs), listToString(modalAuxs), listToString(wordCouples), listToString(punctuation),
-                listToString(keyWords), textLength, avgWordLength, numberPunctMarks, parseTreeDepth, numberSubclauses);
+        str = String.format(str, listToString(bowUnigrams), listToString(bowBigrams), listToString(bowTrigrams), listToString(posUnigrams),
+                listToString(posBigrams), listToString(wordCouples), listToString(entities), listToString(adverbs), listToString(verbs),
+                listToString(nouns), listToString(modalAuxs), listToString(punctuation), listToString(keyWords),
+                textLength, textPosition, tokenCount, avgWordLength, punctMarksCount, parseTreeDepth, subClausesCount);
         return str;
     }
 
     /**
      *
      */
-    private void extractFeatures() {
+    private boolean extractFeatures() {
+        boolean isValid = false;
+
+        // Get tokens
         CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
-        String currWord;
-        String posTag;
+        List<CoreLabel> tokens = nlpDoc.tokens();
 
-        // 1. Split sentences into words
-        for (CoreLabel token : nlpDoc.tokens()) {
-            currWord = token.word();
-            posTag = token.tag();
+        // Extract features
+        if (tokens.size() > 0) {
+            this.tokenCount = tokens.size();
+            String currWord;
+            String posTag;
 
-            // Adding words
-            if ((posTag.equals("PUNCT") && !currWord.startsWith("etc")) || SPECIAL_PUNCT.indexOf(currWord.charAt(0)) >= 0) {
-                String puntMark = StringUtils.cleanPuntuationMark(currWord);
-                this.punctuation.add(puntMark);
+            // 1. Split sentences into words
+            for (CoreLabel token : tokens) {
+                currWord = token.word();
+                posTag = token.tag();
 
-            } else {
-                // First filter
-                if (StringUtils.isNumeric(currWord)) {
-                    currWord = "$number$";
-                } else if (StringUtils.isDateTime(currWord, this.dateFormat)) {
-                    currWord = "$date$";
-                } else if (StringUtils.isDateTime(currWord, "HH:mm")) {
-                    currWord = "$time$";
-                }
+                // Adding words
+                if ((posTag.equals("PUNCT") && !currWord.startsWith("etc")) || SPECIAL_PUNCT.indexOf(currWord.charAt(0)) >= 0) {
+                    String puntMark = StringUtils.cleanPuntuationMark(currWord);
+                    this.punctuation.add(puntMark);
 
-                // Second filter
-                if (StringUtils.isValidToken(currWord)) {
-                    this.unigrams.add(currWord);
-                    this.avgWordLength += currWord.length();
+                } else {
+                    // First filter
+                    if (StringUtils.isNumeric(currWord)) {
+                        currWord = "$number$";
+                    } else if (StringUtils.isDateTime(currWord, this.dateFormat)) {
+                        currWord = "$date$";
+                    } else if (StringUtils.isDateTime(currWord, "HH:mm")) {
+                        currWord = "$time$";
+                    }
 
-                    // Adding POS tags
-                    if (posTag.equals("VERB") && currWord.length() > 1) {
-                        this.verbs.add(currWord);
-                    } else if (posTag.equals("ADV")) {
-                        this.adverbs.add(currWord);
-                    } else if (posTag.equals("AUX")) {
-                        this.modalAuxs.add(currWord);
+                    // Second filter
+                    if (StringUtils.isValidToken(currWord)) {
+                        this.bowUnigrams.add(currWord);
+                        this.posUnigrams.add(posTag);
+                        this.avgWordLength += currWord.length();
+
+                        // Adding POS tags
+                        if (posTag.equals("VERB") && currWord.length() > 1) {
+                            this.verbs.add(currWord);
+                        } else if (posTag.equals("ADV")) {
+                            this.adverbs.add(currWord);
+                        } else if (posTag.equals("AUX")) {
+                            this.modalAuxs.add(currWord);
+                        } else if (posTag.equals("NOUN")) {
+                            this.nouns.add(currWord);
+                        }
                     }
                 }
             }
-        }
 
-        // 2. If the sentence has valid words...
-        if (this.unigrams.size() > 0) {
-            this.avgWordLength /= this.unigrams.size();
-            this.numberPunctMarks = this.punctuation.size();
+            // 2. If the sentence has valid words...
+            if (this.bowUnigrams.size() > 0) {
+                this.avgWordLength /= this.bowUnigrams.size();
+                this.punctMarksCount = this.punctuation.size();
 
-            // 2.1 Extract baseline lexical features
-            String bigram;
-            String trigram;
-            String wordN_1 = "";
-            String wordN_2 = "";
+                // 2.1 Extract baseline lexical features
+                String bigram;
+                String trigram;
+                String wordN_1 = "";
+                String wordN_2 = "";
 
-            for (String word : this.unigrams) {
-                bigram = (wordN_1.isEmpty() ? "$init$" : wordN_1) + "-" + word;
-                this.bigrams.add(bigram);
+                for (String word : this.bowUnigrams) {
+                    bigram = (wordN_1.isEmpty() ? "$init$" : wordN_1) + "-" + word;
+                    this.bowBigrams.add(bigram);
 
-                if (!wordN_1.isEmpty()) {
-                    trigram = (wordN_2.isEmpty() ? "$init$" : wordN_2) + "-" + bigram;
-                    this.trigrams.add(trigram);
+                    if (!wordN_1.isEmpty()) {
+                        trigram = (wordN_2.isEmpty() ? "$init$" : wordN_2) + "-" + bigram;
+                        this.bowTrigrams.add(trigram);
+                    }
+
+                    wordN_2 = wordN_1;
+                    wordN_1 = word;
                 }
+                bigram = wordN_1 + "-$end$";
+                trigram = wordN_2 + "-" + bigram;
+                this.bowBigrams.add(bigram);
+                this.bowTrigrams.add(trigram);
 
-                wordN_2 = wordN_1;
-                wordN_1 = word;
+                // 2.2. Extract POS bigrams
+                wordN_1 = "";
+
+                for (String word : this.posUnigrams) {
+                    bigram = (wordN_1.isEmpty() ? "$init$" : wordN_1) + "-" + word;
+                    this.posBigrams.add(bigram);
+                    wordN_1 = word;
+                }
+                bigram = wordN_1 + "-$end$";
+                this.posBigrams.add(bigram);
+
+                // 2.3. Named entity recognition
+                this.entities = this.argEngine.getNamedEntities(this.text);
+
+                // 2.4. Create the parse tree
+                List<Phrase> phraseList = getPhraseList();
+
+                phraseList.forEach((Phrase frase) -> {
+                    if (frase.depth > this.parseTreeDepth) {
+                        this.parseTreeDepth = frase.depth;
+                    }
+                });
+                this.subClausesCount = phraseList.size();
+
+                // 2.5. Group them into couple-of-words
+                this.wordCouples = FeatureUtils.getWordCouples(this.bowUnigrams);
+
+                // 2.6. Get list of keywords
+                this.keyWords = FeatureUtils.getUsedLinkerList(this.bowUnigrams, this.lexicon);
+
+                // 2.7. Save valid state
+                isValid = true;
             }
-            bigram = wordN_1 + "-$end$";
-            trigram = wordN_2 + "-" + bigram;
-            this.bigrams.add(bigram);
-            this.trigrams.add(trigram);
-
-            // 2.2. Create the parse tree
-            List<Phrase> phraseList = getPhraseList();
-
-            phraseList.forEach((Phrase frase) -> {
-                if (frase.depth > this.parseTreeDepth) {
-                    this.parseTreeDepth = frase.depth;
-                }
-            });
-            this.numberSubclauses = phraseList.size();
-
-            // 2.3. Group them into couple-of-words
-            this.wordCouples = FeatureUtils.getWordCouples(this.unigrams);
-
-            // 2.4. Get list of keywords
-            this.keyWords = FeatureUtils.getUsedLinkerList(this.unigrams, this.lexicon);
-
-            // 2.5. Save valid state
-            this.isValid = true;
         }
 
+        return isValid;
     }
 
+    /**
+     *
+     * @return
+     */
     private String getDateFormat() {
         String format = "";
         if (this.argEngine != null) {

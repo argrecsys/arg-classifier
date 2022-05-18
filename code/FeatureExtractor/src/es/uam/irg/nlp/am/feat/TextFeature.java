@@ -33,19 +33,40 @@ public abstract class TextFeature {
     protected String id;
     protected String text;
 
-    public abstract void extraction();
+    public abstract boolean extraction();
 
     /**
      *
      * @return
      */
-    public String getID() {
+    public String getId() {
         return this.id;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getText() {
+        return this.text;
     }
 
     // Abstract methods
     @Override
     public abstract String toString();
+
+    /**
+     *
+     * @return
+     */
+    protected int getSentencePosition() {
+        int sentPosition = 0;
+        if (!this.id.isEmpty()) {
+            String[] tokens = this.id.split("-");
+            sentPosition = Integer.parseInt(tokens[3]);
+        }
+        return sentPosition;
+    }
 
     /**
      *

@@ -112,8 +112,8 @@ public class FeatureExtractor {
 
         rawData.forEach((Proposition prop) -> {
             ArgumentFeature tf = new ArgumentFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
-            tf.extraction();
-            if (tf.isValid()) {
+
+            if (tf.extraction()) {
                 features.add(tf);
             }
         });
