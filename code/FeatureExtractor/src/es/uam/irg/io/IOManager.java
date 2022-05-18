@@ -17,6 +17,7 @@
  */
 package es.uam.irg.io;
 
+import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
@@ -47,6 +48,7 @@ public class IOManager {
 
     // Class constants
     private static final String LEXICON_FILEPATH = "Resources/data/argument_lexicon_{}.csv";
+    private static final String STOPWORDS_FILEPATH = "Resources/stopwords/{}.txt";
 
     /**
      *
@@ -171,6 +173,44 @@ public class IOManager {
 
     /**
      *
+     * @param lang
+     * @param verbose
+     * @return
+     */
+    public static HashSet<String> readStopwordList(String lang, boolean verbose) {
+        HashSet<String> stopwords = new HashSet<>();
+        String language = (lang.equals(ArgumentEngine.LANG_EN) ? "english" : "spanish");
+        String stopwordsFilepath = STOPWORDS_FILEPATH.replace("{}", language);
+
+        try {
+            // Get the file
+            File txtFile = new File(stopwordsFilepath);
+
+            // Check if the specified file exists or not
+            if (txtFile.exists()) {
+                BufferedReader reader = new BufferedReader(new FileReader(txtFile));
+                String word;
+
+                while ((word = reader.readLine()) != null) {
+                    stopwords.add(word);
+                }
+
+                reader.close();
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(IOManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (verbose) {
+            System.out.println(">> Stopwords: " + stopwords.size());
+        }
+
+        return stopwords;
+    }
+
+    /**
+     *
      * @param filepath
      * @return
      */
@@ -208,7 +248,7 @@ public class IOManager {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
         for (TextFeature feature : features) {
-            sb.append("  \"" + feature.getID() + "\": " + feature.toString() + ",\n");
+            sb.append("  \"" + feature.getId() + "\": " + feature.toString() + ",\n");
         }
         String jsonText = sb.toString();
         jsonText = jsonText.substring(0, jsonText.length() - 2) + "\n}";
