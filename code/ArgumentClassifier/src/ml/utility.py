@@ -22,18 +22,19 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
 
 # Util function - Transform labels
-def get_label_dict(task_type:str, label_list:list) -> dict:
+def get_label_dict(task_type:str, labels:list) -> dict:
+    label_dict = {}
+    label_list = []
     
     # Update label field
-    label_dict = {}
     if task_type == TaskType.DETECTION.value:
         # Labels: non-argumentative or argumentative
         label_dict = { 0: "no", 1: "yes" }
-        label_list = [0 if item == "no" else 1 for item in label_list]
+        label_list = [0 if item == "no" else 1 for item in labels]
         
     elif task_type == TaskType.CLASSIFICATION.value:
-        label_dict = uml.convert_categ_to_num(label_list)
-        label_list = [label_dict[item] for item in label_list]
+        label_dict = uml.convert_categ_to_num(labels)
+        label_list = [label_dict[item] for item in labels]
         label_dict = {v: k for k, v in label_dict.items()}
     
     return label_dict, label_list
