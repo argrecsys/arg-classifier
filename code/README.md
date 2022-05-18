@@ -18,7 +18,6 @@ This module is in charge of automatically extracting the NLP features of each pr
 The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/main/code/FeatureExtractor/Resources/config/params.json">params.json</a> file) of this module are:
 ```json
 {
-    "extractionMode": "detection",
     "language": "es",
     "linkers": {
         "en": {

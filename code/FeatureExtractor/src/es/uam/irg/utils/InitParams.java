@@ -49,7 +49,6 @@ public class InitParams {
                 // General parameters
                 String lang = json.getString("language");
                 params.put("language", lang);
-                params.put("extractionMode", json.getString("extractionMode"));
 
                 // Linkers parameters
                 data = json.getJSONObject("linkers").getJSONObject(lang);

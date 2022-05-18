@@ -22,8 +22,7 @@ import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
-import es.uam.irg.nlp.am.feat.ClassificationTextFeature;
-import es.uam.irg.nlp.am.feat.DetectionTextFeature;
+import es.uam.irg.nlp.am.feat.ArgumentFeature;
 import es.uam.irg.nlp.am.feat.TextFeature;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,8 +36,6 @@ import java.util.logging.Logger;
 public class FeatureExtractor {
 
     // Class constants
-    private static final String ARG_CLF = "classification";
-    private static final String ARG_DET = "detection";
     private static final String FEATURES_FILEPATH = "../../data/features.json";
     private static final String PROPOSITIONS_FILEPATH = "../../data/propositions.csv";
     private static final boolean VERBOSE = true;
@@ -62,10 +59,9 @@ public class FeatureExtractor {
     /**
      * Extracts the characteristics of the proposition file.
      *
-     * @param extractionMode
      * @return
      */
-    public boolean runProgram(String extractionMode) {
+    public boolean runProgram() {
         boolean result = false;
 
         // ML pipeline
@@ -73,24 +69,12 @@ public class FeatureExtractor {
             // 1. Get lexicon of linkers
             List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
 
-            // 2. Get sentences data
+            // 2. Get propositions data
             List<Proposition> rawData = getPropositionDataset();
             System.out.println(">> Total propositions: " + rawData.size());
 
             // 3. Extract features from propositions dataset
-            List<TextFeature> features = null;
-
-            if (extractionMode.equals(ARG_DET)) {
-                System.out.println(">> Argument detection features");
-                features = extractArgumentDetectionFeatures(rawData, lexicon);
-
-            } else if (extractionMode.equals(ARG_CLF)) {
-                System.out.println(">> Argument classification features");
-                features = extractArgumentClassificationFeatures(rawData, lexicon);
-
-            } else {
-                System.err.println(">> Task not supported.");
-            }
+            List<TextFeature> features = extractArgumentFeatures(rawData, lexicon);
 
             // 4. Save results (final dataset)
             if (features != null) {
@@ -123,31 +107,11 @@ public class FeatureExtractor {
      * @param lexicon
      * @return
      */
-    private List<TextFeature> extractArgumentClassificationFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
+    private List<TextFeature> extractArgumentFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
         List<TextFeature> features = new ArrayList<>();
 
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new ClassificationTextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
-            tf.extraction();
-            if (tf.isValid()) {
-                features.add(tf);
-            }
-        });
-
-        return features;
-    }
-
-    /**
-     *
-     * @param rawData
-     * @param lexicon
-     * @return
-     */
-    private List<TextFeature> extractArgumentDetectionFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
-        List<TextFeature> features = new ArrayList<>();
-
-        rawData.forEach((Proposition prop) -> {
-            DetectionTextFeature tf = new DetectionTextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
+            ArgumentFeature tf = new ArgumentFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
             tf.extraction();
             if (tf.isValid()) {
                 features.add(tf);
