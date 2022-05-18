@@ -17,10 +17,10 @@
  */
 package es.uam.irg.io;
 
-import es.uam.irg.nlp.am.TextFeature;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
+import es.uam.irg.nlp.am.feat.TextFeature;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -205,10 +205,12 @@ public class IOManager {
         boolean result = false;
 
         // Create JSON text
-        String jsonText = "{\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
         for (TextFeature feature : features) {
-            jsonText += "  \"" + feature.getID() + "\": " + feature.toString() + ",\n";
+            sb.append("  \"" + feature.getID() + "\": " + feature.toString() + ",\n");
         }
+        String jsonText = sb.toString();
         jsonText = jsonText.substring(0, jsonText.length() - 2) + "\n}";
 
         try {
@@ -216,7 +218,6 @@ public class IOManager {
             OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(filepath), StandardCharsets.UTF_8);
             fileWriter.write(jsonText);
             fileWriter.close();
-
             result = true;
 
         } catch (FileNotFoundException ex) {

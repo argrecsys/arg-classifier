@@ -22,6 +22,9 @@ import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.ArgumentLinkerManager;
 import es.uam.irg.nlp.am.arguments.Proposition;
+import es.uam.irg.nlp.am.feat.ClassificationTextFeature;
+import es.uam.irg.nlp.am.feat.DetectionTextFeature;
+import es.uam.irg.nlp.am.feat.TextFeature;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -67,8 +70,6 @@ public class FeatureExtractor {
 
         // ML pipeline
         try {
-            List<TextFeature> features = null;
-
             // 1. Get lexicon of linkers
             List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
 
@@ -76,7 +77,9 @@ public class FeatureExtractor {
             List<Proposition> rawData = getPropositionDataset();
             System.out.println(">> Total propositions: " + rawData.size());
 
-            // 3. Extract features (temp dataset)
+            // 3. Extract features from propositions dataset
+            List<TextFeature> features = null;
+
             if (extractionMode.equals(ARG_DET)) {
                 System.out.println(">> Argument detection features");
                 features = extractArgumentDetectionFeatures(rawData, lexicon);
@@ -94,6 +97,7 @@ public class FeatureExtractor {
                 System.out.println(">> Total propositions with features: " + features.size());
                 result = IOManager.saveTextFeatures(FEATURES_FILEPATH, features);
             }
+
         } catch (Exception ex) {
             Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -120,7 +124,17 @@ public class FeatureExtractor {
      * @return
      */
     private List<TextFeature> extractArgumentClassificationFeatures(List<Proposition> rawData, List<ArgumentLinker> lexicon) {
-        return null;
+        List<TextFeature> features = new ArrayList<>();
+
+        rawData.forEach((Proposition prop) -> {
+            TextFeature tf = new ClassificationTextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
+            tf.extraction();
+            if (tf.isValid()) {
+                features.add(tf);
+            }
+        });
+
+        return features;
     }
 
     /**
@@ -133,8 +147,7 @@ public class FeatureExtractor {
         List<TextFeature> features = new ArrayList<>();
 
         rawData.forEach((Proposition prop) -> {
-            TextFeature tf = new TextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
-
+            DetectionTextFeature tf = new DetectionTextFeature(prop.getId(), prop.getText(), this.argEngine, lexicon);
             tf.extraction();
             if (tf.isValid()) {
                 features.add(tf);

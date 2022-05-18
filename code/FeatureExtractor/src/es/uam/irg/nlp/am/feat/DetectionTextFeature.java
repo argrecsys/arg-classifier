@@ -1,5 +1,5 @@
 /**
- * Copyright 2021
+ * Copyright 2022
  * Andrés Segura-Tinoco
  * Information Retrieval Group at Universidad Autonoma de Madrid
  *
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License along with
  * the current software. If not, see <http://www.gnu.org/licenses/>.
  */
-package es.uam.irg.nlp.am;
+package es.uam.irg.nlp.am.feat;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
@@ -24,37 +24,26 @@ import es.uam.irg.nlp.am.arguments.ArgumentEngine;
 import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.nlp.am.arguments.Phrase;
 import es.uam.irg.utils.FeatureUtils;
-import es.uam.irg.utils.FunctionUtils;
 import es.uam.irg.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class containing the extracted argumentative features of a text.
+ * Class containing the argumentative features extracted from a text for the
+ * detection task.
  */
-public class TextFeature {
-
-    // Class contants
-    public static final int MIN_LENGTH = 3;
-    public static final String SPECIAL_PUNCT = "¡!¿?'%:";
+public class DetectionTextFeature extends TextFeature {
 
     // Class variables
     private List<String> adverbs;
-    private ArgumentEngine argEngine;
     private int avgWordLength;
     private List<String> bigrams;
-    private String dateFormat;
-    private String id;
-    private boolean isValid;
     private List<String> keyWords;
-    private List<ArgumentLinker> lexicon;
     private List<String> modalAuxs;
     private int numberPunctMarks;
     private int numberSubclauses;
     private int parseTreeDepth;
     private List<String> punctuation;
-    private String text;
-    private int textLength;
     private List<String> trigrams;
     private List<String> unigrams;
     private List<String> verbs;
@@ -67,7 +56,7 @@ public class TextFeature {
      * @param argEngine
      * @param lexicon
      */
-    public TextFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
+    public DetectionTextFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
         this.dateFormat = getDateFormat();
@@ -91,33 +80,6 @@ public class TextFeature {
     }
 
     /**
-     * Runs feature extraction method.
-     */
-    public void extraction() {
-
-        // NLP-processing
-        if (this.textLength >= MIN_LENGTH) {
-            extractFeatures();
-        }
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getID() {
-        return this.id;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public boolean isValid() {
-        return this.isValid;
-    }
-
-    /**
      *
      * @return
      */
@@ -133,9 +95,21 @@ public class TextFeature {
     }
 
     /**
+     * Get phrase list.
+     *
+     * @return
+     */
+    private List<Phrase> getPhraseList() {
+        Tree tree = this.argEngine.getConstituencyTree(this.text);
+        List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
+        return phraseList;
+    }
+
+    /**
      *
      */
-    private void extractFeatures() {
+    @Override
+    protected void extractFeatures() {
         CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
         String currWord;
         String posTag;
@@ -231,35 +205,11 @@ public class TextFeature {
      *
      * @return
      */
-    private String getDateFormat() {
+    @Override
+    protected String getDateFormat() {
         String lang = this.argEngine.getCurrentLanguage();
         String format = (lang.equals("en") ? "MM/dd/yyyy" : "dd/MM/yyyy");
         return format;
-    }
-
-    /**
-     * Get phrase list.
-     *
-     * @return
-     */
-    private List<Phrase> getPhraseList() {
-        Tree tree = this.argEngine.getConstituencyTree(this.text);
-        List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
-        return phraseList;
-    }
-
-    /**
-     *
-     * @param list
-     * @return
-     */
-    private String listToString(List<String> list) {
-        String separator = "\"";
-        String result = FunctionUtils.listToString(list, separator);
-        if (result.equals("\"\"")) {
-            result = "";
-        }
-        return "[" + result + "]";
     }
 
 }
