@@ -32,22 +32,30 @@ import java.util.List;
  * Class containing the argumentative features extracted from a text for the
  * detection task.
  */
-public class DetectionTextFeature extends TextFeature {
+public class ArgumentFeature extends TextFeature {
 
     // Class variables
     private List<String> adverbs;
     private int avgWordLength;
-    private List<String> bigrams;
     private List<String> keyWords;
     private List<String> modalAuxs;
     private int numberPunctMarks;
     private int numberSubclauses;
     private int parseTreeDepth;
     private List<String> punctuation;
-    private List<String> trigrams;
-    private List<String> unigrams;
     private List<String> verbs;
     private List<String> wordCouples;
+    // Class objects
+    protected ArgumentEngine argEngine;
+    protected List<String> bigrams;
+    protected String dateFormat;
+    protected boolean isValid;
+    protected List<ArgumentLinker> lexicon;
+    // Structural features
+    protected int textLength;
+    protected List<String> trigrams;
+    // Baseline lexical features
+    protected List<String> unigrams;
 
     /**
      *
@@ -56,7 +64,7 @@ public class DetectionTextFeature extends TextFeature {
      * @param argEngine
      * @param lexicon
      */
-    public DetectionTextFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
+    public ArgumentFeature(String id, String text, ArgumentEngine argEngine, List<ArgumentLinker> lexicon) {
         this.argEngine = argEngine;
         this.lexicon = lexicon;
         this.dateFormat = getDateFormat();
@@ -80,6 +88,26 @@ public class DetectionTextFeature extends TextFeature {
     }
 
     /**
+     * Runs feature extraction method.
+     */
+    @Override
+    public void extraction() {
+
+        // NLP-processing
+        if (this.textLength >= MIN_LENGTH) {
+            extractFeatures();
+        }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isValid() {
+        return this.isValid;
+    }
+
+    /**
      *
      * @return
      */
@@ -95,21 +123,9 @@ public class DetectionTextFeature extends TextFeature {
     }
 
     /**
-     * Get phrase list.
-     *
-     * @return
-     */
-    private List<Phrase> getPhraseList() {
-        Tree tree = this.argEngine.getConstituencyTree(this.text);
-        List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
-        return phraseList;
-    }
-
-    /**
      *
      */
-    @Override
-    protected void extractFeatures() {
+    private void extractFeatures() {
         CoreDocument nlpDoc = this.argEngine.createCoreNlpDocument(this.text);
         String currWord;
         String posTag;
@@ -156,7 +172,7 @@ public class DetectionTextFeature extends TextFeature {
             this.avgWordLength /= this.unigrams.size();
             this.numberPunctMarks = this.punctuation.size();
 
-            // 2.1 Group them into n-grams
+            // 2.1 Extract baseline lexical features
             String bigram;
             String trigram;
             String wordN_1 = "";
@@ -201,15 +217,24 @@ public class DetectionTextFeature extends TextFeature {
 
     }
 
+    private String getDateFormat() {
+        String format = "";
+        if (this.argEngine != null) {
+            String lang = this.argEngine.getCurrentLanguage();
+            format = (lang.equals("en") ? "MM/dd/yyyy" : "dd/MM/yyyy");
+        }
+        return format;
+    }
+
     /**
+     * Get phrase list.
      *
      * @return
      */
-    @Override
-    protected String getDateFormat() {
-        String lang = this.argEngine.getCurrentLanguage();
-        String format = (lang.equals("en") ? "MM/dd/yyyy" : "dd/MM/yyyy");
-        return format;
+    private List<Phrase> getPhraseList() {
+        Tree tree = this.argEngine.getConstituencyTree(this.text);
+        List<Phrase> phraseList = this.argEngine.getPhraseList(tree);
+        return phraseList;
     }
 
 }

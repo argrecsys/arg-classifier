@@ -17,8 +17,6 @@
  */
 package es.uam.irg.nlp.am.feat;
 
-import es.uam.irg.nlp.am.arguments.ArgumentEngine;
-import es.uam.irg.nlp.am.arguments.ArgumentLinker;
 import es.uam.irg.utils.FunctionUtils;
 import java.util.List;
 
@@ -31,25 +29,11 @@ public abstract class TextFeature {
     public static final int MIN_LENGTH = 3;
     public static final String SPECIAL_PUNCT = "¡!¿?'%:";
 
-    // Class variables
-    protected ArgumentEngine argEngine;
-    protected String dateFormat;
+    // Text variables
     protected String id;
-    protected boolean isValid;
-    protected List<ArgumentLinker> lexicon;
     protected String text;
-    protected int textLength;
 
-    /**
-     * Runs feature extraction method.
-     */
-    public void extraction() {
-
-        // NLP-processing
-        if (this.textLength >= MIN_LENGTH) {
-            extractFeatures();
-        }
-    }
+    public abstract void extraction();
 
     /**
      *
@@ -59,21 +43,9 @@ public abstract class TextFeature {
         return this.id;
     }
 
-    /**
-     *
-     * @return
-     */
-    public boolean isValid() {
-        return this.isValid;
-    }
-
     // Abstract methods
     @Override
     public abstract String toString();
-
-    protected abstract void extractFeatures();
-
-    protected abstract String getDateFormat();
 
     /**
      *

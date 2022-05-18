@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.0
+    Version: 0.8.0
     Created on: Oct 07, 2021
-    Updated on: May 16, 2022
+    Updated on: May 18, 2022
     Description: ML engine class.
 """
 
@@ -74,6 +74,7 @@ class MLEngine:
         
         # Temp variables
         vcb_corpus = []
+        punct_mtx = []
         adverbs_mtx = []
         verbs_mtx = []
         key_words_mtx = []
@@ -94,9 +95,8 @@ class MLEngine:
             
             if label_data is not None:
                 
-                # Add vocabulary (steps -1, -2, -3, -4, -5)
+                # Add vocabulary (steps -1, -2, -3, -4)
                 feat_data = []
-                feat_data += v["punctuation"] if setup["punctuation"] and len(v["punctuation"]) > 0 else []
                 feat_data += v["unigrams"] if setup["unigrams"] and len(v["unigrams"]) > 0 else []
                 feat_data += v["bigrams"] if setup["bigrams"] and len(v["bigrams"]) > 0 else []
                 feat_data += v["trigrams"] if setup["trigrams"] and len(v["trigrams"]) > 0 else []
@@ -107,6 +107,10 @@ class MLEngine:
                 if setup["remove_stopwords"] and len(set_stopwords):
                     vocabulary = [ele for ele in vocabulary if ele not in set_stopwords]
                 vcb_corpus.append(vocabulary)
+                
+                # Punctuation matrix (step -5)
+                if setup["punctuation"]:
+                    punct_mtx.append(mlu.value_to_features(v["punctuation"], "pm"))
                 
                 # Adverbs matrix (step -6)
                 if setup["adverbs"]:
@@ -136,6 +140,11 @@ class MLEngine:
         
         # Create main dataframe
         df = uml.create_df_from_sparse_matrix(vcb_corpus)
+        
+        # Add adverbs matrix to main df
+        if setup["punctuation"]:
+            df_punct = uml.create_df_from_sparse_matrix(punct_mtx)
+            df = pd.concat([df, df_punct], axis=1)
         
         # Add adverbs matrix to main df
         if setup["adverbs"]:
