@@ -132,10 +132,10 @@ public class ArgumentFeature extends TextFeature {
      */
     @Override
     public String toString() {
-        String str = "{\"bow_unigrams\": %s, \"bow_bigrams\": %s, \"bow_trigrams\": %s, \"pos_unigrams\": %s, \"pos_bigrams\": %s, \"wordCouples\": %s,"
-                + " \"entities\": %s, \"adverbs\": %s, \"verbs\": %s, \"nouns\": %s, \"modal_aux\": %s, \"punctuation\": %s, \"key_words\": %s,"
+        String str = "{\"bow_unigrams\": %s, \"bow_bigrams\": %s, \"bow_trigrams\": %s, \"pos_unigrams\": %s, \"pos_bigrams\": %s, \"word_couples\": %s,"
+                + " \"entities\": %s, \"adverbs\": %s, \"verbs\": %s, \"nouns\": %s, \"modal_auxs\": %s, \"punctuation\": %s, \"key_words\": %s,"
                 + " \"text_length\": %d, \"text_position\": %d, \"token_count\": %d, \"avg_word_length\": %d,"
-                + " \"number_punct_marks\": %d, \"parse_tree_depth\": %d, \"number_sub_clauses\": %d}";
+                + " \"punct_marks_count\": %d, \"parse_tree_depth\": %d, \"sub_clauses_count\": %d}";
         str = String.format(str, listToString(bowUnigrams), listToString(bowBigrams), listToString(bowTrigrams), listToString(posUnigrams),
                 listToString(posBigrams), listToString(wordCouples), listToString(entities), listToString(adverbs), listToString(verbs),
                 listToString(nouns), listToString(modalAuxs), listToString(punctuation), listToString(keyWords),
