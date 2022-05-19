@@ -70,20 +70,24 @@ class MLEngine:
         return labels
     
     # Core function - Create dataset
-    def __create_dataset(self, features:dict, labels:dict, y_label:str, setup:dict) -> pd.DataFrame:
+    def __create_dataset(self, features:dict, labels:dict, y_label:str, feat_setup:dict) -> pd.DataFrame:
         
         # Temp variables
         vcb_corpus = []
-        punct_mtx = []
+        ent_mtx = []
         adverbs_mtx = []
         verbs_mtx = []
+        nouns_mtx = []
+        punct_mtx = []
         key_words_mtx = []
         modal_auxiliary = []
         text_length = []
+        text_position = []
+        token_count = []
         avg_word_length = []
-        number_punct_marks = []
+        punct_marks_count = []
         parse_tree_depth = []
-        number_sub_clauses = []
+        sub_clauses_count = []
         label_list = []
         
         # Create dictionary of stopwords
@@ -95,43 +99,58 @@ class MLEngine:
             
             if label_data is not None:
                 
-                # Add vocabulary (steps -1, -2, -3, -4)
+                # Add vocabulary - BoW and PoS
                 feat_data = []
-                feat_data += v["unigrams"] if setup["unigrams"] and len(v["unigrams"]) > 0 else []
-                feat_data += v["bigrams"] if setup["bigrams"] and len(v["bigrams"]) > 0 else []
-                feat_data += v["trigrams"] if setup["trigrams"] and len(v["trigrams"]) > 0 else []
-                feat_data += v["word_couples"] if setup["word_couples"] and len(v["word_couples"]) > 0 else []
+                feat_data += v["bow_unigrams"] if feat_setup["bow_unigrams"] and len(v["bow_unigrams"]) > 0 else []
+                feat_data += v["bow_bigrams"] if feat_setup["bow_bigrams"] and len(v["bow_bigrams"]) > 0 else []
+                feat_data += v["bow_trigrams"] if feat_setup["bow_trigrams"] and len(v["bow_trigrams"]) > 0 else []
+                feat_data += v["pos_unigrams"] if feat_setup["pos_unigrams"] and len(v["pos_unigrams"]) > 0 else []
+                feat_data += v["pos_bigrams"] if feat_setup["pos_bigrams"] and len(v["pos_bigrams"]) > 0 else []
+                feat_data += v["word_couples"] if feat_setup["word_couples"] and len(v["word_couples"]) > 0 else []
                 
                 # Transform words to lower case, remove stopwords and save vocabulary (step -0)
                 vocabulary = [ele.lower() for ele in feat_data]
-                if setup["remove_stopwords"] and len(set_stopwords):
+                if feat_setup["remove_stopwords"] and len(set_stopwords):
                     vocabulary = [ele for ele in vocabulary if ele not in set_stopwords]
                 vcb_corpus.append(vocabulary)
                 
-                # Punctuation matrix (step -5)
-                if setup["punctuation"]:
-                    punct_mtx.append(mlu.value_to_features(v["punctuation"], "pm"))
+                # Entities matrix
+                if feat_setup["entities"]:
+                    ent_mtx.append(mlu.value_to_features(v["entities"], "ent"))
                 
-                # Adverbs matrix (step -6)
-                if setup["adverbs"]:
+                # Adverbs matrix
+                if feat_setup["adverbs"]:
                     adverbs_mtx.append(mlu.value_to_features(v["adverbs"], "avb"))
                 
-                # Verbs matrix (step -7)
-                if setup["verbs"]:
+                # Verbs matrix
+                if feat_setup["verbs"]:
                     verbs_mtx.append(mlu.value_to_features(v["verbs"], "vb"))
                 
+                # Nouns matrix
+                if feat_setup["nouns"]:
+                    nouns_mtx.append(mlu.value_to_features(v["nouns"], "nns"))
+                
+                # Punctuation matrix
+                if feat_setup["punctuation"]:
+                    punct_mtx.append(mlu.value_to_features(v["punctuation"], "pm"))
+                
                 # Keyword matrix (step -8)
-                if setup["key_words"]:
+                if feat_setup["key_words"]:
                     key_words_mtx.append(mlu.value_to_features(v["key_words"], "kw"))
                 
-                # Save text statistics (step -9)
-                if setup["text_stats"]:
-                    modal_auxiliary.append(len(v["modal_aux"]))
+                # Save structural features
+                if feat_setup["struc_stats"]:
+                    modal_auxiliary.append(len(v["modal_auxs"]))
                     text_length.append(v["text_length"])
+                    text_position.append(v["text_position"])
+                    token_count.append(v["token_count"])
                     avg_word_length.append(v["avg_word_length"])
-                    number_punct_marks.append(v["number_punct_marks"])
+                    punct_marks_count.append(v["punct_marks_count"])
+                    
+                # Save syntactic features
+                if feat_setup["synt_stats"]:
                     parse_tree_depth.append(v["parse_tree_depth"])
-                    number_sub_clauses.append(v["number_sub_clauses"])
+                    sub_clauses_count.append(v["sub_clauses_count"])
                 
                 # Save label
                 label_list.append(label_data[y_label].lower())
@@ -141,34 +160,49 @@ class MLEngine:
         # Create main dataframe
         df = uml.create_df_from_sparse_matrix(vcb_corpus)
         
-        # Add adverbs matrix to main df
-        if setup["punctuation"]:
-            df_punct = uml.create_df_from_sparse_matrix(punct_mtx)
-            df = pd.concat([df, df_punct], axis=1)
+        # Add entities matrix to main df
+        if feat_setup["entities"]:
+            df_ent = uml.create_df_from_sparse_matrix(ent_mtx)
+            df = pd.concat([df, df_ent], axis=1)
         
         # Add adverbs matrix to main df
-        if setup["adverbs"]:
+        if feat_setup["adverbs"]:
             df_adv = uml.create_df_from_sparse_matrix(adverbs_mtx)
             df = pd.concat([df, df_adv], axis=1)
         
         # Add verbs matrix to main df
-        if setup["verbs"]:
+        if feat_setup["verbs"]:
             df_vb = uml.create_df_from_sparse_matrix(verbs_mtx)
             df = pd.concat([df, df_vb], axis=1)
         
+        # Add verbs matrix to main df
+        if feat_setup["nouns"]:
+            df_nns = uml.create_df_from_sparse_matrix(nouns_mtx)
+            df = pd.concat([df, df_nns], axis=1)
+        
+        # Add punctuation matrix to main df
+        if feat_setup["punctuation"]:
+            df_punct = uml.create_df_from_sparse_matrix(punct_mtx)
+            df = pd.concat([df, df_punct], axis=1)
+        
         # Add keywords matrix to main df
-        if setup["key_words"]:
+        if feat_setup["key_words"]:
             df_kw = uml.create_df_from_sparse_matrix(key_words_mtx)
             df = pd.concat([df, df_kw], axis=1)
         
-        # Add extra columns - text stats
-        if setup["text_stats"]:
-            df["stats_modal_auxiliary"] = modal_auxiliary
-            df["stats_text_length"] = text_length
-            df["stats_avg_word_length"] = avg_word_length
-            df["stats_number_punct_marks"] = number_punct_marks
-            df["stats_parse_tree_depth"] = parse_tree_depth
-            df["stats_number_sub_clauses"] = number_sub_clauses
+        # Add extra columns - structural stats
+        if feat_setup["struc_stats"]:
+            df["struc_modal_auxiliary"] = modal_auxiliary
+            df["struc_text_length"] = text_length
+            df["struc_text_position"] = text_position
+            df["struc_token_count"] = token_count
+            df["struc_avg_word_length"] = avg_word_length
+            df["struc_punct_marks_count"] = punct_marks_count
+            
+        # Add extra columns - syntactic stats
+        if feat_setup["synt_stats"]:
+            df["synt_parse_tree_depth"] = parse_tree_depth
+            df["synt_sub_clauses_count"] = sub_clauses_count
         
         # Added label column
         df[self.label_column] = label_list
@@ -184,16 +218,15 @@ class MLEngine:
     ###########################
     
     # ML function - Create dataset
-    def create_dataset(self, data_path:str, y_label:str, data_setup:dict) -> tuple:
+    def create_dataset(self, data_path:str, y_label:str, force_create_dataset:bool, feat_setup:dict) -> tuple:
         dataset = None
         label_dict = {}
-        force_create_dataset = data_setup.get("force_create", False)
         df_filepath = data_path + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
             features = self.__read_feature_file(data_path)
             labels = self.__read_label_file(data_path)
-            dataset = self.__create_dataset(features, labels, y_label, data_setup)
+            dataset = self.__create_dataset(features, labels, y_label, feat_setup)
             dataset.to_csv(df_filepath, index=False)
         else:
             dataset = ufl.get_df_from_csv(df_filepath)

@@ -27,19 +27,11 @@ def read_app_setup() -> dict:
     return setup
 
 # Return current dataset name composed by a coding map
-def get_curr_dataset_name(setup:dict) -> str:
-    ds_name = "ds"
+def get_curr_dataset_name(feat_setup:dict) -> str:
+    ds_name = "ds_"
     
-    ds_name += "-0" if setup["remove_stopwords"] else ""
-    ds_name += "-1" if setup["unigrams"] else ""
-    ds_name += "-2" if setup["bigrams"] else ""
-    ds_name += "-3" if setup["trigrams"] else ""
-    ds_name += "-4" if setup["word_couples"] else ""
-    ds_name += "-5" if setup["punctuation"] else ""
-    ds_name += "-6" if setup["adverbs"] else ""
-    ds_name += "-7" if setup["verbs"] else ""
-    ds_name += "-8" if setup["key_words"] else ""
-    ds_name += "-9" if setup["text_stats"] else ""
+    for v in feat_setup.values():
+        ds_name += str(int(v))
     
     return ds_name
 
@@ -71,22 +63,22 @@ def start_app():
         
         # 0. Program variables
         ml_algo = ModelType.GRADIENT_BOOSTING.value
-        data_setup = app_setup["data"]
+        feat_setup = app_setup["features"]
+        create_dataset = app_setup["create_dataset"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
-        model_state = app_setup["model_state"]
         model_folder = app_setup["model_folder"]
-        result_folder = app_setup["result_folder"]
+        model_state = app_setup["model_state"]
         perc_test = app_setup["perc_test"]
+        result_folder = app_setup["result_folder"]
         task_type = app_setup["task"]
-        curr_dataset = get_curr_dataset_name(data_setup)
         y_label = app_setup["y_label"]
         
         # 1. Machine Learning engine object
         ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
         
         # 2. Read dataset
-        dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, data_setup)
+        dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
         
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
@@ -107,8 +99,9 @@ def start_app():
         
         # 8. Save model params and results
         results = []
-        results.append([curr_dataset, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
-        results.append([curr_dataset, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
+        dataset_name = get_curr_dataset_name(feat_setup)
+        results.append([dataset_name, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
+        results.append([dataset_name, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
         model_id = save_results(result_folder, results, ml_ngx)
         
         # 9. Create and save model
