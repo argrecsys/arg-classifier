@@ -36,7 +36,6 @@ class MLEngine:
         self.language = language
         self.task_type = task_type
         self.verbose = verbose
-        self.cv_value = 5
         self.mislabeled_records = {"t1_error":[], "t2_error":[]}
         
     ######################
@@ -267,7 +266,7 @@ class MLEngine:
         return clf, params
     
     # ML function - Create and fit (with grid search) model
-    def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
+    def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int, cv_k:int) -> tuple:
         clf = None
         params = {}
         
@@ -283,7 +282,7 @@ class MLEngine:
                      'max_depth': [3, 4, 5, 6, 7],
                      'min_samples_leaf': [1, 2, 5, 7, 10]}
             tuning = GridSearchCV(estimator=GradientBoostingClassifier(random_state=model_state), 
-                                  param_grid=space, scoring='accuracy', cv=self.cv_value)
+                                  param_grid=space, scoring='accuracy', cv=cv_k)
             tuning.fit(X_train, y_train)
             params = tuning.best_params_
             clf = tuning.best_estimator_
@@ -292,13 +291,13 @@ class MLEngine:
         return clf, params
     
     # ML function - Validate model
-    def validate_model(self, clf, X_train, y_train):
+    def validate_model(self, clf, X_train:pd.DataFrame, y_train:pd.Series, cv_k:int) -> tuple:
         print("- Validating model:")
-        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=self.cv_value)
+        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=cv_k)
         return mlu.calculate_errors(self.task_type, y_train, y_train_pred, self.verbose)
     
     # ML function - Test model
-    def test_model(self, clf, X_test, y_test):
+    def test_model(self, clf, X_test:pd.DataFrame, y_test:pd.Series) -> tuple:
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
         

@@ -65,6 +65,7 @@ def start_app():
         ml_algo = ModelType.GRADIENT_BOOSTING.value
         feat_setup = app_setup["features"]
         create_dataset = app_setup["create_dataset"]
+        cv_k = app_setup["cv_k"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
@@ -85,10 +86,10 @@ def start_app():
         
         # 4. Train model
         clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
-        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state)
+        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
         
         # 5. Validate model - Estimating model performance
-        metrics_val = ml_ngx.validate_model(clf, X_train, y_train)
+        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, cv_k)
         
         # 6. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test)
