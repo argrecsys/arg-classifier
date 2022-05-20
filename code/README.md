@@ -40,27 +40,34 @@ This module is the classifier that is trained from the output of the first modul
 The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/main/code/ArgumentClassifier/config/config.json">config.json</a> file) of this module are:
 ```json
 {
-	"data": {
-		"force_create": true,
+	"features": {
 		"remove_stopwords": true,
-		"punctuation": true,
-		"unigrams": true,
-		"bigrams": false,
-		"trigrams": false,
+		"bow_unigrams": true,
+		"bow_bigrams": false,
+		"bow_trigrams": false,
+		"pos_unigrams": true,
+		"pos_bigrams": false,
 		"word_couples": false,
+		"entities": true,
 		"adverbs": true,
 		"verbs": true,
+		"nouns": true,
+		"modal_auxs": true,
+		"punctuation": true,
 		"key_words": true,
-		"text_stats": true
+		"struc_stats": true,
+		"synt_stats": true
 	},
+	"create_dataset": true,
+	"cv_k": 10,
 	"data_folder": "../../../data/",
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"model_state": 42,
 	"perc_test": 0.2,
 	"result_folder": "../../../results/",
-	"task": "detection",
-	"y_label": "sent_label2"
+	"task": "detection",      // classification
+	"y_label": "sent_label1"  // sent_label2
 }
 ```
 
