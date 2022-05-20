@@ -26,5 +26,5 @@
 	"perc_test": 0.2,
 	"result_folder": "../../../results/",
 	"task": "detection",
-	"y_label": "sent_label2"
+	"y_label": "sent_label1"
 }

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.1.0
+    Version: 0.2.0
     Created on: May 13, 2022
-    Updated on: May 13, 2022
+    Updated on: May 20, 2022
     Description: Data processing module
 """
 
@@ -12,7 +12,7 @@ import pandas as pd
 from typing import Final
 
 # Class constants
-DOT_MARK: Final[str] = '.'
+BREAK_MARKS: Final[set] = {'.', ';'}
 LABEL_NO: Final[str] = 'NO'
 LABEL_YES: Final[str] = 'YES'
 LABEL_SPAM: Final[str] = 'SPAM'
@@ -37,17 +37,17 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
         tokens = row['tokens']
         spans = row['spans']
         
-        # Identify dot marks
-        dot_marks = [token for token in tokens if token['text'] == DOT_MARK]
-        if len(dot_marks) == 0:
-            dot_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
+        # Identify break marks
+        break_marks = [token for token in tokens if token['text'] in BREAK_MARKS]
+        if len(break_marks) == 0:
+            break_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
             
         # Annotate sentences
         sent_id = 0
         sent_text = ''
         ix_start = 0
-        for dot in dot_marks:
-            ix_end = dot['end']
+        for mark in break_marks:
+            ix_end = mark['end']
             sent_text = text[ix_start : ix_end]
             sent_text = sent_text.strip()
             
@@ -65,9 +65,9 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
                     labels.append(LABEL_SPAM)
                 
                 # Save outcome
-                for i, label1 in enumerate(labels):
+                for i, label2 in enumerate(labels):
                     record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
-                    label2 = LABEL_NO if label1 == LABEL_SPAM else LABEL_YES
+                    label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
                     out_dataset.append([record_id, sent_text, label1, label2])
                 
                 # Update sentence number

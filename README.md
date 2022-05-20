@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.8.4-blue)
-![last-update](https://img.shields.io/badge/last_update-5/19/2022-orange)
+![version](https://img.shields.io/badge/version-0.8.6-blue)
+![last-update](https://img.shields.io/badge/last_update-5/20/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
@@ -12,7 +12,7 @@ The complete solution consists of a pipeline of 6 modules, which are in charge o
 
 Below are links to all datasets (both intermediate and final) created and used by the solution:
 - Decide Madrid <a href="https://decide.madrid.es/" target="_blank">platform</a>
-- Proposals <a href="https://github.com/argrecsys/decide-madrid-2019-labels/tree/main/data" target="_blank">JSONL file</a>
+- Proposals <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/proposals" target="_blank">JSONL file</a>
 - Annotations <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/annotations.jsonl" target="_blank">JSONL file</a>
 - Propositions <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/propositions.csv" target="_blank">CSV file</a>
 - Features <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/features.json" target="_blank">JSON file</a>
