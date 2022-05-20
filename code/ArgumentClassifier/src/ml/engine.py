@@ -19,6 +19,7 @@ import pandas as pd
 import joblib as jl
 
 # Import ML libraries
+from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
@@ -94,6 +95,9 @@ class MLEngine:
         sub_clauses_count = []
         label_list = []
         
+        # Create stemmer
+        stemmer = SnowballStemmer(self.language)
+        
         # Create corpus
         for k, v in features.items():
             label_data = labels.get(k, None)
@@ -121,11 +125,13 @@ class MLEngine:
                 
                 # Adverbs matrix
                 if feat_setup["adverbs"]:
-                    adverbs_mtx.append(mlu.value_to_features(v["adverbs"], "avb"))
+                    tokens = [stemmer.stem(ele) for ele in v["adverbs"]]
+                    adverbs_mtx.append(mlu.value_to_features(tokens, "avb"))
                 
                 # Verbs matrix
                 if feat_setup["verbs"]:
-                    verbs_mtx.append(mlu.value_to_features(v["verbs"], "vb"))
+                    tokens = [stemmer.stem(ele) for ele in v["verbs"]]
+                    verbs_mtx.append(mlu.value_to_features(tokens, "vb"))
                 
                 # Nouns matrix
                 if feat_setup["nouns"]:
