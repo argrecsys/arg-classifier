@@ -48,7 +48,6 @@ public class ArgumentEngine {
      * Class constructor.
      *
      * @param lang
-     * @param stopwords
      */
     public ArgumentEngine(String lang) {
         this.language = lang;
@@ -185,6 +184,7 @@ public class ArgumentEngine {
     }
 
     /**
+     * Gets the set of stopwords in a specific language.
      *
      * @param language
      * @return
