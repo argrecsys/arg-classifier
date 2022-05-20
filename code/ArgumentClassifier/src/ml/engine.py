@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.0
+    Version: 0.8.5
     Created on: Oct 07, 2021
-    Updated on: May 18, 2022
+    Updated on: May 22, 2022
     Description: ML engine class.
 """
 
@@ -17,9 +17,9 @@ from ml.constant import ModelType
 import os
 import pandas as pd
 import joblib as jl
-from nltk.corpus import stopwords
 
 # Import ML libraries
+from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
@@ -68,8 +68,14 @@ class MLEngine:
         
         return labels
     
+    # Read text plain file of stopwords
+    def __read_stopword_list(self, data_path:str) -> set:
+        filepath = data_path + "stopwords/" + self.language + ".txt"
+        stopwords = set(ufl.get_list_from_plain_file(filepath))
+        return stopwords
+    
     # Core function - Create dataset
-    def __create_dataset(self, features:dict, labels:dict, y_label:str, feat_setup:dict) -> pd.DataFrame:
+    def __create_dataset(self, features:dict, labels:dict, y_label:str, feat_setup:dict, set_stopwords:set) -> pd.DataFrame:
         
         # Temp variables
         vcb_corpus = []
@@ -89,8 +95,8 @@ class MLEngine:
         sub_clauses_count = []
         label_list = []
         
-        # Create dictionary of stopwords
-        set_stopwords = set(stopwords.words(self.language))
+        # Create stemmer
+        stemmer = SnowballStemmer(self.language)
         
         # Create corpus
         for k, v in features.items():
@@ -109,7 +115,7 @@ class MLEngine:
                 
                 # Transform words to lower case, remove stopwords and save vocabulary (step -0)
                 vocabulary = [ele.lower() for ele in feat_data]
-                if feat_setup["remove_stopwords"] and len(set_stopwords):
+                if feat_setup["remove_stopwords"] and set_stopwords:
                     vocabulary = [ele for ele in vocabulary if ele not in set_stopwords]
                 vcb_corpus.append(vocabulary)
                 
@@ -119,11 +125,13 @@ class MLEngine:
                 
                 # Adverbs matrix
                 if feat_setup["adverbs"]:
-                    adverbs_mtx.append(mlu.value_to_features(v["adverbs"], "avb"))
+                    tokens = [stemmer.stem(ele) for ele in v["adverbs"]]
+                    adverbs_mtx.append(mlu.value_to_features(tokens, "avb"))
                 
                 # Verbs matrix
                 if feat_setup["verbs"]:
-                    verbs_mtx.append(mlu.value_to_features(v["verbs"], "vb"))
+                    tokens = [stemmer.stem(ele) for ele in v["verbs"]]
+                    verbs_mtx.append(mlu.value_to_features(tokens, "vb"))
                 
                 # Nouns matrix
                 if feat_setup["nouns"]:
@@ -225,7 +233,8 @@ class MLEngine:
         if force_create_dataset or not os.path.exists(df_filepath):
             features = self.__read_feature_file(data_path)
             labels = self.__read_label_file(data_path)
-            dataset = self.__create_dataset(features, labels, y_label, feat_setup)
+            stopwords = self.__read_stopword_list(data_path)
+            dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
             dataset.to_csv(df_filepath, index=False)
         else:
             dataset = ufl.get_df_from_csv(df_filepath)
