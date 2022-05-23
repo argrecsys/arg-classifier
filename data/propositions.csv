@@ -1,3 +1,4 @@
+sent_id,sent_text,sent_label1,sent_label2
 19-0-0-0,Unir el centro con Madrid Río de forma peatonal,YES,MAJOR_CLAIM
 19-0-0-0,"El centro turístico y comercial de Madrid está sólo a 700 metros de la Casa de Campo y de Madrid Rio, pero las conexiones a él son terribles.",YES,PREMISE
 19-0-1-0,Propongo unirlo con calles peatonales y arboladas.,YES,CLAIM
