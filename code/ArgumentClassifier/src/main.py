@@ -44,11 +44,11 @@ def save_error_ids(error_ids, X_test):
         #    print(rid, X_test.loc[rid])
 
 # Save model result
-def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
+def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) -> int:
     filepath = result_folder + "metrics.csv"
     model_id = ml_ngx.get_next_model_id(filepath)
-    header = ["id", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
-    data = [[model_id] + row for row in data]
+    header = ["id", "task", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    data = [[model_id, task] + row for row in data]
     result = ufl.save_csv_data(filepath, header, data, mode="a")
     
     if not result:
@@ -103,7 +103,7 @@ def start_app():
         dataset_name = get_curr_dataset_name(feat_setup)
         results.append([dataset_name, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
         results.append([dataset_name, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
-        model_id = save_results(result_folder, results, ml_ngx)
+        model_id = save_results(result_folder, results, task_type, ml_ngx)
         
         # 9. Create and save model
         if model_id > 0:
