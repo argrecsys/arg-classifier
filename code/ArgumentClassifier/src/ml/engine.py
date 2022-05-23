@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.5
+    Version: 0.8.6
     Created on: Oct 07, 2021
-    Updated on: May 22, 2022
+    Updated on: May 23, 2022
     Description: ML engine class.
 """
 
@@ -210,6 +210,10 @@ class MLEngine:
         if feat_setup["synt_stats"]:
             df["synt_parse_tree_depth"] = parse_tree_depth
             df["synt_sub_clauses_count"] = sub_clauses_count
+        
+        # Scale final dataframe
+        if feat_setup["scale_data"]:
+            df = mlu.normalize_df(df)
         
         # Added label column
         df[self.label_column] = label_list

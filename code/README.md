@@ -42,6 +42,7 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 {
 	"features": {
 		"remove_stopwords": true,
+		"scale_data": true,
 		"bow_unigrams": true,
 		"bow_bigrams": false,
 		"bow_trigrams": false,

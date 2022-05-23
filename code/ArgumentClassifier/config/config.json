@@ -1,6 +1,7 @@
 {
 	"features": {
 		"remove_stopwords": true,
+		"scale_data": true,
 		"bow_unigrams": true,
 		"bow_bigrams": false,
 		"bow_trigrams": false,

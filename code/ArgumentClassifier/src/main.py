@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.5
+    Version: 0.8.6
     Created on: Aug 27, 2021
-    Updated on: May 20, 2022
+    Updated on: May 23, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -15,6 +15,7 @@ from ml.constant import ModelType
 # Import Python base libraries
 import json
 from datetime import datetime
+from itertools import product
 
 ######################
 ### CORE FUNCTIONS ###
@@ -56,13 +57,12 @@ def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) ->
     return model_id
 
 # Start application
-def start_app():
+def start_app(task_type:str, ml_algo:str):
     app_setup = read_app_setup()
     
     if len(app_setup):
         
         # 0. Program variables
-        ml_algo = ModelType.GRADIENT_BOOSTING.value
         feat_setup = app_setup["features"]
         create_dataset = app_setup["create_dataset"]
         cv_k = app_setup["cv_k"]
@@ -72,8 +72,7 @@ def start_app():
         model_state = app_setup["model_state"]
         perc_test = app_setup["perc_test"]
         result_folder = app_setup["result_folder"]
-        task_type = app_setup["task"]
-        y_label = app_setup["y_label"]
+        y_label = "sent_label1" if task_type == "detection" else "sent_label2"
         
         # 1. Machine Learning engine object
         ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
@@ -117,7 +116,11 @@ def start_app():
 #####################
 if __name__ == "__main__":
     print('>> START PROGRAM:', str(datetime.now()))
-    start_app()    
+    algos = [ModelType.NAIVE_BAYES.value, ModelType.GRADIENT_BOOSTING.value]
+    tasks = ["detection", "classification"]
+    for task, algo in list(product(tasks, algos)):
+        print(" -", task, algo, ":")
+        start_app(task, algo)
     print(">> END PROGRAM:", str(datetime.now()))
 #####################
 #### END PROGRAM ####

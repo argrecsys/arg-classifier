@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.3.0
+    Version: 0.4.0
     Created on: Oct 19, 2021
-    Updated on: May 16, 2022
+    Updated on: May 23, 2022
     Description: ML engine utility functions.
 """
 
@@ -20,6 +20,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 # Util function - Transform labels
 def get_label_dict(task_type:str, labels:list) -> dict:
@@ -88,3 +90,15 @@ def calc_mislabeled_records(index, y_real, y_pred):
             records["t1_error"].append(ix)
     
     return records
+
+# Core function - Normalize numeric values of a dataframe
+def normalize_df(df:pd.DataFrame) -> pd.DataFrame:
+    scaler = MinMaxScaler()
+    df_new = pd.DataFrame(scaler.fit_transform(df.values), columns=df.columns, index=df.index)
+    return df_new
+
+# Core function - Standardize numeric values of a dataframe
+def standardize_df(df:pd.DataFrame) -> pd.DataFrame:
+    scaler = StandardScaler()
+    df_new = pd.DataFrame(scaler.fit_transform(df.values), columns=df.columns, index=df.index)
+    return df_new
