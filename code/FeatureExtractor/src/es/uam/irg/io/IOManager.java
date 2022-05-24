@@ -246,12 +246,12 @@ public class IOManager {
 
         // Create JSON text
         StringBuilder sb = new StringBuilder();
-        sb.append("{\n");
+        sb.append("[\n");
         for (TextFeature feature : features) {
-            sb.append("  \"" + feature.getId() + "\": " + feature.toString() + ",\n");
+            sb.append("  " + feature.toString() + ",\n");
         }
         String jsonText = sb.toString();
-        jsonText = jsonText.substring(0, jsonText.length() - 2) + "\n}";
+        jsonText = jsonText.substring(0, jsonText.length() - 2) + "\n]";
 
         try {
             // Save JSON text
