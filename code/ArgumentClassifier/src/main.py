@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.6
+    Version: 0.8.8
     Created on: Aug 27, 2021
-    Updated on: May 23, 2022
+    Updated on: May 24, 2022
     Description: Main class of the argument classifier.
 """
 
 # Import Custom libraries
 from util import files as ufl
 import ml.engine as mle
-from ml.constant import ModelType
+from ml.constant import ModelType, TaskType
 
 # Import Python base libraries
 import json
@@ -116,8 +116,8 @@ def start_app(task_type:str, ml_algo:str):
 #####################
 if __name__ == "__main__":
     print('>> START PROGRAM:', str(datetime.now()))
+    tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
     algos = [ModelType.NAIVE_BAYES.value, ModelType.GRADIENT_BOOSTING.value]
-    tasks = ["detection", "classification"]
     for task, algo in list(product(tasks, algos)):
         print(" -", task, algo, ":")
         start_app(task, algo)

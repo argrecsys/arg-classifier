@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.1.0
+    Version: 1.2.0
     Created on: Oct 06, 2021
-    Updated on: May 16, 2022
+    Updated on: May 24, 2022
     Description: Files library with utility functions
 """
 
@@ -12,6 +12,19 @@ import os
 import json
 import yaml
 import pandas as pd
+
+# Read list (of dict) from JSON file
+def get_list_from_json(json_path:str, encoding:str="utf-8") -> list:
+    result = []
+    
+    try:
+        with open(json_path, mode="r", encoding=encoding) as file:
+            result = json.load(file)
+        
+    except Exception as e:
+        print(e)
+        
+    return result
 
 # Read list (of dict) from JSONL (json lines format) file
 def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> list:

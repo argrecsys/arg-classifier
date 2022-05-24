@@ -13,6 +13,7 @@ from typing import Final
 
 # Class constants
 BREAK_MARKS: Final[set] = {'.', ';'}
+LABEL_MAJOR_CLAIM: Final[str] = 'MAJOR_CLAIM'
 LABEL_NO: Final[str] = 'NO'
 LABEL_YES: Final[str] = 'YES'
 LABEL_SPAM: Final[str] = 'SPAM'
@@ -66,9 +67,10 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
                 
                 # Save outcome
                 for i, label2 in enumerate(labels):
-                    record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
-                    label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
-                    out_dataset.append([record_id, sent_text, label1, label2])
+                    if label2 != LABEL_MAJOR_CLAIM:
+                        record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
+                        label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
+                        out_dataset.append([record_id, sent_text, label1, label2])
                 
                 # Update sentence number
                 sent_id += 1
