@@ -1,5 +1,4 @@
 sent_id,sent_text,sent_label1,sent_label2
-19-0-0-0,Unir el centro con Madrid Río de forma peatonal,YES,MAJOR_CLAIM
 19-0-0-0,"El centro turístico y comercial de Madrid está sólo a 700 metros de la Casa de Campo y de Madrid Rio, pero las conexiones a él son terribles.",YES,PREMISE
 19-0-1-0,Propongo unirlo con calles peatonales y arboladas.,YES,CLAIM
 19-0-0-0,En Madrid tenemos la suerte de tener la Casa de Campo muy cerca del centro de la ciudad.,YES,CLAIM
@@ -72,7 +71,6 @@ sent_id,sent_text,sent_label1,sent_label2
 19-83953-3-0,Es increible.,NO,SPAM
 19-137601-0-0,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,CLAIM
 19-137601-0-1,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,PREMISE
-61-137601-0-0,Restablecer iluminación en carreteras,YES,MAJOR_CLAIM
 61-137601-0-0,Hace unos años el ayuntamiento decidió apagar farolas en distintas zonas de carretera para así poder ahorrar en la factura de la luz.,YES,PREMISE
 61-137601-1-0,Creo que se debería restablecer la iluminación en estos puntos.,YES,CLAIM
 61-137601-0-0,"Creo que es bastante importante que las carreteras de nuestra ciudad estén bien iluminadas, sobre todo en tramos de gran afluencia de tráfico.",YES,CLAIM
@@ -102,7 +100,6 @@ sent_id,sent_text,sent_label1,sent_label2
 61-72359-5-0,"No habrá luz, pero tampoco funcionan los radares.",YES,PREMISE
 61-72359-6-0,España es así.,NO,SPAM
 61-72359-7-0,"El Reglamento de Eficiencia Energética de Alumbrado Exterior ya establece que en función del tráfico en carreteras o de peatones en aceras, el alumbrado pude rebajarse la iluminancia hasta en un 50 incluso con sensores de presencia que vuelvan al 100 al paso de vehículos y personas.",YES,PREMISE
-72-72359-0-0,Cierre de los centros comerciales domingos y festivos,YES,MAJOR_CLAIM
 72-72359-0-0,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,CLAIM
 72-72359-0-1,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,PREMISE
 72-17886-0-0,Desde luego.,NO,SPAM
@@ -238,7 +235,6 @@ sent_id,sent_text,sent_label1,sent_label2
 72-160718-3-0,"A lo que ahora los sábados y domingos la mayoría se dedican a ir para pasear por que se aburren en casa, o a mirarse un pijama en primark, cosas que realmente no son necesarias, o por que está lloviendo y se meten allí a pasar la tarde.",YES,PREMISE
 72-160718-4-0,"Trabajo en una cafetería y no libro ni un fin de semana se supone que esto se hizo así para que hubiese más empleo, pero los empresarios no se molestan en pagar un sueldo más y nos lo comemos nosotros.",YES,PREMISE
 72-160718-5-0,Todo para que vengan a tomar un simple café o a descambiar unas zapatillas o porque les apetece estar sentados en los sofás del comercio.,YES,PREMISE
-89-160718-0-0,Servicio de recogida de muebles y electrodomésticos,YES,MAJOR_CLAIM
 89-160718-0-0,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,CLAIM
 89-160718-0-1,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,PREMISE
 89-17535-0-0,El servicio de recogida de enseres sigue existiendo llamando al 010 donde toman nota de la solicitud.,YES,CLAIM
