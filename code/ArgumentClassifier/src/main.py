@@ -3,7 +3,7 @@
     Created by: Andrés Segura-Tinoco
     Version: 0.8.8
     Created on: Aug 27, 2021
-    Updated on: May 24, 2022
+    Updated on: May 25, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
     algos = [ModelType.NAIVE_BAYES.value, ModelType.GRADIENT_BOOSTING.value]
     for task, algo in list(product(tasks, algos)):
-        print(" -", task, algo, ":")
+        print("\n>> %s (%s) - %s:" % (task.title(), algo, str(datetime.now())))
         start_app(task, algo)
     print(">> END PROGRAM:", str(datetime.now()))
 #####################

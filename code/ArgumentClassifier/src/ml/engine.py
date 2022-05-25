@@ -3,7 +3,7 @@
     Created by: Andrés Segura-Tinoco
     Version: 0.8.8
     Created on: Oct 07, 2021
-    Updated on: May 24, 2022
+    Updated on: May 25, 2022
     Description: ML engine class.
 """
 
@@ -273,7 +273,7 @@ class MLEngine:
         
         elif algorithm == ModelType.GRADIENT_BOOSTING.value:
             # Gradient Boosting
-            params = {'learning_rate': 0.01, 'n_estimators': 100, 'max_depth': 5, 'min_samples_leaf': 5, 'random_state': model_state}
+            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
             clf = GradientBoostingClassifier(**params)
             clf.fit(X_train, y_train)
         
