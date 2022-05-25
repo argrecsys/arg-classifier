@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.8
+    Version: 0.8.10
     Created on: Oct 07, 2021
     Updated on: May 25, 2022
     Description: ML engine class.
@@ -236,15 +236,26 @@ class MLEngine:
         df_filepath = data_path + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
+            
+            # Creation
             features = self.__read_feature_file(data_path)
             labels = self.__read_label_file(data_path)
             stopwords = self.__read_stopword_list(data_path)
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
+            
+            # Dimensionality reduction
+            if feat_setup["dim_reduction"]:
+                n_comp = len(dataset.columns) // 10
+                dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', n_comp)
+                print('Explained Variance Ratio:', sum(pca_variance) * 100)
+            
+            # Save it to disk
             dataset.to_csv(df_filepath, index=False)
-            print("N dataset:", len(dataset))
         else:
+            # Read it from disk
             dataset = ufl.get_df_from_csv(df_filepath)
         
+        # Final formatting
         if dataset is not None:
             label_dict, label_list = mlu.get_label_dict(self.task_type, dataset[self.label_column].tolist())
             dataset[self.label_column] = label_list
