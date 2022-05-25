@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.8
+    Version: 0.9.0
     Created on: Aug 27, 2021
     Updated on: May 25, 2022
     Description: Main class of the argument classifier.
@@ -109,7 +109,7 @@ def start_app(task_type:str, ml_algo:str):
             fnl_clf = ml_ngx.create_save_model(model_folder, model_id, ml_algo, dataset, model_state)
             
             #  10. Make predictions
-        
+            pass
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
 

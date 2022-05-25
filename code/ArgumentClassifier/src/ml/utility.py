@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.4.0
+    Version: 0.5.0
     Created on: Oct 19, 2021
-    Updated on: May 23, 2022
+    Updated on: May 25, 2022
     Description: ML engine utility functions.
 """
 
@@ -20,6 +20,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
+from sklearn.decomposition import PCA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 
@@ -54,6 +55,28 @@ def value_to_features(values:list, prefix:str):
         key_words.append(kw_name)
 
     return key_words
+
+# Util function - Apply dimensionality reduction
+def apply_dim_reduction(df:pd.DataFrame, method:str, n_comp:int) -> pd.DataFrame:
+    pca_df = None
+    explained_variance = []
+    method = method.upper()
+    
+    # Data
+    n_cols = len(df.columns)
+    components = ["PC"+str(i) for i in range(1, n_comp+1)]
+    X = df.values[:,:n_cols-1]
+    y_label = df.columns[-1]
+    
+    # Create a DataFrame from PCA
+    if method == "PCA":
+        pca = PCA(n_components=n_comp)
+        pca_data = pca.fit_transform(X)
+        pca_df = pd.DataFrame(data=pca_data, columns=components)
+        pca_df = pd.concat([pca_df, df[[y_label]]], axis=1)
+        explained_variance = pca.explained_variance_ratio_
+    
+    return pca_df, explained_variance
 
 # Core function - Calculate difference between real and predicted
 def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:bool) -> tuple:
