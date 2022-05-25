@@ -291,16 +291,21 @@ class MLEngine:
             clf.fit(X_train, y_train)
         
         elif algorithm == ModelType.GRADIENT_BOOSTING.value:
-            # Gradient Boosting
+            # GB hyper-params space
             space = {'learning_rate': [0.15, 0.1, 0.05, 0.01, 0.005],
                      'n_estimators': [50, 75, 100, 125, 150],
                      'max_depth': [3, 4, 5, 6, 7],
-                     'min_samples_leaf': [1, 2, 5, 7, 10]}
+                     'min_samples_split': [2, 3, 4, 5],
+                     'min_samples_leaf': [1, 2, 5, 7, 11]}
+            
+            # Gradient Boosting tuning
             tuning = GridSearchCV(estimator=GradientBoostingClassifier(random_state=model_state), 
-                                  param_grid=space, scoring='accuracy', cv=cv_k)
+                                  param_grid=space, scoring='accuracy', cv=cv_k, n_jobs=8)
             tuning.fit(X_train, y_train)
-            params = tuning.best_params_
+            
+            # Keep the best
             clf = tuning.best_estimator_
+            params = tuning.best_params_
         
         # Return model and model params
         return clf, params

@@ -83,7 +83,7 @@ def start_app(task_type:str, ml_algo:str):
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
         
-        # 4. Train model
+        # 4. Train or calibrate model
         clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
         # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
         
@@ -107,6 +107,8 @@ def start_app(task_type:str, ml_algo:str):
         # 9. Create and save model
         if model_id > 0:
             fnl_clf = ml_ngx.create_save_model(model_folder, model_id, ml_algo, dataset, model_state)
+            
+            #  10. Make predictions
         
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
