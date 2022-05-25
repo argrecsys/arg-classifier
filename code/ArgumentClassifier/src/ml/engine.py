@@ -248,8 +248,11 @@ class MLEngine:
         if dataset is not None:
             label_dict, label_list = mlu.get_label_dict(self.task_type, dataset[self.label_column].tolist())
             dataset[self.label_column] = label_list
-            print(label_dict)
-            print(dataset.groupby([self.label_column])[self.label_column].count())
+            
+            if self.verbose:
+                print(label_dict)
+                print(dataset.groupby([self.label_column])[self.label_column].count())
+                print(dataset)
         
         return dataset, label_dict
     
