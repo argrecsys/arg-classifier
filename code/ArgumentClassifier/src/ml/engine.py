@@ -245,7 +245,7 @@ class MLEngine:
             
             # Dimensionality reduction
             if feat_setup["dim_reduction"]:
-                n_comp = len(dataset.columns) // 10
+                n_comp = 0.95
                 dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', n_comp)
                 print('Explained Variance Ratio:', sum(pca_variance) * 100)
             

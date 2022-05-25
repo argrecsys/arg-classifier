@@ -57,26 +57,27 @@ def value_to_features(values:list, prefix:str):
     return key_words
 
 # Util function - Apply dimensionality reduction
-def apply_dim_reduction(df:pd.DataFrame, method:str, n_comp:int) -> pd.DataFrame:
+def apply_dim_reduction(df:pd.DataFrame, method:str, n:float) -> pd.DataFrame:
     pca_df = None
-    explained_variance = []
+    pca_variance = []
     method = method.upper()
     
     # Data
     n_cols = len(df.columns)
-    components = ["PC"+str(i) for i in range(1, n_comp+1)]
     X = df.values[:,:n_cols-1]
     y_label = df.columns[-1]
     
     # Create a DataFrame from PCA
     if method == "PCA":
-        pca = PCA(n_components=n_comp)
+        pca = PCA(n_components=n)
         pca_data = pca.fit_transform(X)
+        pca_variance = pca.explained_variance_ratio_
+        
+        components = ["PC"+str(i) for i in range(1, len(pca_variance)+1)]
         pca_df = pd.DataFrame(data=pca_data, columns=components)
         pca_df = pd.concat([pca_df, df[[y_label]]], axis=1)
-        explained_variance = pca.explained_variance_ratio_
     
-    return pca_df, explained_variance
+    return pca_df, pca_variance
 
 # Core function - Calculate difference between real and predicted
 def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:bool) -> tuple:
