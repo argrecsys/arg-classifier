@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.5.0
+    Version: 0.5.5
     Created on: Oct 19, 2021
-    Updated on: May 25, 2022
+    Updated on: May 26, 2022
     Description: ML engine utility functions.
 """
 
@@ -21,8 +21,10 @@ from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
 from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 
 # Util function - Transform labels
 def get_label_dict(task_type:str, labels:list) -> dict:
@@ -57,9 +59,9 @@ def value_to_features(values:list, prefix:str):
     return key_words
 
 # Util function - Apply dimensionality reduction
-def apply_dim_reduction(df:pd.DataFrame, method:str, n:float) -> pd.DataFrame:
-    pca_df = None
-    pca_variance = []
+def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
+    m_df = None
+    m_variance = []
     method = method.upper()
     
     # Data
@@ -70,14 +72,28 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float) -> pd.DataFrame:
     # Create a DataFrame from PCA
     if method == "PCA":
         pca = PCA(n_components=n)
-        pca_data = pca.fit_transform(X)
-        pca_variance = pca.explained_variance_ratio_
-        
-        components = ["PC"+str(i) for i in range(1, len(pca_variance)+1)]
-        pca_df = pd.DataFrame(data=pca_data, columns=components)
-        pca_df = pd.concat([pca_df, df[[y_label]]], axis=1)
+        m_data = pca.fit_transform(X)
+        m_variance = pca.explained_variance_ratio_
     
-    return pca_df, pca_variance
+    elif method == "LDA":
+        labels = df[y_label]
+        enc = LabelEncoder()
+        label_encoder = enc.fit(labels)
+        y = label_encoder.transform(labels) + 1
+        m = len(set(y)) - 1
+        
+        # Create model
+        lda = LDA(n_components=m)
+        m_data = lda.fit_transform(X, y)
+        m_variance = lda.explained_variance_ratio_
+    
+    # Create final df
+    if len(m_variance) > 0:
+        components = [method+str(i) for i in range(1, len(m_variance)+1)]
+        m_df = pd.DataFrame(data=m_data, columns=components)
+        m_df = pd.concat([m_df, df[[y_label]]], axis=1)
+    
+    return m_df, m_variance
 
 # Core function - Calculate difference between real and predicted
 def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:bool) -> tuple:
