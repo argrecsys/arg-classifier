@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.0
+    Version: 1.3.0
     Created on: Oct 06, 2021
-    Updated on: May 24, 2022
+    Updated on: May 27, 2022
     Description: Files library with utility functions
 """
 
@@ -102,7 +102,7 @@ def save_df_to_csv(df:pd.DataFrame, file_path:str, index=False, mode:str="w", en
     result = False
     
     try:
-        hdr = not os.path.isfile(file_path)
+        hdr = (mode == "w") or (not os.path.isfile(file_path))
         df.to_csv(file_path, index=index, mode=mode, encoding=encoding, header=hdr)
         result = True
         

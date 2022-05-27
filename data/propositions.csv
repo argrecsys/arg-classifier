@@ -1,296 +1,296 @@
-sent_id,sent_text,sent_label1,sent_label2
-19-0-0-0,"El centro turístico y comercial de Madrid está sólo a 700 metros de la Casa de Campo y de Madrid Rio, pero las conexiones a él son terribles.",YES,PREMISE
-19-0-1-0,Propongo unirlo con calles peatonales y arboladas.,YES,CLAIM
-19-0-0-0,En Madrid tenemos la suerte de tener la Casa de Campo muy cerca del centro de la ciudad.,YES,CLAIM
-19-0-1-0,"Sólo 700 metros separan el pulmón verde de la capital con Plaza de España y la Gran Vía a través de la cuesta de San Vicente, pero curiosamente, los Madrileños y turistas no usan esta vía para disfrutar de Madrid Rio o la Casa de Campo, ya que la calle Cuesta de San Vicente u otras que conectan el centro con la casa de campo están tremendamente contaminadas y son peligrosas para circular con bicicleta.",YES,PREMISE
-19-0-2-0,"Peligrosas en dos sentidos: 1 El peligro físico, ya que los coches van a una velocidad tremenda y en el túnel de Ferraz hay tráfico e incidentes y 2 el peligro al que nos expone la contaminación de los coches.",YES,PREMISE
-19-0-3-0,"Subir la cuesta con la bicicleta o andando, genera una sensación de malestar  producido por la contaminación.",NO,SPAM
-19-0-4-0,"Me imagino que para la gente que corre en Madrid Río será peor aún, ya que después de hacer ejercicio la contaminación afecta más.",YES,PREMISE
-19-0-5-0,"Esta calle es especialmente peligrosa en este sentido porque se unen dos factores: La entrada de la Nacional 5 con el tráfico que eso conlleva y que la cuesta es muy pronunciada, haciendo que los coches consuman más gasolina y generen más emisiones.",YES,PREMISE
-19-0-6-0,Con mi propuesta pido que se estudie una solución para esta vía y otras paralelas.,YES,CLAIM
-19-0-7-0,"No sé si la solución es el soterramiento, ya que es muy costoso, o si es la de priorizar el servicio público y peatonal, y desviar el tráfico por otras entradas a la capital.",YES,PREMISE
-19-17391-0-0,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",YES,CLAIM
-19-17391-0-1,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",YES,PREMISE
-19-17391-1-0,Es necesario acabar con eso.,YES,PREMISE
-19-17486-0-0,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",YES,CLAIM
-19-17486-0-1,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",YES,PREMISE
-19-47209-0-0,Una propuesta muy sensata.,NO,SPAM
-19-17767-0-0,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",YES,CLAIM
-19-17767-0-1,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",YES,PREMISE
-19-18078-0-0,Totalmente de acuerdo con tu propuesta.,YES,CLAIM
-19-18078-1-0,"Sin embargo, tengo entendido que una vez acabadas las obras del Museo de Colecciones Reales 2016 se reabrirá un acceso al Campo del Moro desde la Explanada de La Almudena.",YES,PREMISE
-19-18386-0-0,Aprovechar la reforma de Plaza España para unirlo peatonal mente con Madrid Río.,NO,SPAM
-19-49078-0-0,Totalmente a favor de tu propuesta.,NO,SPAM
-19-19178-0-0,Muchas gracias por estos 300 apoyos.,NO,SPAM
-19-19178-1-0,"Si de verdad creéis que esta propuesta debe llegar a contemplarse, por favor compartid el hilo.",NO,SPAM
-19-19178-2-0,Con una cuesta de San Vicente peatonal o más accesible podría ser una pasada bajar a Madrid Rio/Casa de campo rodeados del Campo del Moro y el Templo de Debod.,YES,CLAIM
-19-19178-3-0,"Ya que se va a reformar la Plaza de España, no veo mejor momento para sacar a debate esta propuesta.",YES,PREMISE
-19-19750-0-0,"Existe la creencia de que soterrar es caro, cuando realmente este tipo de túnel se denomina falso túnel, ya que consiste en abrir la calle, excavar 4 o 5 metros y cubrirlo con vigas y asfalto, sin tuneladoras.",YES,PREMISE
-19-19750-1-0,No obstante la idea de continuar el túnel que ahora existe más allá de Príncipe Pío hasta Plaza de España para conectar con el túnel de Bailén es la única salida.,YES,PREMISE
-19-19750-2-0,"Recordemos que esta vía es el único gran acceso desde el Oeste al Centro de la ciudad, carece de alternativas, dada la orografía tan especial de Madrid.",YES,PREMISE
-19-19750-3-0,Sin embargo parece sensato establecer por sentido un carril-bus y un carril-servicio a 30 km/h.,YES,PREMISE
-19-19750-4-0,Por lo que tendríamos 4 carriles pacificados y un inmenso bulevar.,YES,PREMISE
-19-19750-5-0,"Pensemos en hacer la Puerta de San Vicente practicable como acceso al río, algo aplicable a la Puerta de Toledo y Alcalá.",YES,PREMISE
-19-32465-0-0,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",YES,CLAIM
-19-32465-0-1,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",YES,PREMISE
-19-49076-0-0,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",YES,CLAIM
-19-49076-0-1,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",YES,PREMISE
-19-49076-1-0,"Además, como dice, no sería el mismo tipo de soterramiento.",YES,PREMISE
-19-49076-2-0,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",YES,CLAIM
-19-49076-2-1,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",YES,PREMISE
-19-49076-3-0,Es un problema que requiere de una solución.,YES,PREMISE
-19-49275-0-0,Yo no veo que sea tan fácil como lo plantea Zamuntx.,YES,CLAIM
-19-49275-1-0,"Si pudiera hacerse según su idea, problemas 0 pero resulta que bajo la cuesta de San Viciente, pasa el trazado de la red de Renfe que va dirección a Pirámides, así como el trazado de la línea 10 de Metro.",YES,PREMISE
-19-49275-2-0,"Por no decir, la cantidad de tuberías y cableados que discurren bajo el suelo de esa calle.",YES,PREMISE
-19-49275-3-0,"No comparo ni las distancias a soterrar, ni el coste de ese soterramiento, pero no es tan fácil como parece.",YES,PREMISE
-19-49275-4-0,"Si se quiere facilitar la conectividad entre el centro de la ciudad, y el Manzanares y la Casa de campo, no se necesita soterrar el tráfico de la cuesta de San Vicente.",YES,PREMISE
-19-49275-5-0,"Personalmente, apostaría por reducir el número de carriles de la calzada actualmente hay tres por sentido, más el carril bus/taxi.",YES,PREMISE
-19-49275-6-0,"Dos carriles serían más que suficientes, se podría aumentar el ancho de la acera a ambos lados de la calle, e incluso se podría construir un carril seguro para los ciclistas.",YES,PREMISE
-19-49275-7-0,"Desde luego, más económico puede ser.",YES,PREMISE
-19-49749-0-0,Lo cierto es que la viabilidad de la propuesta deberían decirla expertos.,YES,CLAIM
-19-49749-1-0,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",YES,CLAIM
-19-49749-1-1,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",YES,PREMISE
-19-49749-2-0,"Además, tampoco hay que buscar el coste cero, porque si se quiere solucionar este problema, habrá que barajar entre distintas opciones, pero se tendrá que invertir dinero y buscar una solución que no sea un apaño para salir del paso, porque en ese caso no se soluciona el problema, sino que se evita afrontarlo.",YES,PREMISE
-19-51540-0-0,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",YES,CLAIM
-19-51540-0-1,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",YES,PREMISE
-19-51540-1-0,El cierre de los parques historicos por la noche es necesario para evitar el vandalismo.,YES,PREMISE
-19-51540-2-0,"Se debería hacer un estudio serio sobre las alternativas, pero lo mejor serían los aparcamientos disuasorios y pensar que cualquier reducción de carriles afectaria también a los autobues de la EMT como pasa en ODonnell.",YES,PREMISE
-19-19795-0-0,Recuperación del espacio público para los ciudadanos.,NO,SPAM
-19-61819-0-0,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",YES,CLAIM
-19-61819-0-1,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",YES,PREMISE
-19-78277-0-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,CLAIM
-19-78277-0-1,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,PREMISE
-19-78277-1-0,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,NO,SPAM
-19-78277-2-0,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,NO,SPAM
-19-78277-3-0,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",NO,SPAM
-19-78277-4-0,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",YES,PREMISE
-19-78277-5-0,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",YES,PREMISE
-19-83953-0-0,La cuesta es un infierno;,YES,CLAIM
-19-83953-1-0,"a medida que subes se estrecha la carretera y las aceras de tal manera que si te cruzas con un autobús de subida y otro de bajada, casi te arroyan.",YES,CLAIM
-19-83953-2-0,"Y lo de llevar a tú hijo de la mano imposible sólo en fila india Es centro histórico y por la calle Segovia pasan a cualquier hora y día autobuses turístimos de enorme tamaño, que además paran para recoger a los turistas sin consideración a los demás.",YES,PREMISE
-19-83953-3-0,Es increible.,NO,SPAM
-19-137601-0-0,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,CLAIM
-19-137601-0-1,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,PREMISE
-61-137601-0-0,Hace unos años el ayuntamiento decidió apagar farolas en distintas zonas de carretera para así poder ahorrar en la factura de la luz.,YES,PREMISE
-61-137601-1-0,Creo que se debería restablecer la iluminación en estos puntos.,YES,CLAIM
-61-137601-0-0,"Creo que es bastante importante que las carreteras de nuestra ciudad estén bien iluminadas, sobre todo en tramos de gran afluencia de tráfico.",YES,CLAIM
-61-137601-1-0,Mi propuesta es la de restablecer la iluminación en las zonas donde fue suprimida.,YES,PREMISE
-61-137601-2-0,"Es cierto que puede haber zonas o franjas horarias con muy poco tráfico, para lo cual se podría establecer un horario de iluminación, como por ejemplo, mantener las farolas encendidas hasta las 0.30h y apagarlas de nuevo hasta primera hora de la mañana las 6.00h, por ejemplo cuando el tráfico vuelva a intensificarse.",YES,PREMISE
-61-18539-0-0,"Incluso propondría dentro de esta propuesta que se abasteciera con energías renovables, preferentemente pequeñas placas solares en cada farola.",YES,CLAIM
-61-18539-0-1,"Incluso propondría dentro de esta propuesta que se abasteciera con energías renovables, preferentemente pequeñas placas solares en cada farola.",YES,PREMISE
-61-125978-0-0,Tenemos nueva propuesta para hacer un estudio de impacto ambiental de la Contaminación lumínica de Madrid.,YES,CLAIM
-61-125978-1-0,Veras que hemos incluido en el documento el tema de seguridad.,YES,PREMISE
-61-125978-2-0,Con apoyo de 21 organizaciones de Madrid/España/Mundo.,YES,PREMISE
-61-29897-0-0,"O encender una farola de cada dos, pero en toda la autopista.",NO,SPAM
-61-37090-0-0,"La seguridad mejora en carreteras sin iluminación externa, ya que los conductores centran la atención en lo que importa: la carretera y los coches, que quedan suficientemente iluminados con los faros de los coches.",YES,CLAIM
-61-37090-0-1,"La seguridad mejora en carreteras sin iluminación externa, ya que los conductores centran la atención en lo que importa: la carretera y los coches, que quedan suficientemente iluminados con los faros de los coches.",YES,PREMISE
-61-37090-1-0,"Países más seguros como Alemania, Reino Unido, etc. , no tienen iluminación alguna en las carreteras.",YES,PREMISE
-61-40216-0-0,"Es un tema que hay que estudiar con cuidado, varios estudios indican que en las autopistas, por ejemplo, hay más accidentes cuando hay luz.",YES,CLAIM
-61-40216-0-1,"Es un tema que hay que estudiar con cuidado, varios estudios indican que en las autopistas, por ejemplo, hay más accidentes cuando hay luz.",YES,PREMISE
-61-40216-1-0,"La regulación por horarios es una opción, pero hay que dealizarlo de manera científica: .",YES,PREMISE
-61-59781-0-0,Creo que es de vital importancia pues hay muchos tramos de carreteras y vías en las que es muy peligroso circular por su poca visibilidad y más aun cuando existe ya la iluminación instalada hace tiempo.,YES,CLAIM
-61-59781-0-1,Creo que es de vital importancia pues hay muchos tramos de carreteras y vías en las que es muy peligroso circular por su poca visibilidad y más aun cuando existe ya la iluminación instalada hace tiempo.,YES,PREMISE
-61-72359-0-0,"Este comentario no tendría lugar en un país civilizado, pero esto es España.",YES,CLAIM
-61-72359-0-1,"Este comentario no tendría lugar en un país civilizado, pero esto es España.",YES,PREMISE
-61-72359-1-0,"Los problemas son varios: 1 En la M40 no hay iluminación debido a que cuando se construyó, Fomento hacía la autopista y los Ayuntamientos de Madrid y Pozuelo ejecutaban al alumbrado y su mantenimiento pasando la factura a Fomento, pues bien el Ministerio no paga y el Ayuntamiento de Madrid ha cortado la luz.",YES,CLAIM
-61-72359-1-1,"Los problemas son varios: 1 En la M40 no hay iluminación debido a que cuando se construyó, Fomento hacía la autopista y los Ayuntamientos de Madrid y Pozuelo ejecutaban al alumbrado y su mantenimiento pasando la factura a Fomento, pues bien el Ministerio no paga y el Ayuntamiento de Madrid ha cortado la luz.",YES,PREMISE
-61-72359-2-0,En la zona de Pozuelo de momento hay alumbrado.,YES,PREMISE
-61-72359-3-0,"2 Pero el principal problema es, por ejemplo, la m31 donde está totalmente a oscuras.",YES,PREMISE
-61-72359-4-0,"La razón muy simple, han desvalijado el centro de transformación, no quedan ni las puertas.",YES,PREMISE
-61-72359-5-0,"No habrá luz, pero tampoco funcionan los radares.",YES,PREMISE
-61-72359-6-0,España es así.,NO,SPAM
-61-72359-7-0,"El Reglamento de Eficiencia Energética de Alumbrado Exterior ya establece que en función del tráfico en carreteras o de peatones en aceras, el alumbrado pude rebajarse la iluminancia hasta en un 50 incluso con sensores de presencia que vuelvan al 100 al paso de vehículos y personas.",YES,PREMISE
-72-72359-0-0,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,CLAIM
-72-72359-0-1,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,PREMISE
-72-17886-0-0,Desde luego.,NO,SPAM
-72-17886-1-0,No respetan ni a los muertos el 1 de noviembre No se que sentido tiene ir a pasar tu tiempo libre de domingo o festivo a un centro comercial cuando el resto de la semana lo has tenido abierto hasta las 10 de la noche y has podido hacer tus compras.,YES,PREMISE
-72-17886-2-0,Cada uno puede emplear su tiempo libre como quiera pero a esto es que no le veo la gracia.,YES,PREMISE
-72-17886-3-0,"En lugar de estar paseando, fomentando la cultura en un museo, en el cine, teatro, .",YES,PREMISE
-72-17886-4-0,No he trabajado en este sector nunca aunque tengo familiares en él.,YES,PREMISE
-72-17886-5-0,Y apoyo esta propuesta tanto para el pequeño comercio que ha tenido que abrir como para las grandes superficies.,YES,CLAIM
-72-17886-6-0,"Que cierren los domingos, pero los del centro de Madrid y los que no esten en el centro.",YES,PREMISE
-72-18032-0-0,"En cualquier ciudad grande como es Madrid hay comercios abiertos todos los días y a todas horas, no todos tenemos la suerte de poder ir a comprar cuando queremos.",YES,CLAIM
-72-18032-0-1,"En cualquier ciudad grande como es Madrid hay comercios abiertos todos los días y a todas horas, no todos tenemos la suerte de poder ir a comprar cuando queremos.",YES,PREMISE
-72-18522-0-0,"Me gustaría saber como hacías la compra antes de que no se abrieran los domingos, seguro que te apañabas, y todo es organizarse.",YES,PREMISE
-72-18522-1-0,Antes se abría un domingo al mes y todos nos apañábamos.,YES,PREMISE
-72-18522-2-0,"La cosa es que pueden abrir todos los días que quieran, la cosa es que contraten a gente para que haga este servicio, como estudiantes o gente joven que se quiere incorporar al mundo laboral.",YES,CLAIM
-72-18522-2-1,"La cosa es que pueden abrir todos los días que quieran, la cosa es que contraten a gente para que haga este servicio, como estudiantes o gente joven que se quiere incorporar al mundo laboral.",YES,PREMISE
-72-18522-3-0,Lo que no es normal que de la noche a la mañana te impongan trabajar por festivos al mes y si no a la calle.,YES,PREMISE
-72-18522-4-0,Es una pena.,YES,PREMISE
-72-18895-0-0,"Rere, pero planteado así, serán los empleados de museos, cines, restaurantes y teatros los que trabajarán en fin de semana, en lugar de los de las tiendas.",YES,PREMISE
-72-18895-1-0,"Entiendo lo que dices, pero pienso que el comercio en fin de semana ya es tan irreversible como las ventas por internet.",YES,CLAIM
-72-18895-1-1,"Entiendo lo que dices, pero pienso que el comercio en fin de semana ya es tan irreversible como las ventas por internet.",YES,PREMISE
-72-18895-2-0,Otras ventajas del trabajo en fin de semana es que puede ser compatible con estudios u otras actividades y que debería redundar en más gente contratada no la misma gente pero más explotada Mi opinión es que se regule y que el trabajo sea digno.,YES,PREMISE
-72-19894-0-0,Claro Cristina.,NO,SPAM
-72-19894-1-0,"Pero desde que yo recuerdo el sector servicios cines, bares, teatros.",NO,SPAM
-72-19894-2-0,Siempre han estado abiertos en fin de semana con lo cual eso no es un problema.,YES,PREMISE
-72-19894-3-0,"Y como bien dices, habría que regularlo y ahí es donde entran los convenios colectivos que firman patronales y sindicatos.",NO,SPAM
-72-19894-4-0,"Antes hace años cuando abrian el único domingo al mes lo pagaban, y muy bien en las grandes superficies, las pequeñas ni se planteaban abrir un domingo al mes Desde hace años eso ya no es así.",NO,SPAM
-72-19894-5-0,De todas formas esta propuesta aunque la apoyo no se si es competencia del ayuntamiento.,YES,PREMISE
-72-18322-0-0,"Esto dejará de ser un problema cuando se racionalicen los horarios estilo español de 9 a 21h, llegue la conciliación laboral y familiar de verdad y los salarios sean europeos y no bananeros.",YES,CLAIM
-72-18322-0-1,"Esto dejará de ser un problema cuando se racionalicen los horarios estilo español de 9 a 21h, llegue la conciliación laboral y familiar de verdad y los salarios sean europeos y no bananeros.",YES,PREMISE
-72-18340-0-0,"El problema no es que el centro comercial habrá todos los días del año, sino que lo hacen con la misma cantidad de trabajadores que cuando no abrian domingos y festivos, lo que deberían es hacer más inspecciones de trabajo para que las empresas cumplan las leyes de trabajo y adi tengan que contratar empleados extra para cubrir esos días.",YES,PREMISE
-72-18340-0-1,"El problema no es que el centro comercial habrá todos los días del año, sino que lo hacen con la misma cantidad de trabajadores que cuando no abrian domingos y festivos, lo que deberían es hacer más inspecciones de trabajo para que las empresas cumplan las leyes de trabajo y adi tengan que contratar empleados extra para cubrir esos días.",YES,CLAIM
-72-74884-0-0,"Totalmente de acuerdo, donde esta la generación de empleo de los festivos.",YES,CLAIM
-72-74884-0-1,"Totalmente de acuerdo, donde esta la generación de empleo de los festivos.",YES,PREMISE
-72-74884-1-0,Haber si hace algo el nuevo gobierno municipal.,NO,SPAM
-72-74884-2-0,Na como todos.,NO,SPAM
-72-78740-0-0,Esto no es competencia del Ayuntamiento sino de la Comunidad.,YES,CLAIM
-72-18442-0-0,"Siempre sale el discurso solidario del -yo es que no puedo ir a comprar cuando quiero- inaudito El problema no es que se abra o se cierre, la cuestión es que no se pagan esos domingos y festivos y se amplió la apertura para el comercio con el fin de fomentar el empleo y la realidad es bien distinta.",YES,CLAIM
-72-18442-0-1,"Siempre sale el discurso solidario del -yo es que no puedo ir a comprar cuando quiero- inaudito El problema no es que se abra o se cierre, la cuestión es que no se pagan esos domingos y festivos y se amplió la apertura para el comercio con el fin de fomentar el empleo y la realidad es bien distinta.",YES,PREMISE
-72-18442-1-0,Si quieren abrir que lo hagan pero pagando a trabajadores de fin de semana fomentando así el empleo y evitando la precariedad del resto.,YES,PREMISE
-72-18442-2-0,"De todos modos los domingos son para vivir y quiero creer que la mayoría los aprovecha y no va de compras, a veces tan necesarias como un DVD.",YES,PREMISE
-72-26679-0-0,"Completamente de acuerdo En este tema el gran problema es ese, que no se paga como se debe el trabajo en día de festivo y que por supuesto, no se ha contratado a personal específico para trabajar en fin de semana.",YES,CLAIM
-72-26679-0-1,"Completamente de acuerdo En este tema el gran problema es ese, que no se paga como se debe el trabajo en día de festivo y que por supuesto, no se ha contratado a personal específico para trabajar en fin de semana.",YES,PREMISE
-72-26679-1-0,"Ha sido un abuso impresionante y los cómplices necesarios que nos hemos creído sus mentiras, hemos sido nosotros.",YES,PREMISE
-72-26679-2-0,"Otros simples curritos de a pié, a los que también un día nos puede pasar que tengamos que trabajar en festivo ahí sí que nos va a fastidiar.",NO,SPAM
-72-26679-3-0,", eh? Nos han vendido la moto, de qué manera.",NO,SPAM
-72-26679-4-0,A todos.,NO,SPAM
-72-26679-5-0,"Ahora resulta que tengo que agradecer poder ir a hacer la compra en domingo, en vez de denunciar que otro trabajador no puede conciliar su vida familiar, o bien que no ha podido elegir si ir no no a trabajar en festivo, o que no se lo remuneran como deberían.",YES,PREMISE
-72-26679-6-0,"Pero hombre, por Dios, esto es una injusticia, y no hemos reaccionado a tiempo hemos sido unos egoistas tontos y mediocres.",YES,PREMISE
-72-18460-0-0,"Es increíble que a los trabajadores nos obliguen a trabajar en festivos, y si no te echan a la calle.",YES,CLAIM
-72-18460-0-1,"Es increíble que a los trabajadores nos obliguen a trabajar en festivos, y si no te echan a la calle.",YES,PREMISE
-72-18697-0-0,Te echarían a la calle si no abvrieran los domingos ya que venderían menos.,YES,CLAIM
-72-18697-0-1,Te echarían a la calle si no abvrieran los domingos ya que venderían menos.,YES,PREMISE
-72-18697-1-0,"Monta tu una tienda y abre los días que te de la gana, pero no impongas los días que deben abrir y cerrar los demás.",YES,PREMISE
-72-18774-0-0,Estas muy confundido.,YES,CLAIM
-72-18774-1-0,Ellos abren casi 60 días al año más con el mismo personal que tenían cuando no abrían los festivos.,YES,PREMISE
-72-18732-0-0,Mejor que cerrar.,NO,SPAM
-72-18732-1-0,Regular correctamente para que no se produzcan abusos.,YES,PREMISE
-72-18825-0-0,A tener en cuenta que menos horas de apertura significan menos horas de trabajo y menos empleados o reducción de jornadas.,YES,CLAIM
-72-52897-0-0,"Lo que hay que tener en cuenta, es, que más horas de apertura no conlleva mayor cantidad de empleados, no hay más venta por abrir más horas.",YES,CLAIM
-72-52897-0-1,"Lo que hay que tener en cuenta, es, que más horas de apertura no conlleva mayor cantidad de empleados, no hay más venta por abrir más horas.",YES,PREMISE
-72-52897-1-0,"Solución, se redistribuye a la plantilla, y así se empeora la calidad de vida del empleado.",YES,PREMISE
-72-52897-2-0,"Por poner un ejemplo, en Francia los comercios cierran a las 7 de la tarde y en casos excepcionales a las 8 - 830 un centro de galerias Lafallete tiene la misma cantidad o más de empleados, que un centro de El Corte Inglés, abren menos horas al día, y cierran los domingos.",YES,PREMISE
-72-52897-3-0,"La ecuación es la siguiente, más ventas = a más empleados.",YES,PREMISE
-72-52897-4-0,No hay que tener ade o ser Economista para saber esto.,YES,PREMISE
-72-52946-0-0,Aunque sea Lcdo.,NO,SPAM
-72-52946-1-0,En CCEE y Dir.,NO,SPAM
-72-52946-2-0,"De RRHH de una multinacional, no debato ni discuto con gente que como usted Intenta menospreciar y hace comentarios tan simplistas.",YES,CLAIM
-72-61632-0-0,"Pues, Sr. Varco mucho me temo que su opinión resulta un tanto sesgada por razón de su supuesto cargo.",YES,CLAIM
-72-61632-0-1,"Pues, Sr. Varco mucho me temo que su opinión resulta un tanto sesgada por razón de su supuesto cargo.",YES,PREMISE
-72-61632-1-0,"En todo caso, imagino que estará Ud. De acuerdo en que las horas trabajadas en dichas fecha/horarios deberían ser remuneradas con una salario mayor.",NO,SPAM
-72-61632-2-0,¿Hace eso su multinacional? Saludos.,NO,SPAM
-72-19397-0-0,Tenemos que tener derecho al descanso de lunes a sábado hay tiempo de sobra para comprar.,YES,CLAIM
-72-19397-0-1,Tenemos que tener derecho al descanso de lunes a sábado hay tiempo de sobra para comprar.,YES,PREMISE
-72-19760-0-0,Apoyo la propuesta y te invito a que apoyes Mayor cuidado del centro de Madrid Gracias!.,NO,SPAM
-72-20122-0-0,"Cerremos los bares, teatros, restaurantes, metros, autobues, hospitales, residencias, taxis, urgencias, etc. , etc. En estos trabajos también hay personas que tienen familias.",YES,CLAIM
-72-20122-0-1,"Cerremos los bares, teatros, restaurantes, metros, autobues, hospitales, residencias, taxis, urgencias, etc. , etc. En estos trabajos también hay personas que tienen familias.",YES,PREMISE
-72-20122-1-0,Yo pido unas condiciones dignas pero vivir y dejar vivir.,YES,PREMISE
-72-20122-2-0,No todo el mundo puede comprar entre semana con estos horarios que se tienen.,YES,PREMISE
-72-20122-3-0,"Por cierto, sería más razonable que pidierais que los bancos abrieran basados, como antes y alguna tarde.",YES,PREMISE
-72-20122-4-0,Yo creo que quienes pedís esto sois unos yupis con todo el tiempo del mundo y poco en qué pensar que sea importante.,NO,SPAM
-72-20122-5-0,"Lo siento, es mi opinión, .",NO,SPAM
-72-21247-0-0,Yupis? jajajaj quizá quien ha hecho esta propuesta solo coincide con sus hijos y esposa dos días al mes.,YES,CLAIM
-72-21247-1-0,"La diferencia con bares, teatros, restaurantes y demás sitios de ocio es que cuando tu empiezas a trabajar sabes exactamente que tienes que trabajar festivos y fines de semana, pero después de la ley de Esperanza que permitía abrir todos los santos días, a los trabajadores se les cambiaron automáticamente sus condiciones de trabajo.",YES,PREMISE
-72-21247-2-0,Y había dos opciones: o aceptas o a la calle.,NO,SPAM
-72-21247-3-0,"Y tu puedes hacer las propuestas que quieras para esto esta este espacio, pero no creo que sea acertado criticar las demás.",YES,PREMISE
-72-21247-4-0,"Y por cierto con tu comentario, me limpio el ojete, es mi opinión.",NO,SPAM
-72-160725-0-0,"Siento decirte yo mi opinión, pero no compares cosas necesarias con el ocio! Alomejor es que te da un infarto si un domingo no te compras un tanga por que está cerrado! o si no te tomas un té en alguna cafetería arrascandote el papo! Personas que opinan como tú que dices que si urgencias que si noseque no es lo mismo ponerse enfermo que irte a por 4 caprichos.",YES,CLAIM
-72-160725-0-1,"Siento decirte yo mi opinión, pero no compares cosas necesarias con el ocio! Alomejor es que te da un infarto si un domingo no te compras un tanga por que está cerrado! o si no te tomas un té en alguna cafetería arrascandote el papo! Personas que opinan como tú que dices que si urgencias que si noseque no es lo mismo ponerse enfermo que irte a por 4 caprichos.",YES,PREMISE
-72-160725-1-0,Es lo que opino yoo yupiiiii.,NO,SPAM
-72-20759-0-0,Creo que el horario de los centros comerciales es suficiente mente amplio de lunes a sábado.,YES,CLAIM
-72-20759-1-0,"Creo en la racionalización de los horarios y de la vida en la ciudad, el centro de Madrid se ha convertido en una vorágine de gente que simplemente consume corriendo de una lado a otro.",YES,PREMISE
-72-20759-2-0,"Salvemos la vida de los barrios, consumamos cultura, ocio, paseos.",YES,PREMISE
-72-20759-3-0,"Y por supuesto, a horarios extraordinarios domingos y festivos, salarios acordes.",YES,PREMISE
-72-27966-0-0,Repetida la propuesta! Siento que pierdo el tiempo leyendo propuestas repetidas.,YES,CLAIM
-72-27966-0-1,Repetida la propuesta! Siento que pierdo el tiempo leyendo propuestas repetidas.,YES,PREMISE
-72-27966-1-0,Pido respeto y responsabilidad: leamos y búsquemos primero nuestra propuesta por si ya existe! Gracias!.,YES,PREMISE
-72-28043-0-0,"Puede ser que esté repetida pero seguramente la mía fue la primera, ya que escribí esta entrada el mismo día que se puso en funcionamiento esta página.",YES,CLAIM
-72-28043-0-1,"Puede ser que esté repetida pero seguramente la mía fue la primera, ya que escribí esta entrada el mismo día que se puso en funcionamiento esta página.",YES,PREMISE
-72-28043-1-0,Aunque pude ser que este confundido.,YES,PREMISE
-72-28043-2-0,Siento las molestias que pueda haberte ocasionado.,YES,PREMISE
-72-28043-3-0,Un saludo.,NO,SPAM
-72-31381-0-0,Esta otra propuesta está relacionada: .,NO,SPAM
-72-61631-0-0,"Efectivamente como dicen algunas personas, hemos llegado a un sisnsentido en el que lo que debería ser normal el cierre de los establecimientos en fin de semana y la restricción de horarios se ha convenrtrido en desaconsejable porque muchos infelices tienen que usas esos horarios debido a los horarios leoninos que padecen.",YES,PREMISE
-72-61631-0-1,"Efectivamente como dicen algunas personas, hemos llegado a un sisnsentido en el que lo que debería ser normal el cierre de los establecimientos en fin de semana y la restricción de horarios se ha convenrtrido en desaconsejable porque muchos infelices tienen que usas esos horarios debido a los horarios leoninos que padecen.",YES,CLAIM
-72-61631-1-0,"Por este motivo no voto a favor de esta propuesta, aunque animo al personal a exigir allá donde puedan hacerse oír que la legislación laboral penalice pagando más al trabajador las horas trabajadas en festivos, a la hora de comer y a partir de las 2000 De este modo se podría mantener abietas la tiendas cuyos dueños lo quisieran pero garantizando que los trabajadores que cubireran esos días y horarios mejoraban sus condiciones salariales.",YES,PREMISE
-72-61631-2-0,Lo que ocurre es que esto no es competencia municipal y hay que relamarlo en otros instancias.,YES,PREMISE
-72-61631-3-0,Saludos.,NO,SPAM
-72-71736-0-0,Pues que también cierren los hospitales los fines de semana.,YES,CLAIM
-72-71736-1-0,Porque nosotros tb tenemos familia y libramos a diario.,YES,PREMISE
-72-76938-0-0,"No hay que confundir un servicio público con uno que no lo es, realmente ir a comprar un domingo es necesario y vital?.",YES,PREMISE
-72-76938-0-1,"No hay que confundir un servicio público con uno que no lo es, realmente ir a comprar un domingo es necesario y vital?.",YES,CLAIM
-72-160721-0-0,No compares un hospital con un centro comercial es como si me dices que si no te compras unas bragas en El Corte Inglés te mueres.,YES,CLAIM
-72-160721-0-1,No compares un hospital con un centro comercial es como si me dices que si no te compras unas bragas en El Corte Inglés te mueres.,YES,PREMISE
-72-76131-0-0,Hay que conciliar la vida laboral con la familiar.,YES,CLAIM
-72-76131-1-0,"Por favor, ayuden esta propuesta.",YES,PREMISE
-72-78742-0-0,"Que no es competencia del Ayuntamiento, que esto lo regula la Comunidad.",YES,CLAIM
-72-78742-0-1,"Que no es competencia del Ayuntamiento, que esto lo regula la Comunidad.",YES,PREMISE
-72-82480-0-0,"Yo creo que deben abrir los domingos y festivos, que es cuando la gente puede disfrutarlos.",YES,CLAIM
-72-82480-0-1,"Yo creo que deben abrir los domingos y festivos, que es cuando la gente puede disfrutarlos.",YES,PREMISE
-72-82480-1-0,"Pero la gente que trabaja en esos centros debe tener respetados días de descanso, y a ser posible, no trabajar los mismos todos los festivos.",YES,PREMISE
-72-82480-2-0,Es cuestión de controlar a los empresarios.,YES,PREMISE
-72-86169-0-0,Se nota y pondría la mano en el fuego que no trabajas en comercio.,NO,SPAM
-72-86169-1-0,"Solo una pregunta, antes de esta ley de libre apertura, no comias? no tenias ropa o electrodomesticos en casa? Quien hace la ley siempre hace la trampa, y los que si trabajamos en esto lo sufrimos, aunque te respeten los días de descanso para que quiero librar un martes aunque no trabaje todos, que tengo un domingo o dos, para quedar con toda la familia amigos salir con la pareja etc. Etc.",YES,CLAIM
-72-86169-1-1,"Solo una pregunta, antes de esta ley de libre apertura, no comias? no tenias ropa o electrodomesticos en casa? Quien hace la ley siempre hace la trampa, y los que si trabajamos en esto lo sufrimos, aunque te respeten los días de descanso para que quiero librar un martes aunque no trabaje todos, que tengo un domingo o dos, para quedar con toda la familia amigos salir con la pareja etc. Etc.",YES,PREMISE
-72-86169-2-0,"Creo que la conciliación laboral es un derecho, que esta ley ha quitado.",YES,PREMISE
-72-89649-0-0,Te dejo esta propuesta por si te interesa.,NO,SPAM
-72-91121-0-0,Pues yo prefiero que esten abiertos los domingos.,YES,CLAIM
-72-160719-0-0,Si trabajases en un comercio de lunes a domingo pensarías de otra manera!.,YES,CLAIM
-72-160719-0-1,Si trabajases en un comercio de lunes a domingo pensarías de otra manera!.,YES,PREMISE
-72-160718-0-0,Los centros comerciales deberían cerrar todos los festivos y domingos.,YES,CLAIM
-72-160718-1-0,"Los trabajadores de los centros también tenemos derecho a estar con la familia, descansar, hacer vida.",YES,PREMISE
-72-160718-2-0,Antiguamente no había apertura del centro comercial y no pasaba nada todo el mundo hacía sus compras igualmente.,YES,PREMISE
-72-160718-3-0,"A lo que ahora los sábados y domingos la mayoría se dedican a ir para pasear por que se aburren en casa, o a mirarse un pijama en primark, cosas que realmente no son necesarias, o por que está lloviendo y se meten allí a pasar la tarde.",YES,PREMISE
-72-160718-4-0,"Trabajo en una cafetería y no libro ni un fin de semana se supone que esto se hizo así para que hubiese más empleo, pero los empresarios no se molestan en pagar un sueldo más y nos lo comemos nosotros.",YES,PREMISE
-72-160718-5-0,Todo para que vengan a tomar un simple café o a descambiar unas zapatillas o porque les apetece estar sentados en los sofás del comercio.,YES,PREMISE
-89-160718-0-0,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,CLAIM
-89-160718-0-1,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,PREMISE
-89-17535-0-0,El servicio de recogida de enseres sigue existiendo llamando al 010 donde toman nota de la solicitud.,YES,CLAIM
-89-17834-0-0,"Una cosa es que tomen nota, que supongo que lo hacen, y otra muy distinta que aparezcan.",YES,CLAIM
-89-17834-1-0,Y además el 010 es de pago.,YES,PREMISE
-89-18483-0-0,Puedes solicitarlo también a través de la web del ayuntamiento y en las oficinas gratis.,YES,CLAIM
-89-43782-0-0,Es la web para solicitarlo online.,NO,SPAM
-89-19324-0-0,Puedes llamar al 91 529 82 10 que es el equivalente al 010 Yo les llamé para dar el aviso y el dpto. Me devolvió ese mismo día para acordar la recogida.,YES,CLAIM
-89-19324-0-1,Puedes llamar al 91 529 82 10 que es el equivalente al 010 Yo les llamé para dar el aviso y el dpto. Me devolvió ese mismo día para acordar la recogida.,YES,PREMISE
-89-31439-0-0,"Aparecen, aparecen.",NO,SPAM
-89-80455-0-0,"Tampoco pasa nada por llamar a un teléfono que cuesta pocos céntimos el minuto, sobre todo teniendo alternativas sin coste para personas que ni se lo puedan permitir.",YES,CLAIM
-89-80455-0-1,"Tampoco pasa nada por llamar a un teléfono que cuesta pocos céntimos el minuto, sobre todo teniendo alternativas sin coste para personas que ni se lo puedan permitir.",YES,PREMISE
-89-80455-1-0,Que tampoco tiene que ser todo gratis.,YES,PREMISE
-89-80455-2-0,"De hecho, si no lo es, el que lo utiliza lo paga, en vez de disolverse el coste entre todos.",YES,PREMISE
-89-80455-3-0,"Porque recuerdo que, en vez de dejar los muebles en la calle y ensuciar temporalmente la ciudad, se pueden llevar a un punto limpio.",YES,PREMISE
-89-17937-0-0,"He visto en mi barrio y otras zonas que se han creado espacios para recogida de enseres, una zona de aparcamiento para camiones de recogida en días y horarios específicos.",YES,PREMISE
-89-17937-1-0,"Igual que los espacios de bibliobus, pero pista recogida de enseres.",YES,PREMISE
-89-17937-2-0,"Sería interesante informarse al respecto, no se su es lo que proponer, pero su es así, entiendo que ya lo han gestionado.",YES,CLAIM
-89-18154-0-0,Creo que la mejor solución para eso es fomentar el reciclaje de este tipo de cosas regalándolo.,YES,CLAIM
-89-18154-1-0,La página puede ayudaros avaluar lo que os supone un trasto.,YES,PREMISE
-89-18480-0-0,"A mí me parece un atraso volver a el sistema anterior, ¿No es mejor llamar y concertar cita para que vengan a recogerlos, que esperar a un día concreto del mes? He utilizado este servicio y me ha parecido eficiente.",YES,CLAIM
-89-18480-0-1,"A mí me parece un atraso volver a el sistema anterior, ¿No es mejor llamar y concertar cita para que vengan a recogerlos, que esperar a un día concreto del mes? He utilizado este servicio y me ha parecido eficiente.",YES,PREMISE
-89-18706-0-0,Acabemos com la lacra de los grafitis.,YES,CLAIM
-89-18706-1-0,"Apoyad esta propuesta, por favor.",YES,PREMISE
-89-18706-2-0,Gracias.,NO,SPAM
-89-19166-0-0,El sistema de recogida con cita llamando al 010 funciona bastante bien.,YES,CLAIM
-89-19166-1-0,"Es cierto que con el sistema de recogida masiva con carácter periódico, mucha gente podía darse una vuelta por el barrio y recoger lo que le interesaba antes de que se lo llevaran, pero el servicio de recogida como tal, funciona bien.",YES,PREMISE
-89-20287-0-0,Apoyo la propuesta he creado esta espero que os guste y la apoyeis un saludo!.,NO,SPAM
-89-20463-0-0,Puntos móviles de recogida de enseres en todos los distritos.,NO,SPAM
-89-20695-0-0,Votado.,YES,CLAIM
-89-20695-1-0,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, por favor votad.",YES,PREMISE
-89-23536-0-0,Yo he formulado una propuesta en la que además incluyo que la recogida sea a domicilio pues creo que hay mucha gente mayor que no tienen posibilidad de bajarlos y que se habilite un espacio para guardar todos los que se les pueda dar un segundo uso para gente que lo necesite.,YES,CLAIM
-89-23536-0-1,Yo he formulado una propuesta en la que además incluyo que la recogida sea a domicilio pues creo que hay mucha gente mayor que no tienen posibilidad de bajarlos y que se habilite un espacio para guardar todos los que se les pueda dar un segundo uso para gente que lo necesite.,YES,PREMISE
-89-23536-1-0,En fin como una recogida para donaciones sin que nadie de por medio se lucre Os dejo el enlace para que me apoyéis si lo creéis conveniente.,YES,PREMISE
-89-23536-2-0,Gracias.,NO,SPAM
-89-31995-0-0,El servicio existe y funciona bien llamando al 010 tardan muy poco y es gratuito.,YES,CLAIM
-89-31995-0-1,El servicio existe y funciona bien llamando al 010 tardan muy poco y es gratuito.,YES,PREMISE
-89-31995-1-0,Lo usé hace unos meses y es perfecto.,YES,PREMISE
-89-31995-2-0,Lo que hace falta es conocerlo y que antes de depositar nadir nada en la calle haga esta gestión.,YES,PREMISE
-89-34625-0-0,"No sé quién ha puesto esta propuesta, pero el servicio existe y funciona de maravilla.",YES,CLAIM
-89-34625-0-1,"No sé quién ha puesto esta propuesta, pero el servicio existe y funciona de maravilla.",YES,PREMISE
-89-34625-1-0,Yo he hecho uso de él en agosto.,YES,PREMISE
-89-34625-2-0,"Antes de poner propuestas, deberían informarse.",YES,PREMISE
-89-42993-0-0,"Hola, Eva.",NO,SPAM
-89-42993-1-0,Soy la autora de la propuesta.,NO,SPAM
-89-42993-2-0,"Ayer, después de meses, vi pasar por mi calle un camión para recoger un mueble grande que había en mi calle.",YES,PREMISE
-89-42993-3-0,Claro que sé que el servicio existe pero te aseguro que en mi barrio o nadie lo conoce o nadie lo usa por desconocimiento.,YES,CLAIM
-89-42993-3-1,Claro que sé que el servicio existe pero te aseguro que en mi barrio o nadie lo conoce o nadie lo usa por desconocimiento.,YES,PREMISE
-89-42993-4-0,Hace unos años recuerdo que pasaban uno o dos días al mes con un cartel que avisaba de ellos y el día anterior la gente bajaba a la calle todo lo que tenían que tirar.,YES,PREMISE
-89-42993-5-0,Está claro que ahora funciona de otra forma pero sigue sin ser eficiente.,YES,PREMISE
-89-36657-0-0,En Barcelona hay un día para la recogida de muebles y enseres.,YES,CLAIM
-89-36657-1-0,Favorece el reciclaje como bien se explica en este artículohttp: //elpais.,YES,PREMISE
-89-36657-2-0,Com/m/diario/2010/09/04/Madrid/1283599465_850215.,NO,SPAM
-89-36657-3-0,Html.,NO,SPAM
-89-40681-0-0,Apoyada.,YES,CLAIM
-89-40681-1-0,Otra propuesta relacionada es: .,YES,PREMISE
-89-41079-0-0,Votado.,YES,CLAIM
-89-41079-1-0,"Por favor, apoyad mi iniciativa sobre limpieza en la ciudad.",YES,PREMISE
-89-41079-2-0,Entre todos nos háremos oir.,YES,PREMISE
+sent_id,sent_text,sent_label1,sent_label2,sent_label3,sent_label4
+19-0-0-0,"El centro turístico y comercial de Madrid está sólo a 700 metros de la Casa de Campo y de Madrid Rio, pero las conexiones a él son terribles.",YES,PREMISE,REASON,SUPPORT
+19-0-1-0,Propongo unirlo con calles peatonales y arboladas.,YES,CLAIM,,
+19-0-0-0,En Madrid tenemos la suerte de tener la Casa de Campo muy cerca del centro de la ciudad.,YES,CLAIM,,
+19-0-1-0,"Sólo 700 metros separan el pulmón verde de la capital con Plaza de España y la Gran Vía a través de la cuesta de San Vicente, pero curiosamente, los Madrileños y turistas no usan esta vía para disfrutar de Madrid Rio o la Casa de Campo, ya que la calle Cuesta de San Vicente u otras que conectan el centro con la casa de campo están tremendamente contaminadas y son peligrosas para circular con bicicleta.",YES,PREMISE,PRECISION,SUPPORT
+19-0-2-0,"Peligrosas en dos sentidos: 1 El peligro físico, ya que los coches van a una velocidad tremenda y en el túnel de Ferraz hay tráfico e incidentes y 2 el peligro al que nos expone la contaminación de los coches.",YES,PREMISE,EXPLANATION,SUPPORT
+19-0-3-0,"Subir la cuesta con la bicicleta o andando, genera una sensación de malestar  producido por la contaminación.",NO,SPAM,,
+19-0-4-0,"Me imagino que para la gente que corre en Madrid Río será peor aún, ya que después de hacer ejercicio la contaminación afecta más.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+19-0-5-0,"Esta calle es especialmente peligrosa en este sentido porque se unen dos factores: La entrada de la Nacional 5 con el tráfico que eso conlleva y que la cuesta es muy pronunciada, haciendo que los coches consuman más gasolina y generen más emisiones.",YES,PREMISE,EXPLANATION,SUPPORT
+19-0-6-0,Con mi propuesta pido que se estudie una solución para esta vía y otras paralelas.,YES,CLAIM,,
+19-0-7-0,"No sé si la solución es el soterramiento, ya que es muy costoso, o si es la de priorizar el servicio público y peatonal, y desviar el tráfico por otras entradas a la capital.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+19-17391-0-0,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",YES,CLAIM,,
+19-17391-0-1,"Totalmente de acuerdo, el entorno de la Plaza de España con todos sus túneles y la cuesta de San Vicente la convierten en un sitio tremendamente hostil para los peatones y los ciclistas.",YES,PREMISE,REASON,SUPPORT
+19-17391-1-0,Es necesario acabar con eso.,YES,PREMISE,GOAL,SUPPORT
+19-17486-0-0,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",YES,CLAIM,,
+19-17486-0-1,"Totalmente de acuerdo, pero lo que más me indigna es que se podría unir con algo tan sencillo como abrir el campo del moro al público y los jardines de sabatino es decir que dejen de existir vallas y que se conecten esas zonas verdes Madrid río, casa campo, campo del moro y jardines de sabatini y sea para todos a todas horas.",YES,PREMISE,OPPOSITION,ATTACK
+19-47209-0-0,Una propuesta muy sensata.,NO,SPAM,,
+19-17767-0-0,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",YES,CLAIM,,
+19-17767-0-1,"100 de acuerdo! La idea del campo del Moro me parece muy buena, ojalá fuera realizable!.",YES,PREMISE,CONDITION,SUPPORT
+19-18078-0-0,Totalmente de acuerdo con tu propuesta.,YES,CLAIM,,
+19-18078-1-0,"Sin embargo, tengo entendido que una vez acabadas las obras del Museo de Colecciones Reales 2016 se reabrirá un acceso al Campo del Moro desde la Explanada de La Almudena.",YES,PREMISE,OPPOSITION,ATTACK
+19-18386-0-0,Aprovechar la reforma de Plaza España para unirlo peatonal mente con Madrid Río.,NO,SPAM,,
+19-49078-0-0,Totalmente a favor de tu propuesta.,NO,SPAM,,
+19-19178-0-0,Muchas gracias por estos 300 apoyos.,NO,SPAM,,
+19-19178-1-0,"Si de verdad creéis que esta propuesta debe llegar a contemplarse, por favor compartid el hilo.",NO,SPAM,,
+19-19178-2-0,Con una cuesta de San Vicente peatonal o más accesible podría ser una pasada bajar a Madrid Rio/Casa de campo rodeados del Campo del Moro y el Templo de Debod.,YES,CLAIM,,
+19-19178-3-0,"Ya que se va a reformar la Plaza de España, no veo mejor momento para sacar a debate esta propuesta.",YES,PREMISE,REASON,SUPPORT
+19-19750-0-0,"Existe la creencia de que soterrar es caro, cuando realmente este tipo de túnel se denomina falso túnel, ya que consiste en abrir la calle, excavar 4 o 5 metros y cubrirlo con vigas y asfalto, sin tuneladoras.",YES,PREMISE,,
+19-19750-1-0,No obstante la idea de continuar el túnel que ahora existe más allá de Príncipe Pío hasta Plaza de España para conectar con el túnel de Bailén es la única salida.,YES,PREMISE,OPPOSITION,ATTACK
+19-19750-2-0,"Recordemos que esta vía es el único gran acceso desde el Oeste al Centro de la ciudad, carece de alternativas, dada la orografía tan especial de Madrid.",YES,PREMISE,OPPOSITION,ATTACK
+19-19750-3-0,Sin embargo parece sensato establecer por sentido un carril-bus y un carril-servicio a 30 km/h.,YES,PREMISE,OPPOSITION,ATTACK
+19-19750-4-0,Por lo que tendríamos 4 carriles pacificados y un inmenso bulevar.,YES,PREMISE,RESULT,SUPPORT
+19-19750-5-0,"Pensemos en hacer la Puerta de San Vicente practicable como acceso al río, algo aplicable a la Puerta de Toledo y Alcalá.",YES,PREMISE,ALTERNATIVE,ATTACK
+19-32465-0-0,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",YES,CLAIM,,
+19-32465-0-1,"Soterrar es caro vecin@. Y si no, recuerda la M-30 o el túnel de María de Molina.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+19-49076-0-0,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",YES,CLAIM,,
+19-49076-0-1,"La opción de Zamuntx es muy sensata, me parece que no se puede comparar la distancia que se soterró con la M30 con la que se soterraría con la cuesta de San Vicente, que sería mucho menor.",YES,PREMISE,REASON,SUPPORT
+19-49076-1-0,"Además, como dice, no sería el mismo tipo de soterramiento.",YES,PREMISE,ADDITION,SUPPORT
+19-49076-2-0,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",YES,CLAIM,,
+19-49076-2-1,"El foco de contaminación para los vecinos y para toda la gente que quiere acceder al centro es inhumana, sin contar los ruidos y los peligros de tener una autopista en un lugar tan emblemático y con tanto tránsito.",YES,PREMISE,ADDITION,SUPPORT
+19-49076-3-0,Es un problema que requiere de una solución.,YES,PREMISE,RESULT,SUPPORT
+19-49275-0-0,Yo no veo que sea tan fácil como lo plantea Zamuntx.,YES,CLAIM,,
+19-49275-1-0,"Si pudiera hacerse según su idea, problemas 0 pero resulta que bajo la cuesta de San Viciente, pasa el trazado de la red de Renfe que va dirección a Pirámides, así como el trazado de la línea 10 de Metro.",YES,PREMISE,CONCESSION,ATTACK
+19-49275-2-0,"Por no decir, la cantidad de tuberías y cableados que discurren bajo el suelo de esa calle.",YES,PREMISE,ADDITION,SUPPORT
+19-49275-3-0,"No comparo ni las distancias a soterrar, ni el coste de ese soterramiento, pero no es tan fácil como parece.",YES,PREMISE,CONCESSION,ATTACK
+19-49275-4-0,"Si se quiere facilitar la conectividad entre el centro de la ciudad, y el Manzanares y la Casa de campo, no se necesita soterrar el tráfico de la cuesta de San Vicente.",YES,PREMISE,CONDITION,SUPPORT
+19-49275-5-0,"Personalmente, apostaría por reducir el número de carriles de la calzada actualmente hay tres por sentido, más el carril bus/taxi.",YES,PREMISE,ALTERNATIVE,SUPPORT
+19-49275-6-0,"Dos carriles serían más que suficientes, se podría aumentar el ancho de la acera a ambos lados de la calle, e incluso se podría construir un carril seguro para los ciclistas.",YES,PREMISE,PRECISION,SUPPORT
+19-49275-7-0,"Desde luego, más económico puede ser.",YES,PREMISE,ADDITION,SUPPORT
+19-49749-0-0,Lo cierto es que la viabilidad de la propuesta deberían decirla expertos.,YES,CLAIM,,
+19-49749-1-0,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",YES,CLAIM,,
+19-49749-1-1,"Por otro lado, quitar dos carriles de los 8 carriles que tiene ahora mismo la cuesta de San Vicente, con una alta densidad de tráfico constante no soluciona el problema para nada, sigue siendo una cantidad de tráfico inmensa.",YES,PREMISE,REASON,SUPPORT
+19-49749-2-0,"Además, tampoco hay que buscar el coste cero, porque si se quiere solucionar este problema, habrá que barajar entre distintas opciones, pero se tendrá que invertir dinero y buscar una solución que no sea un apaño para salir del paso, porque en ese caso no se soluciona el problema, sino que se evita afrontarlo.",YES,PREMISE,ADDITION,SUPPORT
+19-51540-0-0,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",YES,CLAIM,,
+19-51540-0-1,"Efectivamente, creo que olvidamos algo fundamental, hay una salida de la M-30 que va a dar directamente a la Cuesta de San Vicente y es el paso obligado para poder acceder a la Avda de Portugal y la carretera de Extremadura, zonas muy pobladas y que necesitan que se les garantice la movilidad y el acceso al centro como cualquier otra zona.",YES,PREMISE,PRECISION,SUPPORT
+19-51540-1-0,El cierre de los parques historicos por la noche es necesario para evitar el vandalismo.,YES,PREMISE,PRECISION,SUPPORT
+19-51540-2-0,"Se debería hacer un estudio serio sobre las alternativas, pero lo mejor serían los aparcamientos disuasorios y pensar que cualquier reducción de carriles afectaria también a los autobues de la EMT como pasa en ODonnell.",YES,PREMISE,RESULT,SUPPORT
+19-19795-0-0,Recuperación del espacio público para los ciudadanos.,NO,SPAM,,
+19-61819-0-0,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",YES,CLAIM,,
+19-61819-0-1,"Ahora que se va a remodelar la Plaza de España sería una oportunidad de oro hacer peatonal la Cuesta de San Vicente para hacer una senda verde que una el centro con el Campo del Moro, Madrid Río y Casa de Campo.",YES,PREMISE,GOAL,SUPPORT
+19-78277-0-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,CLAIM,,
+19-78277-0-1,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,PREMISE,OPPOSITION,ATTACK
+19-78277-1-0,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,NO,SPAM,,
+19-78277-2-0,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,NO,SPAM,,
+19-78277-3-0,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",NO,SPAM,,
+19-78277-4-0,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",YES,PREMISE,ADDITION,SUPPORT
+19-78277-5-0,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",YES,PREMISE,RESULT,SUPPORT
+19-83953-0-0,La cuesta es un infierno;,YES,CLAIM,,
+19-83953-1-0,"a medida que subes se estrecha la carretera y las aceras de tal manera que si te cruzas con un autobús de subida y otro de bajada, casi te arroyan.",YES,CLAIM,,
+19-83953-2-0,"Y lo de llevar a tú hijo de la mano imposible sólo en fila india Es centro histórico y por la calle Segovia pasan a cualquier hora y día autobuses turístimos de enorme tamaño, que además paran para recoger a los turistas sin consideración a los demás.",YES,PREMISE,ADDITION,SUPPORT
+19-83953-3-0,Es increible.,NO,SPAM,,
+19-137601-0-0,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,CLAIM,,
+19-137601-0-1,Y por qué no construir escaleras que unan los Jardines del Campo del Moro a la Plaza de la Armeria y a los Jardines de Sabatini? No entiendo la lógica de que no estén conectados.,YES,PREMISE,REASON,SUPPORT
+61-137601-0-0,Hace unos años el ayuntamiento decidió apagar farolas en distintas zonas de carretera para así poder ahorrar en la factura de la luz.,YES,PREMISE,REASON,SUPPORT
+61-137601-1-0,Creo que se debería restablecer la iluminación en estos puntos.,YES,CLAIM,,
+61-137601-0-0,"Creo que es bastante importante que las carreteras de nuestra ciudad estén bien iluminadas, sobre todo en tramos de gran afluencia de tráfico.",YES,CLAIM,,
+61-137601-1-0,Mi propuesta es la de restablecer la iluminación en las zonas donde fue suprimida.,YES,PREMISE,REASON,SUPPORT
+61-137601-2-0,"Es cierto que puede haber zonas o franjas horarias con muy poco tráfico, para lo cual se podría establecer un horario de iluminación, como por ejemplo, mantener las farolas encendidas hasta las 0.30h y apagarlas de nuevo hasta primera hora de la mañana las 6.00h, por ejemplo cuando el tráfico vuelva a intensificarse.",YES,PREMISE,CONCESSION,ATTACK
+61-18539-0-0,"Incluso propondría dentro de esta propuesta que se abasteciera con energías renovables, preferentemente pequeñas placas solares en cada farola.",YES,CLAIM,,
+61-18539-0-1,"Incluso propondría dentro de esta propuesta que se abasteciera con energías renovables, preferentemente pequeñas placas solares en cada farola.",YES,PREMISE,PRECISION,SUPPORT
+61-125978-0-0,Tenemos nueva propuesta para hacer un estudio de impacto ambiental de la Contaminación lumínica de Madrid.,YES,CLAIM,,
+61-125978-1-0,Veras que hemos incluido en el documento el tema de seguridad.,YES,PREMISE,PRECISION,SUPPORT
+61-125978-2-0,Con apoyo de 21 organizaciones de Madrid/España/Mundo.,YES,PREMISE,PRECISION,SUPPORT
+61-29897-0-0,"O encender una farola de cada dos, pero en toda la autopista.",NO,SPAM,,
+61-37090-0-0,"La seguridad mejora en carreteras sin iluminación externa, ya que los conductores centran la atención en lo que importa: la carretera y los coches, que quedan suficientemente iluminados con los faros de los coches.",YES,CLAIM,,
+61-37090-0-1,"La seguridad mejora en carreteras sin iluminación externa, ya que los conductores centran la atención en lo que importa: la carretera y los coches, que quedan suficientemente iluminados con los faros de los coches.",YES,PREMISE,REASON,SUPPORT
+61-37090-1-0,"Países más seguros como Alemania, Reino Unido, etc. , no tienen iluminación alguna en las carreteras.",YES,PREMISE,PRECISION,SUPPORT
+61-40216-0-0,"Es un tema que hay que estudiar con cuidado, varios estudios indican que en las autopistas, por ejemplo, hay más accidentes cuando hay luz.",YES,CLAIM,,
+61-40216-0-1,"Es un tema que hay que estudiar con cuidado, varios estudios indican que en las autopistas, por ejemplo, hay más accidentes cuando hay luz.",YES,PREMISE,REASON,SUPPORT
+61-40216-1-0,"La regulación por horarios es una opción, pero hay que dealizarlo de manera científica: .",YES,PREMISE,CONCESSION,SUPPORT
+61-59781-0-0,Creo que es de vital importancia pues hay muchos tramos de carreteras y vías en las que es muy peligroso circular por su poca visibilidad y más aun cuando existe ya la iluminación instalada hace tiempo.,YES,CLAIM,,
+61-59781-0-1,Creo que es de vital importancia pues hay muchos tramos de carreteras y vías en las que es muy peligroso circular por su poca visibilidad y más aun cuando existe ya la iluminación instalada hace tiempo.,YES,PREMISE,REASON,SUPPORT
+61-72359-0-0,"Este comentario no tendría lugar en un país civilizado, pero esto es España.",YES,CLAIM,,
+61-72359-0-1,"Este comentario no tendría lugar en un país civilizado, pero esto es España.",YES,PREMISE,OPPOSITION,ATTACK
+61-72359-1-0,"Los problemas son varios: 1 En la M40 no hay iluminación debido a que cuando se construyó, Fomento hacía la autopista y los Ayuntamientos de Madrid y Pozuelo ejecutaban al alumbrado y su mantenimiento pasando la factura a Fomento, pues bien el Ministerio no paga y el Ayuntamiento de Madrid ha cortado la luz.",YES,CLAIM,,
+61-72359-1-1,"Los problemas son varios: 1 En la M40 no hay iluminación debido a que cuando se construyó, Fomento hacía la autopista y los Ayuntamientos de Madrid y Pozuelo ejecutaban al alumbrado y su mantenimiento pasando la factura a Fomento, pues bien el Ministerio no paga y el Ayuntamiento de Madrid ha cortado la luz.",YES,PREMISE,PRECISION,SUPPORT
+61-72359-2-0,En la zona de Pozuelo de momento hay alumbrado.,YES,PREMISE,CONCESSION,ATTACK
+61-72359-3-0,"2 Pero el principal problema es, por ejemplo, la m31 donde está totalmente a oscuras.",YES,PREMISE,PRECISION,SUPPORT
+61-72359-4-0,"La razón muy simple, han desvalijado el centro de transformación, no quedan ni las puertas.",YES,PREMISE,REASON,SUPPORT
+61-72359-5-0,"No habrá luz, pero tampoco funcionan los radares.",YES,PREMISE,RESULT,SUPPORT
+61-72359-6-0,España es así.,NO,SPAM,,
+61-72359-7-0,"El Reglamento de Eficiencia Energética de Alumbrado Exterior ya establece que en función del tráfico en carreteras o de peatones en aceras, el alumbrado pude rebajarse la iluminancia hasta en un 50 incluso con sensores de presencia que vuelvan al 100 al paso de vehículos y personas.",YES,PREMISE,PRECISION,SUPPORT
+72-72359-0-0,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,CLAIM,,
+72-72359-0-1,"Regularización de horaraios en comercios domingos y festivos, ya que los trabajadores están actualmente soportando turnos que no permiten disfrutar de la vida familiar.",YES,PREMISE,REASON,SUPPORT
+72-17886-0-0,Desde luego.,NO,SPAM,,
+72-17886-1-0,No respetan ni a los muertos el 1 de noviembre No se que sentido tiene ir a pasar tu tiempo libre de domingo o festivo a un centro comercial cuando el resto de la semana lo has tenido abierto hasta las 10 de la noche y has podido hacer tus compras.,YES,PREMISE,REASON,SUPPORT
+72-17886-2-0,Cada uno puede emplear su tiempo libre como quiera pero a esto es que no le veo la gracia.,YES,PREMISE,CONCESSION,ATTACK
+72-17886-3-0,"En lugar de estar paseando, fomentando la cultura en un museo, en el cine, teatro, .",YES,PREMISE,ALTERNATIVE,ATTACK
+72-17886-4-0,No he trabajado en este sector nunca aunque tengo familiares en él.,YES,PREMISE,CONCESSION,ATTACK
+72-17886-5-0,Y apoyo esta propuesta tanto para el pequeño comercio que ha tenido que abrir como para las grandes superficies.,YES,CLAIM,,
+72-17886-6-0,"Que cierren los domingos, pero los del centro de Madrid y los que no esten en el centro.",YES,PREMISE,PRECISION,SUPPORT
+72-18032-0-0,"En cualquier ciudad grande como es Madrid hay comercios abiertos todos los días y a todas horas, no todos tenemos la suerte de poder ir a comprar cuando queremos.",YES,CLAIM,,
+72-18032-0-1,"En cualquier ciudad grande como es Madrid hay comercios abiertos todos los días y a todas horas, no todos tenemos la suerte de poder ir a comprar cuando queremos.",YES,PREMISE,REASON,SUPPORT
+72-18522-0-0,"Me gustaría saber como hacías la compra antes de que no se abrieran los domingos, seguro que te apañabas, y todo es organizarse.",YES,PREMISE,,
+72-18522-1-0,Antes se abría un domingo al mes y todos nos apañábamos.,YES,PREMISE,RESULT,SUPPORT
+72-18522-2-0,"La cosa es que pueden abrir todos los días que quieran, la cosa es que contraten a gente para que haga este servicio, como estudiantes o gente joven que se quiere incorporar al mundo laboral.",YES,CLAIM,,
+72-18522-2-1,"La cosa es que pueden abrir todos los días que quieran, la cosa es que contraten a gente para que haga este servicio, como estudiantes o gente joven que se quiere incorporar al mundo laboral.",YES,PREMISE,OPPOSITION,ATTACK
+72-18522-3-0,Lo que no es normal que de la noche a la mañana te impongan trabajar por festivos al mes y si no a la calle.,YES,PREMISE,OPPOSITION,ATTACK
+72-18522-4-0,Es una pena.,YES,PREMISE,REASON,SUPPORT
+72-18895-0-0,"Rere, pero planteado así, serán los empleados de museos, cines, restaurantes y teatros los que trabajarán en fin de semana, en lugar de los de las tiendas.",YES,PREMISE,OPPOSITION,ATTACK
+72-18895-1-0,"Entiendo lo que dices, pero pienso que el comercio en fin de semana ya es tan irreversible como las ventas por internet.",YES,CLAIM,,
+72-18895-1-1,"Entiendo lo que dices, pero pienso que el comercio en fin de semana ya es tan irreversible como las ventas por internet.",YES,PREMISE,OPPOSITION,ATTACK
+72-18895-2-0,Otras ventajas del trabajo en fin de semana es que puede ser compatible con estudios u otras actividades y que debería redundar en más gente contratada no la misma gente pero más explotada Mi opinión es que se regule y que el trabajo sea digno.,YES,PREMISE,ADDITION,SUPPORT
+72-19894-0-0,Claro Cristina.,NO,SPAM,,
+72-19894-1-0,"Pero desde que yo recuerdo el sector servicios cines, bares, teatros.",NO,SPAM,,
+72-19894-2-0,Siempre han estado abiertos en fin de semana con lo cual eso no es un problema.,YES,PREMISE,RESULT,SUPPORT
+72-19894-3-0,"Y como bien dices, habría que regularlo y ahí es donde entran los convenios colectivos que firman patronales y sindicatos.",NO,SPAM,,
+72-19894-4-0,"Antes hace años cuando abrian el único domingo al mes lo pagaban, y muy bien en las grandes superficies, las pequeñas ni se planteaban abrir un domingo al mes Desde hace años eso ya no es así.",NO,SPAM,,
+72-19894-5-0,De todas formas esta propuesta aunque la apoyo no se si es competencia del ayuntamiento.,YES,PREMISE,CONCESSION,ATTACK
+72-18322-0-0,"Esto dejará de ser un problema cuando se racionalicen los horarios estilo español de 9 a 21h, llegue la conciliación laboral y familiar de verdad y los salarios sean europeos y no bananeros.",YES,CLAIM,,
+72-18322-0-1,"Esto dejará de ser un problema cuando se racionalicen los horarios estilo español de 9 a 21h, llegue la conciliación laboral y familiar de verdad y los salarios sean europeos y no bananeros.",YES,PREMISE,ADDITION,SUPPORT
+72-18340-0-0,"El problema no es que el centro comercial habrá todos los días del año, sino que lo hacen con la misma cantidad de trabajadores que cuando no abrian domingos y festivos, lo que deberían es hacer más inspecciones de trabajo para que las empresas cumplan las leyes de trabajo y adi tengan que contratar empleados extra para cubrir esos días.",YES,PREMISE,REASON,SUPPORT
+72-18340-0-1,"El problema no es que el centro comercial habrá todos los días del año, sino que lo hacen con la misma cantidad de trabajadores que cuando no abrian domingos y festivos, lo que deberían es hacer más inspecciones de trabajo para que las empresas cumplan las leyes de trabajo y adi tengan que contratar empleados extra para cubrir esos días.",YES,CLAIM,,
+72-74884-0-0,"Totalmente de acuerdo, donde esta la generación de empleo de los festivos.",YES,CLAIM,,
+72-74884-0-1,"Totalmente de acuerdo, donde esta la generación de empleo de los festivos.",YES,PREMISE,REASON,SUPPORT
+72-74884-1-0,Haber si hace algo el nuevo gobierno municipal.,NO,SPAM,,
+72-74884-2-0,Na como todos.,NO,SPAM,,
+72-78740-0-0,Esto no es competencia del Ayuntamiento sino de la Comunidad.,YES,CLAIM,,
+72-18442-0-0,"Siempre sale el discurso solidario del -yo es que no puedo ir a comprar cuando quiero- inaudito El problema no es que se abra o se cierre, la cuestión es que no se pagan esos domingos y festivos y se amplió la apertura para el comercio con el fin de fomentar el empleo y la realidad es bien distinta.",YES,CLAIM,,
+72-18442-0-1,"Siempre sale el discurso solidario del -yo es que no puedo ir a comprar cuando quiero- inaudito El problema no es que se abra o se cierre, la cuestión es que no se pagan esos domingos y festivos y se amplió la apertura para el comercio con el fin de fomentar el empleo y la realidad es bien distinta.",YES,PREMISE,PRECISION,SUPPORT
+72-18442-1-0,Si quieren abrir que lo hagan pero pagando a trabajadores de fin de semana fomentando así el empleo y evitando la precariedad del resto.,YES,PREMISE,CONDITION,SUPPORT
+72-18442-2-0,"De todos modos los domingos son para vivir y quiero creer que la mayoría los aprovecha y no va de compras, a veces tan necesarias como un DVD.",YES,PREMISE,ALTERNATIVE,ATTACK
+72-26679-0-0,"Completamente de acuerdo En este tema el gran problema es ese, que no se paga como se debe el trabajo en día de festivo y que por supuesto, no se ha contratado a personal específico para trabajar en fin de semana.",YES,CLAIM,,
+72-26679-0-1,"Completamente de acuerdo En este tema el gran problema es ese, que no se paga como se debe el trabajo en día de festivo y que por supuesto, no se ha contratado a personal específico para trabajar en fin de semana.",YES,PREMISE,PRECISION,SUPPORT
+72-26679-1-0,"Ha sido un abuso impresionante y los cómplices necesarios que nos hemos creído sus mentiras, hemos sido nosotros.",YES,PREMISE,RESULT,ATTACK
+72-26679-2-0,"Otros simples curritos de a pié, a los que también un día nos puede pasar que tengamos que trabajar en festivo ahí sí que nos va a fastidiar.",NO,SPAM,,
+72-26679-3-0,", eh? Nos han vendido la moto, de qué manera.",NO,SPAM,,
+72-26679-4-0,A todos.,NO,SPAM,,
+72-26679-5-0,"Ahora resulta que tengo que agradecer poder ir a hacer la compra en domingo, en vez de denunciar que otro trabajador no puede conciliar su vida familiar, o bien que no ha podido elegir si ir no no a trabajar en festivo, o que no se lo remuneran como deberían.",YES,PREMISE,REASON,SUPPORT
+72-26679-6-0,"Pero hombre, por Dios, esto es una injusticia, y no hemos reaccionado a tiempo hemos sido unos egoistas tontos y mediocres.",YES,PREMISE,OPPOSITION,ATTACK
+72-18460-0-0,"Es increíble que a los trabajadores nos obliguen a trabajar en festivos, y si no te echan a la calle.",YES,CLAIM,,
+72-18460-0-1,"Es increíble que a los trabajadores nos obliguen a trabajar en festivos, y si no te echan a la calle.",YES,PREMISE,REASON,SUPPORT
+72-18697-0-0,Te echarían a la calle si no abvrieran los domingos ya que venderían menos.,YES,CLAIM,,
+72-18697-0-1,Te echarían a la calle si no abvrieran los domingos ya que venderían menos.,YES,PREMISE,CONDITION,SUPPORT
+72-18697-1-0,"Monta tu una tienda y abre los días que te de la gana, pero no impongas los días que deben abrir y cerrar los demás.",YES,PREMISE,RESULT,SUPPORT
+72-18774-0-0,Estas muy confundido.,YES,CLAIM,,
+72-18774-1-0,Ellos abren casi 60 días al año más con el mismo personal que tenían cuando no abrían los festivos.,YES,PREMISE,REASON,SUPPORT
+72-18732-0-0,Mejor que cerrar.,NO,SPAM,,
+72-18732-1-0,Regular correctamente para que no se produzcan abusos.,YES,PREMISE,GOAL,SUPPORT
+72-18825-0-0,A tener en cuenta que menos horas de apertura significan menos horas de trabajo y menos empleados o reducción de jornadas.,YES,CLAIM,,
+72-52897-0-0,"Lo que hay que tener en cuenta, es, que más horas de apertura no conlleva mayor cantidad de empleados, no hay más venta por abrir más horas.",YES,CLAIM,,
+72-52897-0-1,"Lo que hay que tener en cuenta, es, que más horas de apertura no conlleva mayor cantidad de empleados, no hay más venta por abrir más horas.",YES,PREMISE,REASON,SUPPORT
+72-52897-1-0,"Solución, se redistribuye a la plantilla, y así se empeora la calidad de vida del empleado.",YES,PREMISE,EXPLANATION,ATTACK
+72-52897-2-0,"Por poner un ejemplo, en Francia los comercios cierran a las 7 de la tarde y en casos excepcionales a las 8 - 830 un centro de galerias Lafallete tiene la misma cantidad o más de empleados, que un centro de El Corte Inglés, abren menos horas al día, y cierran los domingos.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+72-52897-3-0,"La ecuación es la siguiente, más ventas = a más empleados.",YES,PREMISE,PRECISION,SUPPORT
+72-52897-4-0,No hay que tener ade o ser Economista para saber esto.,YES,PREMISE,EXPLANATION,SUPPORT
+72-52946-0-0,Aunque sea Lcdo.,NO,SPAM,,
+72-52946-1-0,En CCEE y Dir.,NO,SPAM,,
+72-52946-2-0,"De RRHH de una multinacional, no debato ni discuto con gente que como usted Intenta menospreciar y hace comentarios tan simplistas.",YES,CLAIM,,
+72-61632-0-0,"Pues, Sr. Varco mucho me temo que su opinión resulta un tanto sesgada por razón de su supuesto cargo.",YES,CLAIM,,
+72-61632-0-1,"Pues, Sr. Varco mucho me temo que su opinión resulta un tanto sesgada por razón de su supuesto cargo.",YES,PREMISE,REASON,SUPPORT
+72-61632-1-0,"En todo caso, imagino que estará Ud. De acuerdo en que las horas trabajadas en dichas fecha/horarios deberían ser remuneradas con una salario mayor.",NO,SPAM,,
+72-61632-2-0,¿Hace eso su multinacional? Saludos.,NO,SPAM,,
+72-19397-0-0,Tenemos que tener derecho al descanso de lunes a sábado hay tiempo de sobra para comprar.,YES,CLAIM,,
+72-19397-0-1,Tenemos que tener derecho al descanso de lunes a sábado hay tiempo de sobra para comprar.,YES,PREMISE,REASON,SUPPORT
+72-19760-0-0,Apoyo la propuesta y te invito a que apoyes Mayor cuidado del centro de Madrid Gracias!.,NO,SPAM,,
+72-20122-0-0,"Cerremos los bares, teatros, restaurantes, metros, autobues, hospitales, residencias, taxis, urgencias, etc. , etc. En estos trabajos también hay personas que tienen familias.",YES,CLAIM,,
+72-20122-0-1,"Cerremos los bares, teatros, restaurantes, metros, autobues, hospitales, residencias, taxis, urgencias, etc. , etc. En estos trabajos también hay personas que tienen familias.",YES,PREMISE,REASON,SUPPORT
+72-20122-1-0,Yo pido unas condiciones dignas pero vivir y dejar vivir.,YES,PREMISE,EXPLANATION,ATTACK
+72-20122-2-0,No todo el mundo puede comprar entre semana con estos horarios que se tienen.,YES,PREMISE,REASON,SUPPORT
+72-20122-3-0,"Por cierto, sería más razonable que pidierais que los bancos abrieran basados, como antes y alguna tarde.",YES,PREMISE,ALTERNATIVE,ATTACK
+72-20122-4-0,Yo creo que quienes pedís esto sois unos yupis con todo el tiempo del mundo y poco en qué pensar que sea importante.,NO,SPAM,,
+72-20122-5-0,"Lo siento, es mi opinión, .",NO,SPAM,,
+72-21247-0-0,Yupis? jajajaj quizá quien ha hecho esta propuesta solo coincide con sus hijos y esposa dos días al mes.,YES,CLAIM,,
+72-21247-1-0,"La diferencia con bares, teatros, restaurantes y demás sitios de ocio es que cuando tu empiezas a trabajar sabes exactamente que tienes que trabajar festivos y fines de semana, pero después de la ley de Esperanza que permitía abrir todos los santos días, a los trabajadores se les cambiaron automáticamente sus condiciones de trabajo.",YES,PREMISE,REASON,SUPPORT
+72-21247-2-0,Y había dos opciones: o aceptas o a la calle.,NO,SPAM,,
+72-21247-3-0,"Y tu puedes hacer las propuestas que quieras para esto esta este espacio, pero no creo que sea acertado criticar las demás.",YES,PREMISE,ADDITION,SUPPORT
+72-21247-4-0,"Y por cierto con tu comentario, me limpio el ojete, es mi opinión.",NO,SPAM,,
+72-160725-0-0,"Siento decirte yo mi opinión, pero no compares cosas necesarias con el ocio! Alomejor es que te da un infarto si un domingo no te compras un tanga por que está cerrado! o si no te tomas un té en alguna cafetería arrascandote el papo! Personas que opinan como tú que dices que si urgencias que si noseque no es lo mismo ponerse enfermo que irte a por 4 caprichos.",YES,CLAIM,,
+72-160725-0-1,"Siento decirte yo mi opinión, pero no compares cosas necesarias con el ocio! Alomejor es que te da un infarto si un domingo no te compras un tanga por que está cerrado! o si no te tomas un té en alguna cafetería arrascandote el papo! Personas que opinan como tú que dices que si urgencias que si noseque no es lo mismo ponerse enfermo que irte a por 4 caprichos.",YES,PREMISE,OPPOSITION,ATTACK
+72-160725-1-0,Es lo que opino yoo yupiiiii.,NO,SPAM,,
+72-20759-0-0,Creo que el horario de los centros comerciales es suficiente mente amplio de lunes a sábado.,YES,CLAIM,,
+72-20759-1-0,"Creo en la racionalización de los horarios y de la vida en la ciudad, el centro de Madrid se ha convertido en una vorágine de gente que simplemente consume corriendo de una lado a otro.",YES,PREMISE,RESULT,SUPPORT
+72-20759-2-0,"Salvemos la vida de los barrios, consumamos cultura, ocio, paseos.",YES,PREMISE,GOAL,SUPPORT
+72-20759-3-0,"Y por supuesto, a horarios extraordinarios domingos y festivos, salarios acordes.",YES,PREMISE,ADDITION,SUPPORT
+72-27966-0-0,Repetida la propuesta! Siento que pierdo el tiempo leyendo propuestas repetidas.,YES,CLAIM,,
+72-27966-0-1,Repetida la propuesta! Siento que pierdo el tiempo leyendo propuestas repetidas.,YES,PREMISE,RESULT,SUPPORT
+72-27966-1-0,Pido respeto y responsabilidad: leamos y búsquemos primero nuestra propuesta por si ya existe! Gracias!.,YES,PREMISE,RESULT,SUPPORT
+72-28043-0-0,"Puede ser que esté repetida pero seguramente la mía fue la primera, ya que escribí esta entrada el mismo día que se puso en funcionamiento esta página.",YES,CLAIM,,
+72-28043-0-1,"Puede ser que esté repetida pero seguramente la mía fue la primera, ya que escribí esta entrada el mismo día que se puso en funcionamiento esta página.",YES,PREMISE,OPPOSITION,ATTACK
+72-28043-1-0,Aunque pude ser que este confundido.,YES,PREMISE,CONCESSION,ATTACK
+72-28043-2-0,Siento las molestias que pueda haberte ocasionado.,YES,PREMISE,RESULT,SUPPORT
+72-28043-3-0,Un saludo.,NO,SPAM,,
+72-31381-0-0,Esta otra propuesta está relacionada: .,NO,SPAM,,
+72-61631-0-0,"Efectivamente como dicen algunas personas, hemos llegado a un sisnsentido en el que lo que debería ser normal el cierre de los establecimientos en fin de semana y la restricción de horarios se ha convenrtrido en desaconsejable porque muchos infelices tienen que usas esos horarios debido a los horarios leoninos que padecen.",YES,PREMISE,COMPARISON,SUPPORT
+72-61631-0-1,"Efectivamente como dicen algunas personas, hemos llegado a un sisnsentido en el que lo que debería ser normal el cierre de los establecimientos en fin de semana y la restricción de horarios se ha convenrtrido en desaconsejable porque muchos infelices tienen que usas esos horarios debido a los horarios leoninos que padecen.",YES,CLAIM,,
+72-61631-1-0,"Por este motivo no voto a favor de esta propuesta, aunque animo al personal a exigir allá donde puedan hacerse oír que la legislación laboral penalice pagando más al trabajador las horas trabajadas en festivos, a la hora de comer y a partir de las 2000 De este modo se podría mantener abietas la tiendas cuyos dueños lo quisieran pero garantizando que los trabajadores que cubireran esos días y horarios mejoraban sus condiciones salariales.",YES,PREMISE,RESULT,SUPPORT
+72-61631-2-0,Lo que ocurre es que esto no es competencia municipal y hay que relamarlo en otros instancias.,YES,PREMISE,OPPOSITION,ATTACK
+72-61631-3-0,Saludos.,NO,SPAM,,
+72-71736-0-0,Pues que también cierren los hospitales los fines de semana.,YES,CLAIM,,
+72-71736-1-0,Porque nosotros tb tenemos familia y libramos a diario.,YES,PREMISE,REASON,SUPPORT
+72-76938-0-0,"No hay que confundir un servicio público con uno que no lo es, realmente ir a comprar un domingo es necesario y vital?.",YES,PREMISE,REASON,SUPPORT
+72-76938-0-1,"No hay que confundir un servicio público con uno que no lo es, realmente ir a comprar un domingo es necesario y vital?.",YES,CLAIM,,
+72-160721-0-0,No compares un hospital con un centro comercial es como si me dices que si no te compras unas bragas en El Corte Inglés te mueres.,YES,CLAIM,,
+72-160721-0-1,No compares un hospital con un centro comercial es como si me dices que si no te compras unas bragas en El Corte Inglés te mueres.,YES,PREMISE,REASON,SUPPORT
+72-76131-0-0,Hay que conciliar la vida laboral con la familiar.,YES,CLAIM,,
+72-76131-1-0,"Por favor, ayuden esta propuesta.",YES,PREMISE,RESULT,SUPPORT
+72-78742-0-0,"Que no es competencia del Ayuntamiento, que esto lo regula la Comunidad.",YES,CLAIM,,
+72-78742-0-1,"Que no es competencia del Ayuntamiento, que esto lo regula la Comunidad.",YES,PREMISE,REASON,SUPPORT
+72-82480-0-0,"Yo creo que deben abrir los domingos y festivos, que es cuando la gente puede disfrutarlos.",YES,CLAIM,,
+72-82480-0-1,"Yo creo que deben abrir los domingos y festivos, que es cuando la gente puede disfrutarlos.",YES,PREMISE,REASON,SUPPORT
+72-82480-1-0,"Pero la gente que trabaja en esos centros debe tener respetados días de descanso, y a ser posible, no trabajar los mismos todos los festivos.",YES,PREMISE,OPPOSITION,ATTACK
+72-82480-2-0,Es cuestión de controlar a los empresarios.,YES,PREMISE,RESULT,SUPPORT
+72-86169-0-0,Se nota y pondría la mano en el fuego que no trabajas en comercio.,NO,SPAM,,
+72-86169-1-0,"Solo una pregunta, antes de esta ley de libre apertura, no comias? no tenias ropa o electrodomesticos en casa? Quien hace la ley siempre hace la trampa, y los que si trabajamos en esto lo sufrimos, aunque te respeten los días de descanso para que quiero librar un martes aunque no trabaje todos, que tengo un domingo o dos, para quedar con toda la familia amigos salir con la pareja etc. Etc.",YES,CLAIM,,
+72-86169-1-1,"Solo una pregunta, antes de esta ley de libre apertura, no comias? no tenias ropa o electrodomesticos en casa? Quien hace la ley siempre hace la trampa, y los que si trabajamos en esto lo sufrimos, aunque te respeten los días de descanso para que quiero librar un martes aunque no trabaje todos, que tengo un domingo o dos, para quedar con toda la familia amigos salir con la pareja etc. Etc.",YES,PREMISE,CONCESSION,ATTACK
+72-86169-2-0,"Creo que la conciliación laboral es un derecho, que esta ley ha quitado.",YES,PREMISE,RESULT,SUPPORT
+72-89649-0-0,Te dejo esta propuesta por si te interesa.,NO,SPAM,,
+72-91121-0-0,Pues yo prefiero que esten abiertos los domingos.,YES,CLAIM,,
+72-160719-0-0,Si trabajases en un comercio de lunes a domingo pensarías de otra manera!.,YES,CLAIM,,
+72-160719-0-1,Si trabajases en un comercio de lunes a domingo pensarías de otra manera!.,YES,PREMISE,CONDITION,SUPPORT
+72-160718-0-0,Los centros comerciales deberían cerrar todos los festivos y domingos.,YES,CLAIM,,
+72-160718-1-0,"Los trabajadores de los centros también tenemos derecho a estar con la familia, descansar, hacer vida.",YES,PREMISE,REASON,SUPPORT
+72-160718-2-0,Antiguamente no había apertura del centro comercial y no pasaba nada todo el mundo hacía sus compras igualmente.,YES,PREMISE,REASON,SUPPORT
+72-160718-3-0,"A lo que ahora los sábados y domingos la mayoría se dedican a ir para pasear por que se aburren en casa, o a mirarse un pijama en primark, cosas que realmente no son necesarias, o por que está lloviendo y se meten allí a pasar la tarde.",YES,PREMISE,COMPARISON,ATTACK
+72-160718-4-0,"Trabajo en una cafetería y no libro ni un fin de semana se supone que esto se hizo así para que hubiese más empleo, pero los empresarios no se molestan en pagar un sueldo más y nos lo comemos nosotros.",YES,PREMISE,REASON,SUPPORT
+72-160718-5-0,Todo para que vengan a tomar un simple café o a descambiar unas zapatillas o porque les apetece estar sentados en los sofás del comercio.,YES,PREMISE,GOAL,SUPPORT
+89-160718-0-0,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,CLAIM,,
+89-160718-0-1,Pedimos la vuelta del servicio de recogida de muebles y electrodomésticos que existía antes para evitar suciedad y más basura.,YES,PREMISE,GOAL,SUPPORT
+89-17535-0-0,El servicio de recogida de enseres sigue existiendo llamando al 010 donde toman nota de la solicitud.,YES,CLAIM,,
+89-17834-0-0,"Una cosa es que tomen nota, que supongo que lo hacen, y otra muy distinta que aparezcan.",YES,CLAIM,,
+89-17834-1-0,Y además el 010 es de pago.,YES,PREMISE,ADDITION,SUPPORT
+89-18483-0-0,Puedes solicitarlo también a través de la web del ayuntamiento y en las oficinas gratis.,YES,CLAIM,,
+89-43782-0-0,Es la web para solicitarlo online.,NO,SPAM,,
+89-19324-0-0,Puedes llamar al 91 529 82 10 que es el equivalente al 010 Yo les llamé para dar el aviso y el dpto. Me devolvió ese mismo día para acordar la recogida.,YES,CLAIM,,
+89-19324-0-1,Puedes llamar al 91 529 82 10 que es el equivalente al 010 Yo les llamé para dar el aviso y el dpto. Me devolvió ese mismo día para acordar la recogida.,YES,PREMISE,REASON,SUPPORT
+89-31439-0-0,"Aparecen, aparecen.",NO,SPAM,,
+89-80455-0-0,"Tampoco pasa nada por llamar a un teléfono que cuesta pocos céntimos el minuto, sobre todo teniendo alternativas sin coste para personas que ni se lo puedan permitir.",YES,CLAIM,,
+89-80455-0-1,"Tampoco pasa nada por llamar a un teléfono que cuesta pocos céntimos el minuto, sobre todo teniendo alternativas sin coste para personas que ni se lo puedan permitir.",YES,PREMISE,PRECISION,SUPPORT
+89-80455-1-0,Que tampoco tiene que ser todo gratis.,YES,PREMISE,REASON,SUPPORT
+89-80455-2-0,"De hecho, si no lo es, el que lo utiliza lo paga, en vez de disolverse el coste entre todos.",YES,PREMISE,CONDITION,SUPPORT
+89-80455-3-0,"Porque recuerdo que, en vez de dejar los muebles en la calle y ensuciar temporalmente la ciudad, se pueden llevar a un punto limpio.",YES,PREMISE,REASON,SUPPORT
+89-17937-0-0,"He visto en mi barrio y otras zonas que se han creado espacios para recogida de enseres, una zona de aparcamiento para camiones de recogida en días y horarios específicos.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+89-17937-1-0,"Igual que los espacios de bibliobus, pero pista recogida de enseres.",YES,PREMISE,COMPARISON,SUPPORT
+89-17937-2-0,"Sería interesante informarse al respecto, no se su es lo que proponer, pero su es así, entiendo que ya lo han gestionado.",YES,CLAIM,,
+89-18154-0-0,Creo que la mejor solución para eso es fomentar el reciclaje de este tipo de cosas regalándolo.,YES,CLAIM,,
+89-18154-1-0,La página puede ayudaros avaluar lo que os supone un trasto.,YES,PREMISE,ADDITION,SUPPORT
+89-18480-0-0,"A mí me parece un atraso volver a el sistema anterior, ¿No es mejor llamar y concertar cita para que vengan a recogerlos, que esperar a un día concreto del mes? He utilizado este servicio y me ha parecido eficiente.",YES,CLAIM,,
+89-18480-0-1,"A mí me parece un atraso volver a el sistema anterior, ¿No es mejor llamar y concertar cita para que vengan a recogerlos, que esperar a un día concreto del mes? He utilizado este servicio y me ha parecido eficiente.",YES,PREMISE,REASON,SUPPORT
+89-18706-0-0,Acabemos com la lacra de los grafitis.,YES,CLAIM,,
+89-18706-1-0,"Apoyad esta propuesta, por favor.",YES,PREMISE,RESULT,SUPPORT
+89-18706-2-0,Gracias.,NO,SPAM,,
+89-19166-0-0,El sistema de recogida con cita llamando al 010 funciona bastante bien.,YES,CLAIM,,
+89-19166-1-0,"Es cierto que con el sistema de recogida masiva con carácter periódico, mucha gente podía darse una vuelta por el barrio y recoger lo que le interesaba antes de que se lo llevaran, pero el servicio de recogida como tal, funciona bien.",YES,PREMISE,CONCESSION,ATTACK
+89-20287-0-0,Apoyo la propuesta he creado esta espero que os guste y la apoyeis un saludo!.,NO,SPAM,,
+89-20463-0-0,Puntos móviles de recogida de enseres en todos los distritos.,NO,SPAM,,
+89-20695-0-0,Votado.,YES,CLAIM,,
+89-20695-1-0,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, por favor votad.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+89-23536-0-0,Yo he formulado una propuesta en la que además incluyo que la recogida sea a domicilio pues creo que hay mucha gente mayor que no tienen posibilidad de bajarlos y que se habilite un espacio para guardar todos los que se les pueda dar un segundo uso para gente que lo necesite.,YES,CLAIM,,
+89-23536-0-1,Yo he formulado una propuesta en la que además incluyo que la recogida sea a domicilio pues creo que hay mucha gente mayor que no tienen posibilidad de bajarlos y que se habilite un espacio para guardar todos los que se les pueda dar un segundo uso para gente que lo necesite.,YES,PREMISE,REASON,SUPPORT
+89-23536-1-0,En fin como una recogida para donaciones sin que nadie de por medio se lucre Os dejo el enlace para que me apoyéis si lo creéis conveniente.,YES,PREMISE,SIMILARITY,SUPPORT
+89-23536-2-0,Gracias.,NO,SPAM,,
+89-31995-0-0,El servicio existe y funciona bien llamando al 010 tardan muy poco y es gratuito.,YES,CLAIM,,
+89-31995-0-1,El servicio existe y funciona bien llamando al 010 tardan muy poco y es gratuito.,YES,PREMISE,EXPLANATION,SUPPORT
+89-31995-1-0,Lo usé hace unos meses y es perfecto.,YES,PREMISE,EXEMPLIFICATION,SUPPORT
+89-31995-2-0,Lo que hace falta es conocerlo y que antes de depositar nadir nada en la calle haga esta gestión.,YES,PREMISE,OPPOSITION,ATTACK
+89-34625-0-0,"No sé quién ha puesto esta propuesta, pero el servicio existe y funciona de maravilla.",YES,CLAIM,,
+89-34625-0-1,"No sé quién ha puesto esta propuesta, pero el servicio existe y funciona de maravilla.",YES,PREMISE,OPPOSITION,ATTACK
+89-34625-1-0,Yo he hecho uso de él en agosto.,YES,PREMISE,EXEMPLIFICATION,SUPPORT
+89-34625-2-0,"Antes de poner propuestas, deberían informarse.",YES,PREMISE,RESULT,SUPPORT
+89-42993-0-0,"Hola, Eva.",NO,SPAM,,
+89-42993-1-0,Soy la autora de la propuesta.,NO,SPAM,,
+89-42993-2-0,"Ayer, después de meses, vi pasar por mi calle un camión para recoger un mueble grande que había en mi calle.",YES,PREMISE,EXEMPLIFICATION,SUPPORT
+89-42993-3-0,Claro que sé que el servicio existe pero te aseguro que en mi barrio o nadie lo conoce o nadie lo usa por desconocimiento.,YES,CLAIM,,
+89-42993-3-1,Claro que sé que el servicio existe pero te aseguro que en mi barrio o nadie lo conoce o nadie lo usa por desconocimiento.,YES,PREMISE,OPPOSITION,ATTACK
+89-42993-4-0,Hace unos años recuerdo que pasaban uno o dos días al mes con un cartel que avisaba de ellos y el día anterior la gente bajaba a la calle todo lo que tenían que tirar.,YES,PREMISE,EXPLANATION,SUPPORT
+89-42993-5-0,Está claro que ahora funciona de otra forma pero sigue sin ser eficiente.,YES,PREMISE,RESULT,SUPPORT
+89-36657-0-0,En Barcelona hay un día para la recogida de muebles y enseres.,YES,CLAIM,,
+89-36657-1-0,Favorece el reciclaje como bien se explica en este artículohttp: //elpais.,YES,PREMISE,GOAL,SUPPORT
+89-36657-2-0,Com/m/diario/2010/09/04/Madrid/1283599465_850215.,NO,SPAM,,
+89-36657-3-0,Html.,NO,SPAM,,
+89-40681-0-0,Apoyada.,YES,CLAIM,,
+89-40681-1-0,Otra propuesta relacionada es: .,YES,PREMISE,ADDITION,SUPPORT
+89-41079-0-0,Votado.,YES,CLAIM,,
+89-41079-1-0,"Por favor, apoyad mi iniciativa sobre limpieza en la ciudad.",YES,PREMISE,RESULT,SUPPORT
+89-41079-2-0,Entre todos nos háremos oir.,YES,PREMISE,RESULT,SUPPORT
