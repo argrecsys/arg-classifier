@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.3.0
+    Version: 0.5.0
     Created on: May 13, 2022
-    Updated on: May 27, 2022
+    Updated on: May 31, 2022
     Description: Data processing module
 """
 
@@ -21,6 +21,11 @@ LABEL_PREMISE: Final[str] = 'PREMISE'
 LABEL_SPAM: Final[str] = 'SPAM'
 LABEL_YES: Final[str] = 'YES'
 VALID_SENT_SIZE: Final[int] = 3
+
+# Validates whether a statement is valid or not
+def __is_valid_sentence(sent_text:str) -> bool:
+    result = (len(sent_text) >= VALID_SENT_SIZE) and (any(c.isalpha() for c in sent_text))
+    return result
 
 # Find the relation category between the claim and the premise and its main intent
 def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> tuple:
@@ -76,7 +81,7 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
             sent_text = sent_text.strip()
             
             # It is a valid sentence
-            if len(sent_text) >= VALID_SENT_SIZE: 
+            if __is_valid_sentence(sent_text):
                 labels = []
                 cache = []
                 

@@ -54,9 +54,14 @@ public class StringUtils {
      */
     public static String cleanPuntuationMark(String punctMark) {
         String newPunctMark = punctMark;
+
         if (punctMark.length() > 1 && punctMark.charAt(0) == punctMark.charAt(1)) {
             newPunctMark = punctMark.charAt(0) + "+";
+
+        } else if (punctMark.endsWith("\"")) {
+            newPunctMark = "'";
         }
+
         return newPunctMark;
     }
 

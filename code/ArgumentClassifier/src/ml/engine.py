@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.10
+    Version: 0.9.0
     Created on: Oct 07, 2021
-    Updated on: May 25, 2022
+    Updated on: May 31, 2022
     Description: ML engine class.
 """
 
@@ -64,7 +64,8 @@ class MLEngine:
                 prop_id = data[0]
                 label1 = data[n-2]
                 label2 = data[n-1]
-                labels.append({"id": prop_id, "sent_label1": label1, "sent_label2": label2})
+                label = {"id": prop_id, "sent_label1": label1, "sent_label2": label2}
+                labels.append(label)
         
         return labels
     
@@ -236,12 +237,14 @@ class MLEngine:
         df_filepath = data_path + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
+            df_filepath_full = data_path + "dataset_full.csv"
             
-            # Creation
+            # Creation full dataset
             features = self.__read_feature_file(data_path)
             labels = self.__read_label_file(data_path)
             stopwords = self.__read_stopword_list(data_path)
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
+            dataset.to_csv(df_filepath_full, index=False)
             
             # Dimensionality reduction
             if feat_setup["dim_reduction"]:

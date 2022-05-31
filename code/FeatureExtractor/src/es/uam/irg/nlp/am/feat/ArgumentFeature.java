@@ -119,11 +119,8 @@ public class ArgumentFeature extends TextFeature {
      */
     @Override
     public boolean extraction() {
-        if (this.textLength >= MIN_LENGTH) {
-            // NLP-processing
-            return extractFeatures();
-        }
-        return false;
+        // NLP-processing
+        return extractFeatures();
     }
 
     /**
