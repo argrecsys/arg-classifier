@@ -69,8 +69,8 @@ def start_app(task_type:str, ml_algo:str):
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
-        model_state = app_setup["model_state"]
         result_folder = app_setup["result_folder"]
+        model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
         
         # 1. Machine Learning engine object
@@ -80,7 +80,7 @@ def start_app(task_type:str, ml_algo:str):
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
         
         # 3. Split dataset
-        X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, model_state, train_setup)
+        X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, train_setup)
         
         # 4. Train or calibrate model
         clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
@@ -117,8 +117,8 @@ def start_app(task_type:str, ml_algo:str):
 #####################
 if __name__ == "__main__":
     print('>> START PROGRAM:', str(datetime.now()))
-    tasks = [TaskType.CLASSIFICATION.value]
-    algos = [ModelType.GRADIENT_BOOSTING.value]
+    tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
+    algos = [ModelType.NAIVE_BAYES.value, ModelType.GRADIENT_BOOSTING.value]
     for task, algo in list(product(tasks, algos)):
         print("\n>> %s (%s) - %s:" % (task.title(), algo, str(datetime.now())))
         start_app(task, algo)

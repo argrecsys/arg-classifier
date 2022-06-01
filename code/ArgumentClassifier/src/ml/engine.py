@@ -271,13 +271,22 @@ class MLEngine:
         return dataset, label_dict
     
     # ML function - Split dataset into train/test
-    def split_dataset(self, dataset:pd.DataFrame, model_state:int, train_setup:dict) -> tuple:
+    def split_dataset(self, dataset:pd.DataFrame, train_setup:dict) -> tuple:
+        model_state = train_setup["model_state"]
         cv_stratified = train_setup["cv_stratified"]
         perc_test = train_setup["perc_test"]
         X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
         y = dataset[self.label_column]
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=perc_test, random_state=model_state)
+        if cv_stratified:
+            sss = StratifiedShuffleSplit(n_splits=1, test_size=perc_test, random_state=model_state)
+            
+            for train_index, test_index in sss.split(X, y):
+                X_train, X_test = X.iloc[train_index, :], X.iloc[test_index, :]
+                y_train, y_test = y.iloc[train_index], y.iloc[test_index]
+            
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=perc_test, random_state=model_state)
         
         return X_train, X_test, y_train, y_test
     
@@ -335,11 +344,12 @@ class MLEngine:
         print("- Validating model:")
         y_real = []
         y_pred = []
+        model_state = train_setup["model_state"]
         cv_k = train_setup["cv_k"]
         cv_stratified = train_setup["cv_stratified"]
         
         if cv_stratified:
-            skf = StratifiedKFold(n_splits=cv_k, shuffle=True)
+            skf = StratifiedKFold(n_splits=cv_k, shuffle=True, random_state=model_state)
             
             for train_index, test_index in skf.split(X, y):
                 x_train_fold, x_test_fold = X.iloc[train_index, :], X.iloc[test_index, :]

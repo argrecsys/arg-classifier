@@ -63,13 +63,13 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 	"train": {
 		"cv_k": 10,
 		"cv_stratified": true,
+		"model_state": 42,
 		"perc_test": 0.2
 	},
 	"create_dataset": true,
 	"data_folder": "../../../data/",
 	"language": "spanish",
 	"model_folder": "../../../models/",
-	"model_state": 42,
 	"result_folder": "../../../results/",
 	"task": "detection",      // classification
 	"y_label": "sent_label1"  // sent_label2
