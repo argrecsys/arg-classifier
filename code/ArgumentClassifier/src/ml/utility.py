@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.5.5
+    Version: 0.6.0
     Created on: Oct 19, 2021
-    Updated on: May 26, 2022
+    Updated on: Jun 1, 2022
     Description: ML engine utility functions.
 """
 
@@ -96,7 +96,7 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
     return m_df, m_variance
 
 # Core function - Calculate difference between real and predicted
-def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:bool) -> tuple:
+def calculate_errors(task_type:str, y_real:list, y_pred:list, verbose:bool) -> tuple:
     conf_mx = confusion_matrix(y_real, y_pred)
     accuracy = accuracy_score(y_real, y_pred)
     
@@ -110,7 +110,7 @@ def calculate_errors(task_type:str, y_real:pd.Series, y_pred:pd.Series, verbose:
         precision = precision_score(y_real, y_pred, average='micro')
         recall = recall_score(y_real, y_pred, average='micro')
         f1 = f1_score(y_real, y_pred, average='micro')
-        roc_score= 0
+        roc_score = 0
         
     if verbose:
         print(conf_mx)
