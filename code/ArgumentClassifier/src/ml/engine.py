@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.0
+    Version: 0.9.1
     Created on: Oct 07, 2021
-    Updated on: May 31, 2022
+    Updated on: Jun 1, 2022
     Description: ML engine class.
 """
 
@@ -20,11 +20,11 @@ import joblib as jl
 
 # Import ML libraries
 from nltk.stem import SnowballStemmer
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
+from sklearn.model_selection import cross_val_predict, StratifiedKFold
+from sklearn.model_selection import GridSearchCV
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import cross_val_predict
-from sklearn.model_selection import GridSearchCV
 
 # Machine Learning API class
 class MLEngine:
@@ -271,10 +271,22 @@ class MLEngine:
         return dataset, label_dict
     
     # ML function - Split dataset into train/test
-    def split_dataset(self, dataset:pd.DataFrame, perc_test:float, model_state:int) -> tuple:
+    def split_dataset(self, dataset:pd.DataFrame, train_setup:dict) -> tuple:
+        model_state = train_setup["model_state"]
+        cv_stratified = train_setup["cv_stratified"]
+        perc_test = train_setup["perc_test"]
         X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
         y = dataset[self.label_column]
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=perc_test, random_state=model_state)
+        
+        if cv_stratified:
+            sss = StratifiedShuffleSplit(n_splits=1, test_size=perc_test, random_state=model_state)
+            
+            for train_index, test_index in sss.split(X, y):
+                X_train, X_test = X.iloc[train_index, :], X.iloc[test_index, :]
+                y_train, y_test = y.iloc[train_index], y.iloc[test_index]
+            
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=perc_test, random_state=model_state)
         
         return X_train, X_test, y_train, y_test
     
@@ -328,10 +340,30 @@ class MLEngine:
         return clf, params
     
     # ML function - Validate model
-    def validate_model(self, clf, X_train:pd.DataFrame, y_train:pd.Series, cv_k:int) -> tuple:
+    def validate_model(self, clf, X:pd.DataFrame, y:pd.Series, train_setup:dict) -> tuple:
         print("- Validating model:")
-        y_train_pred = cross_val_predict(clf, X_train, y_train, cv=cv_k)
-        return mlu.calculate_errors(self.task_type, y_train, y_train_pred, self.verbose)
+        y_real = []
+        y_pred = []
+        model_state = train_setup["model_state"]
+        cv_k = train_setup["cv_k"]
+        cv_stratified = train_setup["cv_stratified"]
+        
+        if cv_stratified:
+            skf = StratifiedKFold(n_splits=cv_k, shuffle=True, random_state=model_state)
+            
+            for train_index, test_index in skf.split(X, y):
+                x_train_fold, x_test_fold = X.iloc[train_index, :], X.iloc[test_index, :]
+                y_train_fold, y_test_fold = y.iloc[train_index], y.iloc[test_index]
+                clf.fit(x_train_fold, y_train_fold)
+                
+                y_real += list(y_test_fold.values)
+                y_pred += list(clf.predict(x_test_fold))
+        else:
+            y_real = y.values
+            y_pred = cross_val_predict(clf, X, y, cv=cv_k)
+        
+        # Return metrics
+        return mlu.calculate_errors(self.task_type, y_real, y_pred, self.verbose)
     
     # ML function - Test model
     def test_model(self, clf, X_test:pd.DataFrame, y_test:pd.Series) -> tuple:

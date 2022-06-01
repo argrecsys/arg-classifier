@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.0
+    Version: 0.9.1
     Created on: Aug 27, 2021
-    Updated on: May 25, 2022
+    Updated on: Jun 1, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -64,14 +64,13 @@ def start_app(task_type:str, ml_algo:str):
         
         # 0. Program variables
         feat_setup = app_setup["features"]
+        train_setup = app_setup["train"]
         create_dataset = app_setup["create_dataset"]
-        cv_k = app_setup["cv_k"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
-        model_state = app_setup["model_state"]
-        perc_test = app_setup["perc_test"]
         result_folder = app_setup["result_folder"]
+        model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
         
         # 1. Machine Learning engine object
@@ -81,14 +80,14 @@ def start_app(task_type:str, ml_algo:str):
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
         
         # 3. Split dataset
-        X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset,perc_test, model_state)
+        X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, train_setup)
         
         # 4. Train or calibrate model
         clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
         # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
         
         # 5. Validate model - Estimating model performance
-        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, cv_k)
+        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, train_setup)
         
         # 6. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test)
