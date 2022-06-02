@@ -1,638 +1,609 @@
 sent_id,sent_text,sent_label1,sent_label2,sent_label3
-86-0-0-0,Reciclaje aceite de cocina,NO,SPAM,NONE
-86-0-0-0,Instalación de contenedores para el reciclaje del aceite de cocina.,YES,CLAIM,NONE
-86-17231-0-0,"Actualmente sólo se puede reciclar el aceite de cocina usado en los puntos limpios, en muchas ocasiones alejados de las viviendas.",YES,PREMISE,REASON
-86-17231-1-0,Acercarlo a las comunidades de vecinos facilitaría el reciclaje.,YES,CLAIM,NONE
-86-21874-0-0,Hola!.,NO,SPAM,NONE
-86-17281-0-0,"Totalemente de acuerdo! Yo lo reciclo y cada vez que lleno la garrafa me toca llevarla a un punto limpio específico que me pilla muy lejos de casa y los que son móviles los ponen a unos horarios matinales que a mucha gente nos viene fatal, me suena que esos contenedores para aiceite los hay ya en otros ayuntamientos.",YES,CLAIM,NONE
-86-17281-0-1,"Totalemente de acuerdo! Yo lo reciclo y cada vez que lleno la garrafa me toca llevarla a un punto limpio específico que me pilla muy lejos de casa y los que son móviles los ponen a unos horarios matinales que a mucha gente nos viene fatal, me suena que esos contenedores para aiceite los hay ya en otros ayuntamientos.",YES,PREMISE,ADDITION
-86-17371-0-0,Creo que sería más fácil aumentar el número de puntos limpios móviles y los horarios de los mismos.,YES,CLAIM,NONE
-86-17371-1-0,No se genera tal cantidad de aceites como para tener que colocar otro contenedor en zonas tan limitadas actualmente.,YES,PREMISE,REASON
-86-17631-0-0,Es una propuesta muy interesante.,NO,SPAM,NONE
-86-17631-1-0,En otros Ayuntamientos ya está operativo.,NO,SPAM,NONE
-86-17631-2-0,Cuanto más cerca de las viviendas se coloque más cultura de reciclaje habrá.,YES,CLAIM,NONE
-86-17631-3-0,Os paso un link del Ayuntamiento de Zaragoza.,NO,SPAM,NONE
-86-17631-4-0,"Serían contenedores que se podrían poner junto a los orgánicos, papel o vidrio.",YES,CLAIM,NONE
-86-17631-5-0,Cuidemos Madrid.,NO,SPAM,NONE
-86-17669-0-0,"Totalmente de acuerdo, que pongan un contenedor de reciclaje de aceite al lado de los contenedores de vidrio y papel que ya tenemos en Madrid, como ya hay en muchas otras provincias.",YES,CLAIM,NONE
-86-17669-0-1,"Totalmente de acuerdo, que pongan un contenedor de reciclaje de aceite al lado de los contenedores de vidrio y papel que ya tenemos en Madrid, como ya hay en muchas otras provincias.",YES,PREMISE,SIMILARITY
-86-17773-0-0,QEn Pais Vasco tienen este sistema en el que se intercambia el bote de aceite lleno por otro vacío y que funciona de forma muy eficiente como ejemplo sobre lo que puede valorarse para hacer.,YES,CLAIM,NONE
-86-90291-0-0,También es muy bueno.,NO,SPAM,NONE
-86-17854-0-0,Hace poco descubri que tengo un punto limpio movil en la calle paralela donde vivo.,NO,SPAM,NONE
-86-17854-1-0,Pero no me sirve de mucho o de nada porque es un día a la semana y a una hora en la que ya me he tenido que ir a trabajar.,YES,CLAIM,NONE
-86-17854-2-0,No estaría mal dejar un contenedor para ello que suelen ser más pequeños que los de vidrio o papel cercanos a estaciones de metro en los barrios o a los colegios.,YES,CLAIM,NONE
-86-17774-0-0,"Me has copiado la idea que comencé yo hace una semana, pero no pasa nada, mientras se consiga pues genial.",NO,SPAM,NONE
-86-17774-1-0,"Lo único que te aconsejo es que edites la petición e incluyas como petición que es imprescindible que para que se haga una recogida de aceite de la forma más óptima desde el primer día, que sean necesarios 10 contenedores como mínimo en cada distrito, gracias.",YES,CLAIM,NONE
-86-18054-0-0,Muy importante esta propuesta.,NO,SPAM,NONE
-86-18054-1-0,"Soy de Gijón y allí el Ayuntamiento hace años que instaló contenedores a la entrada de muchos supermercados, con lo que es muy fácil reciclar el aceite: .",YES,CLAIM,NONE
-86-18054-1-1,"Soy de Gijón y allí el Ayuntamiento hace años que instaló contenedores a la entrada de muchos supermercados, con lo que es muy fácil reciclar el aceite: .",YES,PREMISE,RESULT
-86-18849-0-0,No es mala idea David.,NO,SPAM,NONE
-86-18849-1-0,"Al mercado se va casi todos los días, y no cuesta llevar un bote con aceite ya que vas de camino.",YES,CLAIM,NONE
-86-52786-0-0,"En Benicassim, los jueves que hay mercadillo, el ayuntamiento coloca una unidad móvil de reciclaje de productos sensibles cómo puede ser el aceite, pilas etc. Está muy bien pensado.",NO,SPAM,NONE
-86-90286-0-0,También es buena idea.,NO,SPAM,NONE
-86-90285-0-0,"Me parece muy buena idea lo de los supermercados, son sitios a donde la gente acude con frecuencia y muchas veces cercanos a los domicilios.",YES,CLAIM,NONE
-86-18273-0-0,Plan anti grafitis.,NO,SPAM,NONE
-86-18273-1-0,Acabemos con esta lacra: .,NO,SPAM,NONE
-86-18683-0-0,Ya tenemos 1 de votos.,NO,SPAM,NONE
-86-18683-1-0,Tenemos un largo camino pero lo conseguiremos.,NO,SPAM,NONE
-86-18683-2-0,Cuidar Madrid es cuidarnos a nosotros mismos.,NO,SPAM,NONE
-86-18867-0-0,Si te importa el Medio Ambiente igual apoyarías también esta propuesta.,YES,CLAIM,NONE
-86-19306-0-0,Una general y/o relacionada: .,NO,SPAM,NONE
-86-21401-0-0,"Muy buena propuesta! También os animo a que aprendáis a hacer jabón casero con el aceite usado para lavar los platos, etc. Es muy fácil, reciclas el aceite y ahorras.",YES,CLAIM,NONE
-86-21401-0-1,"Muy buena propuesta! También os animo a que aprendáis a hacer jabón casero con el aceite usado para lavar los platos, etc. Es muy fácil, reciclas el aceite y ahorras.",YES,PREMISE,RESULT
-86-24057-0-0,El aceite de cocina lo puedes dejar en los puntos limpios que hay en cada barrio.,YES,CLAIM,NONE
-86-24057-1-0,Eso sí tienes que almacenarlo en un recipiente de plástico cualquier botella de refresco.,YES,PREMISE,CONCESSION
-86-24156-0-0,Dónde se puede saber el lugar del punto limpio de cada barrio.,NO,SPAM,NONE
-86-24156-1-0,"Yo lo he estado buscando y solo queda la posibilidad de recurrir a los puntos limpios itinerantes, con un horario reducido una vez a la semana y en horario laboral que impide, al menos en mi caso, poder eliminarlo adecuadamente.",YES,CLAIM,NONE
-86-27078-0-0,Aquí tienes todos: .,NO,SPAM,NONE
-86-36894-0-0,"Gracias por la información, pero si te fijas esos puntos limpios en cada barrio son itinerantes, y sus horarios son bastante restringidos.",YES,CLAIM,NONE
-86-36894-1-0,De todas maneras gracias por la información.,NO,SPAM,NONE
-86-71085-0-0,"Estoy de acuerdo contigo, en Centro por ejemplo los puntos limpios itinerantes funcionan solo 2 horas y cada día están en un sitio, así que es complicado poder llevar algo a los puntos limpios, sobre todo si no dispones de tu propio vehículo, que parece que eres un vago porque no quieres ir con la basura en el autobús para llevarla a tirar.",YES,CLAIM,NONE
-86-71085-0-1,"Estoy de acuerdo contigo, en Centro por ejemplo los puntos limpios itinerantes funcionan solo 2 horas y cada día están en un sitio, así que es complicado poder llevar algo a los puntos limpios, sobre todo si no dispones de tu propio vehículo, que parece que eres un vago porque no quieres ir con la basura en el autobús para llevarla a tirar.",YES,PREMISE,RESULT
-86-71085-1-0,"En el Mercado de los Mostenses hay un contenedor para reciclaje de aceite, hm recoge tejidos para reciclar no solo ropa en buen estado para donarla, sino también la que este rota y muy deteriorada en los Bricor de El Corte Ingles hay contenedores para pequeños electrodomesticos y lamparas.",NO,SPAM,NONE
-86-71085-2-0,"Quizas lo que se le podía pedir al Ayuntamiento es que recopile la información sobre la localización todos estos micro puntos limpios públicos y privados en la web del Ayuntamiento, ordenados por distritos o situados en un mapa para que sea más fácil reciclar.",YES,CLAIM,NONE
-86-25573-0-0,Pues están empezando a ponerlos.,NO,SPAM,NONE
-86-25573-1-0,Cerca del Parque de s Isidro ya pusieron uno antes del verano.,NO,SPAM,NONE
-86-25573-2-0,"Lo que pasa es que a veces está y otras no, quizá se lo lleven para vaciar.",NO,SPAM,NONE
-86-25573-3-0,Pero apoyo.,NO,SPAM,NONE
-86-26414-0-0,Una propuesta a seguir: .,NO,SPAM,NONE
-86-27165-0-0,"Si mi pueblo Montijo -ba los tiene, ¿por qué no Madrid? Hasta ahora, tengo que meter el aceite en botellitas de agua, cerrarlas bien y a la basura.",NO,SPAM,NONE
-86-28528-0-0,Ya existe.,NO,SPAM,NONE
-86-28528-1-0,En todos los puntos limpios que hay en Madrid.,NO,SPAM,NONE
-86-28528-2-0,Solo hay que molestarse en ir a ellos.,NO,SPAM,NONE
-86-33090-0-0,"Claro, la recogida de aceite ya se hace en los puntos limpios.",NO,SPAM,NONE
-86-33090-1-0,"Esta propuesta no tiene mucho sentido, creo yo.",NO,SPAM,NONE
-86-36892-0-0,Tiene todo el sentido del mundo porque los puntos limpios no son lugares de fácil acceso.,YES,CLAIM,NONE
-86-36892-1-0,"No es molestarse en ir a ellos, es que puede ser una excursión e incluso así sin un coche es bastante complicado llegar a ellos.",YES,PREMISE,RESULT
-86-36892-2-0,Y los puntos limpios móviles tienen horarios restringidos.,YES,PREMISE,ADDITION
-86-36892-3-0,"Es algo que existe, además, en muchas ciudades más pequeñas y con un acceso más sencillo a los puntos limpios y que sin duda facilita que la gente realmente recicle el aceite usado de una manera responsable.",YES,PREMISE,ADDITION
-86-37840-0-0,"Entonces habría que llenar las calles de contenedores de todo tipo, lo cual no es viable ni lógico.",YES,CLAIM,NONE
-86-37840-1-0,"Lo lógico es tener los contenedores de las cosas más habituales orgánico, envases, papel y vidrio y para lo demás tener un centro donde se puedan dejar el resto de cosas para reciclar o sea un punto limpio El problema es que la gente es vaga a la hora de reciclar.",YES,CLAIM,NONE
-86-37840-2-0,Tampoco hace falta ir al punto limpio cada vez que tengamos que tirar una pila o una bombilla.,YES,PREMISE,ADDITION
-86-37840-3-0,Estas cosas también se pueden acumular e ir a tirarlas cuando tengamos unas cuantas.,YES,PREMISE,ADDITION
-86-37840-4-0,"Seguramente usted y otras personas vayan más lejos para otras cosas, no creo que ir al punto limpio de su distrito una vez al año por decir algo sea para tanto.",YES,CLAIM,NONE
-86-37979-0-0,"Aparte de las consideraciones de tipo personal sobre el tipo de cosas en las que invierto mi tiempo, cosa que me parece completamente fuera de lugar en este debate, la propuesta me parece oportuna porque este tipo de contenedores se utilizan, además, en muchas ciudades, generalmente en lugares como supermercados en la calle puede resultar más peligroso y realmente es la manera de animar a que algo tan contaminante como el aceite no acabe en la basura general en el mejor de los casos o directamente en las tuberías y por tanto en el agua.",YES,PREMISE,ADDITION
-86-37979-0-1,"Aparte de las consideraciones de tipo personal sobre el tipo de cosas en las que invierto mi tiempo, cosa que me parece completamente fuera de lugar en este debate, la propuesta me parece oportuna porque este tipo de contenedores se utilizan, además, en muchas ciudades, generalmente en lugares como supermercados en la calle puede resultar más peligroso y realmente es la manera de animar a que algo tan contaminante como el aceite no acabe en la basura general en el mejor de los casos o directamente en las tuberías y por tanto en el agua.",YES,CLAIM,NONE
-86-37979-1-0,"No creo que apelar a la pereza de los ciudadanos para reciclar sea una excusa para no apoyar la propuesta, pero si es su motivo, perfecto.",YES,CLAIM,NONE
-86-37979-2-0,Por último añadir que hace no muchos años solo había un cubo de basura para todo.,NO,SPAM,NONE
-86-37979-3-0,"Siguiendo su lógica y teniendo en cuenta la viabilidad sería absurdo añadir más cubos, se podría hacer todo por vía punto limpio.",YES,CLAIM,NONE
-86-37979-4-0,"He vivido en países donde no solo se reciclaba el vidrio, se hacía por colores, y no era lo único.",NO,SPAM,NONE
-86-79371-0-0,También se recogen en algunos colegios e incluso en algunas comunidades de vecinos.,YES,CLAIM,NONE
-86-79371-1-0,"Y los puntos limpios móviles tienen un horario súper variado: por la mañana unos días, por la tarde otros.",YES,CLAIM,NONE
-86-79371-2-0,Y eso sólo los de un distrito.,YES,PREMISE,ADDITION
-86-79371-3-0,Pero si te vas al de al lado que tampoco queda myu lejos tienes aún más amplitud de horario.,YES,PREMISE,ALTERNATIVE
-86-90289-0-0,En que colegios? Yo no tengo noticia en Madrid de ningúno y menos en Moratalaz.,NO,SPAM,NONE
-86-91655-0-0,"Yo sólo sé de uno en mi barrio, pero lo recogían con botellas del ayuntamiento, que prestaban a los niños durante todo el curso.",NO,SPAM,NONE
-86-91655-1-0,En el ceip Joaquín Costa.,NO,SPAM,NONE
-86-90288-0-0,"Totalmente de acuerdo, yo el punto limpio fijo más cercano lo tengo a quince minutos de casa andando y en cuesta, y en mi barrio hay gente que lo tiene mucho más lejos.",YES,CLAIM,NONE
-86-90288-1-0,Y yo soy joven pero hay mucha gente mayor que eso le costaria muchisimo y no podría.,YES,PREMISE,ADDITION
-86-90288-2-0,Y los puntos moviles son muy variables y de horario reducido.,YES,PREMISE,ADDITION
-86-60708-0-0,No es tán sencilllo sobre todo para la gente que trabaja y no tiene coche propio.,NO,SPAM,NONE
-86-60708-1-0,Los puntos limpios están bastante alejados de los barrios.,NO,SPAM,NONE
-86-60708-2-0,Tened en cuenta que el aceite contamina incluso más que el plastico y el vidrio y en todos los domicilios se hace uso de él.,NO,SPAM,NONE
-86-60708-3-0,Porque no crear un servicio especial como se hace con la recogida de muebles.,YES,CLAIM,NONE
-86-60708-4-0,"Me parece muy buena idea que en los Supermercados existan contenedores de recogida de aceite, si no es posible actualmente en los propios barrios.",YES,CLAIM,NONE
-86-60708-4-1,"Me parece muy buena idea que en los Supermercados existan contenedores de recogida de aceite, si no es posible actualmente en los propios barrios.",YES,PREMISE,CONDITION
-86-90290-0-0,El aceite es un producto de mucho uso y si lo dejásemos para una vez al año o dos acumularíamos muchisimo.,NO,SPAM,NONE
-86-90290-1-0,También me parece muy buena la idea de una recogida periodica especial como se hacia con los muebles.,YES,CLAIM,NONE
-86-90290-1-1,También me parece muy buena la idea de una recogida periodica especial como se hacia con los muebles.,YES,PREMISE,SIMILARITY
-86-29033-0-0,"Apoyo totalmente la propuesta, pero no soy partidario de dejar contenedores en las calles, ya que sí por alguna causa ardiera por vandalismo o fortuito podría ser muy peligroso.",YES,CLAIM,NONE
-86-29033-0-1,"Apoyo totalmente la propuesta, pero no soy partidario de dejar contenedores en las calles, ya que sí por alguna causa ardiera por vandalismo o fortuito podría ser muy peligroso.",YES,PREMISE,REASON
-86-32125-0-0,"Hay cooperqtivas que recogen el aceite a domicilio para hacer jabón industrial etc. Para recoger el aceite se requiere atención personal porque depende de donde lo traiga cada cual y se puede derramar y es peligroso, No estoy de acuredo con lo de los contenedores a no ser que estén muy bien diseñados asegurando que no son peligrosos, y de forma limpia.",YES,CLAIM,NONE
-86-32125-1-0,Por ejemplo estas propuestas proponen el soterramentohttps: //decide.,NO,SPAM,NONE
-86-32125-2-0,Madrid.,NO,SPAM,NONE
-86-32125-3-0,Es/proposals/2709 -.,NO,SPAM,NONE
-86-32126-0-0,Propuestas que proponen el soterramiento de los contenedores: -.,YES,CLAIM,NONE
-86-33338-0-0,"El problema que muchos lo usaran para hechar el aceite de los coches, que para eso es un punto diferente, a demás que hay empresas que lo hacen para conseguir el biodiesel añado otra propuesta.",YES,CLAIM,NONE
-86-33523-0-0,Por favor apoya esta propuesta: .,NO,SPAM,NONE
-86-33733-0-0,"Hola, creo que nuestras son complementarias.",NO,SPAM,NONE
-86-33733-1-0,Propongo recoger y transportar la basura por la red de metro.,YES,CLAIM,NONE
-86-34785-0-0,Esta propuesta no debería esperar a tener suficientes firmas.,YES,CLAIM,NONE
-86-34785-1-0,Es algo demasiado serio.,YES,PREMISE,REASON
-86-34785-2-0,Hasta mi pueblo con 1000 habitantes tiene 2 contenedores de aceite!.,YES,PREMISE,REASON
-86-37969-0-0,"Hola no se si esta propuesta habrá salido adelante pero en mi barrio ya he visto dos contenedores para recoger aceite, vivo en el pozo y los han.",NO,SPAM,NONE
-86-37969-1-0,Puesto al principio del parque de Entrevías.,NO,SPAM,NONE
-86-51168-0-0,Buenos días.,NO,SPAM,NONE
-86-51168-1-0,Me parece una propuesta tremendamente necesaria.,YES,CLAIM,NONE
-86-51168-2-0,No sabía que ya existía una similar y entonces creé otra similar.,NO,SPAM,NONE
-86-51168-3-0,"Te paso el enlace porque la descripción era bastante completa y con enlaces explicativos, por si os apetece ampliar la explicación de ésta y así conseguir más apoyoshttps: //decide.",NO,SPAM,NONE
-86-51168-4-0,Madrid.,NO,SPAM,NONE
-86-51168-5-0,Es/proposals/7025#comments Un saludo y a ver si lo conseguimos entre tod@s.,NO,SPAM,NONE
-86-52498-0-0,Que haya contenedores en los supermercados para no tener que desplazarse a un punto limpio.,YES,CLAIM,NONE
-86-58350-0-0,Me ha gustado tu propuesta por su interés medio ambiental.,YES,CLAIM,NONE
-86-58350-1-0,Te sugiero que eches un vistazo a esta otra que sin duda apoyarás.,NO,SPAM,NONE
-86-66361-0-0,"Yo también había hecho esta propuesta, pero acabo de ver que ya hay ésta y otras.",NO,SPAM,NONE
-86-66361-1-0,"Como creo que es la que más votos tiene, retiraré la mía.",NO,SPAM,NONE
-86-66361-2-0,Esto es sumamente importante por favor.,NO,SPAM,NONE
-86-66361-3-0,Los puntos limpios no son suficiente alternativa.,NO,SPAM,NONE
-86-66361-4-0,"Están bien para tirar teles, otros tipos de aceites o residuos contaminantes, etc. , pero para algo tan cotidiano y abundante como el aceite de las cocinas de nuestros hogares y restaurantes no olvidemos todo lo que estos producen también no basta con puntos limpios porque: mucha gente no es si quiera consciente de que tirar aceite al desagüe sea contaminante;",YES,CLAIM,NONE
-86-66361-4-1,"Están bien para tirar teles, otros tipos de aceites o residuos contaminantes, etc. , pero para algo tan cotidiano y abundante como el aceite de las cocinas de nuestros hogares y restaurantes no olvidemos todo lo que estos producen también no basta con puntos limpios porque: mucha gente no es si quiera consciente de que tirar aceite al desagüe sea contaminante;",YES,PREMISE,OPPOSITION
-86-66361-5-0,"otros tiran el aceite en un envase de plástico a los residuos orgánicos, mezclando diferentes tipos de reciclaje;",NO,SPAM,NONE
-86-66361-6-0,"es absurdo tener que irse a las afueras en coche, y por tanto contaminando para tirar 5l de aceite;",NO,SPAM,NONE
-86-66361-7-0,"y como bien decís muchos, los puntos limpios itinerantes tienen unos horarios que se hacen inaccesibles para mucha gente.",NO,SPAM,NONE
-86-66361-8-0,"Muchas ciudades lo tienen, a qué estamos esperando?.",NO,SPAM,NONE
-86-66362-0-0,Con esto se podría contribuir además a la producción de biodiesel.,YES,CLAIM,NONE
-86-66362-1-0,"Generando cultura de reciclaje del aceite, podríamos bajar el precio del petroleo y contaminar menos.",YES,CLAIM,NONE
-86-66362-2-0,Ya estamos tardando!.,NO,SPAM,NONE
-86-67278-0-0,"Ya hay puntos limpios para dejar el aceite, espero que nadie lo tire por el fregadero.",NO,SPAM,NONE
-86-67278-1-0,"Pero sí me parece bien, dar más facilidades para que podamos tirarlo en contenedores repartidos y colocados junto los de vidrio y papel, por toda la ciudad y que se pueda tirar con la botella incluida.",YES,CLAIM,NONE
-86-78227-0-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,CLAIM,NONE
-86-78227-1-0,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,NO,SPAM,NONE
-86-78227-2-0,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,NO,SPAM,NONE
-86-78227-3-0,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",NO,SPAM,NONE
-86-78227-4-0,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",NO,SPAM,NONE
-86-78227-5-0,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",YES,CLAIM,NONE
-86-79423-0-0,"Creo que es muy necesario al igual que el contenedor de reciclar vidrio, bricks, etc. Yo ya no se que hacer con tanto bote con aceite usado porque me niego a tirarlo por el desagüe.",YES,CLAIM,NONE
-86-82364-0-0,Sería interesante que instalasen los contenedores en mercados municipales y grandes superficies.,YES,CLAIM,NONE
-86-89156-0-0,Me parece bien pero bajo una restricción.,YES,CLAIM,NONE
-86-89156-1-0,Como identificas quien vierte y que aceite vierte.,NO,SPAM,NONE
-86-89156-2-0,"Que ocurría si algún ciudadano vierte aceite de vehículo, si todo va junto, no se podría diferenciar.",YES,PREMISE,CONDITION
-86-89156-2-1,"Que ocurría si algún ciudadano vierte aceite de vehículo, si todo va junto, no se podría diferenciar.",YES,CLAIM,NONE
-86-90365-0-0,En los puntos limpios de Madrid hay contenedores para este aceite.,NO,SPAM,NONE
-86-128583-0-0,"Estoy de acuerdo con esta propuesta, yo vivo en el Puente de Vallecas y no tengo ningún sitio cerca donde tirarlo.",YES,CLAIM,NONE
-86-128583-1-0,"Al final lo echo en una envase de cristal y lo termino tirando a la basura, pero no me parece adecuado.",NO,SPAM,NONE
-109-128583-0-0,Limpieza de graffitis y remodelación de aluche,YES,CLAIM,NONE
-109-128583-0-0,Los vecinos de Aluche vemos día tras día como nuestro querido barrio está cada vez más sucio y descuidado.,YES,CLAIM,NONE
-109-128583-0-0,Los vecinos de Aluche vemos día tras día como nuestro querido barrio está cada vez más sucio y descuidado.,YES,CLAIM,NONE
-109-128583-1-0,"Graffitis y basura por todas partes, aceras rotas, baches en la carretera, zonas de jardines destrozadas.",YES,CLAIM,NONE
-109-17276-0-0,No a los ruidos.,NO,SPAM,NONE
-109-17276-1-0,Reducir el número de decibelios permitido.,NO,SPAM,NONE
-109-18717-0-0,Hola.,NO,SPAM,NONE
-109-18717-1-0,Gracias por tu propuesta.,NO,SPAM,NONE
-109-18717-2-0,He creado una específicamente para grafitis en toda la ciudad.,NO,SPAM,NONE
-109-18717-3-0,"Por favor, apoyadla.",NO,SPAM,NONE
-109-18717-4-0,Gracias.,NO,SPAM,NONE
-109-19077-0-0,"Votado, gracias.",NO,SPAM,NONE
-109-23361-0-0,Votado.,NO,SPAM,NONE
-109-23361-1-0,"Que se pinten su casa por dentro, claro.",NO,SPAM,NONE
-109-20688-0-0,Votado.,NO,SPAM,NONE
-109-20688-1-0,Es un problema global lo de las pintadas descontroladas.,NO,SPAM,NONE
-109-20688-2-0,"Por favor, votad.",NO,SPAM,NONE
-109-20773-0-0,Votado.,NO,SPAM,NONE
-109-20773-1-0,"Muchas gracias, entre todas las propuestas relacionadas nos apoyamos!.",NO,SPAM,NONE
-109-20773-2-0,Entre todos lo conseguiremos.,NO,SPAM,NONE
-109-27247-0-0,Que os parecería esto para el barrio.,NO,SPAM,NONE
-109-20774-0-0,Otros debates: No a los ruidos.,NO,SPAM,NONE
-109-20774-1-0,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
-109-21186-0-0,Votado! muchas gracias por votar la mia.,NO,SPAM,NONE
-109-27246-0-0,Que os parecería esto.,NO,SPAM,NONE
-109-24436-0-0,Y el centro de Madrid que te parece como esta?.,NO,SPAM,NONE
-109-25989-0-0,Aprendamos a mantener limpia España.,NO,SPAM,NONE
-109-26535-0-0,"Muy ilustrativo, gracias por el aporte.",NO,SPAM,NONE
-109-26535-1-0,Entre todos lo conseguiremos apoyando esta propuesta y similares Otros debates: No a los ruidos.,NO,SPAM,NONE
-109-26535-2-0,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
-109-27240-0-0,Fue muy injusto para Aluche!.,NO,SPAM,NONE
-109-31931-0-0,¡Votado!.,NO,SPAM,NONE
-109-33339-0-0,Votado.,NO,SPAM,NONE
-109-33339-1-0,Por favor votad para reciclaje.,NO,SPAM,NONE
-109-33719-0-0,Creo que nuestras propuestas son complementarias.,NO,SPAM,NONE
-109-34245-0-0,"Cierto, votemos propuestas similares para conseguirlo entre todos.",NO,SPAM,NONE
-109-34245-1-0,Gracias por tu voto!.,NO,SPAM,NONE
-109-34246-0-0,"Muchas gracias por los apoyos, recuerdo temas que nos preocupan y mucho: No a los ruidos.",NO,SPAM,NONE
-109-34246-1-0,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
-109-38128-0-0,Votado.,NO,SPAM,NONE
-109-38159-0-0,Muchas gracias entre todos lo conseguiremos.,NO,SPAM,NONE
-109-40146-0-0,Votado.,NO,SPAM,NONE
-109-40146-1-0,Gracias por apoyarme.,NO,SPAM,NONE
-109-41071-0-0,Votado.,NO,SPAM,NONE
-109-41071-1-0,Apoyad también mi propuesta de limpieza por favor.,NO,SPAM,NONE
-109-41071-2-0,"Cuantos más votos, más conseguiremos.",NO,SPAM,NONE
-109-41071-3-0,Esto no puede seguir así.,NO,SPAM,NONE
-109-56617-0-0,Totalmente de acuerdo.,NO,SPAM,NONE
-109-41619-0-0,"Estoy de acuerdo, es deplorable como se encuentra el barrio.",YES,CLAIM,NONE
-109-48591-0-0,Apoyo su propuesta.,NO,SPAM,NONE
-109-48591-1-0,La mayoría de barrios de Madrid están en el mismo estado.,NO,SPAM,NONE
-109-51873-0-0,"Buenos días a tod@s, la limpieza es una de las partes de una sociedad que tenemos que cuidar tod@s sin excepción, es tan importante como la seguridad de una ciudad o la sanidad para las personas, si tenemos insalubridad en una ciudad corremos mucho riesgo en todos los aspectos, os envío un enlace para que entréis a leerlo si os parece correcto votarlo, los puntos a tratar sobre la limpieza son bastante interesantes, no hace falta hacer inversiones exageradas, es más, todo ello está sobradamente probado y funciona, votar la idea si os parece bien para conseguir el máximo posible de votos para poder reaccionar frente a la limpieza de Madrid.",YES,CLAIM,NONE
-109-52744-0-0,"Apoyo la limpieza pero los graffitis me gustan, no veo nada antihigiénico en ello.",YES,CLAIM,NONE
-109-52744-0-1,"Apoyo la limpieza pero los graffitis me gustan, no veo nada antihigiénico en ello.",YES,PREMISE,CONCESSION
-109-53173-0-0,"Efectivamente, no estamos en contra de los graffittis, estamos en contra de las pintadas sin sentido.",YES,CLAIM,NONE
-109-53173-1-0,"Graffitis artísticos sí tienen cabida, el vandalismo no.",YES,PREMISE,PRECISION
-109-75867-0-0,Si te gustan que los hagan en tu casa en tu portal y en tu coche.,YES,CLAIM,NONE
-109-75867-1-0,Pero basta ya de tener Madrid echo una mierda por estos niñatos.,YES,PREMISE,OPPOSITION
-109-76187-0-0,"No claro que no, pero en las paredes que no se usan o se usan para publicidad si.",YES,CLAIM,NONE
-109-76187-0-1,"No claro que no, pero en las paredes que no se usan o se usan para publicidad si.",YES,PREMISE,ALTERNATIVE
-109-55835-0-0,Me parece una propuesta muy interesante.,NO,SPAM,NONE
-109-55835-1-0,"Vecinos por un metro en la Zona de las Calles Los yébenes, Camarena y Valmojado.",NO,SPAM,NONE
-109-57960-0-0,Votado como has hecho con la mia.,NO,SPAM,NONE
-109-58117-0-0,Votado.,NO,SPAM,NONE
-109-58117-1-0,Más que multas que no podrán pagar les haría realizar servicios comunitarios de limpieza.,YES,CLAIM,NONE
-109-58117-2-0,"A limpiar cacas de perro, chicles y colillas en paradas de autobús y estaciones! Así toman un poquito de conciencia.",YES,PREMISE,RESULT
-109-58117-3-0,Y para los graffitis que son arte restauración de paredes en solares y lugares públicos donde mostrar su habilidad.,YES,PREMISE,ADDITION
-109-60032-0-0,Votado.,NO,SPAM,NONE
-109-60032-1-0,Estoy de acuerdo sobre todo en que el barrio necesita mejoras en algunas calles y aceras y el tema de la limpieza y los contenedores.,YES,CLAIM,NONE
-109-60032-2-0,"Lo único que discrepo es en el tema de los graffitis, a mí sí están bien hechos me gustan, es arte urbano.",YES,PREMISE,OPPOSITION
-109-75866-0-0,En Madrid arte urbano poco y vandalismo mucho.,NO,SPAM,NONE
-109-75866-1-0,Date una vuelta por el centro de Madrid.,NO,SPAM,NONE
-109-75866-2-0,"Vomitivo, edificios historicos, mobiliario urbano, puertas de portales, escaparates con pintadas de acido.",NO,SPAM,NONE
-109-75866-3-0,Tolerancia cero al graffity.,NO,SPAM,NONE
-109-61625-0-0,"Algo que creo que beneficiaría ampliamente a la limpieza de la ciudad es el aumento maquinas limpiadoras de aceras de esas que son un pequeño vehículo como los de las maquinas de limpiar coches con cepillos, agua y jabón.",YES,CLAIM,NONE
-109-61625-1-0,"¿Cuantas máquinas de esas hay funcionando en Madrid? , con lo grande que es tendría que ver muchas y casi no veo y las que veo son de medioambiente, ¿pero esos no son los que cuidan los parques? Debería haber en cada distrito toda una legión de ellas funcionando, es la forma de tener la ciudad limpia e higienica, porque aquí no llueve apenas como puede ser en el norte.",YES,CLAIM,NONE
-109-61625-1-1,"¿Cuantas máquinas de esas hay funcionando en Madrid? , con lo grande que es tendría que ver muchas y casi no veo y las que veo son de medioambiente, ¿pero esos no son los que cuidan los parques? Debería haber en cada distrito toda una legión de ellas funcionando, es la forma de tener la ciudad limpia e higienica, porque aquí no llueve apenas como puede ser en el norte.",YES,PREMISE,REASON
-109-65822-0-0,Deberíamos proponer al Ayuntamiento algún tipo de medio de concienciación de los vecinos de cada barrio para que nos sintamos implicados en mantener esas mejoras que exigimos.,YES,CLAIM,NONE
-109-65822-1-0,"Limpieza, no ruido, y lo que este en nuestras manos.",NO,SPAM,NONE
-109-65674-0-0,Votado compañero!.,NO,SPAM,NONE
-109-65815-0-0,"Yo por mi parte, lo siento, pero grafittis, ningúno.",YES,CLAIM,NONE
-109-65815-1-0,A mi no tiene por que gustarme ver mi fachada pintada con algo que no he elegido.,YES,PREMISE,REASON
-109-65815-2-0,Prefiero ver las calles con fachadas limpias tal y como se concibieron al construirlas.,YES,CLAIM,NONE
-109-65816-0-0,No solo para Aluche sino para todos los barrios que sufran estos problemas.,YES,CLAIM,NONE
-109-65816-1-0,"Por eso apoyo tu propuesta pero referida también a los barrios del Centro, concretamente el de Malasaña.",YES,PREMISE,ADDITION
-109-66775-0-0,"Conozco la zona y estoy de acuerdo pero estoy más de acuerdo con poner una tasa para las mascotas, con el pago de la misma entregaría un plano con las zonas reservadas a los perros, un extracto de la normativa cursos, cuidados básicos etc. Ello implica más responsabilidad para el dueño y aumentaría la formación y conocimiento de la normativa tan desconocida por los actuales dueños y paseadores ya no sería un juguete gratuito como hasta ahora.",YES,CLAIM,NONE
-109-66775-0-1,"Conozco la zona y estoy de acuerdo pero estoy más de acuerdo con poner una tasa para las mascotas, con el pago de la misma entregaría un plano con las zonas reservadas a los perros, un extracto de la normativa cursos, cuidados básicos etc. Ello implica más responsabilidad para el dueño y aumentaría la formación y conocimiento de la normativa tan desconocida por los actuales dueños y paseadores ya no sería un juguete gratuito como hasta ahora.",YES,PREMISE,RESULT
-109-66775-1-0,Lo que no cuesta no se valora.,NO,SPAM,NONE
-109-66775-2-0,Yo pagaría 10€ al mes por esa mascota que cuido y me da cariño sin dudarlo.,YES,CLAIM,NONE
-109-67234-0-0,Votado.,NO,SPAM,NONE
-109-67234-1-0,"Hay que cuidar todos los barrios por igual, así como Aluche, Vallecas está siendo tomado por toxicómanos y camellos.",YES,CLAIM,NONE
-109-67234-2-0,Por favor apoyad mi propuesta.,NO,SPAM,NONE
-109-69986-0-0,Apoyado! y que se extienda al resto de los barrios.,NO,SPAM,NONE
-109-70625-0-0,Conozco Aluche y es cierto que se ve antiguo y sucio.,NO,SPAM,NONE
-109-70625-1-0,Dejo mi voto por si sirve de ayuda.,NO,SPAM,NONE
-109-74421-0-0,Habría que diferenciar los graffittis.,YES,CLAIM,NONE
-109-74421-1-0,Deberían crearse zonas para que puedan realizar gtaffittis y el resto debería multarse por hacerlo.,YES,CLAIM,NONE
-109-78101-0-0,"Estoy de acuerdo con vosotros, pero tenemos que tener en cuenta que toda la labor no es del Ayuntamiento, también con concierne a nosotros el educar en el respeto a los demás y a la ciudadanía y concienciar a las personas que la calle no es del Ayuntamiento sino de todos nosotros y por ese motivo debemos cuidarla y respetarla.",YES,CLAIM,NONE
-109-78101-0-1,"Estoy de acuerdo con vosotros, pero tenemos que tener en cuenta que toda la labor no es del Ayuntamiento, también con concierne a nosotros el educar en el respeto a los demás y a la ciudadanía y concienciar a las personas que la calle no es del Ayuntamiento sino de todos nosotros y por ese motivo debemos cuidarla y respetarla.",YES,PREMISE,OPPOSITION
-109-78101-1-0,La libertad de los demás termina donde empieza la mía.,NO,SPAM,NONE
-109-78101-2-0,"Y si no se consigue por las buenas, que sería, lo mejor, pues multa al canto.",NO,SPAM,NONE
-109-89897-0-0,"La falta de civismo que esta sociedad a creado es intolerable, no puede haber un barrendero limpiando una y otra vez el mismo día la misma calle, hay que limpiar de acuerdo, pero hay que acabar con esta impunidad para la gente que deja bolsas de basura, botellas, muebles, colchones, cartón, cacas de perro, etc. En cualquier lugar, sin que page por ello hasta que aprenda que la ciudad es patrimonio de todos y como ciudadanos merecemos un respeto.",YES,CLAIM,NONE
-109-89897-1-0,Que se aplique la normativa y que se multe al infractor.,YES,CLAIM,NONE
-109-93434-0-0,Apoyada.,NO,SPAM,NONE
-109-93434-1-0,"Te dejo esta petición por si te parece bien y nos podias ayudar, el barrio esta muy, muy, sucio.",NO,SPAM,NONE
-109-93434-2-0,Gracias.,NO,SPAM,NONE
-109-123688-0-0,¡Enhorabuena por la propuesta! En el barrio de Castillejos tenemos un parque con los mimso problemas Os agradecemos mucho si leéis y apoyáis nuestra propuesta.,NO,SPAM,NONE
-152-123688-0-0,Instalación de placas solares en tejados,YES,CLAIM,NONE
-152-18885-0-0,O esta otra.,NO,SPAM,NONE
-152-18885-0-0,"Sería un ahorro de energía considerable que repercutiría en el dinero que gastamos en electricidad todos los meses, pagando los mayores precios de Europa, además ahorraríamos mucho CO2 a la atmósfera.",YES,CLAIM,NONE
-152-18926-0-0,"Esa pregunta está mal formulada, y es falsa No repercutiría en ahorro de dinero, eso desde luego.",YES,CLAIM,NONE
-152-18926-1-0,"Y debería informase la gente de los materiales usados para la fabricación de placas solares, y de la contaminación derivada de ellos.",YES,PREMISE,ADDITION
-152-18926-2-0,Y después de 20-25 años de vida útil se convierten en desechos con materiales tremendamente nocivos para la salud y el medio ambiente.,YES,PREMISE,ADDITION
-152-18926-3-0,"Por favor, antes de votar infórmense no se crean todo lo que les cuentan los medios de comunicación ni los políticos, por que la mayoría son mentiras populistas.",NO,SPAM,NONE
-152-18926-4-0,"Quizás no saben de que hablan, o tal vez si, pero desde luego, lo que dicen no es cierto.",NO,SPAM,NONE
-152-19055-0-0,"Informate tu porque los paneles duran más de 25 años, tienen una garantia de que a los 25 años te dan un 90 de la energia nominal, pero un panel de 40 años a lo mejor te da el.60-70% no se, porque todavia no hay paneles de 40 años, y lo mismo los deshechos, cuando empiece a haber deshechos en cantidad se hará un plan de reciclaje, de hecho ya se hace en pequeña escala.",YES,CLAIM,NONE
-152-19055-0-1,"Informate tu porque los paneles duran más de 25 años, tienen una garantia de que a los 25 años te dan un 90 de la energia nominal, pero un panel de 40 años a lo mejor te da el.60-70% no se, porque todavia no hay paneles de 40 años, y lo mismo los deshechos, cuando empiece a haber deshechos en cantidad se hará un plan de reciclaje, de hecho ya se hace en pequeña escala.",YES,PREMISE,REASON
-152-19175-0-0,"Pues no es mi intención mentir a nadie, quizá tenga desconocimiento, pero si se genera una industria potente dudo mucho que no se reciclen las placas solares en un futuro, lo que no se pueden reciclar seguro son los desechos radiactivos de las centrales nucleares.",YES,PREMISE,CONDITION
-152-19175-0-1,"Pues no es mi intención mentir a nadie, quizá tenga desconocimiento, pero si se genera una industria potente dudo mucho que no se reciclen las placas solares en un futuro, lo que no se pueden reciclar seguro son los desechos radiactivos de las centrales nucleares.",YES,CLAIM,NONE
-152-26112-0-0,"Coincido en que siempre hay que informarse antes de votar, pero también antes de expresar opiniones con tanta contundencia y tan poco fundamentadas.",NO,SPAM,NONE
-152-26112-1-0,"Los materiales con los que se construyen los paneles solares son fundamentalmente silicio, vidrio, aluminio y cobre, fáciles de reciclar y no contaminantes.",YES,CLAIM,NONE
-152-26112-2-0,La vida útil de los paneles es bastante superior a 25 años y el.,NO,SPAM,NONE
-152-26112-3-0,"Beneficio medioambiental obtenido por la producción limpia de energía, es muy superior a los pequeños impactos derivados de la fabricación y el reciclado.",NO,SPAM,NONE
-152-26112-4-0,Ya está bien de satanizar una tecnología tan positiva para la sociedad y el medio ambiente simplemente por que va contra los intereses de las grandes compañías eléctricas y sus abusivos beneficios.,NO,SPAM,NONE
-152-18958-0-0,"Apoyaría esta propuesta, pero parece que no puedo, porque vivo en un pueblo de Madrid.",NO,SPAM,NONE
-152-18958-1-0,Good.,NO,SPAM,NONE
-152-19000-0-0,"Apoyo totalmente esta propuesta y el ayuntamiento Debería dar ejemplo poniéndolas en todos aquellos edificios públicos en los que sea factible, te gustará también esta otra propuesta.",YES,CLAIM,NONE
-152-19165-0-0,"Apoyo la propuesta, pero no es rentable para el Ayuntamiento.",YES,CLAIM,NONE
-152-19165-0-1,"Apoyo la propuesta, pero no es rentable para el Ayuntamiento.",YES,PREMISE,OPPOSITION
-152-19165-1-0,"Todo es política de dinero, de dinero para la administración, claro.",NO,SPAM,NONE
-152-26861-0-0,"La rentabilidad no se mide solo en una economía inmediata y basada tan sólo en dinero o ¿tener un hijo nos abarata la vida? a pesar de ello, tenemos hijos, ¿no? y todo porque nos alegra la vida, nos da satisfacción personal tener nuestros propios hijos a pesar del coste económico que nos supone.",YES,CLAIM,NONE
-152-26861-1-0,"Esta idea de verlo todo a través de las gafas de lo rentable o no económicamente es una visión del mundo consumista y capitalista que reduce al ser humano a la calidad exclusiva de mano de obra, maquinaria productora de ingresos económicos para las empresas, sin derechos emocionales, de salud física y mental, solo producidos para trabajar.",YES,PREMISE,PRECISION
-152-19406-0-0,Yo creo que la propuesta está mal planteada de base.,YES,CLAIM,NONE
-152-19406-1-0,"El hecho de tener placas solares en los tejados de los edificios, ya puede suponer un ahorro a las Comunidades de vecinos-casas unifamiliares.",YES,PREMISE,REASON
-152-19406-2-0,No es necesario recurrir a ayudas públicas-subvenciones para poder instalarnos las placas solares en nuestros edificios.,YES,PREMISE,REASON
-152-19406-3-0,Estas cosas siempre se pueden pagar a plazos y sería un nuevo modo de independencia frente a las administraciones públicas Que en la actualidad nos penalizan si conectamos nuestras red con placas foltovoltaicas a la red eléctrica de todos.,YES,PREMISE,PRECISION
-152-20329-0-0,"Tiene razón ABG Hay que hacer instalaciones de generación con renovables, pero no son necesarias las subvenciones.",YES,CLAIM,NONE
-152-20329-0-1,"Tiene razón ABG Hay que hacer instalaciones de generación con renovables, pero no son necesarias las subvenciones.",YES,PREMISE,OPPOSITION
-152-20329-1-0,"Lo que hace falta es una regulación adecuada, todo lo contrario del impuesto al sol de Soria a la fotovoltaica.",YES,PREMISE,PRECISION
-152-20329-2-0,Y por supuesto hacer instalaciones de calidad que esto no es tan sencillo que algunos piensan y tampoco valen todos los tejados.,YES,PREMISE,ADDITION
-152-20938-0-0,Mira que la idea es buena.,NO,SPAM,NONE
-152-20938-1-0,"Pero el tema de subvencionar para favorecerlo, no lo veo tal como explico en mi anterior post.",NO,SPAM,NONE
-152-20938-2-0,Me gustaría votar a favor de la propuesta pero si se eliminara lo relacionado a la subvención.,YES,CLAIM,NONE
-152-26860-0-0,"El dinero de los impuestos es de todos y todas pero además Economía es la distribución de los bienes y recursos, y eso es lo que estamos haciendo.",NO,SPAM,NONE
-152-30188-0-0,Los conceptos de la economía y la redistribución de la riqueza me los tengo ya aprendidos mimi.,NO,SPAM,NONE
-152-30188-1-0,Pero piensa que es una inversión que favorece el ahorro en el futuro.,NO,SPAM,NONE
-152-30188-2-0,"Tenemos que desprendernos de papa estado y de las multinacionales que controlan el país para demostrar que somos autosuficientes energéticamente hablando Pese a que el coste de la instalación puede ser elevado, el retorno es muy beneficioso para la persona que los instala en su casa o comunidad de vecinos.",YES,CLAIM,NONE
-152-30188-2-1,"Tenemos que desprendernos de papa estado y de las multinacionales que controlan el país para demostrar que somos autosuficientes energéticamente hablando Pese a que el coste de la instalación puede ser elevado, el retorno es muy beneficioso para la persona que los instala en su casa o comunidad de vecinos.",YES,PREMISE,CONCESSION
-152-30188-3-0,"Por ello creo que no debería ser subvencionado por el Estado, Comunidad o Ayuntamiento.",YES,PREMISE,RESULT
-152-30188-4-0,Ah y que no se me olvide que tendríamos que luchar por cambiar la legislación que penaliza el autoconsumo energético.,YES,PREMISE,ADDITION
-152-30188-5-0,Supongo que estarás de acuerdo.,NO,SPAM,NONE
-152-86135-0-0,tendríamos que luchar por cambiar la legislación que penaliza el auto-consumo energético Comparto este punto.,YES,CLAIM,NONE
-152-21041-0-0,"Cambiar la ley esta genial, pero no es competencia del ayuntamiento, aunque no se aplique tal cual lo que he propuesto, de llegar a los suficientes votos, sale en prensa y crea una opinión pública a favor de medidas similares, quiza mucho mejores.",YES,CLAIM,NONE
-152-21041-0-1,"Cambiar la ley esta genial, pero no es competencia del ayuntamiento, aunque no se aplique tal cual lo que he propuesto, de llegar a los suficientes votos, sale en prensa y crea una opinión pública a favor de medidas similares, quiza mucho mejores.",YES,PREMISE,CONCESSION
-152-21891-0-0,Hay mucha gente en contra de las subvenciones en general.,NO,SPAM,NONE
-152-21891-1-0,Créeme que lo complica innecesariamente.,NO,SPAM,NONE
-152-33658-0-0,¿Qué la gente que está en contra de subvencionar complica el proceso?.,NO,SPAM,NONE
-152-33854-0-0,Que subvencionar complica.,NO,SPAM,NONE
-152-33854-1-0,"Y como tu dices, lo considero innecesario.",NO,SPAM,NONE
-152-26859-0-0,"Qué pesaos con lo que es y no es competencia del Ayto! La alcaldesa ha dicho que hagamos todas las propuestas que consideremos y, que si no es competencia del Consistorio, intentará hacerlas llegar a quien corresponda.",NO,SPAM,NONE
-152-20576-0-0,"En muchas viviendas del ensanche de vallecas tiene agua caliente y calefacción central por gas y solar, pero están cerradas por ser paneles termosolares de agua, en vez de fotovoltaicas, sale más caro las revisiones que el ahorro que suponen lad e la legionela es bastante cara además en invierno que cuadno más se usan, no funcionan, en cambio las fotovoltaicas mejoran su rendimento en invierno por el frio, creo que se podría hacer una reforma como el progrma de puesta en servicio de ascensores o renovación de fachadas, podría haber un cambio de esto, porque no es muy difícil el cambio termosolar a fotovoltaica.",NO,SPAM,NONE
-152-20576-1-0,Esto reduciria el impacto ya que ahora solo son de gas y la parte solar no se usa.,NO,SPAM,NONE
-152-21896-0-0,Esto es un problema generado por el chapucerío patrio.,NO,SPAM,NONE
-152-21896-1-0,"También por que al constructor no le ha importado nada lo que contrataba, ¡como no se ve a la hora de comprar! De todas formas dudo mucho que haya alguna para calefacción lo habrán dicho como parte del engaño son para agua caliente sanitaria.",NO,SPAM,NONE
-152-21896-2-0,"Si estuviesen bien hechas funcionarían, estamos en españistan.",NO,SPAM,NONE
-152-21179-0-0,Yo os apoyo ampollare.,NO,SPAM,NONE
-152-22115-0-0,Madrid debería declararse Ciudad por el autoconsumo.,YES,CLAIM,NONE
-152-22115-1-0,No sé si es competencia del Ayunt.,NO,SPAM,NONE
-152-22115-2-0,"Pero dada la zancadilla que el ministerio y las empresas eléctricas le está poniendo al autoconsumo energético en España, sería un buen mensaje político.",NO,SPAM,NONE
-152-22115-3-0,"Esto no es una utopía, es una realidad y una libertad ya presente en muchos países donde, por ejemplo, tú puedes llegar a IKea Inglaterra y comprar tu kit solar para autoconsumo.",NO,SPAM,NONE
-152-22115-4-0,"Ikea instala placas en todas sus tiendas del mundo menos en las de España, porque aquí no se lo permiten.",NO,SPAM,NONE
-152-22115-5-0,"Las comunidades podrían tener sus paneles para gastos comunitarios ascensores, luces, piscina, carga coches eléctricos en garaje y particulares.",NO,SPAM,NONE
-152-22115-6-0,Bravo por tu propuesta.,NO,SPAM,NONE
-152-22115-7-0,Te invito a proponer Madrid por el autoconsumo eléctrico.,YES,CLAIM,NONE
-152-22115-8-0,"Madrid, con ésta candidatura, obtendría el apoyo de la industria solar nacional puntera pero moribunda de otras ciudades españolas y europeas para intentar doblegar a la cerrazón ministerial.",YES,PREMISE,RESULT
-152-22163-0-0,"De momento el titulo parece que funciona, si flaquea lo cambio a ver.",NO,SPAM,NONE
-152-22163-1-0,"Pero tienes razOn en todo, al menos desde mi punto de vista, aunque más util sería que la producción fuera sostenible, nos ahorraríamos toda la parafernalia en cada bloque que tb sale de los recursos naturales.",NO,SPAM,NONE
-152-22163-2-0,Perdon pero estoy en el extranjero y no encuentro las comas.,NO,SPAM,NONE
-152-24190-0-0,"Pero que es eso de que podamos generar la energía que necesitamos sin pagar a una empresa privada! estáis locos o que? que van a hacer esos directivos a los que tienen que pagar sueldos multimillonarios, la universidad privada de sus hijos, etc. Además si en España no tenemos apenas horas de sol.",NO,SPAM,NONE
-152-26858-0-0,Jeje.,NO,SPAM,NONE
-152-28636-0-0,Siempre que se respete a pensionistas y gente sin ingresos que no pueden financiar esto.,NO,SPAM,NONE
-152-31282-0-0,Apoyo la propuesta.,NO,SPAM,NONE
-152-31282-1-0,Creo también que debemos estar activos frente a las penalizaciones que desde el Gobierno Central se están estableciendo para el autoconsumo de energía eléctrica.,YES,CLAIM,NONE
-152-31282-2-0,Una vez más las leyes en contra de la ciudadanía y a favor de los poderosos.,NO,SPAM,NONE
-152-31398-0-0,Pensionistas y parados no pueden pagar esa inversión ni su mantenimiento o reparaciones.,YES,CLAIM,NONE
-152-31398-1-0,O si inviertes en algo y después te quedas en paro.,NO,SPAM,NONE
-152-31476-0-0,Hoy se ha aprobado el impuesto al sol En los comentarios he puesto unos números sobre lo que se puede esperar de la fotovoltaica.,NO,SPAM,NONE
-152-31504-0-0,Han secuestrado el Sol.,NO,SPAM,NONE
-152-31504-1-0,Hay una campaña para liberarlo: #LiberaAlSol.,NO,SPAM,NONE
-152-31498-0-0,Esta otra propuesta pide que sea obligatorio: https: //decide.,NO,SPAM,NONE
-152-31498-1-0,Madrid.,NO,SPAM,NONE
-152-31498-2-0,Es/proposals/2758.,NO,SPAM,NONE
-152-32317-0-0,Propuestas sostenibles que crean empleo y mejoran elmedioambiente: https: //decide.,NO,SPAM,NONE
-152-32317-1-0,Madrid.,NO,SPAM,NONE
-152-32317-2-0,Es/proposals/2900.,NO,SPAM,NONE
-152-32339-0-0,"Estoy de acuerdo con la propuesta, la pena es la nueva ley que existe, impuestos y más impuestos, espero que algún día esta propuesta sea una realidad no un metodo de ingresar dinero por impuestos.",NO,SPAM,NONE
-152-39226-0-0,"En realidad, España genera mucha electricidad ya.",YES,CLAIM,NONE
-152-39226-1-0,"Incluso creo que tenemos excedentes lo que hace más sangrante el abusivo precio de la electricidad, pero eso es otro asunto Nuestro problema de dependencia energética y de CO2 no lo generan las casas, sino los coches, que gastan petróleo, y de eso no nos sobra.",YES,PREMISE,ADDITION
-152-45448-0-0,Esta propuesta debería de ir acompañada de un mejor aislamiento y eficiencia energética de las viviendas.,YES,CLAIM,NONE
-152-45448-1-0,No se trata sólo de buscar fuentes de energía alternativas renovables sino de ahorrar también en el gasto energético.,YES,PREMISE,PRECISION
-152-53954-0-0,En los últimos años se dieron ayudas para poner ascensores y para poner calderas mejores.,NO,SPAM,NONE
-152-53954-1-0,Ahora hay que dar un paso más en mejorar Madrid.,NO,SPAM,NONE
-152-53954-2-0,Me encanta esta idea.,NO,SPAM,NONE
-152-55206-0-0,"Me parece muy bien, pero desgraciadamente son cantos de sirena El Gobierno de España ha creado el impuesto al Sol y hace ya inviable que se pongan nuevas instalaciones solares.",YES,CLAIM,NONE
-152-55206-1-0,Esperemos que el nuevo Gobierno que se fomre se ponga a derogar dicha normativa cuanto antes.,NO,SPAM,NONE
-152-57689-0-0,"Yo llegaría más allá a este respecto, de manera que el Ayuntamiento liderara un proyecto pionero en toda España para sembrar de placas solares todas las azoteas de la ciudad de Madrid.",YES,CLAIM,NONE
-152-57689-1-0,"A través de un acuerdo con el Inem desarrollaría equipos de instaladores, dándoles la formación necesaria y el impulso económico inicial para que, en 10-20 años se haya cubierto la mayoría de comunidades de vecinos de placas solares.",YES,PREMISE,RESULT
-152-57689-2-0,"Serían miles de puestos de trabajo, con los ingresos correspondientes para el Estado a través del sistema impositivo vigente y el incremento en consumo, lo cual revitalizaría la economía local, todo ello unido al ahorro energético y de contaminantes.",YES,PREMISE,PRECISION
-152-60591-0-0,Que en España graven el autoconsumo es una verguenza.,NO,SPAM,NONE
-152-60591-1-0,En alemania con menos sol tienen más instalaciones de energia solar.,NO,SPAM,NONE
-152-60591-2-0,Tenemos que aprovechar nuestros recursos.,YES,CLAIM,NONE
-152-60591-3-0,"Por ejemplo el alumbrado público podría funcionar con energia solar reduciendo el consumo, y tantas y tantas cosas.",YES,PREMISE,PRECISION
-152-64894-0-0,He estado apunto de poner esto así que apoyo.,NO,SPAM,NONE
-152-72188-0-0,"Apoyo la propuesta es beneficio para todos, habría que incluir también los edificios Municipales etc.",YES,CLAIM,NONE
-152-77481-0-0,Os proporngo otra forma de generar empleo y ayudar a las familias sin recursos.,NO,SPAM,NONE
-152-77481-1-0,"Teniendo en cuenta que en Madrid, los bancos de alimentos independientes que funcionan cuentan con tan sólo 4 asalariados y 450 voluntarios, la creación de un un banco de alimentos de gestión municipal y pública generaría un número de en torno a 500 empleos para la coordinación de la recogida, almacenamiento y entrega de comida a familias sin recursos.",NO,SPAM,NONE
-152-80828-0-0,Una propuesta muy interesante.,NO,SPAM,NONE
-152-80828-1-0,El único problema que presenta es cómo no que la tiene que pagar el conjunto de la ciudadanía en beneficio de particulares.,YES,CLAIM,NONE
-152-80828-2-0,"Por esta razón, y considerando el enorme ahorro que supone al que las instala, creo que sería interesante que esta subvención se realizara como un préstamo a abonar con el ahorro de electricidad que estas placas suponen.",YES,PREMISE,RESULT
-152-80828-3-0,"Incluso, en función de la capacidad económica del ayuntamiento podrían ser a interés cero.",YES,PREMISE,ADDITION
-152-83300-0-0,Y con las horas de luz que tenemos¡! ¡! ¡Sería fantástico.,NO,SPAM,NONE
-152-83300-1-0,"Hace un par de años mis padres visitaron un pueblo alemán donde vivieron, me sorprendió ver en las fotos que en la mayoría de los edificios tenían placas solares en los balcones además del tejado.",NO,SPAM,NONE
-152-83300-2-0,En un país donde las horas de luz y los días soleados son mucho menor.,NO,SPAM,NONE
-152-83300-3-0,Imaginaros si hiciéramos lo mismo.,NO,SPAM,NONE
-152-83300-4-0,Lo que les fastidiaria a las hidroeléctricas y me encanta la idea de comentarlo con subemciones y estoy de acuerdo que crearían puestos de trabajo.,YES,CLAIM,NONE
-152-83300-5-0,Sólo una pregunta No aprobó hace poco el Gobierno una ley que penaliza el uso de la energía solar y del autoconsumo? ¿No habría que cambiar antes esa ley?.,NO,SPAM,NONE
-152-84004-0-0,Habria que hacerlo de manera que la comunidad de propietarios no tenga que realizar ningúna consulta a todos los comuneros.,YES,CLAIM,NONE
-152-84004-1-0,"Es decir, que el vecino que quiera, pueda instalar sin pedir permiso a la comunidad.",NO,SPAM,NONE
-152-84004-2-0,"Si no, se complica.",NO,SPAM,NONE
-152-84004-3-0,"Y de subvenciones nada, da lugar a clientelismo.",YES,PREMISE,ADDITION
-152-87441-0-0,"Hola, Aquí tenéis una propuesta parecida.",NO,SPAM,NONE
-417-87441-0-0,Gratuidad del tlf 010 Inf.,NO,SPAM,NONE
-417-87441-0-0,He llamado a estos números y me vino un recargo en la factura por no ser número gratuito ni fijo para mi sorpresa.,NO,SPAM,NONE
-417-18534-0-0,Creo que no es necesario que sea gratuito.,YES,CLAIM,NONE
-417-18534-1-0,Mucho 91 resulta incluido en las tarifas planas de fijo y existe uno para el 010 que es el 91 529 82 10 y de la policia municipal en vez del 092 creo que es el 917131440.,YES,PREMISE,PRECISION
-417-18577-0-0,"Ya, pero.",NO,SPAM,NONE
-417-18577-1-0,"¿por qué unos no son gratuitos y los otros sí lo son? En lugar de tener que buscarnos la vida en caso de emergencia, lo sensato es que los números sean cortos.",NO,SPAM,NONE
-417-18577-2-0,"Y gratuitos, por el amor de dios.",NO,SPAM,NONE
-417-18577-3-0,Seamos sensatos.,NO,SPAM,NONE
-417-38358-0-0,Si tienes una emergencia tienes que llamar al 112 que es gratuito y engloba y coordina todos los servicios.,YES,CLAIM,NONE
-417-38358-1-0,"El 010 es para hacer gestiones, no emergencias.",YES,PREMISE,PRECISION
-417-18894-0-0,El 112 es gratuito.,NO,SPAM,NONE
-417-18894-1-0,El 010 debería serlo.,NO,SPAM,NONE
-417-23870-0-0,"Lo que yo pienso es que si llamo al 112 es una emergencia Bomberos, Sammur, Policia Nacional.",YES,CLAIM,NONE
-417-23870-1-0,"092 es policía local por temas de ruidos o botellón, creo que no se debería saturar el 112 con este tipo de llamadas.",YES,PREMISE,PRECISION
-417-25647-0-0,"Los servicios 080 092 están centralizados en el 112 De hecho, dentro de este servicio atiende personal de los bomberos, samur, policía local y nacional De hecho, yo he llamado al 112 por temas de ruidos, y han acudido policías municipales.",YES,CLAIM,NONE
-417-19731-0-0,Apoyo la propuesta y te invito a que apoyes Mayor cuidado del centro de Madrid Gracias!.,NO,SPAM,NONE
-417-21178-0-0,Yo os apoyo apoyarme.,NO,SPAM,NONE
-417-21530-0-0,"A ver gente, el 010 es gratuito.",NO,SPAM,NONE
-417-21530-1-0,"A mi vodafone me lo estaba cobrando, he llamado hoy y me han devuelto el importe cobrado.",YES,CLAIM,NONE
-417-21530-2-0,"No es el ayuntamiento el que te cobra, es tu compañía de teléfono, por qué por si cuela.",YES,PREMISE,PRECISION
-417-32153-0-0,Otras.,NO,SPAM,NONE
-417-32153-1-0,Eso nos tienes que explicar cómo lo hiciste jejeje.,NO,SPAM,NONE
-417-32153-2-0,Siempre que he llamado al 010 me han cobrado.,NO,SPAM,NONE
-417-32153-3-0,"Eso sí, como una llamada local.",NO,SPAM,NONE
-417-32168-0-0,Pues te lo explico.,NO,SPAM,NONE
-417-32168-1-0,Tenía restringidas las llamadas al 010 entre otros números.,NO,SPAM,NONE
-417-32168-2-0,"Llame a Vodafone y les pregunté si es gratuito, me dijeron que si, y me quitaron la restricción.",NO,SPAM,NONE
-417-32168-3-0,"En la siguiente factura me cobraron varias de las llamadas, les llamé para quejarme y me devolvieron el importe.",NO,SPAM,NONE
-417-32168-4-0,No me han vuelto a cobrar.,NO,SPAM,NONE
-417-32168-5-0,El 010 es gratis.,NO,SPAM,NONE
-417-32170-0-0,Muchísimas gracias por la información Seguro que a muchos más les vendrá bien.,NO,SPAM,NONE
-417-74395-0-0,Entonces habría que llamar al Ministerio de Industria y que hagan algo.,YES,CLAIM,NONE
-417-74395-1-0,No puede ser que el ciudadano tenga que dedicar constantemente su tiempo a reclamar estas cosas.,YES,PREMISE,REASON
-417-84189-0-0,"No es gratuito, se cobra como una llamada local, pero al ser un número de marcación corta los operadores telefónicos no lo reconocen como llamada local y, por ello, te lo cobran aunque en tu tarifa estuvieran incluidas las llamadas a fijos.",YES,CLAIM,NONE
-417-84189-0-1,"No es gratuito, se cobra como una llamada local, pero al ser un número de marcación corta los operadores telefónicos no lo reconocen como llamada local y, por ello, te lo cobran aunque en tu tarifa estuvieran incluidas las llamadas a fijos.",YES,PREMISE,OPPOSITION
-417-24423-0-0,"Apoyo tu propuesta, un saludo.",NO,SPAM,NONE
-417-24976-0-0,Si no puede ser gratuito como el 112 al menos que sea como una llamada local desde fijo o móvil.,YES,CLAIM,NONE
-417-25773-0-0,Tenemos que fomentar esta web en las redes sociales cada uno de nosotros para que las propuestas puedan alcanzar el número de votos necesario.,NO,SPAM,NONE
-417-25773-1-0,"A día de hoy la propuesta más votada tiene 2700 votos, por lo que el total de visitantes únicos desde que se abrió el día 15092015 no creo que llegue a 7000 Hay que multiplicar esta cifra fomentando cada uno de nosotros la web en redes sociales para alcanzar el objetivo.",NO,SPAM,NONE
-417-25773-2-0,Gracias y saludos.,NO,SPAM,NONE
-417-84454-0-0,"Tienes toda la razón, en el bar o en los corrillos, hablamos mucho, pero a la hora de implicarnos, somos más perezosos.",NO,SPAM,NONE
-417-33130-0-0,"No sé si lo han dicho ya, pero el servicio 010 de Madrid también funciona llamando al 915 298 210.",NO,SPAM,NONE
-417-33336-0-0,Añado otra propuesta diferente.,NO,SPAM,NONE
-417-33976-0-0,Estimados votantes de podemos: no hay nada gratis.,NO,SPAM,NONE
-417-33976-1-0,Si no lo paga el usuario lo paga el contribuyente.,NO,SPAM,NONE
-417-37380-0-0,Para el 010 el teléfono gratuito es 915298210.,NO,SPAM,NONE
-417-37383-0-0,Y para el 012 de la Comunidad de Madrid es 915804260.,NO,SPAM,NONE
-417-38357-0-0,"A ver, llamar al 010 no es una emergencia, sino que tienes que hacer gestiones y es 100 viable perder un minuto en buscar el equivalente fijo 91 en Internet.",YES,CLAIM,NONE
-417-38357-1-0,"Si tienes una emergencia de verdad, llama al 112 que es gratis y es donde realmente deberías llamar en ese caso.",YES,PREMISE,ADDITION
-417-38357-2-0,Si las compañías de Teléfonos hacen un enrutado inteligente es normal que cobren por ello y la única alternativa sería que lo pagase el ayuntamiento.,YES,CLAIM,NONE
-417-38357-3-0,Me parece absurdo que el Ayuntamiento se deje el dinero en eso existiendo alternativa sin coste.,YES,PREMISE,ADDITION
-417-38543-0-0,"A mí una vez me robaron y cuando fui en un bar a llamar a la policía, me dí cuenta de que no podía porque es de pago.",NO,SPAM,NONE
-417-38543-1-0,Era en el kiosko-bar-terraza que hay junto al metro de Batán.,NO,SPAM,NONE
-417-38543-2-0,"Le pedí a un camarero que si me permitía llamar a la policía y me echó, diciéndome que no quería tener problemas!.",NO,SPAM,NONE
-417-38543-3-0,Menos mal que aún confío que hay gente buena por el mundo.,NO,SPAM,NONE
-417-39643-0-0,915298210 para el 010.,NO,SPAM,NONE
-417-42161-0-0,"Si tienes tarifa plana, ten en cuenta que 010 = 915 298 210 lo he comprobado y funciona a día 14112015 La info la encontré en.",NO,SPAM,NONE
-417-42164-0-0,Nº Policía local por barrios en.,NO,SPAM,NONE
-417-43613-0-0,Por favor no enlacéis a temas y etiquetas que no tienen una relación directa.,NO,SPAM,NONE
-417-43613-1-0,Gracias.,NO,SPAM,NONE
-417-47362-0-0,"Si poniendo el 010 gratuito se aumenta la participación ciudadana en la detección de las incidencias, esta claro que el ayuntamiento podía poner gratis este servicio dado que se ahorran muchas inspecciones y aumenta su eficacia.",YES,CLAIM,NONE
-417-47362-1-0,Todo lo que favorezca la participación en la gestión de la ciudad es bueno para todos.,YES,PREMISE,ADDITION
-417-47362-2-0,"Lo malo es si alguien hace un mal uso y al ser gratuito esta constantemente llamando y bloqueando el servicio, entiendo que en ese caso se le puede restringir esa llamada por hacer mal uso del servicio.",YES,PREMISE,OPPOSITION
-417-47362-3-0,También se puede registrar en la web la incidencia de modo gratuito.,YES,PREMISE,ADDITION
-417-47362-4-0,Yo utilizo con frecuencia ambos sistemas y lo veo como un deber como ciudadano con mi ciudad y mi barrio de cuidar que las cosas estén bien.,NO,SPAM,NONE
-417-47362-5-0,"Señales de tráfico averiadas, objetos que bloquean la vía pública, mobiliario público peligrosos en mal estado.",NO,SPAM,NONE
-417-48478-0-0,Yo utilizo muchísimo el servicio del 010 y jamás me han cobrado un euro.,NO,SPAM,NONE
-417-52719-0-0,Deberían de ser como los números 900 con llamada gratuita desde cualquier aparato y desde cualquier sitio.,YES,CLAIM,NONE
-417-55740-0-0,Una vez que estás registrado apoya las mejores propuestas recuperar el edificio del Palacio de sueca Equipamiento deportivo y cultural para zona centro y ampliación de espacios del IES San Isidro: .,NO,SPAM,NONE
-417-60587-0-0,A mí me ha ocurrido lo mismo y la verdad es que alucinaba.,NO,SPAM,NONE
-417-60587-1-0,El 092 no es gratuito me han dicho a mi en mi compañia de telefono.,YES,CLAIM,NONE
-417-60587-2-0,Me toca llamar todos los fines de semana por un botellon que hay debajo de mi casa y que ensucia y no nos deja descansar y me ha llegado la factura de esas llamadas.,YES,PREMISE,REASON
-417-72150-0-0,El 010 tiene un equivalente en teléfono fijo: 915298210 Así no te cobran cuando tienes las llamadas a fijos incluidas en tu tarifa.,NO,SPAM,NONE
-417-74862-0-0,"Apoyad, gracias.",NO,SPAM,NONE
-417-75554-0-0,Hola! os animo a que echéis un vistazo a mi propuesta.,NO,SPAM,NONE
-417-77281-0-0,Ya es gratis se ha hecho realidad la petición!.,NO,SPAM,NONE
-417-84172-0-0,Vaya chorrada de medida.,NO,SPAM,NONE
-417-84172-1-0,Con esto pretendes arreglar Madrid?.,NO,SPAM,NONE
-417-84172-2-0,Nadie dice nada de hacer Madrid accesible 100 por 100 a los minusválidos.,NO,SPAM,NONE
-417-84172-3-0,Me parece más importante.,NO,SPAM,NONE
-417-84177-0-0,En cuanto al tlf del Ayuntamiento ya hay un comentario aclaratorio.,NO,SPAM,NONE
-417-84177-1-0,"Y a la Policía Local, ya existe el 112 que es gratuito y debería ser al que se llame para simplificar y mejorar la coordinación de todos los servicios de urgencias y emergencias.",YES,CLAIM,NONE
-417-84244-0-0,Yo no he hecho uso del 010 pero siendo un servicio municipal o de la comunidad debiera ser gratuito.,YES,CLAIM,NONE
-417-84244-1-0,Bastantes impuestos pagamos ya para que no lo fuese.,NO,SPAM,NONE
-417-84244-2-0,Ha de ser gratuito.,NO,SPAM,NONE
-417-84252-0-0,"El 010 es de pago, como todo lo que han hecho los liberales durante estos muuuuchos años que les hemos soportado, lo que tiene que hacer el Ayuntamiento es definir con su operadora que el coste se le repercuta, y a partir de ahí no nos cobran el importe de las llamadas.",YES,CLAIM,NONE
-417-84252-1-0,"Debería ser como el 016 exactamente igual, lo mismo que debería hacerse con el 062 092 y el 112.",YES,CLAIM,NONE
-417-84338-0-0,Gratuidad.,NO,SPAM,NONE
-417-84371-0-0,"Los números de tf, de servicios públicos habrían de ser gratuitos, sería una forma de animar al ciudadano a cooperar con el ayuntamiento y la sociedad, los impuestos son justo para también cubrir esa serie de servicios.",YES,CLAIM,NONE
-417-84410-0-0,Totalmente de acuerdo si me lo han cobrado.,NO,SPAM,NONE
-417-84429-0-0,Solo se debe pagar si se hace uso inadecuado! a determinar por una serie de reglas basicas.,YES,CLAIM,NONE
-417-84429-1-0,Pero por defecto.,NO,SPAM,NONE
-417-84429-2-0,Estas llamadas deben ser gratis.,YES,CLAIM,NONE
-417-84429-3-0,"Especialmente el 092 Para el 010 dado que es información, hay más alternativas de obtenerla!.",YES,PREMISE,PRECISION
-417-84430-0-0,Como uso social y de emergencias debería ser gratuito y accesible a todos.,YES,CLAIM,NONE
-417-84433-0-0,"Yo creía que eran gratuitos, si no es así por supuesto que apoyo su gratuidad.",YES,CLAIM,NONE
-417-84500-0-0,"Y que es lo que ocurre con el resto de grandes tenas pendientes, parece asombroso que en una ciudad tan hetereogenea comi Madrid las propuestas salientes sean tan simplistas, sinceramente esto huele a manipulación y sectarismo disfrados de participación popular, esto es la democracia participativa? Si es así es un claro fracaso.",NO,SPAM,NONE
-417-84511-0-0,"Todos los teléfonos de información y los de emergencia policía, bomberos, samur, etc. Deben de ser gratuitos, ya que la llamada es por una necesidad.",YES,CLAIM,NONE
-417-84523-0-0,Las operadoras utilizan el espacio radioeléctrico que es de todos!.,NO,SPAM,NONE
-417-84535-0-0,"Me parece vergonzoso que nos cobren tanto por esto como por llamar al 091 lo del 010 es de traca a veces la misma policia municipal te indica que llames tu, me ha pasado muchas veces, les dices que no es gratis y no se lo creen, otro caso que también escuece es el de los 902 le echan un morro increible, nos debemos de negar a llamar a estos y veras como cambia el tema, saludos.",YES,CLAIM,NONE
-417-84535-0-1,"Me parece vergonzoso que nos cobren tanto por esto como por llamar al 091 lo del 010 es de traca a veces la misma policia municipal te indica que llames tu, me ha pasado muchas veces, les dices que no es gratis y no se lo creen, otro caso que también escuece es el de los 902 le echan un morro increible, nos debemos de negar a llamar a estos y veras como cambia el tema, saludos.",YES,PREMISE,ADDITION
-417-84542-0-0,"Pues me parece bien, entonces que obliguen a las compañías de teléfono a No cobrar nunca el 010 Gracias.",YES,CLAIM,NONE
-417-84617-0-0,También es verdad que si no suponen un mínimo coste se corre el riesgo de hacer un mal uso de esos números de teléfono y entonces habría que tener una plantilla de teleoperadoras sobredimensionada.,YES,CLAIM,NONE
-417-84627-0-0,Es tremendo que desde teléfonos de emergencia o de información ciudadana se lucren los de siempre.,NO,SPAM,NONE
-417-84627-1-0,Las telefonías.,NO,SPAM,NONE
-417-84661-0-0,Me pregunto cada día más para qué sirven todos los impuestos y tasas que pago a lo largo de mi vida si cada día que pasa me quitan servicios que antes tenía y ahora he de pagar directamente además de seguir pagando los mismos impuestos.,NO,SPAM,NONE
-417-84661-1-0,"Pido que, cuando me quiten un servicio, me lo descuenten de los impuestos inmediatamente.",NO,SPAM,NONE
-417-84796-0-0,Son teléfonos de servicio público y cuando se usan no debería tener cargos adicionales.,YES,CLAIM,NONE
-417-84849-0-0,Me parece justo que tales teléfonos sean gratuitos por tratarse de servicios prestados al ciudadano.,YES,CLAIM,NONE
-417-84849-0-1,Me parece justo que tales teléfonos sean gratuitos por tratarse de servicios prestados al ciudadano.,YES,PREMISE,REASON
-417-84883-0-0,Lo normal es que Industria regule que las compañías telefonicas no cobren esas llamadas.,NO,SPAM,NONE
-417-84883-1-0,La mayor parte de la gente lo desconoce y seguro que eso aporta mucho dinero a las compañías.,NO,SPAM,NONE
-417-84996-0-0,Algunos confunden llamadas gratuitas con que a ellos por su contrato con su compañía no se las cobren.,NO,SPAM,NONE
-417-84996-1-0,"Por cierto, es una soberana chapuza que una parte muy grande de las propuestas que hemos estado votando, el Ayuntamiento no se moleste en decir si son competencia del ayuntamiento o si son solo leyendas urbanas.",NO,SPAM,NONE
-417-84996-2-0,Fuegos de artificio y currar poquito.,NO,SPAM,NONE
-417-85167-0-0,"Ok con que sea gratuito, siempre que el servicio lo presten voluntarios sin sueldo.",YES,CLAIM,NONE
-417-85167-0-1,"Ok con que sea gratuito, siempre que el servicio lo presten voluntarios sin sueldo.",YES,PREMISE,CONDITION
-417-85167-1-0,"Pero como no creo que sea ese el caso, prefiero que lo paguen los que lo utilizan y no que vaya a mi costa.",YES,PREMISE,OPPOSITION
-417-85167-2-0,"Vamos, el mismo principio que queréis aplicar respecto del IBI a los edificios de la Iglesia, que es que el patrimonio nacional lo pague quien lo use, en ese caso, los cristianos.",YES,PREMISE,RESTATEMENT
-417-85391-0-0,"De que nos sirve que las compañías telefónicas nos venden que podemos llamar a todos los teléfonos de toda España pagando una cuota fija, si cuando necesitamos hablar con nuestro Ayuntamiento o policía nos cuesta el dinero, y por supuesto con unos precios muy caros.",NO,SPAM,NONE
-417-85462-0-0,Son teléfonos de servicio público.,NO,SPAM,NONE
-417-85807-0-0,"Todos los teléfonos que nos relacionen con la administración local o estatal, y con las empresas que nos suministran los servicios básicos, agua, luz, gas, banco deben ser gratuitos y tendremos que presionar a las empresas de telefonía que se nieguen.",YES,CLAIM,NONE
-417-85807-1-0,"Mi madre tiene más de 80 años y no lee vuestra valiosa información, pero también tiene derecho.",YES,PREMISE,ADDITION
-417-86596-0-0,"Creo que todos los teléfonos que sirvan para comunicarte con organismos públicos o servicios al ciudadano deben ser gratuitos, no veo lógico si como vecino puedes aportar algo a la comunidad tengas que pagar teléfono.",YES,CLAIM,NONE
-417-86596-1-0,Gracias.,NO,SPAM,NONE
-417-89640-0-0,Te dejo esta propuesta por si te interesa.,NO,SPAM,NONE
-417-91181-0-0,Os dejo esta propuesta y votadla si os parece interesante por favor: .,NO,SPAM,NONE
-417-97563-0-0,"Porfa, que alguien retome esta propuesta para con un año por delante, recabar más apoyos además de que repitan los más de 16000 que la habían apoyado antes de caducar Las peticiones de los ciudadanos no deberían caducar como si fuera un pastel o una medicina.",NO,SPAM,NONE
-417-97563-1-0,Si se pone de nuevo que se Notifique lo más y mejor posible.,NO,SPAM,NONE
-494-97563-0-0,Limpieza integral de las paredes y cierres grafiteados.,NO,SPAM,NONE
-494-97563-1-0,Vigilancia real por parte de la policía.,NO,SPAM,NONE
-494-97563-2-0,Disuadir a los infractores con multas o trabajos comunitarios.,NO,SPAM,NONE
-494-97563-3-0,Lugares dedicados para grafitis.,NO,SPAM,NONE
-494-97563-0-0,"El centro de Madrid es maravilloso, pero no hay barrio que no dé un aspecto realmente degradado a consecuencia de los miles de grafitis que ensucian fachadas y cierres metálicos de comercios.",NO,SPAM,NONE
-494-97563-1-0,Pero este problema afecta a toda la ciudad.,NO,SPAM,NONE
-494-97563-2-0,Necesitamos poner en valor la belleza de nuestra ciudad.,NO,SPAM,NONE
-494-97563-3-0,La limpieza de nuestro entorno nos define como ciudadanos y es nuestra carta de presentación a quienes nos visitan.,NO,SPAM,NONE
-494-97563-4-0,"Propongo un plan integral para atajar este problema, se me ocurren algunas líneas de acción, estoy seguro que el ayuntamiento Y los ciudadanos podréis mejorarlas.",YES,CLAIM,NONE
-494-97563-5-0,Serían las siguientes: - Limpieza integral de fachadas y cierres metálicos.,YES,CLAIM,NONE
-494-97563-6-0,- Patrullas de vigilancia de incógnito que permita pillar in fraganti a los grafiteros.,YES,CLAIM,NONE
-494-97563-7-0,- Brigada de investigación de este delito.,NO,SPAM,NONE
-494-97563-8-0,¡En otras ciudades hasta participan grafólogos! Parece ciencia ficción pero no lo es.,NO,SPAM,NONE
-494-97563-9-0,"- Un programa de castigo no tienen por qué ser multas a los infractores, con servicios a la comunidad que impidan la reincidencia.",YES,CLAIM,NONE
-494-97563-10-0,- Colaboración con la Comunidad de Madrid.,YES,CLAIM,NONE
-494-97563-11-0,"Esto no es un problema exclusivo de la Capital, afecta a toda la Comunidad.",NO,SPAM,NONE
-494-18315-0-0,"Por supuesto que hay que poner multas, la sanción es el único método disuasorio eficaz, y trabajos sociales que consistan en limpiar su propia pintada, y costeando ellos los productos de limpieza, para que se den cuenta de lo que cuest, tanto en dinero como en trabajo, la limpieza de las mismas.",YES,CLAIM,NONE
-494-18315-0-1,"Por supuesto que hay que poner multas, la sanción es el único método disuasorio eficaz, y trabajos sociales que consistan en limpiar su propia pintada, y costeando ellos los productos de limpieza, para que se den cuenta de lo que cuest, tanto en dinero como en trabajo, la limpieza de las mismas.",YES,PREMISE,GOAL
-494-18315-1-0,"Las pintadas no so arte, si saben pintar, que pinten cuadros, o las paredes de su casa, pero que no ensucien lo de todos.",NO,SPAM,NONE
-494-19700-0-0,También es una cuestión económica: limpiar los grafitis nos cuesta a los madrileños 12 millones al año: .,YES,CLAIM,NONE
-494-19754-0-0,"La pintura en muros, dice David Lynch, ha arruinado el mundo.",NO,SPAM,NONE
-494-19754-1-0,"Cuanto menos, la inmensa mayoría ha perdido el encanto: .",NO,SPAM,NONE
-494-19945-0-0,Un problema largamente tratado por la prensa: .,NO,SPAM,NONE
-494-19948-0-0,Otro artículo más para este dosier de prensa sobre esta lacra: .,NO,SPAM,NONE
-494-19955-0-0,"Los grafitis, o más bien arte urbano, también pueden ser una forma de poner en valor zonas degradadas.",YES,CLAIM,NONE
-494-81071-0-0,Grafitis es una cosa.,NO,SPAM,NONE
-494-81071-1-0,Firmas de gamberros es otra.,NO,SPAM,NONE
-494-19839-0-0,Una propuesta hermana sobre habilitar espacios autogestionados para los grafiteros: .,NO,SPAM,NONE
-494-18688-0-0,"Considero que un garabato en una fachada, igual da su dimensión, no es arte.",YES,CLAIM,NONE
-494-18688-1-0,Pero reconozcamos que hay auténticos artistas y urbanos que necesitan espacios donde expresar este arte callejero.,YES,PREMISE,CONCESSION
-494-18688-2-0,"Hay que concienciar de que el espacio público y las fincas privadas no pueden ser lienzos de sus obras, nos gusten estas o no.",YES,CLAIM,NONE
-494-18735-0-0,"No me opongo a las multas, pero me pregunto si son escarnio suficiente cuando a muchos chavales se las pagarán papá y mamá.",YES,PREMISE,REASON
-494-18735-1-0,Creo más edificante y efectivo los trabajos comunitarios.,YES,CLAIM,NONE
-494-18743-0-0,"Hay barrios absolutamente pintarrajeados como Malasaña y otros más alejados del distrito Centro, que dam un adpecto de suciedad y dejadez alarmantes.",NO,SPAM,NONE
-494-18743-1-0,Los ciudadanos nos hemos acostumbrado y vemos esto como normal.,NO,SPAM,NONE
-494-18743-2-0,Pero no lo es.,NO,SPAM,NONE
-494-18743-3-0,Basta viajar por Europa para darse cuenta de que tenemos un problema.,NO,SPAM,NONE
-494-19766-0-0,Existen productos químicos que disuelven los esmaltes y vinilos que crean barreras protectoras de la superficie.,NO,SPAM,NONE
-494-19095-0-0,"El tema de los grafitis es serio, en nuestra comunidad gastamos un dineral en repitar paredes, entradas de garajes, puertas de entradas.",YES,PREMISE,REASON
-494-19095-1-0,"Los parques parecen suburbios, están pintados los suelos, los bancos, los árboles, cualquier cosa destruyen la vegetación de los muros para pintar en ellos, dejan tirados los botes de spray por cualquier sitio, etc. Debería haber más vigilancia y multas o trabajos sociales para los infractores.",YES,PREMISE,REASON
-494-19095-1-1,"Los parques parecen suburbios, están pintados los suelos, los bancos, los árboles, cualquier cosa destruyen la vegetación de los muros para pintar en ellos, dejan tirados los botes de spray por cualquier sitio, etc. Debería haber más vigilancia y multas o trabajos sociales para los infractores.",YES,CLAIM,NONE
-494-19137-0-0,Gracias Antonio por tu apoyo y participación.,NO,SPAM,NONE
-494-19139-0-0,Hemos llegado a la ridícula situación de que un comerciante tenga que mandar pintar el cierre de su negocio solo para que otros en general con menos gusto estético lo hagan por él.,NO,SPAM,NONE
-494-19682-0-0,¿Qué opináis sobre habilitar espacios públicos para que los grafiteros que lo son de verdad desarrollen y expongan sus obras?.,YES,CLAIM,NONE
-494-19688-0-0,"Lo hemos visto en ciudades como Málaga, donde la regeneración urbana a través de artistas callejeros es una realidad en el Soho.",NO,SPAM,NONE
-494-19735-0-0,"Una crónica interesantísima sobre lo que hacen en Nueva York, Londres, París y Berlín para luchar contra los grafitis: .",NO,SPAM,NONE
-494-19809-0-0,"Voto esta propuesta y pido apoyo a esta otra que busca acabar con las pegatinas de los cerrajeros, es más fácil, primero porque son empresas, segundo porque dejan su número de teléfono.",NO,SPAM,NONE
-494-19836-0-0,Gracias ccascos.,NO,SPAM,NONE
-494-19836-1-0,Me parece una buena iniciativa.,NO,SPAM,NONE
-494-20690-0-0,Apoyo al 100 tu propuesta.,NO,SPAM,NONE
-494-20690-1-0,Creé sin saberlo una similar.,NO,SPAM,NONE
-494-20690-2-0,¿Pueden unirse? No sé bien cómo funciona esto.,NO,SPAM,NONE
-494-20690-3-0,Votad.,NO,SPAM,NONE
-494-20900-0-0,Pues decmomento no pueden unirse.,NO,SPAM,NONE
-494-20900-1-0,Yo he mandado un mail con sugerencias a los desarrolladores.,NO,SPAM,NONE
-494-20904-0-0,"Mira, aquí han creado una propuesta para que las iniciativas puedan unirse y sumar los apoyos: .",NO,SPAM,NONE
-494-20693-0-0,Votado.,NO,SPAM,NONE
-494-20693-1-0,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, lleno de grafitis por favor votad.",NO,SPAM,NONE
-494-20899-0-0,Gracias Fran por tu apoyo.,NO,SPAM,NONE
-494-20922-0-0,Una propuesta concreta sobre el plan de habilitar zonas para grafitis en cada barrio: .,NO,SPAM,NONE
-494-22183-0-0,"Se debería multar económicamente y con trabajos sociales gratuitos como limpiar los grafitis a todos aquellos que ensucian un lugar privado o público sin permiso, ya que hay auténticos artistas a los que se les debería pagar por hacer dibujos muy bonitos en puertas o persianas metálicas por ejemplo.",YES,CLAIM,NONE
-494-22183-0-1,"Se debería multar económicamente y con trabajos sociales gratuitos como limpiar los grafitis a todos aquellos que ensucian un lugar privado o público sin permiso, ya que hay auténticos artistas a los que se les debería pagar por hacer dibujos muy bonitos en puertas o persianas metálicas por ejemplo.",YES,PREMISE,REASON
-494-22987-0-0,Otras dos propuesta similares: .,NO,SPAM,NONE
-494-23612-0-0,Y otra más.,NO,SPAM,NONE
-494-23612-1-0,Está claro que este tema preocupa.,NO,SPAM,NONE
-494-23862-0-0,"Muchachos, según los medios culturales institucionales, que un niño de 15 años con problemas con su narcisismo te destroce la fachada del local o te llene el edificio con sus graffitis no es engorrinar la ciudad, sino que es cultura urbana Personalmente jamás podré considerar cultura a una forma de supuesta expresión que desde que se instauró mundialmente en los años 80-90 no ha evolucionado formalmente ni lo va a hacer salvo por la vía de lo barroco y exagerado.",NO,SPAM,NONE
-494-23862-1-0,"En otras ciudades de Europa sí que existen expresiones artísticas callejeras que, gracias a dios, han superado la fase soy un narcisista adolescente que me encanta dibujar mi logo algo que me recuerda bastante a un perro marcando su territorio Para empezar deberíamos acabar de una vez con esa estúpida categoría de arte urbano y proponer un acercamiento un poquito más elegante a las formas de decorar un edificio que esté más allá de la cultura profundamente machista y xenófoba, del hip-hop.",YES,CLAIM,NONE
-494-27936-0-0,Apoyado.,NO,SPAM,NONE
-494-27936-1-0,El arte puede expresarse de muchas formas.,NO,SPAM,NONE
-494-27936-2-0,Pero no con un garabato en una fachada.,NO,SPAM,NONE
-494-27936-3-0,Al lado de los colegios institutos es un desastre para el barrio.,NO,SPAM,NONE
-494-27936-4-0,Lo difícil es identificarlos;,NO,SPAM,NONE
-494-27936-5-0,es tal la situación que la única forma de controlarlo e identificar los delitos es con el uso de cctv en los muros de cada comunidad.,YES,CLAIM,NONE
-494-27936-6-0,Es una pena que se haya llegado a esta situación.,NO,SPAM,NONE
-494-27936-7-0,Es un problema de educación y conciencia ciudadana.,NO,SPAM,NONE
-494-31469-0-0,Propuesta repetida.,NO,SPAM,NONE
-494-38164-0-0,Votado.,NO,SPAM,NONE
-494-38164-1-0,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, lleno de Grafitis por todas partes, la situación es crítica por favor votad.",NO,SPAM,NONE
-494-38888-0-0,"Estoy de acuerdo con tu propuesta de limpieza integral, pero las brigadas de investigación y patrullas de vigilancia me parece mucha inversión para conseguir disuadir a algunos de hacer pintadas, y plan para la comunidad y lugares acondicionados estoy totalmente de acuerdo.",YES,CLAIM,NONE
-494-38888-0-1,"Estoy de acuerdo con tu propuesta de limpieza integral, pero las brigadas de investigación y patrullas de vigilancia me parece mucha inversión para conseguir disuadir a algunos de hacer pintadas, y plan para la comunidad y lugares acondicionados estoy totalmente de acuerdo.",YES,PREMISE,OPPOSITION
-494-38888-1-0,"Pongo un enlace a otra propuesta muy relacionada para que podamos cubrir los muros que ahora están llenos de firmas y grafitis cutres, con murales artísticos, con la colaboración del ayuntamiento y de los grafiteros artistas.",NO,SPAM,NONE
-494-38888-2-0,"Habréis visto que la mejor manera de que no pongan la firmita dichosa es pintar un mural, muchos comercios lo han hecho.",YES,CLAIM,NONE
-494-38888-3-0,"Todos ganamos, los vecinos vemos murales chulos en lugar de pintadas, los grafiteros profesionales tienen su espacio para expresarse, y los que solo saben poner garabatos en las paredes, que disfruten del arte y aprendan, en lugar de manchar paredes con sus firmitas.",YES,PREMISE,RESULT
-494-75865-0-0,Eso es una leyenda urbana por lo menos en Madrid.,NO,SPAM,NONE
-494-39017-0-0,Limpieza integral de fachadas además para eso pagamos ibi.,NO,SPAM,NONE
-494-39017-1-0,Y para los infractores sanciones serias para que se les quiten las ganas.,NO,SPAM,NONE
-494-39017-2-0,Y por supuesto vigilancia policial.,NO,SPAM,NONE
-494-39017-3-0,"Los graffitis no son arte, son manchas sucias para las pareces y cierres.",NO,SPAM,NONE
-494-39017-4-0,"Si quien pintar que pinten en su casa, no en las de los demás.",NO,SPAM,NONE
-494-61618-0-0,"Me sorprende que esta propuesta no tenga más apoyos, porque se está convirtiendo en un problema realmente preocupante.",NO,SPAM,NONE
-494-61917-0-0,"Totalmente de acuerdo, algo hay que hacer es horrible y nada se hace al respecto.",NO,SPAM,NONE
-494-66928-0-0,"Estoy deacuerdo en todo, menos en habilitar zona para sus suciedades, que lo hagan en su casa, todo lodemas no es suyo.",NO,SPAM,NONE
-494-67945-0-0,Me gustaría que echaseis un vistazo a esta propuesta.,NO,SPAM,NONE
-494-71411-0-0,"Totalmente de acuerdo, podéis eliminar mi propuesta, esta es más completa.",NO,SPAM,NONE
-494-75863-0-0,"La degradación de Madrid con las pintadas no conoce limites, está todo asqueroso hasta las zonas más emblematicas de la ciudad, hasta cuando tendremos que aguantar tener la c iudad tan asquerosa?.",NO,SPAM,NONE
-494-81070-0-0,Graffitis o Firmas de Bandas callejeras?.,NO,SPAM,NONE
-494-81070-1-0,El arte urbano es una cosa y las manchas que llenan Madrid es otra.,NO,SPAM,NONE
-494-81070-2-0,Camina por el Centro y lo veras.,NO,SPAM,NONE
-494-81070-3-0,Camina por Barrios como Salamanca y. Oh.,NO,SPAM,NONE
-494-81070-4-0,Todo impecable.,NO,SPAM,NONE
-494-142288-0-0,Pintar las fachadas de los edificios con nombres o apodos de personas o grupos no es arte.,NO,SPAM,NONE
-494-142288-1-0,No entiendo cual es el beneficio.,NO,SPAM,NONE
-494-142288-2-0,Nuestra ciudad parece un basurero.,NO,SPAM,NONE
-494-142288-3-0,"Si pintas tu fachada para verla limpia, al día siguiente te han firmado mil veces.",NO,SPAM,NONE
-494-142288-4-0,"En mi barrio, un grupito de chicos, que ya no son adolescentes llevan pintando tantos años que aunque tuvieran 10 años cuando empezaron ahora no serán adolescentes lo tiene todo pintado.",NO,SPAM,NONE
-494-142288-5-0,"No es tan difícil, vigilen.",NO,SPAM,NONE
-494-142288-6-0,Y que lo limpien.,NO,SPAM,NONE
-494-142288-7-0,"También, y mientras averiguamos quienes son fotografíen los nombres y que se haga acumulativo el castigo.",NO,SPAM,NONE
-494-155667-0-0,Es un problema que afecta al conjunto de la Comunidad de Madrid;,NO,SPAM,NONE
-494-155667-1-0,"hay hasta edificios patrimonio del Estado y/o con valor histórico, llenos de estas marcas/firmas que dan una imagen injusta de ciudad sucia.",NO,SPAM,NONE
-494-155667-2-0,Son tantas que estamos empezando a parecer el Harlem.,NO,SPAM,NONE
-494-155667-3-0,En este país el turismo crea muchísimos puestos de trabajo.,NO,SPAM,NONE
-494-155667-4-0,"Esas pintadas ni son arte ni son nada, es mierda en las paredes que hay que quitar con productos tóxicos, y nocivos para el personal que los limpia, y muy caros que se pagan del bolsillo de los contribuyentes.",YES,CLAIM,NONE
-494-155667-5-0,Que lo hagan en el salón de su casa.,NO,SPAM,NONE
-494-155667-6-0,"Sugiero lugares, gestionados por ellos mismos, para practicar el arte del grafiti y multas y trabajos para la comunidad, de varios meses de duración, al que se pille guarreando espacios ya sean públicos y privados y la colaboración ciudadana para convertir la ciudad en un lugar habitable, confortable y limpio, donde no nos haga daño a la vista esas canalladas que nada tienen de arte y sí de ataque a la propiedad.",YES,CLAIM,NONE
-494-162653-0-0,El otro día estuve en el cementerio de Carabanchel viendo su preciosa ermita mudéjar.,NO,SPAM,NONE
-494-162653-1-0,Me quedé horrorizada de que estuviera con grafittis en las paredes enladrilladas y lleno de coches aparcados a su puerta.,NO,SPAM,NONE
-494-162653-2-0,"No se podría poner en valor esta joya limpiando sus ladrillos y ordenando el entorno más plazas de garaje, retirada de valla de la excárcel de Carabanchel.",NO,SPAM,NONE
-494-162653-3-0,Etc.,NO,SPAM,NONE
-494-162653-4-0,Es una pena que ni siquiera tenga un cartelito que indique la datación de la ermita y que no se pueda visitar de una manera normal en un fin de semana.,NO,SPAM,NONE
-494-162653-5-0,Y era domingo.,NO,SPAM,NONE
-494-162653-6-0,"El cementerio abierto, pero la ermita, no.",NO,SPAM,NONE
-494-162653-7-0,Por favor.,NO,SPAM,NONE
-494-162653-8-0,"Cuando una va a Castilla, hasta la más humilde ermita románica tiene su valor.",NO,SPAM,NONE
-494-162653-9-0,Espero que Madrid lo haga pronto.,NO,SPAM,NONE
+86-0-0,Reciclaje aceite de cocina,NO,SPAM,NONE
+86-0-0,Instalación de contenedores para el reciclaje del aceite de cocina.,YES,CLAIM,NONE
+86-17231-0,"Actualmente sólo se puede reciclar el aceite de cocina usado en los puntos limpios, en muchas ocasiones alejados de las viviendas.",YES,PREMISE,REASON
+86-17231-1,Acercarlo a las comunidades de vecinos facilitaría el reciclaje.,YES,CLAIM,NONE
+86-21874-0,Hola!.,NO,SPAM,NONE
+86-17281-0,"Totalemente de acuerdo! Yo lo reciclo y cada vez que lleno la garrafa me toca llevarla a un punto limpio específico que me pilla muy lejos de casa y los que son móviles los ponen a unos horarios matinales que a mucha gente nos viene fatal, me suena que esos contenedores para aiceite los hay ya en otros ayuntamientos.",YES,PREMISE,ADDITION
+86-17371-0,Creo que sería más fácil aumentar el número de puntos limpios móviles y los horarios de los mismos.,YES,CLAIM,NONE
+86-17371-1,No se genera tal cantidad de aceites como para tener que colocar otro contenedor en zonas tan limitadas actualmente.,YES,PREMISE,REASON
+86-17631-0,Es una propuesta muy interesante.,NO,SPAM,NONE
+86-17631-1,En otros Ayuntamientos ya está operativo.,NO,SPAM,NONE
+86-17631-2,Cuanto más cerca de las viviendas se coloque más cultura de reciclaje habrá.,YES,CLAIM,NONE
+86-17631-3,Os paso un link del Ayuntamiento de Zaragoza.,NO,SPAM,NONE
+86-17631-4,"Serían contenedores que se podrían poner junto a los orgánicos, papel o vidrio.",YES,CLAIM,NONE
+86-17631-5,Cuidemos Madrid.,NO,SPAM,NONE
+86-17669-0,"Totalmente de acuerdo, que pongan un contenedor de reciclaje de aceite al lado de los contenedores de vidrio y papel que ya tenemos en Madrid, como ya hay en muchas otras provincias.",YES,CLAIM,NONE
+86-17773-0,QEn Pais Vasco tienen este sistema en el que se intercambia el bote de aceite lleno por otro vacío y que funciona de forma muy eficiente como ejemplo sobre lo que puede valorarse para hacer.,YES,CLAIM,NONE
+86-90291-0,También es muy bueno.,NO,SPAM,NONE
+86-17854-0,Hace poco descubri que tengo un punto limpio movil en la calle paralela donde vivo.,NO,SPAM,NONE
+86-17854-1,Pero no me sirve de mucho o de nada porque es un día a la semana y a una hora en la que ya me he tenido que ir a trabajar.,YES,CLAIM,NONE
+86-17854-2,No estaría mal dejar un contenedor para ello que suelen ser más pequeños que los de vidrio o papel cercanos a estaciones de metro en los barrios o a los colegios.,YES,CLAIM,NONE
+86-17774-0,"Me has copiado la idea que comencé yo hace una semana, pero no pasa nada, mientras se consiga pues genial.",NO,SPAM,NONE
+86-17774-1,"Lo único que te aconsejo es que edites la petición e incluyas como petición que es imprescindible que para que se haga una recogida de aceite de la forma más óptima desde el primer día, que sean necesarios 10 contenedores como mínimo en cada distrito, gracias.",YES,CLAIM,NONE
+86-18054-0,Muy importante esta propuesta.,NO,SPAM,NONE
+86-18054-1,"Soy de Gijón y allí el Ayuntamiento hace años que instaló contenedores a la entrada de muchos supermercados, con lo que es muy fácil reciclar el aceite: .",YES,CLAIM,NONE
+86-18849-0,No es mala idea David.,NO,SPAM,NONE
+86-18849-1,"Al mercado se va casi todos los días, y no cuesta llevar un bote con aceite ya que vas de camino.",YES,CLAIM,NONE
+86-52786-0,"En Benicassim, los jueves que hay mercadillo, el ayuntamiento coloca una unidad móvil de reciclaje de productos sensibles cómo puede ser el aceite, pilas etc. Está muy bien pensado.",NO,SPAM,NONE
+86-90286-0,También es buena idea.,NO,SPAM,NONE
+86-90285-0,"Me parece muy buena idea lo de los supermercados, son sitios a donde la gente acude con frecuencia y muchas veces cercanos a los domicilios.",YES,CLAIM,NONE
+86-18273-0,Plan anti grafitis.,NO,SPAM,NONE
+86-18273-1,Acabemos con esta lacra: .,NO,SPAM,NONE
+86-18683-0,Ya tenemos 1 de votos.,NO,SPAM,NONE
+86-18683-1,Tenemos un largo camino pero lo conseguiremos.,NO,SPAM,NONE
+86-18683-2,Cuidar Madrid es cuidarnos a nosotros mismos.,NO,SPAM,NONE
+86-18867-0,Si te importa el Medio Ambiente igual apoyarías también esta propuesta.,YES,CLAIM,NONE
+86-19306-0,Una general y/o relacionada: .,NO,SPAM,NONE
+86-21401-0,"Muy buena propuesta! También os animo a que aprendáis a hacer jabón casero con el aceite usado para lavar los platos, etc. Es muy fácil, reciclas el aceite y ahorras.",YES,CLAIM,NONE
+86-24057-0,El aceite de cocina lo puedes dejar en los puntos limpios que hay en cada barrio.,YES,CLAIM,NONE
+86-24057-1,Eso sí tienes que almacenarlo en un recipiente de plástico cualquier botella de refresco.,YES,PREMISE,CONCESSION
+86-24156-0,Dónde se puede saber el lugar del punto limpio de cada barrio.,NO,SPAM,NONE
+86-24156-1,"Yo lo he estado buscando y solo queda la posibilidad de recurrir a los puntos limpios itinerantes, con un horario reducido una vez a la semana y en horario laboral que impide, al menos en mi caso, poder eliminarlo adecuadamente.",YES,CLAIM,NONE
+86-27078-0,Aquí tienes todos: .,NO,SPAM,NONE
+86-36894-0,"Gracias por la información, pero si te fijas esos puntos limpios en cada barrio son itinerantes, y sus horarios son bastante restringidos.",YES,CLAIM,NONE
+86-36894-1,De todas maneras gracias por la información.,NO,SPAM,NONE
+86-71085-0,"Estoy de acuerdo contigo, en Centro por ejemplo los puntos limpios itinerantes funcionan solo 2 horas y cada día están en un sitio, así que es complicado poder llevar algo a los puntos limpios, sobre todo si no dispones de tu propio vehículo, que parece que eres un vago porque no quieres ir con la basura en el autobús para llevarla a tirar.",YES,PREMISE,REASON
+86-71085-1,"En el Mercado de los Mostenses hay un contenedor para reciclaje de aceite, hm recoge tejidos para reciclar no solo ropa en buen estado para donarla, sino también la que este rota y muy deteriorada en los Bricor de El Corte Ingles hay contenedores para pequeños electrodomesticos y lamparas.",NO,SPAM,NONE
+86-71085-2,"Quizas lo que se le podía pedir al Ayuntamiento es que recopile la información sobre la localización todos estos micro puntos limpios públicos y privados en la web del Ayuntamiento, ordenados por distritos o situados en un mapa para que sea más fácil reciclar.",YES,CLAIM,NONE
+86-25573-0,Pues están empezando a ponerlos.,NO,SPAM,NONE
+86-25573-1,Cerca del Parque de s Isidro ya pusieron uno antes del verano.,NO,SPAM,NONE
+86-25573-2,"Lo que pasa es que a veces está y otras no, quizá se lo lleven para vaciar.",NO,SPAM,NONE
+86-25573-3,Pero apoyo.,NO,SPAM,NONE
+86-26414-0,Una propuesta a seguir: .,NO,SPAM,NONE
+86-27165-0,"Si mi pueblo Montijo -ba los tiene, ¿por qué no Madrid? Hasta ahora, tengo que meter el aceite en botellitas de agua, cerrarlas bien y a la basura.",NO,SPAM,NONE
+86-28528-0,Ya existe.,NO,SPAM,NONE
+86-28528-1,En todos los puntos limpios que hay en Madrid.,NO,SPAM,NONE
+86-28528-2,Solo hay que molestarse en ir a ellos.,NO,SPAM,NONE
+86-33090-0,"Claro, la recogida de aceite ya se hace en los puntos limpios.",NO,SPAM,NONE
+86-33090-1,"Esta propuesta no tiene mucho sentido, creo yo.",NO,SPAM,NONE
+86-36892-0,Tiene todo el sentido del mundo porque los puntos limpios no son lugares de fácil acceso.,YES,CLAIM,NONE
+86-36892-1,"No es molestarse en ir a ellos, es que puede ser una excursión e incluso así sin un coche es bastante complicado llegar a ellos.",YES,PREMISE,RESULT
+86-36892-2,Y los puntos limpios móviles tienen horarios restringidos.,YES,PREMISE,ADDITION
+86-36892-3,"Es algo que existe, además, en muchas ciudades más pequeñas y con un acceso más sencillo a los puntos limpios y que sin duda facilita que la gente realmente recicle el aceite usado de una manera responsable.",YES,PREMISE,ADDITION
+86-37840-0,"Entonces habría que llenar las calles de contenedores de todo tipo, lo cual no es viable ni lógico.",YES,CLAIM,NONE
+86-37840-1,"Lo lógico es tener los contenedores de las cosas más habituales orgánico, envases, papel y vidrio y para lo demás tener un centro donde se puedan dejar el resto de cosas para reciclar o sea un punto limpio El problema es que la gente es vaga a la hora de reciclar.",YES,CLAIM,NONE
+86-37840-2,Tampoco hace falta ir al punto limpio cada vez que tengamos que tirar una pila o una bombilla.,YES,PREMISE,ADDITION
+86-37840-3,Estas cosas también se pueden acumular e ir a tirarlas cuando tengamos unas cuantas.,YES,PREMISE,ADDITION
+86-37840-4,"Seguramente usted y otras personas vayan más lejos para otras cosas, no creo que ir al punto limpio de su distrito una vez al año por decir algo sea para tanto.",YES,CLAIM,NONE
+86-37979-0,"Aparte de las consideraciones de tipo personal sobre el tipo de cosas en las que invierto mi tiempo, cosa que me parece completamente fuera de lugar en este debate, la propuesta me parece oportuna porque este tipo de contenedores se utilizan, además, en muchas ciudades, generalmente en lugares como supermercados en la calle puede resultar más peligroso y realmente es la manera de animar a que algo tan contaminante como el aceite no acabe en la basura general en el mejor de los casos o directamente en las tuberías y por tanto en el agua.",YES,CLAIM,NONE
+86-37979-1,"No creo que apelar a la pereza de los ciudadanos para reciclar sea una excusa para no apoyar la propuesta, pero si es su motivo, perfecto.",YES,CLAIM,NONE
+86-37979-2,Por último añadir que hace no muchos años solo había un cubo de basura para todo.,NO,SPAM,NONE
+86-37979-3,"Siguiendo su lógica y teniendo en cuenta la viabilidad sería absurdo añadir más cubos, se podría hacer todo por vía punto limpio.",YES,CLAIM,NONE
+86-37979-4,"He vivido en países donde no solo se reciclaba el vidrio, se hacía por colores, y no era lo único.",NO,SPAM,NONE
+86-79371-0,También se recogen en algunos colegios e incluso en algunas comunidades de vecinos.,YES,CLAIM,NONE
+86-79371-1,"Y los puntos limpios móviles tienen un horario súper variado: por la mañana unos días, por la tarde otros.",YES,CLAIM,NONE
+86-79371-2,Y eso sólo los de un distrito.,YES,PREMISE,ADDITION
+86-79371-3,Pero si te vas al de al lado que tampoco queda myu lejos tienes aún más amplitud de horario.,YES,PREMISE,ALTERNATIVE
+86-90289-0,En que colegios? Yo no tengo noticia en Madrid de ningúno y menos en Moratalaz.,NO,SPAM,NONE
+86-91655-0,"Yo sólo sé de uno en mi barrio, pero lo recogían con botellas del ayuntamiento, que prestaban a los niños durante todo el curso.",NO,SPAM,NONE
+86-91655-1,En el ceip Joaquín Costa.,NO,SPAM,NONE
+86-90288-0,"Totalmente de acuerdo, yo el punto limpio fijo más cercano lo tengo a quince minutos de casa andando y en cuesta, y en mi barrio hay gente que lo tiene mucho más lejos.",YES,CLAIM,NONE
+86-90288-1,Y yo soy joven pero hay mucha gente mayor que eso le costaria muchisimo y no podría.,YES,PREMISE,ADDITION
+86-90288-2,Y los puntos moviles son muy variables y de horario reducido.,YES,PREMISE,ADDITION
+86-60708-0,No es tán sencilllo sobre todo para la gente que trabaja y no tiene coche propio.,NO,SPAM,NONE
+86-60708-1,Los puntos limpios están bastante alejados de los barrios.,NO,SPAM,NONE
+86-60708-2,Tened en cuenta que el aceite contamina incluso más que el plastico y el vidrio y en todos los domicilios se hace uso de él.,NO,SPAM,NONE
+86-60708-3,Porque no crear un servicio especial como se hace con la recogida de muebles.,YES,CLAIM,NONE
+86-60708-4,"Me parece muy buena idea que en los Supermercados existan contenedores de recogida de aceite, si no es posible actualmente en los propios barrios.",YES,CLAIM,NONE
+86-90290-0,El aceite es un producto de mucho uso y si lo dejásemos para una vez al año o dos acumularíamos muchisimo.,NO,SPAM,NONE
+86-90290-1,También me parece muy buena la idea de una recogida periodica especial como se hacia con los muebles.,YES,CLAIM,NONE
+86-29033-0,"Apoyo totalmente la propuesta, pero no soy partidario de dejar contenedores en las calles, ya que sí por alguna causa ardiera por vandalismo o fortuito podría ser muy peligroso.",YES,CLAIM,NONE
+86-32125-0,"Hay cooperqtivas que recogen el aceite a domicilio para hacer jabón industrial etc. Para recoger el aceite se requiere atención personal porque depende de donde lo traiga cada cual y se puede derramar y es peligroso, No estoy de acuredo con lo de los contenedores a no ser que estén muy bien diseñados asegurando que no son peligrosos, y de forma limpia.",YES,CLAIM,NONE
+86-32125-1,Por ejemplo estas propuestas proponen el soterramentohttps: //decide.,NO,SPAM,NONE
+86-32125-2,Madrid.,NO,SPAM,NONE
+86-32125-3,Es/proposals/2709 -.,NO,SPAM,NONE
+86-32126-0,Propuestas que proponen el soterramiento de los contenedores: -.,YES,CLAIM,NONE
+86-33338-0,"El problema que muchos lo usaran para hechar el aceite de los coches, que para eso es un punto diferente, a demás que hay empresas que lo hacen para conseguir el biodiesel añado otra propuesta.",YES,CLAIM,NONE
+86-33523-0,Por favor apoya esta propuesta: .,NO,SPAM,NONE
+86-33733-0,"Hola, creo que nuestras son complementarias.",NO,SPAM,NONE
+86-33733-1,Propongo recoger y transportar la basura por la red de metro.,YES,CLAIM,NONE
+86-34785-0,Esta propuesta no debería esperar a tener suficientes firmas.,YES,CLAIM,NONE
+86-34785-1,Es algo demasiado serio.,YES,PREMISE,REASON
+86-34785-2,Hasta mi pueblo con 1000 habitantes tiene 2 contenedores de aceite!.,YES,PREMISE,REASON
+86-37969-0,"Hola no se si esta propuesta habrá salido adelante pero en mi barrio ya he visto dos contenedores para recoger aceite, vivo en el pozo y los han.",NO,SPAM,NONE
+86-37969-1,Puesto al principio del parque de Entrevías.,NO,SPAM,NONE
+86-51168-0,Buenos días.,NO,SPAM,NONE
+86-51168-1,Me parece una propuesta tremendamente necesaria.,YES,CLAIM,NONE
+86-51168-2,No sabía que ya existía una similar y entonces creé otra similar.,NO,SPAM,NONE
+86-51168-3,"Te paso el enlace porque la descripción era bastante completa y con enlaces explicativos, por si os apetece ampliar la explicación de ésta y así conseguir más apoyoshttps: //decide.",NO,SPAM,NONE
+86-51168-4,Madrid.,NO,SPAM,NONE
+86-51168-5,Es/proposals/7025#comments Un saludo y a ver si lo conseguimos entre tod@s.,NO,SPAM,NONE
+86-52498-0,Que haya contenedores en los supermercados para no tener que desplazarse a un punto limpio.,YES,CLAIM,NONE
+86-58350-0,Me ha gustado tu propuesta por su interés medio ambiental.,YES,CLAIM,NONE
+86-58350-1,Te sugiero que eches un vistazo a esta otra que sin duda apoyarás.,NO,SPAM,NONE
+86-66361-0,"Yo también había hecho esta propuesta, pero acabo de ver que ya hay ésta y otras.",NO,SPAM,NONE
+86-66361-1,"Como creo que es la que más votos tiene, retiraré la mía.",NO,SPAM,NONE
+86-66361-2,Esto es sumamente importante por favor.,NO,SPAM,NONE
+86-66361-3,Los puntos limpios no son suficiente alternativa.,NO,SPAM,NONE
+86-66361-4,"Están bien para tirar teles, otros tipos de aceites o residuos contaminantes, etc. , pero para algo tan cotidiano y abundante como el aceite de las cocinas de nuestros hogares y restaurantes no olvidemos todo lo que estos producen también no basta con puntos limpios porque: mucha gente no es si quiera consciente de que tirar aceite al desagüe sea contaminante;",YES,PREMISE,REASON
+86-66361-5,"otros tiran el aceite en un envase de plástico a los residuos orgánicos, mezclando diferentes tipos de reciclaje;",NO,SPAM,NONE
+86-66361-6,"es absurdo tener que irse a las afueras en coche, y por tanto contaminando para tirar 5l de aceite;",NO,SPAM,NONE
+86-66361-7,"y como bien decís muchos, los puntos limpios itinerantes tienen unos horarios que se hacen inaccesibles para mucha gente.",NO,SPAM,NONE
+86-66361-8,"Muchas ciudades lo tienen, a qué estamos esperando?.",NO,SPAM,NONE
+86-66362-0,Con esto se podría contribuir además a la producción de biodiesel.,YES,CLAIM,NONE
+86-66362-1,"Generando cultura de reciclaje del aceite, podríamos bajar el precio del petroleo y contaminar menos.",YES,CLAIM,NONE
+86-66362-2,Ya estamos tardando!.,NO,SPAM,NONE
+86-67278-0,"Ya hay puntos limpios para dejar el aceite, espero que nadie lo tire por el fregadero.",NO,SPAM,NONE
+86-67278-1,"Pero sí me parece bien, dar más facilidades para que podamos tirarlo en contenedores repartidos y colocados junto los de vidrio y papel, por toda la ciudad y que se pueda tirar con la botella incluida.",YES,CLAIM,NONE
+86-78227-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,CLAIM,NONE
+86-78227-1,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,NO,SPAM,NONE
+86-78227-2,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,NO,SPAM,NONE
+86-78227-3,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",NO,SPAM,NONE
+86-78227-4,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",NO,SPAM,NONE
+86-78227-5,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",YES,CLAIM,NONE
+86-79423-0,"Creo que es muy necesario al igual que el contenedor de reciclar vidrio, bricks, etc. Yo ya no se que hacer con tanto bote con aceite usado porque me niego a tirarlo por el desagüe.",YES,CLAIM,NONE
+86-82364-0,Sería interesante que instalasen los contenedores en mercados municipales y grandes superficies.,YES,CLAIM,NONE
+86-89156-0,Me parece bien pero bajo una restricción.,YES,CLAIM,NONE
+86-89156-1,Como identificas quien vierte y que aceite vierte.,NO,SPAM,NONE
+86-89156-2,"Que ocurría si algún ciudadano vierte aceite de vehículo, si todo va junto, no se podría diferenciar.",YES,PREMISE,CONDITION
+86-90365-0,En los puntos limpios de Madrid hay contenedores para este aceite.,NO,SPAM,NONE
+86-128583-0,"Estoy de acuerdo con esta propuesta, yo vivo en el Puente de Vallecas y no tengo ningún sitio cerca donde tirarlo.",YES,CLAIM,NONE
+86-128583-1,"Al final lo echo en una envase de cristal y lo termino tirando a la basura, pero no me parece adecuado.",NO,SPAM,NONE
+109-128583-0,Limpieza de graffitis y remodelación de aluche,YES,CLAIM,NONE
+109-128583-0,Los vecinos de Aluche vemos día tras día como nuestro querido barrio está cada vez más sucio y descuidado.,YES,CLAIM,NONE
+109-128583-0,Los vecinos de Aluche vemos día tras día como nuestro querido barrio está cada vez más sucio y descuidado.,YES,CLAIM,NONE
+109-128583-1,"Graffitis y basura por todas partes, aceras rotas, baches en la carretera, zonas de jardines destrozadas.",YES,CLAIM,NONE
+109-17276-0,No a los ruidos.,NO,SPAM,NONE
+109-17276-1,Reducir el número de decibelios permitido.,NO,SPAM,NONE
+109-18717-0,Hola.,NO,SPAM,NONE
+109-18717-1,Gracias por tu propuesta.,NO,SPAM,NONE
+109-18717-2,He creado una específicamente para grafitis en toda la ciudad.,NO,SPAM,NONE
+109-18717-3,"Por favor, apoyadla.",NO,SPAM,NONE
+109-18717-4,Gracias.,NO,SPAM,NONE
+109-19077-0,"Votado, gracias.",NO,SPAM,NONE
+109-23361-0,Votado.,NO,SPAM,NONE
+109-23361-1,"Que se pinten su casa por dentro, claro.",NO,SPAM,NONE
+109-20688-0,Votado.,NO,SPAM,NONE
+109-20688-1,Es un problema global lo de las pintadas descontroladas.,NO,SPAM,NONE
+109-20688-2,"Por favor, votad.",NO,SPAM,NONE
+109-20773-0,Votado.,NO,SPAM,NONE
+109-20773-1,"Muchas gracias, entre todas las propuestas relacionadas nos apoyamos!.",NO,SPAM,NONE
+109-20773-2,Entre todos lo conseguiremos.,NO,SPAM,NONE
+109-27247-0,Que os parecería esto para el barrio.,NO,SPAM,NONE
+109-20774-0,Otros debates: No a los ruidos.,NO,SPAM,NONE
+109-20774-1,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
+109-21186-0,Votado! muchas gracias por votar la mia.,NO,SPAM,NONE
+109-27246-0,Que os parecería esto.,NO,SPAM,NONE
+109-24436-0,Y el centro de Madrid que te parece como esta?.,NO,SPAM,NONE
+109-25989-0,Aprendamos a mantener limpia España.,NO,SPAM,NONE
+109-26535-0,"Muy ilustrativo, gracias por el aporte.",NO,SPAM,NONE
+109-26535-1,Entre todos lo conseguiremos apoyando esta propuesta y similares Otros debates: No a los ruidos.,NO,SPAM,NONE
+109-26535-2,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
+109-27240-0,Fue muy injusto para Aluche!.,NO,SPAM,NONE
+109-31931-0,¡Votado!.,NO,SPAM,NONE
+109-33339-0,Votado.,NO,SPAM,NONE
+109-33339-1,Por favor votad para reciclaje.,NO,SPAM,NONE
+109-33719-0,Creo que nuestras propuestas son complementarias.,NO,SPAM,NONE
+109-34245-0,"Cierto, votemos propuestas similares para conseguirlo entre todos.",NO,SPAM,NONE
+109-34245-1,Gracias por tu voto!.,NO,SPAM,NONE
+109-34246-0,"Muchas gracias por los apoyos, recuerdo temas que nos preocupan y mucho: No a los ruidos.",NO,SPAM,NONE
+109-34246-1,Reducir el número de decibelios permitido Zonas para que los perros puedan estar libres y pipi-can.,NO,SPAM,NONE
+109-38128-0,Votado.,NO,SPAM,NONE
+109-38159-0,Muchas gracias entre todos lo conseguiremos.,NO,SPAM,NONE
+109-40146-0,Votado.,NO,SPAM,NONE
+109-40146-1,Gracias por apoyarme.,NO,SPAM,NONE
+109-41071-0,Votado.,NO,SPAM,NONE
+109-41071-1,Apoyad también mi propuesta de limpieza por favor.,NO,SPAM,NONE
+109-41071-2,"Cuantos más votos, más conseguiremos.",NO,SPAM,NONE
+109-41071-3,Esto no puede seguir así.,NO,SPAM,NONE
+109-56617-0,Totalmente de acuerdo.,NO,SPAM,NONE
+109-41619-0,"Estoy de acuerdo, es deplorable como se encuentra el barrio.",YES,CLAIM,NONE
+109-48591-0,Apoyo su propuesta.,NO,SPAM,NONE
+109-48591-1,La mayoría de barrios de Madrid están en el mismo estado.,NO,SPAM,NONE
+109-51873-0,"Buenos días a tod@s, la limpieza es una de las partes de una sociedad que tenemos que cuidar tod@s sin excepción, es tan importante como la seguridad de una ciudad o la sanidad para las personas, si tenemos insalubridad en una ciudad corremos mucho riesgo en todos los aspectos, os envío un enlace para que entréis a leerlo si os parece correcto votarlo, los puntos a tratar sobre la limpieza son bastante interesantes, no hace falta hacer inversiones exageradas, es más, todo ello está sobradamente probado y funciona, votar la idea si os parece bien para conseguir el máximo posible de votos para poder reaccionar frente a la limpieza de Madrid.",YES,CLAIM,NONE
+109-52744-0,"Apoyo la limpieza pero los graffitis me gustan, no veo nada antihigiénico en ello.",YES,PREMISE,CONCESSION
+109-53173-0,"Efectivamente, no estamos en contra de los graffittis, estamos en contra de las pintadas sin sentido.",YES,CLAIM,NONE
+109-53173-1,"Graffitis artísticos sí tienen cabida, el vandalismo no.",YES,PREMISE,PRECISION
+109-75867-0,Si te gustan que los hagan en tu casa en tu portal y en tu coche.,YES,CLAIM,NONE
+109-75867-1,Pero basta ya de tener Madrid echo una mierda por estos niñatos.,YES,PREMISE,OPPOSITION
+109-76187-0,"No claro que no, pero en las paredes que no se usan o se usan para publicidad si.",YES,PREMISE,ALTERNATIVE
+109-55835-0,Me parece una propuesta muy interesante.,NO,SPAM,NONE
+109-55835-1,"Vecinos por un metro en la Zona de las Calles Los yébenes, Camarena y Valmojado.",NO,SPAM,NONE
+109-57960-0,Votado como has hecho con la mia.,NO,SPAM,NONE
+109-58117-0,Votado.,NO,SPAM,NONE
+109-58117-1,Más que multas que no podrán pagar les haría realizar servicios comunitarios de limpieza.,YES,CLAIM,NONE
+109-58117-2,"A limpiar cacas de perro, chicles y colillas en paradas de autobús y estaciones! Así toman un poquito de conciencia.",YES,PREMISE,RESULT
+109-58117-3,Y para los graffitis que son arte restauración de paredes en solares y lugares públicos donde mostrar su habilidad.,YES,PREMISE,ADDITION
+109-60032-0,Votado.,NO,SPAM,NONE
+109-60032-1,Estoy de acuerdo sobre todo en que el barrio necesita mejoras en algunas calles y aceras y el tema de la limpieza y los contenedores.,YES,CLAIM,NONE
+109-60032-2,"Lo único que discrepo es en el tema de los graffitis, a mí sí están bien hechos me gustan, es arte urbano.",YES,PREMISE,OPPOSITION
+109-75866-0,En Madrid arte urbano poco y vandalismo mucho.,NO,SPAM,NONE
+109-75866-1,Date una vuelta por el centro de Madrid.,NO,SPAM,NONE
+109-75866-2,"Vomitivo, edificios historicos, mobiliario urbano, puertas de portales, escaparates con pintadas de acido.",NO,SPAM,NONE
+109-75866-3,Tolerancia cero al graffity.,NO,SPAM,NONE
+109-61625-0,"Algo que creo que beneficiaría ampliamente a la limpieza de la ciudad es el aumento maquinas limpiadoras de aceras de esas que son un pequeño vehículo como los de las maquinas de limpiar coches con cepillos, agua y jabón.",YES,CLAIM,NONE
+109-61625-1,"¿Cuantas máquinas de esas hay funcionando en Madrid? , con lo grande que es tendría que ver muchas y casi no veo y las que veo son de medioambiente, ¿pero esos no son los que cuidan los parques? Debería haber en cada distrito toda una legión de ellas funcionando, es la forma de tener la ciudad limpia e higienica, porque aquí no llueve apenas como puede ser en el norte.",YES,CLAIM,NONE
+109-65822-0,Deberíamos proponer al Ayuntamiento algún tipo de medio de concienciación de los vecinos de cada barrio para que nos sintamos implicados en mantener esas mejoras que exigimos.,YES,CLAIM,NONE
+109-65822-1,"Limpieza, no ruido, y lo que este en nuestras manos.",NO,SPAM,NONE
+109-65674-0,Votado compañero!.,NO,SPAM,NONE
+109-65815-0,"Yo por mi parte, lo siento, pero grafittis, ningúno.",YES,CLAIM,NONE
+109-65815-1,A mi no tiene por que gustarme ver mi fachada pintada con algo que no he elegido.,YES,PREMISE,REASON
+109-65815-2,Prefiero ver las calles con fachadas limpias tal y como se concibieron al construirlas.,YES,CLAIM,NONE
+109-65816-0,No solo para Aluche sino para todos los barrios que sufran estos problemas.,YES,CLAIM,NONE
+109-65816-1,"Por eso apoyo tu propuesta pero referida también a los barrios del Centro, concretamente el de Malasaña.",YES,PREMISE,ADDITION
+109-66775-0,"Conozco la zona y estoy de acuerdo pero estoy más de acuerdo con poner una tasa para las mascotas, con el pago de la misma entregaría un plano con las zonas reservadas a los perros, un extracto de la normativa cursos, cuidados básicos etc. Ello implica más responsabilidad para el dueño y aumentaría la formación y conocimiento de la normativa tan desconocida por los actuales dueños y paseadores ya no sería un juguete gratuito como hasta ahora.",YES,CLAIM,NONE
+109-66775-1,Lo que no cuesta no se valora.,NO,SPAM,NONE
+109-66775-2,Yo pagaría 10€ al mes por esa mascota que cuido y me da cariño sin dudarlo.,YES,CLAIM,NONE
+109-67234-0,Votado.,NO,SPAM,NONE
+109-67234-1,"Hay que cuidar todos los barrios por igual, así como Aluche, Vallecas está siendo tomado por toxicómanos y camellos.",YES,CLAIM,NONE
+109-67234-2,Por favor apoyad mi propuesta.,NO,SPAM,NONE
+109-69986-0,Apoyado! y que se extienda al resto de los barrios.,NO,SPAM,NONE
+109-70625-0,Conozco Aluche y es cierto que se ve antiguo y sucio.,NO,SPAM,NONE
+109-70625-1,Dejo mi voto por si sirve de ayuda.,NO,SPAM,NONE
+109-74421-0,Habría que diferenciar los graffittis.,YES,CLAIM,NONE
+109-74421-1,Deberían crearse zonas para que puedan realizar gtaffittis y el resto debería multarse por hacerlo.,YES,CLAIM,NONE
+109-78101-0,"Estoy de acuerdo con vosotros, pero tenemos que tener en cuenta que toda la labor no es del Ayuntamiento, también con concierne a nosotros el educar en el respeto a los demás y a la ciudadanía y concienciar a las personas que la calle no es del Ayuntamiento sino de todos nosotros y por ese motivo debemos cuidarla y respetarla.",YES,PREMISE,OPPOSITION
+109-78101-1,La libertad de los demás termina donde empieza la mía.,NO,SPAM,NONE
+109-78101-2,"Y si no se consigue por las buenas, que sería, lo mejor, pues multa al canto.",NO,SPAM,NONE
+109-89897-0,"La falta de civismo que esta sociedad a creado es intolerable, no puede haber un barrendero limpiando una y otra vez el mismo día la misma calle, hay que limpiar de acuerdo, pero hay que acabar con esta impunidad para la gente que deja bolsas de basura, botellas, muebles, colchones, cartón, cacas de perro, etc. En cualquier lugar, sin que page por ello hasta que aprenda que la ciudad es patrimonio de todos y como ciudadanos merecemos un respeto.",YES,CLAIM,NONE
+109-89897-1,Que se aplique la normativa y que se multe al infractor.,YES,CLAIM,NONE
+109-93434-0,Apoyada.,NO,SPAM,NONE
+109-93434-1,"Te dejo esta petición por si te parece bien y nos podias ayudar, el barrio esta muy, muy, sucio.",NO,SPAM,NONE
+109-93434-2,Gracias.,NO,SPAM,NONE
+109-123688-0,¡Enhorabuena por la propuesta! En el barrio de Castillejos tenemos un parque con los mimso problemas Os agradecemos mucho si leéis y apoyáis nuestra propuesta.,NO,SPAM,NONE
+152-123688-0,Instalación de placas solares en tejados,YES,CLAIM,NONE
+152-18885-0,O esta otra.,NO,SPAM,NONE
+152-18885-0,"Sería un ahorro de energía considerable que repercutiría en el dinero que gastamos en electricidad todos los meses, pagando los mayores precios de Europa, además ahorraríamos mucho CO2 a la atmósfera.",YES,CLAIM,NONE
+152-18926-0,"Esa pregunta está mal formulada, y es falsa No repercutiría en ahorro de dinero, eso desde luego.",YES,CLAIM,NONE
+152-18926-1,"Y debería informase la gente de los materiales usados para la fabricación de placas solares, y de la contaminación derivada de ellos.",YES,PREMISE,ADDITION
+152-18926-2,Y después de 20-25 años de vida útil se convierten en desechos con materiales tremendamente nocivos para la salud y el medio ambiente.,YES,PREMISE,ADDITION
+152-18926-3,"Por favor, antes de votar infórmense no se crean todo lo que les cuentan los medios de comunicación ni los políticos, por que la mayoría son mentiras populistas.",NO,SPAM,NONE
+152-18926-4,"Quizás no saben de que hablan, o tal vez si, pero desde luego, lo que dicen no es cierto.",NO,SPAM,NONE
+152-19055-0,"Informate tu porque los paneles duran más de 25 años, tienen una garantia de que a los 25 años te dan un 90 de la energia nominal, pero un panel de 40 años a lo mejor te da el.60-70% no se, porque todavia no hay paneles de 40 años, y lo mismo los deshechos, cuando empiece a haber deshechos en cantidad se hará un plan de reciclaje, de hecho ya se hace en pequeña escala.",YES,CLAIM,NONE
+152-19175-0,"Pues no es mi intención mentir a nadie, quizá tenga desconocimiento, pero si se genera una industria potente dudo mucho que no se reciclen las placas solares en un futuro, lo que no se pueden reciclar seguro son los desechos radiactivos de las centrales nucleares.",YES,CLAIM,NONE
+152-26112-0,"Coincido en que siempre hay que informarse antes de votar, pero también antes de expresar opiniones con tanta contundencia y tan poco fundamentadas.",NO,SPAM,NONE
+152-26112-1,"Los materiales con los que se construyen los paneles solares son fundamentalmente silicio, vidrio, aluminio y cobre, fáciles de reciclar y no contaminantes.",YES,CLAIM,NONE
+152-26112-2,La vida útil de los paneles es bastante superior a 25 años y el.,NO,SPAM,NONE
+152-26112-3,"Beneficio medioambiental obtenido por la producción limpia de energía, es muy superior a los pequeños impactos derivados de la fabricación y el reciclado.",NO,SPAM,NONE
+152-26112-4,Ya está bien de satanizar una tecnología tan positiva para la sociedad y el medio ambiente simplemente por que va contra los intereses de las grandes compañías eléctricas y sus abusivos beneficios.,NO,SPAM,NONE
+152-18958-0,"Apoyaría esta propuesta, pero parece que no puedo, porque vivo en un pueblo de Madrid.",NO,SPAM,NONE
+152-18958-1,Good.,NO,SPAM,NONE
+152-19000-0,"Apoyo totalmente esta propuesta y el ayuntamiento Debería dar ejemplo poniéndolas en todos aquellos edificios públicos en los que sea factible, te gustará también esta otra propuesta.",YES,CLAIM,NONE
+152-19165-0,"Apoyo la propuesta, pero no es rentable para el Ayuntamiento.",YES,PREMISE,OPPOSITION
+152-19165-1,"Todo es política de dinero, de dinero para la administración, claro.",NO,SPAM,NONE
+152-26861-0,"La rentabilidad no se mide solo en una economía inmediata y basada tan sólo en dinero o ¿tener un hijo nos abarata la vida? a pesar de ello, tenemos hijos, ¿no? y todo porque nos alegra la vida, nos da satisfacción personal tener nuestros propios hijos a pesar del coste económico que nos supone.",YES,CLAIM,NONE
+152-26861-1,"Esta idea de verlo todo a través de las gafas de lo rentable o no económicamente es una visión del mundo consumista y capitalista que reduce al ser humano a la calidad exclusiva de mano de obra, maquinaria productora de ingresos económicos para las empresas, sin derechos emocionales, de salud física y mental, solo producidos para trabajar.",YES,PREMISE,PRECISION
+152-19406-0,Yo creo que la propuesta está mal planteada de base.,YES,CLAIM,NONE
+152-19406-1,"El hecho de tener placas solares en los tejados de los edificios, ya puede suponer un ahorro a las Comunidades de vecinos-casas unifamiliares.",YES,PREMISE,REASON
+152-19406-2,No es necesario recurrir a ayudas públicas-subvenciones para poder instalarnos las placas solares en nuestros edificios.,YES,PREMISE,REASON
+152-19406-3,Estas cosas siempre se pueden pagar a plazos y sería un nuevo modo de independencia frente a las administraciones públicas Que en la actualidad nos penalizan si conectamos nuestras red con placas foltovoltaicas a la red eléctrica de todos.,YES,PREMISE,PRECISION
+152-20329-0,"Tiene razón ABG Hay que hacer instalaciones de generación con renovables, pero no son necesarias las subvenciones.",YES,CLAIM,NONE
+152-20329-1,"Lo que hace falta es una regulación adecuada, todo lo contrario del impuesto al sol de Soria a la fotovoltaica.",YES,PREMISE,PRECISION
+152-20329-2,Y por supuesto hacer instalaciones de calidad que esto no es tan sencillo que algunos piensan y tampoco valen todos los tejados.,YES,PREMISE,ADDITION
+152-20938-0,Mira que la idea es buena.,NO,SPAM,NONE
+152-20938-1,"Pero el tema de subvencionar para favorecerlo, no lo veo tal como explico en mi anterior post.",NO,SPAM,NONE
+152-20938-2,Me gustaría votar a favor de la propuesta pero si se eliminara lo relacionado a la subvención.,YES,CLAIM,NONE
+152-26860-0,"El dinero de los impuestos es de todos y todas pero además Economía es la distribución de los bienes y recursos, y eso es lo que estamos haciendo.",NO,SPAM,NONE
+152-30188-0,Los conceptos de la economía y la redistribución de la riqueza me los tengo ya aprendidos mimi.,NO,SPAM,NONE
+152-30188-1,Pero piensa que es una inversión que favorece el ahorro en el futuro.,NO,SPAM,NONE
+152-30188-2,"Tenemos que desprendernos de papa estado y de las multinacionales que controlan el país para demostrar que somos autosuficientes energéticamente hablando Pese a que el coste de la instalación puede ser elevado, el retorno es muy beneficioso para la persona que los instala en su casa o comunidad de vecinos.",YES,CLAIM,NONE
+152-30188-3,"Por ello creo que no debería ser subvencionado por el Estado, Comunidad o Ayuntamiento.",YES,PREMISE,RESULT
+152-30188-4,Ah y que no se me olvide que tendríamos que luchar por cambiar la legislación que penaliza el autoconsumo energético.,YES,PREMISE,ADDITION
+152-30188-5,Supongo que estarás de acuerdo.,NO,SPAM,NONE
+152-86135-0,tendríamos que luchar por cambiar la legislación que penaliza el auto-consumo energético Comparto este punto.,YES,CLAIM,NONE
+152-21041-0,"Cambiar la ley esta genial, pero no es competencia del ayuntamiento, aunque no se aplique tal cual lo que he propuesto, de llegar a los suficientes votos, sale en prensa y crea una opinión pública a favor de medidas similares, quiza mucho mejores.",YES,PREMISE,CONCESSION
+152-21891-0,Hay mucha gente en contra de las subvenciones en general.,NO,SPAM,NONE
+152-21891-1,Créeme que lo complica innecesariamente.,NO,SPAM,NONE
+152-33658-0,¿Qué la gente que está en contra de subvencionar complica el proceso?.,NO,SPAM,NONE
+152-33854-0,Que subvencionar complica.,NO,SPAM,NONE
+152-33854-1,"Y como tu dices, lo considero innecesario.",NO,SPAM,NONE
+152-26859-0,"Qué pesaos con lo que es y no es competencia del Ayto! La alcaldesa ha dicho que hagamos todas las propuestas que consideremos y, que si no es competencia del Consistorio, intentará hacerlas llegar a quien corresponda.",NO,SPAM,NONE
+152-20576-0,"En muchas viviendas del ensanche de vallecas tiene agua caliente y calefacción central por gas y solar, pero están cerradas por ser paneles termosolares de agua, en vez de fotovoltaicas, sale más caro las revisiones que el ahorro que suponen lad e la legionela es bastante cara además en invierno que cuadno más se usan, no funcionan, en cambio las fotovoltaicas mejoran su rendimento en invierno por el frio, creo que se podría hacer una reforma como el progrma de puesta en servicio de ascensores o renovación de fachadas, podría haber un cambio de esto, porque no es muy difícil el cambio termosolar a fotovoltaica.",NO,SPAM,NONE
+152-20576-1,Esto reduciria el impacto ya que ahora solo son de gas y la parte solar no se usa.,NO,SPAM,NONE
+152-21896-0,Esto es un problema generado por el chapucerío patrio.,NO,SPAM,NONE
+152-21896-1,"También por que al constructor no le ha importado nada lo que contrataba, ¡como no se ve a la hora de comprar! De todas formas dudo mucho que haya alguna para calefacción lo habrán dicho como parte del engaño son para agua caliente sanitaria.",NO,SPAM,NONE
+152-21896-2,"Si estuviesen bien hechas funcionarían, estamos en españistan.",NO,SPAM,NONE
+152-21179-0,Yo os apoyo ampollare.,NO,SPAM,NONE
+152-22115-0,Madrid debería declararse Ciudad por el autoconsumo.,YES,CLAIM,NONE
+152-22115-1,No sé si es competencia del Ayunt.,NO,SPAM,NONE
+152-22115-2,"Pero dada la zancadilla que el ministerio y las empresas eléctricas le está poniendo al autoconsumo energético en España, sería un buen mensaje político.",NO,SPAM,NONE
+152-22115-3,"Esto no es una utopía, es una realidad y una libertad ya presente en muchos países donde, por ejemplo, tú puedes llegar a IKea Inglaterra y comprar tu kit solar para autoconsumo.",NO,SPAM,NONE
+152-22115-4,"Ikea instala placas en todas sus tiendas del mundo menos en las de España, porque aquí no se lo permiten.",NO,SPAM,NONE
+152-22115-5,"Las comunidades podrían tener sus paneles para gastos comunitarios ascensores, luces, piscina, carga coches eléctricos en garaje y particulares.",NO,SPAM,NONE
+152-22115-6,Bravo por tu propuesta.,NO,SPAM,NONE
+152-22115-7,Te invito a proponer Madrid por el autoconsumo eléctrico.,YES,CLAIM,NONE
+152-22115-8,"Madrid, con ésta candidatura, obtendría el apoyo de la industria solar nacional puntera pero moribunda de otras ciudades españolas y europeas para intentar doblegar a la cerrazón ministerial.",YES,PREMISE,RESULT
+152-22163-0,"De momento el titulo parece que funciona, si flaquea lo cambio a ver.",NO,SPAM,NONE
+152-22163-1,"Pero tienes razOn en todo, al menos desde mi punto de vista, aunque más util sería que la producción fuera sostenible, nos ahorraríamos toda la parafernalia en cada bloque que tb sale de los recursos naturales.",NO,SPAM,NONE
+152-22163-2,Perdon pero estoy en el extranjero y no encuentro las comas.,NO,SPAM,NONE
+152-24190-0,"Pero que es eso de que podamos generar la energía que necesitamos sin pagar a una empresa privada! estáis locos o que? que van a hacer esos directivos a los que tienen que pagar sueldos multimillonarios, la universidad privada de sus hijos, etc. Además si en España no tenemos apenas horas de sol.",NO,SPAM,NONE
+152-26858-0,Jeje.,NO,SPAM,NONE
+152-28636-0,Siempre que se respete a pensionistas y gente sin ingresos que no pueden financiar esto.,NO,SPAM,NONE
+152-31282-0,Apoyo la propuesta.,NO,SPAM,NONE
+152-31282-1,Creo también que debemos estar activos frente a las penalizaciones que desde el Gobierno Central se están estableciendo para el autoconsumo de energía eléctrica.,YES,CLAIM,NONE
+152-31282-2,Una vez más las leyes en contra de la ciudadanía y a favor de los poderosos.,NO,SPAM,NONE
+152-31398-0,Pensionistas y parados no pueden pagar esa inversión ni su mantenimiento o reparaciones.,YES,CLAIM,NONE
+152-31398-1,O si inviertes en algo y después te quedas en paro.,NO,SPAM,NONE
+152-31476-0,Hoy se ha aprobado el impuesto al sol En los comentarios he puesto unos números sobre lo que se puede esperar de la fotovoltaica.,NO,SPAM,NONE
+152-31504-0,Han secuestrado el Sol.,NO,SPAM,NONE
+152-31504-1,Hay una campaña para liberarlo: #LiberaAlSol.,NO,SPAM,NONE
+152-31498-0,Esta otra propuesta pide que sea obligatorio: https: //decide.,NO,SPAM,NONE
+152-31498-1,Madrid.,NO,SPAM,NONE
+152-31498-2,Es/proposals/2758.,NO,SPAM,NONE
+152-32317-0,Propuestas sostenibles que crean empleo y mejoran elmedioambiente: https: //decide.,NO,SPAM,NONE
+152-32317-1,Madrid.,NO,SPAM,NONE
+152-32317-2,Es/proposals/2900.,NO,SPAM,NONE
+152-32339-0,"Estoy de acuerdo con la propuesta, la pena es la nueva ley que existe, impuestos y más impuestos, espero que algún día esta propuesta sea una realidad no un metodo de ingresar dinero por impuestos.",NO,SPAM,NONE
+152-39226-0,"En realidad, España genera mucha electricidad ya.",YES,CLAIM,NONE
+152-39226-1,"Incluso creo que tenemos excedentes lo que hace más sangrante el abusivo precio de la electricidad, pero eso es otro asunto Nuestro problema de dependencia energética y de CO2 no lo generan las casas, sino los coches, que gastan petróleo, y de eso no nos sobra.",YES,PREMISE,ADDITION
+152-45448-0,Esta propuesta debería de ir acompañada de un mejor aislamiento y eficiencia energética de las viviendas.,YES,CLAIM,NONE
+152-45448-1,No se trata sólo de buscar fuentes de energía alternativas renovables sino de ahorrar también en el gasto energético.,YES,PREMISE,PRECISION
+152-53954-0,En los últimos años se dieron ayudas para poner ascensores y para poner calderas mejores.,NO,SPAM,NONE
+152-53954-1,Ahora hay que dar un paso más en mejorar Madrid.,NO,SPAM,NONE
+152-53954-2,Me encanta esta idea.,NO,SPAM,NONE
+152-55206-0,"Me parece muy bien, pero desgraciadamente son cantos de sirena El Gobierno de España ha creado el impuesto al Sol y hace ya inviable que se pongan nuevas instalaciones solares.",YES,CLAIM,NONE
+152-55206-1,Esperemos que el nuevo Gobierno que se fomre se ponga a derogar dicha normativa cuanto antes.,NO,SPAM,NONE
+152-57689-0,"Yo llegaría más allá a este respecto, de manera que el Ayuntamiento liderara un proyecto pionero en toda España para sembrar de placas solares todas las azoteas de la ciudad de Madrid.",YES,CLAIM,NONE
+152-57689-1,"A través de un acuerdo con el Inem desarrollaría equipos de instaladores, dándoles la formación necesaria y el impulso económico inicial para que, en 10-20 años se haya cubierto la mayoría de comunidades de vecinos de placas solares.",YES,PREMISE,RESULT
+152-57689-2,"Serían miles de puestos de trabajo, con los ingresos correspondientes para el Estado a través del sistema impositivo vigente y el incremento en consumo, lo cual revitalizaría la economía local, todo ello unido al ahorro energético y de contaminantes.",YES,PREMISE,PRECISION
+152-60591-0,Que en España graven el autoconsumo es una verguenza.,NO,SPAM,NONE
+152-60591-1,En alemania con menos sol tienen más instalaciones de energia solar.,NO,SPAM,NONE
+152-60591-2,Tenemos que aprovechar nuestros recursos.,YES,CLAIM,NONE
+152-60591-3,"Por ejemplo el alumbrado público podría funcionar con energia solar reduciendo el consumo, y tantas y tantas cosas.",YES,PREMISE,PRECISION
+152-64894-0,He estado apunto de poner esto así que apoyo.,NO,SPAM,NONE
+152-72188-0,"Apoyo la propuesta es beneficio para todos, habría que incluir también los edificios Municipales etc.",YES,CLAIM,NONE
+152-77481-0,Os proporngo otra forma de generar empleo y ayudar a las familias sin recursos.,NO,SPAM,NONE
+152-77481-1,"Teniendo en cuenta que en Madrid, los bancos de alimentos independientes que funcionan cuentan con tan sólo 4 asalariados y 450 voluntarios, la creación de un un banco de alimentos de gestión municipal y pública generaría un número de en torno a 500 empleos para la coordinación de la recogida, almacenamiento y entrega de comida a familias sin recursos.",NO,SPAM,NONE
+152-80828-0,Una propuesta muy interesante.,NO,SPAM,NONE
+152-80828-1,El único problema que presenta es cómo no que la tiene que pagar el conjunto de la ciudadanía en beneficio de particulares.,YES,CLAIM,NONE
+152-80828-2,"Por esta razón, y considerando el enorme ahorro que supone al que las instala, creo que sería interesante que esta subvención se realizara como un préstamo a abonar con el ahorro de electricidad que estas placas suponen.",YES,PREMISE,RESULT
+152-80828-3,"Incluso, en función de la capacidad económica del ayuntamiento podrían ser a interés cero.",YES,PREMISE,ADDITION
+152-83300-0,Y con las horas de luz que tenemos¡! ¡! ¡Sería fantástico.,NO,SPAM,NONE
+152-83300-1,"Hace un par de años mis padres visitaron un pueblo alemán donde vivieron, me sorprendió ver en las fotos que en la mayoría de los edificios tenían placas solares en los balcones además del tejado.",NO,SPAM,NONE
+152-83300-2,En un país donde las horas de luz y los días soleados son mucho menor.,NO,SPAM,NONE
+152-83300-3,Imaginaros si hiciéramos lo mismo.,NO,SPAM,NONE
+152-83300-4,Lo que les fastidiaria a las hidroeléctricas y me encanta la idea de comentarlo con subemciones y estoy de acuerdo que crearían puestos de trabajo.,YES,CLAIM,NONE
+152-83300-5,Sólo una pregunta No aprobó hace poco el Gobierno una ley que penaliza el uso de la energía solar y del autoconsumo? ¿No habría que cambiar antes esa ley?.,NO,SPAM,NONE
+152-84004-0,Habria que hacerlo de manera que la comunidad de propietarios no tenga que realizar ningúna consulta a todos los comuneros.,YES,CLAIM,NONE
+152-84004-1,"Es decir, que el vecino que quiera, pueda instalar sin pedir permiso a la comunidad.",NO,SPAM,NONE
+152-84004-2,"Si no, se complica.",NO,SPAM,NONE
+152-84004-3,"Y de subvenciones nada, da lugar a clientelismo.",YES,PREMISE,ADDITION
+152-87441-0,"Hola, Aquí tenéis una propuesta parecida.",NO,SPAM,NONE
+417-87441-0,Gratuidad del tlf 010 Inf.,NO,SPAM,NONE
+417-87441-0,He llamado a estos números y me vino un recargo en la factura por no ser número gratuito ni fijo para mi sorpresa.,NO,SPAM,NONE
+417-18534-0,Creo que no es necesario que sea gratuito.,YES,CLAIM,NONE
+417-18534-1,Mucho 91 resulta incluido en las tarifas planas de fijo y existe uno para el 010 que es el 91 529 82 10 y de la policia municipal en vez del 092 creo que es el 917131440.,YES,PREMISE,PRECISION
+417-18577-0,"Ya, pero.",NO,SPAM,NONE
+417-18577-1,"¿por qué unos no son gratuitos y los otros sí lo son? En lugar de tener que buscarnos la vida en caso de emergencia, lo sensato es que los números sean cortos.",NO,SPAM,NONE
+417-18577-2,"Y gratuitos, por el amor de dios.",NO,SPAM,NONE
+417-18577-3,Seamos sensatos.,NO,SPAM,NONE
+417-38358-0,Si tienes una emergencia tienes que llamar al 112 que es gratuito y engloba y coordina todos los servicios.,YES,CLAIM,NONE
+417-38358-1,"El 010 es para hacer gestiones, no emergencias.",YES,PREMISE,PRECISION
+417-18894-0,El 112 es gratuito.,NO,SPAM,NONE
+417-18894-1,El 010 debería serlo.,NO,SPAM,NONE
+417-23870-0,"Lo que yo pienso es que si llamo al 112 es una emergencia Bomberos, Sammur, Policia Nacional.",YES,CLAIM,NONE
+417-23870-1,"092 es policía local por temas de ruidos o botellón, creo que no se debería saturar el 112 con este tipo de llamadas.",YES,PREMISE,PRECISION
+417-25647-0,"Los servicios 080 092 están centralizados en el 112 De hecho, dentro de este servicio atiende personal de los bomberos, samur, policía local y nacional De hecho, yo he llamado al 112 por temas de ruidos, y han acudido policías municipales.",YES,CLAIM,NONE
+417-19731-0,Apoyo la propuesta y te invito a que apoyes Mayor cuidado del centro de Madrid Gracias!.,NO,SPAM,NONE
+417-21178-0,Yo os apoyo apoyarme.,NO,SPAM,NONE
+417-21530-0,"A ver gente, el 010 es gratuito.",NO,SPAM,NONE
+417-21530-1,"A mi vodafone me lo estaba cobrando, he llamado hoy y me han devuelto el importe cobrado.",YES,CLAIM,NONE
+417-21530-2,"No es el ayuntamiento el que te cobra, es tu compañía de teléfono, por qué por si cuela.",YES,PREMISE,PRECISION
+417-32153-0,Otras.,NO,SPAM,NONE
+417-32153-1,Eso nos tienes que explicar cómo lo hiciste jejeje.,NO,SPAM,NONE
+417-32153-2,Siempre que he llamado al 010 me han cobrado.,NO,SPAM,NONE
+417-32153-3,"Eso sí, como una llamada local.",NO,SPAM,NONE
+417-32168-0,Pues te lo explico.,NO,SPAM,NONE
+417-32168-1,Tenía restringidas las llamadas al 010 entre otros números.,NO,SPAM,NONE
+417-32168-2,"Llame a Vodafone y les pregunté si es gratuito, me dijeron que si, y me quitaron la restricción.",NO,SPAM,NONE
+417-32168-3,"En la siguiente factura me cobraron varias de las llamadas, les llamé para quejarme y me devolvieron el importe.",NO,SPAM,NONE
+417-32168-4,No me han vuelto a cobrar.,NO,SPAM,NONE
+417-32168-5,El 010 es gratis.,NO,SPAM,NONE
+417-32170-0,Muchísimas gracias por la información Seguro que a muchos más les vendrá bien.,NO,SPAM,NONE
+417-74395-0,Entonces habría que llamar al Ministerio de Industria y que hagan algo.,YES,CLAIM,NONE
+417-74395-1,No puede ser que el ciudadano tenga que dedicar constantemente su tiempo a reclamar estas cosas.,YES,PREMISE,REASON
+417-84189-0,"No es gratuito, se cobra como una llamada local, pero al ser un número de marcación corta los operadores telefónicos no lo reconocen como llamada local y, por ello, te lo cobran aunque en tu tarifa estuvieran incluidas las llamadas a fijos.",YES,PREMISE,OPPOSITION
+417-24423-0,"Apoyo tu propuesta, un saludo.",NO,SPAM,NONE
+417-24976-0,Si no puede ser gratuito como el 112 al menos que sea como una llamada local desde fijo o móvil.,YES,CLAIM,NONE
+417-25773-0,Tenemos que fomentar esta web en las redes sociales cada uno de nosotros para que las propuestas puedan alcanzar el número de votos necesario.,NO,SPAM,NONE
+417-25773-1,"A día de hoy la propuesta más votada tiene 2700 votos, por lo que el total de visitantes únicos desde que se abrió el día 15092015 no creo que llegue a 7000 Hay que multiplicar esta cifra fomentando cada uno de nosotros la web en redes sociales para alcanzar el objetivo.",NO,SPAM,NONE
+417-25773-2,Gracias y saludos.,NO,SPAM,NONE
+417-84454-0,"Tienes toda la razón, en el bar o en los corrillos, hablamos mucho, pero a la hora de implicarnos, somos más perezosos.",NO,SPAM,NONE
+417-33130-0,"No sé si lo han dicho ya, pero el servicio 010 de Madrid también funciona llamando al 915 298 210.",NO,SPAM,NONE
+417-33336-0,Añado otra propuesta diferente.,NO,SPAM,NONE
+417-33976-0,Estimados votantes de podemos: no hay nada gratis.,NO,SPAM,NONE
+417-33976-1,Si no lo paga el usuario lo paga el contribuyente.,NO,SPAM,NONE
+417-37380-0,Para el 010 el teléfono gratuito es 915298210.,NO,SPAM,NONE
+417-37383-0,Y para el 012 de la Comunidad de Madrid es 915804260.,NO,SPAM,NONE
+417-38357-0,"A ver, llamar al 010 no es una emergencia, sino que tienes que hacer gestiones y es 100 viable perder un minuto en buscar el equivalente fijo 91 en Internet.",YES,CLAIM,NONE
+417-38357-1,"Si tienes una emergencia de verdad, llama al 112 que es gratis y es donde realmente deberías llamar en ese caso.",YES,PREMISE,ADDITION
+417-38357-2,Si las compañías de Teléfonos hacen un enrutado inteligente es normal que cobren por ello y la única alternativa sería que lo pagase el ayuntamiento.,YES,CLAIM,NONE
+417-38357-3,Me parece absurdo que el Ayuntamiento se deje el dinero en eso existiendo alternativa sin coste.,YES,PREMISE,ADDITION
+417-38543-0,"A mí una vez me robaron y cuando fui en un bar a llamar a la policía, me dí cuenta de que no podía porque es de pago.",NO,SPAM,NONE
+417-38543-1,Era en el kiosko-bar-terraza que hay junto al metro de Batán.,NO,SPAM,NONE
+417-38543-2,"Le pedí a un camarero que si me permitía llamar a la policía y me echó, diciéndome que no quería tener problemas!.",NO,SPAM,NONE
+417-38543-3,Menos mal que aún confío que hay gente buena por el mundo.,NO,SPAM,NONE
+417-39643-0,915298210 para el 010.,NO,SPAM,NONE
+417-42161-0,"Si tienes tarifa plana, ten en cuenta que 010 = 915 298 210 lo he comprobado y funciona a día 14112015 La info la encontré en.",NO,SPAM,NONE
+417-42164-0,Nº Policía local por barrios en.,NO,SPAM,NONE
+417-43613-0,Por favor no enlacéis a temas y etiquetas que no tienen una relación directa.,NO,SPAM,NONE
+417-43613-1,Gracias.,NO,SPAM,NONE
+417-47362-0,"Si poniendo el 010 gratuito se aumenta la participación ciudadana en la detección de las incidencias, esta claro que el ayuntamiento podía poner gratis este servicio dado que se ahorran muchas inspecciones y aumenta su eficacia.",YES,CLAIM,NONE
+417-47362-1,Todo lo que favorezca la participación en la gestión de la ciudad es bueno para todos.,YES,PREMISE,ADDITION
+417-47362-2,"Lo malo es si alguien hace un mal uso y al ser gratuito esta constantemente llamando y bloqueando el servicio, entiendo que en ese caso se le puede restringir esa llamada por hacer mal uso del servicio.",YES,PREMISE,OPPOSITION
+417-47362-3,También se puede registrar en la web la incidencia de modo gratuito.,YES,PREMISE,ADDITION
+417-47362-4,Yo utilizo con frecuencia ambos sistemas y lo veo como un deber como ciudadano con mi ciudad y mi barrio de cuidar que las cosas estén bien.,NO,SPAM,NONE
+417-47362-5,"Señales de tráfico averiadas, objetos que bloquean la vía pública, mobiliario público peligrosos en mal estado.",NO,SPAM,NONE
+417-48478-0,Yo utilizo muchísimo el servicio del 010 y jamás me han cobrado un euro.,NO,SPAM,NONE
+417-52719-0,Deberían de ser como los números 900 con llamada gratuita desde cualquier aparato y desde cualquier sitio.,YES,CLAIM,NONE
+417-55740-0,Una vez que estás registrado apoya las mejores propuestas recuperar el edificio del Palacio de sueca Equipamiento deportivo y cultural para zona centro y ampliación de espacios del IES San Isidro: .,NO,SPAM,NONE
+417-60587-0,A mí me ha ocurrido lo mismo y la verdad es que alucinaba.,NO,SPAM,NONE
+417-60587-1,El 092 no es gratuito me han dicho a mi en mi compañia de telefono.,YES,CLAIM,NONE
+417-60587-2,Me toca llamar todos los fines de semana por un botellon que hay debajo de mi casa y que ensucia y no nos deja descansar y me ha llegado la factura de esas llamadas.,YES,PREMISE,REASON
+417-72150-0,El 010 tiene un equivalente en teléfono fijo: 915298210 Así no te cobran cuando tienes las llamadas a fijos incluidas en tu tarifa.,NO,SPAM,NONE
+417-74862-0,"Apoyad, gracias.",NO,SPAM,NONE
+417-75554-0,Hola! os animo a que echéis un vistazo a mi propuesta.,NO,SPAM,NONE
+417-77281-0,Ya es gratis se ha hecho realidad la petición!.,NO,SPAM,NONE
+417-84172-0,Vaya chorrada de medida.,NO,SPAM,NONE
+417-84172-1,Con esto pretendes arreglar Madrid?.,NO,SPAM,NONE
+417-84172-2,Nadie dice nada de hacer Madrid accesible 100 por 100 a los minusválidos.,NO,SPAM,NONE
+417-84172-3,Me parece más importante.,NO,SPAM,NONE
+417-84177-0,En cuanto al tlf del Ayuntamiento ya hay un comentario aclaratorio.,NO,SPAM,NONE
+417-84177-1,"Y a la Policía Local, ya existe el 112 que es gratuito y debería ser al que se llame para simplificar y mejorar la coordinación de todos los servicios de urgencias y emergencias.",YES,CLAIM,NONE
+417-84244-0,Yo no he hecho uso del 010 pero siendo un servicio municipal o de la comunidad debiera ser gratuito.,YES,CLAIM,NONE
+417-84244-1,Bastantes impuestos pagamos ya para que no lo fuese.,NO,SPAM,NONE
+417-84244-2,Ha de ser gratuito.,NO,SPAM,NONE
+417-84252-0,"El 010 es de pago, como todo lo que han hecho los liberales durante estos muuuuchos años que les hemos soportado, lo que tiene que hacer el Ayuntamiento es definir con su operadora que el coste se le repercuta, y a partir de ahí no nos cobran el importe de las llamadas.",YES,CLAIM,NONE
+417-84252-1,"Debería ser como el 016 exactamente igual, lo mismo que debería hacerse con el 062 092 y el 112.",YES,CLAIM,NONE
+417-84338-0,Gratuidad.,NO,SPAM,NONE
+417-84371-0,"Los números de tf, de servicios públicos habrían de ser gratuitos, sería una forma de animar al ciudadano a cooperar con el ayuntamiento y la sociedad, los impuestos son justo para también cubrir esa serie de servicios.",YES,CLAIM,NONE
+417-84410-0,Totalmente de acuerdo si me lo han cobrado.,NO,SPAM,NONE
+417-84429-0,Solo se debe pagar si se hace uso inadecuado! a determinar por una serie de reglas basicas.,YES,CLAIM,NONE
+417-84429-1,Pero por defecto.,NO,SPAM,NONE
+417-84429-2,Estas llamadas deben ser gratis.,YES,CLAIM,NONE
+417-84429-3,"Especialmente el 092 Para el 010 dado que es información, hay más alternativas de obtenerla!.",YES,PREMISE,PRECISION
+417-84430-0,Como uso social y de emergencias debería ser gratuito y accesible a todos.,YES,CLAIM,NONE
+417-84433-0,"Yo creía que eran gratuitos, si no es así por supuesto que apoyo su gratuidad.",YES,CLAIM,NONE
+417-84500-0,"Y que es lo que ocurre con el resto de grandes tenas pendientes, parece asombroso que en una ciudad tan hetereogenea comi Madrid las propuestas salientes sean tan simplistas, sinceramente esto huele a manipulación y sectarismo disfrados de participación popular, esto es la democracia participativa? Si es así es un claro fracaso.",NO,SPAM,NONE
+417-84511-0,"Todos los teléfonos de información y los de emergencia policía, bomberos, samur, etc. Deben de ser gratuitos, ya que la llamada es por una necesidad.",YES,CLAIM,NONE
+417-84523-0,Las operadoras utilizan el espacio radioeléctrico que es de todos!.,NO,SPAM,NONE
+417-84535-0,"Me parece vergonzoso que nos cobren tanto por esto como por llamar al 091 lo del 010 es de traca a veces la misma policia municipal te indica que llames tu, me ha pasado muchas veces, les dices que no es gratis y no se lo creen, otro caso que también escuece es el de los 902 le echan un morro increible, nos debemos de negar a llamar a estos y veras como cambia el tema, saludos.",YES,CLAIM,NONE
+417-84542-0,"Pues me parece bien, entonces que obliguen a las compañías de teléfono a No cobrar nunca el 010 Gracias.",YES,CLAIM,NONE
+417-84617-0,También es verdad que si no suponen un mínimo coste se corre el riesgo de hacer un mal uso de esos números de teléfono y entonces habría que tener una plantilla de teleoperadoras sobredimensionada.,YES,CLAIM,NONE
+417-84627-0,Es tremendo que desde teléfonos de emergencia o de información ciudadana se lucren los de siempre.,NO,SPAM,NONE
+417-84627-1,Las telefonías.,NO,SPAM,NONE
+417-84661-0,Me pregunto cada día más para qué sirven todos los impuestos y tasas que pago a lo largo de mi vida si cada día que pasa me quitan servicios que antes tenía y ahora he de pagar directamente además de seguir pagando los mismos impuestos.,NO,SPAM,NONE
+417-84661-1,"Pido que, cuando me quiten un servicio, me lo descuenten de los impuestos inmediatamente.",NO,SPAM,NONE
+417-84796-0,Son teléfonos de servicio público y cuando se usan no debería tener cargos adicionales.,YES,CLAIM,NONE
+417-84849-0,Me parece justo que tales teléfonos sean gratuitos por tratarse de servicios prestados al ciudadano.,YES,CLAIM,NONE
+417-84883-0,Lo normal es que Industria regule que las compañías telefonicas no cobren esas llamadas.,NO,SPAM,NONE
+417-84883-1,La mayor parte de la gente lo desconoce y seguro que eso aporta mucho dinero a las compañías.,NO,SPAM,NONE
+417-84996-0,Algunos confunden llamadas gratuitas con que a ellos por su contrato con su compañía no se las cobren.,NO,SPAM,NONE
+417-84996-1,"Por cierto, es una soberana chapuza que una parte muy grande de las propuestas que hemos estado votando, el Ayuntamiento no se moleste en decir si son competencia del ayuntamiento o si son solo leyendas urbanas.",NO,SPAM,NONE
+417-84996-2,Fuegos de artificio y currar poquito.,NO,SPAM,NONE
+417-85167-0,"Ok con que sea gratuito, siempre que el servicio lo presten voluntarios sin sueldo.",YES,PREMISE,CONDITION
+417-85167-1,"Pero como no creo que sea ese el caso, prefiero que lo paguen los que lo utilizan y no que vaya a mi costa.",YES,PREMISE,OPPOSITION
+417-85167-2,"Vamos, el mismo principio que queréis aplicar respecto del IBI a los edificios de la Iglesia, que es que el patrimonio nacional lo pague quien lo use, en ese caso, los cristianos.",YES,PREMISE,RESTATEMENT
+417-85391-0,"De que nos sirve que las compañías telefónicas nos venden que podemos llamar a todos los teléfonos de toda España pagando una cuota fija, si cuando necesitamos hablar con nuestro Ayuntamiento o policía nos cuesta el dinero, y por supuesto con unos precios muy caros.",NO,SPAM,NONE
+417-85462-0,Son teléfonos de servicio público.,NO,SPAM,NONE
+417-85807-0,"Todos los teléfonos que nos relacionen con la administración local o estatal, y con las empresas que nos suministran los servicios básicos, agua, luz, gas, banco deben ser gratuitos y tendremos que presionar a las empresas de telefonía que se nieguen.",YES,CLAIM,NONE
+417-85807-1,"Mi madre tiene más de 80 años y no lee vuestra valiosa información, pero también tiene derecho.",YES,PREMISE,ADDITION
+417-86596-0,"Creo que todos los teléfonos que sirvan para comunicarte con organismos públicos o servicios al ciudadano deben ser gratuitos, no veo lógico si como vecino puedes aportar algo a la comunidad tengas que pagar teléfono.",YES,CLAIM,NONE
+417-86596-1,Gracias.,NO,SPAM,NONE
+417-89640-0,Te dejo esta propuesta por si te interesa.,NO,SPAM,NONE
+417-91181-0,Os dejo esta propuesta y votadla si os parece interesante por favor: .,NO,SPAM,NONE
+417-97563-0,"Porfa, que alguien retome esta propuesta para con un año por delante, recabar más apoyos además de que repitan los más de 16000 que la habían apoyado antes de caducar Las peticiones de los ciudadanos no deberían caducar como si fuera un pastel o una medicina.",NO,SPAM,NONE
+417-97563-1,Si se pone de nuevo que se Notifique lo más y mejor posible.,NO,SPAM,NONE
+494-97563-0,Plan integral contra grafitis,YES,CLAIM,NONE
+494-97563-0,Limpieza integral de las paredes y cierres grafiteados.,NO,SPAM,NONE
+494-97563-1,Vigilancia real por parte de la policía.,NO,SPAM,NONE
+494-97563-2,Disuadir a los infractores con multas o trabajos comunitarios.,NO,SPAM,NONE
+494-97563-3,Lugares dedicados para grafitis.,NO,SPAM,NONE
+494-97563-0,"El centro de Madrid es maravilloso, pero no hay barrio que no dé un aspecto realmente degradado a consecuencia de los miles de grafitis que ensucian fachadas y cierres metálicos de comercios.",NO,SPAM,NONE
+494-97563-1,Pero este problema afecta a toda la ciudad.,NO,SPAM,NONE
+494-97563-2,Necesitamos poner en valor la belleza de nuestra ciudad.,NO,SPAM,NONE
+494-97563-3,La limpieza de nuestro entorno nos define como ciudadanos y es nuestra carta de presentación a quienes nos visitan.,NO,SPAM,NONE
+494-97563-4,"Propongo un plan integral para atajar este problema, se me ocurren algunas líneas de acción, estoy seguro que el ayuntamiento Y los ciudadanos podréis mejorarlas.",YES,CLAIM,NONE
+494-97563-5,Serían las siguientes: - Limpieza integral de fachadas y cierres metálicos.,YES,CLAIM,NONE
+494-97563-6,- Patrullas de vigilancia de incógnito que permita pillar in fraganti a los grafiteros.,YES,CLAIM,NONE
+494-97563-7,- Brigada de investigación de este delito.,NO,SPAM,NONE
+494-97563-8,¡En otras ciudades hasta participan grafólogos! Parece ciencia ficción pero no lo es.,NO,SPAM,NONE
+494-97563-9,"- Un programa de castigo no tienen por qué ser multas a los infractores, con servicios a la comunidad que impidan la reincidencia.",YES,CLAIM,NONE
+494-97563-10,- Colaboración con la Comunidad de Madrid.,YES,CLAIM,NONE
+494-97563-11,"Esto no es un problema exclusivo de la Capital, afecta a toda la Comunidad.",NO,SPAM,NONE
+494-18315-0,"Por supuesto que hay que poner multas, la sanción es el único método disuasorio eficaz, y trabajos sociales que consistan en limpiar su propia pintada, y costeando ellos los productos de limpieza, para que se den cuenta de lo que cuest, tanto en dinero como en trabajo, la limpieza de las mismas.",YES,CLAIM,NONE
+494-18315-1,"Las pintadas no so arte, si saben pintar, que pinten cuadros, o las paredes de su casa, pero que no ensucien lo de todos.",NO,SPAM,NONE
+494-19700-0,También es una cuestión económica: limpiar los grafitis nos cuesta a los madrileños 12 millones al año: .,YES,CLAIM,NONE
+494-19754-0,"La pintura en muros, dice David Lynch, ha arruinado el mundo.",NO,SPAM,NONE
+494-19754-1,"Cuanto menos, la inmensa mayoría ha perdido el encanto: .",NO,SPAM,NONE
+494-19945-0,Un problema largamente tratado por la prensa: .,NO,SPAM,NONE
+494-19948-0,Otro artículo más para este dosier de prensa sobre esta lacra: .,NO,SPAM,NONE
+494-19955-0,"Los grafitis, o más bien arte urbano, también pueden ser una forma de poner en valor zonas degradadas.",YES,CLAIM,NONE
+494-81071-0,Grafitis es una cosa.,NO,SPAM,NONE
+494-81071-1,Firmas de gamberros es otra.,NO,SPAM,NONE
+494-19839-0,Una propuesta hermana sobre habilitar espacios autogestionados para los grafiteros: .,NO,SPAM,NONE
+494-18688-0,"Considero que un garabato en una fachada, igual da su dimensión, no es arte.",YES,CLAIM,NONE
+494-18688-1,Pero reconozcamos que hay auténticos artistas y urbanos que necesitan espacios donde expresar este arte callejero.,YES,PREMISE,CONCESSION
+494-18688-2,"Hay que concienciar de que el espacio público y las fincas privadas no pueden ser lienzos de sus obras, nos gusten estas o no.",YES,CLAIM,NONE
+494-18735-0,"No me opongo a las multas, pero me pregunto si son escarnio suficiente cuando a muchos chavales se las pagarán papá y mamá.",YES,PREMISE,REASON
+494-18735-1,Creo más edificante y efectivo los trabajos comunitarios.,YES,CLAIM,NONE
+494-18743-0,"Hay barrios absolutamente pintarrajeados como Malasaña y otros más alejados del distrito Centro, que dam un adpecto de suciedad y dejadez alarmantes.",NO,SPAM,NONE
+494-18743-1,Los ciudadanos nos hemos acostumbrado y vemos esto como normal.,NO,SPAM,NONE
+494-18743-2,Pero no lo es.,NO,SPAM,NONE
+494-18743-3,Basta viajar por Europa para darse cuenta de que tenemos un problema.,NO,SPAM,NONE
+494-19766-0,Existen productos químicos que disuelven los esmaltes y vinilos que crean barreras protectoras de la superficie.,NO,SPAM,NONE
+494-19095-0,"El tema de los grafitis es serio, en nuestra comunidad gastamos un dineral en repitar paredes, entradas de garajes, puertas de entradas.",YES,PREMISE,REASON
+494-19095-1,"Los parques parecen suburbios, están pintados los suelos, los bancos, los árboles, cualquier cosa destruyen la vegetación de los muros para pintar en ellos, dejan tirados los botes de spray por cualquier sitio, etc. Debería haber más vigilancia y multas o trabajos sociales para los infractores.",YES,PREMISE,REASON
+494-19137-0,Gracias Antonio por tu apoyo y participación.,NO,SPAM,NONE
+494-19139-0,Hemos llegado a la ridícula situación de que un comerciante tenga que mandar pintar el cierre de su negocio solo para que otros en general con menos gusto estético lo hagan por él.,NO,SPAM,NONE
+494-19682-0,¿Qué opináis sobre habilitar espacios públicos para que los grafiteros que lo son de verdad desarrollen y expongan sus obras?.,YES,CLAIM,NONE
+494-19688-0,"Lo hemos visto en ciudades como Málaga, donde la regeneración urbana a través de artistas callejeros es una realidad en el Soho.",NO,SPAM,NONE
+494-19735-0,"Una crónica interesantísima sobre lo que hacen en Nueva York, Londres, París y Berlín para luchar contra los grafitis: .",NO,SPAM,NONE
+494-19809-0,"Voto esta propuesta y pido apoyo a esta otra que busca acabar con las pegatinas de los cerrajeros, es más fácil, primero porque son empresas, segundo porque dejan su número de teléfono.",NO,SPAM,NONE
+494-19836-0,Gracias ccascos.,NO,SPAM,NONE
+494-19836-1,Me parece una buena iniciativa.,NO,SPAM,NONE
+494-20690-0,Apoyo al 100 tu propuesta.,NO,SPAM,NONE
+494-20690-1,Creé sin saberlo una similar.,NO,SPAM,NONE
+494-20690-2,¿Pueden unirse? No sé bien cómo funciona esto.,NO,SPAM,NONE
+494-20690-3,Votad.,NO,SPAM,NONE
+494-20900-0,Pues decmomento no pueden unirse.,NO,SPAM,NONE
+494-20900-1,Yo he mandado un mail con sugerencias a los desarrolladores.,NO,SPAM,NONE
+494-20904-0,"Mira, aquí han creado una propuesta para que las iniciativas puedan unirse y sumar los apoyos: .",NO,SPAM,NONE
+494-20693-0,Votado.,NO,SPAM,NONE
+494-20693-1,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, lleno de grafitis por favor votad.",NO,SPAM,NONE
+494-20899-0,Gracias Fran por tu apoyo.,NO,SPAM,NONE
+494-20922-0,Una propuesta concreta sobre el plan de habilitar zonas para grafitis en cada barrio: .,NO,SPAM,NONE
+494-22183-0,"Se debería multar económicamente y con trabajos sociales gratuitos como limpiar los grafitis a todos aquellos que ensucian un lugar privado o público sin permiso, ya que hay auténticos artistas a los que se les debería pagar por hacer dibujos muy bonitos en puertas o persianas metálicas por ejemplo.",YES,CLAIM,NONE
+494-22987-0,Otras dos propuesta similares: .,NO,SPAM,NONE
+494-23612-0,Y otra más.,NO,SPAM,NONE
+494-23612-1,Está claro que este tema preocupa.,NO,SPAM,NONE
+494-23862-0,"Muchachos, según los medios culturales institucionales, que un niño de 15 años con problemas con su narcisismo te destroce la fachada del local o te llene el edificio con sus graffitis no es engorrinar la ciudad, sino que es cultura urbana Personalmente jamás podré considerar cultura a una forma de supuesta expresión que desde que se instauró mundialmente en los años 80-90 no ha evolucionado formalmente ni lo va a hacer salvo por la vía de lo barroco y exagerado.",NO,SPAM,NONE
+494-23862-1,"En otras ciudades de Europa sí que existen expresiones artísticas callejeras que, gracias a dios, han superado la fase soy un narcisista adolescente que me encanta dibujar mi logo algo que me recuerda bastante a un perro marcando su territorio Para empezar deberíamos acabar de una vez con esa estúpida categoría de arte urbano y proponer un acercamiento un poquito más elegante a las formas de decorar un edificio que esté más allá de la cultura profundamente machista y xenófoba, del hip-hop.",YES,CLAIM,NONE
+494-27936-0,Apoyado.,NO,SPAM,NONE
+494-27936-1,El arte puede expresarse de muchas formas.,NO,SPAM,NONE
+494-27936-2,Pero no con un garabato en una fachada.,NO,SPAM,NONE
+494-27936-3,Al lado de los colegios institutos es un desastre para el barrio.,NO,SPAM,NONE
+494-27936-4,Lo difícil es identificarlos;,NO,SPAM,NONE
+494-27936-5,es tal la situación que la única forma de controlarlo e identificar los delitos es con el uso de cctv en los muros de cada comunidad.,YES,CLAIM,NONE
+494-27936-6,Es una pena que se haya llegado a esta situación.,NO,SPAM,NONE
+494-27936-7,Es un problema de educación y conciencia ciudadana.,NO,SPAM,NONE
+494-31469-0,Propuesta repetida.,NO,SPAM,NONE
+494-38164-0,Votado.,NO,SPAM,NONE
+494-38164-1,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, lleno de Grafitis por todas partes, la situación es crítica por favor votad.",NO,SPAM,NONE
+494-38888-0,"Estoy de acuerdo con tu propuesta de limpieza integral, pero las brigadas de investigación y patrullas de vigilancia me parece mucha inversión para conseguir disuadir a algunos de hacer pintadas, y plan para la comunidad y lugares acondicionados estoy totalmente de acuerdo.",YES,PREMISE,OPPOSITION
+494-38888-1,"Pongo un enlace a otra propuesta muy relacionada para que podamos cubrir los muros que ahora están llenos de firmas y grafitis cutres, con murales artísticos, con la colaboración del ayuntamiento y de los grafiteros artistas.",NO,SPAM,NONE
+494-38888-2,"Habréis visto que la mejor manera de que no pongan la firmita dichosa es pintar un mural, muchos comercios lo han hecho.",YES,CLAIM,NONE
+494-38888-3,"Todos ganamos, los vecinos vemos murales chulos en lugar de pintadas, los grafiteros profesionales tienen su espacio para expresarse, y los que solo saben poner garabatos en las paredes, que disfruten del arte y aprendan, en lugar de manchar paredes con sus firmitas.",YES,PREMISE,RESULT
+494-75865-0,Eso es una leyenda urbana por lo menos en Madrid.,NO,SPAM,NONE
+494-39017-0,Limpieza integral de fachadas además para eso pagamos ibi.,NO,SPAM,NONE
+494-39017-1,Y para los infractores sanciones serias para que se les quiten las ganas.,NO,SPAM,NONE
+494-39017-2,Y por supuesto vigilancia policial.,NO,SPAM,NONE
+494-39017-3,"Los graffitis no son arte, son manchas sucias para las pareces y cierres.",NO,SPAM,NONE
+494-39017-4,"Si quien pintar que pinten en su casa, no en las de los demás.",NO,SPAM,NONE
+494-61618-0,"Me sorprende que esta propuesta no tenga más apoyos, porque se está convirtiendo en un problema realmente preocupante.",NO,SPAM,NONE
+494-61917-0,"Totalmente de acuerdo, algo hay que hacer es horrible y nada se hace al respecto.",NO,SPAM,NONE
+494-66928-0,"Estoy deacuerdo en todo, menos en habilitar zona para sus suciedades, que lo hagan en su casa, todo lodemas no es suyo.",NO,SPAM,NONE
+494-67945-0,Me gustaría que echaseis un vistazo a esta propuesta.,NO,SPAM,NONE
+494-71411-0,"Totalmente de acuerdo, podéis eliminar mi propuesta, esta es más completa.",NO,SPAM,NONE
+494-75863-0,"La degradación de Madrid con las pintadas no conoce limites, está todo asqueroso hasta las zonas más emblematicas de la ciudad, hasta cuando tendremos que aguantar tener la c iudad tan asquerosa?.",NO,SPAM,NONE
+494-81070-0,Graffitis o Firmas de Bandas callejeras?.,NO,SPAM,NONE
+494-81070-1,El arte urbano es una cosa y las manchas que llenan Madrid es otra.,NO,SPAM,NONE
+494-81070-2,Camina por el Centro y lo veras.,NO,SPAM,NONE
+494-81070-3,Camina por Barrios como Salamanca y. Oh.,NO,SPAM,NONE
+494-81070-4,Todo impecable.,NO,SPAM,NONE
+494-142288-0,Pintar las fachadas de los edificios con nombres o apodos de personas o grupos no es arte.,NO,SPAM,NONE
+494-142288-1,No entiendo cual es el beneficio.,NO,SPAM,NONE
+494-142288-2,Nuestra ciudad parece un basurero.,NO,SPAM,NONE
+494-142288-3,"Si pintas tu fachada para verla limpia, al día siguiente te han firmado mil veces.",NO,SPAM,NONE
+494-142288-4,"En mi barrio, un grupito de chicos, que ya no son adolescentes llevan pintando tantos años que aunque tuvieran 10 años cuando empezaron ahora no serán adolescentes lo tiene todo pintado.",NO,SPAM,NONE
+494-142288-5,"No es tan difícil, vigilen.",NO,SPAM,NONE
+494-142288-6,Y que lo limpien.,NO,SPAM,NONE
+494-142288-7,"También, y mientras averiguamos quienes son fotografíen los nombres y que se haga acumulativo el castigo.",NO,SPAM,NONE
+494-155667-0,Es un problema que afecta al conjunto de la Comunidad de Madrid;,NO,SPAM,NONE
+494-155667-1,"hay hasta edificios patrimonio del Estado y/o con valor histórico, llenos de estas marcas/firmas que dan una imagen injusta de ciudad sucia.",NO,SPAM,NONE
+494-155667-2,Son tantas que estamos empezando a parecer el Harlem.,NO,SPAM,NONE
+494-155667-3,En este país el turismo crea muchísimos puestos de trabajo.,NO,SPAM,NONE
+494-155667-4,"Esas pintadas ni son arte ni son nada, es mierda en las paredes que hay que quitar con productos tóxicos, y nocivos para el personal que los limpia, y muy caros que se pagan del bolsillo de los contribuyentes.",YES,CLAIM,NONE
+494-155667-5,Que lo hagan en el salón de su casa.,NO,SPAM,NONE
+494-155667-6,"Sugiero lugares, gestionados por ellos mismos, para practicar el arte del grafiti y multas y trabajos para la comunidad, de varios meses de duración, al que se pille guarreando espacios ya sean públicos y privados y la colaboración ciudadana para convertir la ciudad en un lugar habitable, confortable y limpio, donde no nos haga daño a la vista esas canalladas que nada tienen de arte y sí de ataque a la propiedad.",YES,CLAIM,NONE
+494-162653-0,El otro día estuve en el cementerio de Carabanchel viendo su preciosa ermita mudéjar.,NO,SPAM,NONE
+494-162653-1,Me quedé horrorizada de que estuviera con grafittis en las paredes enladrilladas y lleno de coches aparcados a su puerta.,NO,SPAM,NONE
+494-162653-2,"No se podría poner en valor esta joya limpiando sus ladrillos y ordenando el entorno más plazas de garaje, retirada de valla de la excárcel de Carabanchel.",NO,SPAM,NONE
+494-162653-3,Etc.,NO,SPAM,NONE
+494-162653-4,Es una pena que ni siquiera tenga un cartelito que indique la datación de la ermita y que no se pueda visitar de una manera normal en un fin de semana.,NO,SPAM,NONE
+494-162653-5,Y era domingo.,NO,SPAM,NONE
+494-162653-6,"El cementerio abierto, pero la ermita, no.",NO,SPAM,NONE
+494-162653-7,Por favor.,NO,SPAM,NONE
+494-162653-8,"Cuando una va a Castilla, hasta la más humilde ermita románica tiene su valor.",NO,SPAM,NONE
+494-162653-9,Espero que Madrid lo haga pronto.,NO,SPAM,NONE
