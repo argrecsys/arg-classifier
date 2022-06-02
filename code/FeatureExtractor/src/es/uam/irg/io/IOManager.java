@@ -57,7 +57,6 @@ public class IOManager {
      */
     public static List<Proposition> readDatasetFromCsvFile(String filepath) {
         List<Proposition> dataset = new ArrayList<>();
-        int numLabels = 3;
 
         try {
             // Get the file
@@ -66,21 +65,32 @@ public class IOManager {
             // Check if the specified file exists or not
             if (csvFile.exists()) {
                 BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
-                String row;
-                String id;
-                String text;
-                String type;
 
-                fileReader.readLine();
-                while ((row = fileReader.readLine()) != null) {
-                    String[] data = row.split(",");
-                    int n = data.length;
+                // Reading header
+                int numLabels = 0;
+                String[] header = fileReader.readLine().split(",");
+                for (String token : header) {
+                    if (token.toLowerCase().startsWith("sent_label")) {
+                        numLabels++;
+                    }
+                }
 
-                    if (n >= 4) {
-                        id = data[0];
-                        text = getTextField(data, numLabels);
-                        type = data[n - numLabels];
-                        dataset.add(new Proposition(id, text, type));
+                // Reading data
+                if (numLabels > 0) {
+                    String row;
+                    String id;
+                    String text;
+                    String type;
+                    while ((row = fileReader.readLine()) != null) {
+                        String[] data = row.split(",");
+                        int n = data.length;
+
+                        if (n >= 4) {
+                            id = data[0];
+                            text = getTextField(data, numLabels);
+                            type = data[n - numLabels];
+                            dataset.add(new Proposition(id, text, type));
+                        }
                     }
                 }
 
