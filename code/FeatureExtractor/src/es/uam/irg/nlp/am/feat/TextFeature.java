@@ -63,7 +63,7 @@ public abstract class TextFeature {
         int sentPosition = 0;
         if (!this.id.isEmpty()) {
             String[] tokens = this.id.split("-");
-            sentPosition = Integer.parseInt(tokens[3]);
+            sentPosition = Integer.parseInt(tokens[2]);
         }
         return sentPosition;
     }

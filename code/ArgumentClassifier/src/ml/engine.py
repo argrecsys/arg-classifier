@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.1
+    Version: 0.9.2
     Created on: Oct 07, 2021
-    Updated on: Jun 1, 2022
+    Updated on: Jun 2, 2022
     Description: ML engine class.
 """
 
@@ -62,9 +62,10 @@ class MLEngine:
                 
                 # Save data
                 prop_id = data[0]
-                label1 = data[n-2]
-                label2 = data[n-1]
-                label = {"id": prop_id, "sent_label1": label1, "sent_label2": label2}
+                label1 = data[n-3]
+                label2 = data[n-2]
+                label3 = data[n-1]
+                label = {"id": prop_id, "sent_label1": label1, "sent_label2": label2, "sent_label3": label3}
                 labels.append(label)
         
         return labels
@@ -248,8 +249,8 @@ class MLEngine:
             
             # Dimensionality reduction
             if feat_setup["dim_reduction"]:
-                dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', 0.95)
-                # dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'LDA')
+                # dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', 0.95)
+                dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'LDA')
                 print('Explained Variance Ratio:', sum(pca_variance) * 100)
             
             # Save it to disk

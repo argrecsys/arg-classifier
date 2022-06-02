@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.6.0
+    Version: 0.7.0
     Created on: May 13, 2022
     Updated on: Jun 2, 2022
     Description: Data processing module
@@ -11,17 +11,24 @@
 import pandas as pd
 from typing import Final
 
-# Class constants
+# Class constants basic
 BREAK_MARKS: Final[set] = {'.', ';'}
-LABEL_INTENTS: Final[set] = {'SUPPORT', 'ATTACK'}
-LABEL_LINKS: Final[str] = 'LINKS'
-LABEL_MAJOR_CLAIM: Final[str] = 'MAJOR_CLAIM'
+VALID_SENT_SIZE: Final[int] = 3
+
+# Class constants label 1
+LABEL_YES: Final[str] = 'YES'
 LABEL_NO: Final[str] = 'NO'
-LABEL_NONE: Final[str] = 'NONE'
+
+# Class constants label 2
+LABEL_MAJOR_CLAIM: Final[str] = 'MAJOR_CLAIM'
+LABEL_CLAIM: Final[str] = 'CLAIM'
 LABEL_PREMISE: Final[str] = 'PREMISE'
 LABEL_SPAM: Final[str] = 'SPAM'
-LABEL_YES: Final[str] = 'YES'
-VALID_SENT_SIZE: Final[int] = 3
+LABEL_LINKER: Final[str] = 'LINKER'
+
+# Class constants label 2
+LABEL_INTENTS: Final[set] = {'SUPPORT', 'ATTACK', 'LINKS'}
+LABEL_NONE: Final[str] = 'NONE'
 
 # Validates whether a statement is valid or not
 def __is_valid_sentence(sent_text:str) -> bool:
@@ -38,7 +45,7 @@ def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> 
             
             if source['start'] == lbl_start and source['end'] == lbl_end:
                 label = rel['label']
-                if (label not in LABEL_INTENTS) and (label != LABEL_LINKS):
+                if label not in LABEL_INTENTS:
                     rel_categories.append(label)
     
     rel_category = 'NONE'
@@ -73,41 +80,58 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
             break_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
             
         # Annotate sentences
-        sent_id = 0
         sent_text = ''
+        sent_id = 0
         ix_start = 0
+        
         for mark in break_marks:
             ix_end = mark['end']
             sent_text = text[ix_start : ix_end]
             sent_text = sent_text.strip()
+            sent_len = ix_end - ix_start
             
-            # It is a valid sentence
+            # If it is a valid sentence
             if __is_valid_sentence(sent_text):
-                labels = []
-                cache = []
                 
+                # Select candidate labels
+                sent_labels = []
                 for span in spans:
                     lbl_start = span['start']
                     lbl_end = span['end']
                     
                     if lbl_start >= ix_start and lbl_end <= ix_end:
                         label2 = span['label']
-                        if label2 not in cache and label2 != "LINKER":
+                        
+                        if label2 != LABEL_LINKER:
+                            label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
+                            label2 = LABEL_CLAIM if label2 == LABEL_MAJOR_CLAIM else label2
                             label3 = __find_relations(label2, lbl_start, lbl_end, relations)
-                            labels.append((label2, label3))
-                            cache.append(label2)
+                            labels = {"label1": label1, "label2": label2, "label3": label3, "len": (lbl_end - lbl_start)}
+                            sent_labels.append(labels)
                 
-                if len(labels) == 0:
-                    labels.append((LABEL_SPAM, LABEL_NONE))
+                if len(sent_labels) == 0:
+                    labels = {"label1": LABEL_NO, "label2": LABEL_SPAM, "label3": LABEL_NONE, "len": (ix_end - ix_start)}
+                    sent_labels.append(labels)
+                
+                # Select more representative label
+                sent_label = {}
+                sent_share = {}
+                max_share = 0
+                for label in sent_labels:
+                    curr_label = label["label2"]
+                    curr_share = sent_share.get(curr_label, 0) + (label["len"] / sent_len)
+                    sent_share[curr_label] = curr_share
+                    
+                    if curr_share > max_share:
+                        max_share = curr_share
+                        sent_label = label
                 
                 # Save outcome
-                for i, label in enumerate(labels):
-                    label2, label3 = label
-                    
-                    if label2 != LABEL_MAJOR_CLAIM:
-                        record_id = proposal_id + "-" + comment_id + "-" + str(sent_id) + "-" + str(i)
-                        label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
-                        out_dataset.append([record_id, sent_text, label1, label2, label3])
+                label1 = sent_label["label1"]
+                label2 = sent_label["label2"]
+                label3 = sent_label["label3"]
+                record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
+                out_dataset.append([record_id, sent_text, label1, label2, label3])
                 
                 # Update sentence number
                 sent_id += 1
