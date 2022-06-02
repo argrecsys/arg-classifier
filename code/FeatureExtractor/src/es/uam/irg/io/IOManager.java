@@ -57,7 +57,7 @@ public class IOManager {
      */
     public static List<Proposition> readDatasetFromCsvFile(String filepath) {
         List<Proposition> dataset = new ArrayList<>();
-        int numLabels = 2;
+        int numLabels = 3;
 
         try {
             // Get the file
