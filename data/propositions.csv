@@ -607,3 +607,333 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 494-162653-7,Por favor.,NO,SPAM,NONE
 494-162653-8,"Cuando una va a Castilla, hasta la más humilde ermita románica tiene su valor.",NO,SPAM,NONE
 494-162653-9,Espero que Madrid lo haga pronto.,NO,SPAM,NONE
+507-162653-0,Equilibrar riqueza entre la zona norte y sur de Madrid,YES,CLAIM,NONE
+507-162653-0,Crear zonas de grandes edificios como ocurre en la Castellana norte y con su ampliación ya propuesta pero en la zona Sur de Madrid para equilibrar económicamente los barrios ricos del norte.,YES,CLAIM,NONE
+507-162653-0,Replanificar la ampliación del paseo de la Castellana hacia la zona norte con más torres que enriquecen aún más la zona más rica de Madrid y produce más desequilibrio entre norte y sur.,YES,CLAIM,NONE
+507-162653-1,"Esta replanificación supondría crear esa zona de gran riqueza económica en la zona sur de Madrid, en cualquiera de las zonas municipales existentes, o incluso aprovechando zonas mal aprovechadas.",YES,CLAIM,NONE
+507-162653-2,"Una idea sería recalificar terrenos municipales en cualquiera de los barrios del sur de Madrid, que permitiera crear una gran zona de torres como en la zona norte y que podría venderse al sector privado, utilizando esa inversión privada para crear instalaciones municipales que ayuden a los vecinos del sur.",YES,CLAIM,NONE
+507-162653-3,"Una posibilidad sería la estación de contenedores del Abroñigal, que tiene una ubicación ideal con conexión con M30 M40 y A4 con posibilidad de crear parada de cercanías al tener ya conexión con Atocha, y a escasos metros de la estación Sur de Autobuses.",YES,CLAIM,NONE
+507-162653-4,"Todo esto lo haría ideal para que sea una zona interesante a inversores La estación pertenece a adifrenfe por tanto pseudo-publico, y al igual que se expropia a particulares para hacer una carretera, también se puede hacer aquí.",YES,CLAIM,NONE
+507-162653-5,"Esta posibilidad es una de las muchas que podría valorar el ayuntamiento cualquiera de los barrios del sur afectados cerca de la caja mágica, en la zona de Entrevías pegado a M40 incluso soterrando todo el nudo sur con la inversión privada que se obtenga con la venta de esos terrenos construyendo las torres en toda esa nueva zona resultante y que podría mejorar barrios como:        .",YES,CLAIM,NONE
+507-18270-0,Ya hay una propuesta como esta.,NO,SPAM,NONE
+507-18270-1,"Unid los votos, por favor.",NO,SPAM,NONE
+507-20101-0,Buenas compañero.,NO,SPAM,NONE
+507-20101-1,Pásanos enlace para unir los temas y votos.,NO,SPAM,NONE
+507-25080-0,No la encuentro.,NO,SPAM,NONE
+507-18387-0,Completamente de acuerdo.,NO,SPAM,NONE
+507-18803-0,Más inversión en la zona norte el sur siempre se lleva más tajada ESO es así.,NO,SPAM,NONE
+507-21634-0,No comparto tu opinión.,NO,SPAM,NONE
+507-22808-0,En Vallecas llevamos 23 años en el olvido más absoluto.,NO,SPAM,NONE
+507-24332-0,23 sólo? ¡Poco me parece! Hace mucho no veo una apuesta firme del ayuntamiento en el barrio.,NO,SPAM,NONE
+507-20437-0,Mi propuesta está alineada y engloba varias peticiones en especial para VIllaverde Saludos.,NO,SPAM,NONE
+507-23718-0,Podría ser en esa zona.,NO,SPAM,NONE
+507-22806-0,Me gustaría que le echarás un vistazo a ver que te parece esa propuesta.,NO,SPAM,NONE
+507-22806-1,Gracias.,NO,SPAM,NONE
+507-25558-0,Lo mismo pasa con los terrenos que tiene ADIF de logística en Villaverde Bajo.,YES,PREMISE,SIMILARITY
+507-25558-1,Que se trasladen a otros terrenos por un canje o que se les expropie.,YES,CLAIM,NONE
+507-25558-2,"No tienen sentido en el s. XXI dividiendo por completo los barrios de Villaverde Bajo, Los Rosales, El Espinillo, Butarque y San Cristóbal de los Ángeles.",YES,PREMISE,REASON
+507-28736-0,Esas zonas también podrían valorarse para esta idea.,NO,SPAM,NONE
+507-26334-0,Venimos del debate aquí: .,NO,SPAM,NONE
+507-29880-0,No estoy de acuerdo porque traer a nuestros barrios esos grandes edificios de oficinas sería transformar un barrio donde se puede más o menos respirar y pasear a convertirse en un lugar lleno coches contaminación.,YES,CLAIM,NONE
+507-29880-1,"Para que este barrio impulse la inversión hay que fomentar lugares de ocio educativo, teatros, cines, museos, eso si sería una buena inversión porque tenemos espacio para aparcar sin atascos, es una zona amplia y podemos llegar a hacer un barrio que promueva la cultura, y a su vez el consumo en restaurantes, terrazas, hacer incluso alguna terraza mirador en el parque la Gavia, donde hay buenas vistas al igual que la terraza que ya existe en el Cerro del Tio Pio en Puente de Vallecas y que por cierto es un lugar excepcional también para pasar un rato de ocio encuchando música y tomando algo por supuesto estos lugares tendrían que tener parques infantiles al lado para fomentar el encuentro familiar y disfrutar de todo lo que potencialmente tenemos y no hemos desarrollado aún.",YES,PREMISE,ADDITION
+507-31565-0,La existencia de grandes edificios no implica para nada más contaminación.,YES,CLAIM,NONE
+507-31565-1,Como ejemplo mira el complejo de Azca.,YES,PREMISE,EXPLANATION
+507-31565-2,Es una zona totalmente restringida al tráfico en dónde tiene todo el interior zona peatonal.,YES,PREMISE,PRECISION
+507-31565-3,Lo mismo ocurre con las cuatro torres de la zona norte.,YES,PREMISE,SIMILARITY
+507-31565-4,Para nada hay más tráfico en esa zona del que ya hay en por ejemplo el nudo sur.,YES,PREMISE,PRECISION
+507-32584-0,Esa propuesta no tiene que ver.,NO,SPAM,NONE
+507-32676-0,Jaja ¿y que? jajaja.,NO,SPAM,NONE
+507-32676-1,Es un pelmazo.,NO,SPAM,NONE
+507-32834-0,Cada apoyo cuenta.,NO,SPAM,NONE
+507-32678-0,"Lo de equilibrar económicamente Madrid es buena idea, pero eso abriría un debate más bien en lugar de ser una propuesta, creo yo.",NO,SPAM,NONE
+507-32678-1,"Porque ¿Cómo hacerlo? ¿construyendo grandes edificios en el sur? ¿pero y si hay mejores maneras de crear riqueza en un barrio que construir grandes edificios de oficinas? ¿no habrá mejores maneras de atraer inversiones, y tiendas y que se yo? ¿Qué clase de riqueza buscamos? ¿conocéis la zona de la estación sur de autobuses y Méndez Álvaro, con esos enormes edificios vacíos de noche, sin tiendas un corte ingles sin viviendas, con unos cines donde de noche hay que cruzar de acera si viene alguien enfrente por lo solitario y abandonado que aparece todo a esas horas en que terminan las películas? ¿es esa la clase de riqueza que buscamos, artificial, de encargo de grandes despachos? ¿no será mejor la riqueza que germina en los barrios cuando se pone el caldo de cultivo adecuado y las condiciones adecuadas?.",NO,SPAM,NONE
+507-32807-0,"Por mucho que hagas rascacielos y apartamentos de lujo en el sur, seguirá habiendo desequilibrio económico ya que el entorno no lo cambias, al igual que no cambias la delincuencia y la gente con la que convives, no estoy diciendo que en el norte sea todo de color de rosa, que hay problemas de desigualdad como en cualquier sitio, pero no lo veo factible, la verdad, además la gente de esos barrios se quejará del consecuente encarecimiento de la vida.",YES,PREMISE,ADDITION
+507-34650-0,No estoy para nada de acuerdo contigo.,NO,SPAM,NONE
+507-34650-1,En la zona de Mendez Álvaro que indicas como mal ejemplo creo que es todo lo contrario.,YES,CLAIM,NONE
+507-34650-2,"Creo que no sabes como era esa zona antes de crear la zona de cine, centro comercial y torres.",YES,CLAIM,NONE
+507-34650-3,Anteriormente esa zona era una escombrera dónde se vendía droga y había incluso chabolas.,YES,PREMISE,PRECISION
+507-34650-4,Actualmente esa zona es muy rica y no tiene ningún tipo de problema.,YES,PREMISE,PRECISION
+507-34650-5,"De hecho en la zona se han empezado a crear viviendas que son de lujo y algunas empresas muy importantes se han localizado muy próximas como una constructora y una multinacional española dedicada al refinado, y otra de distribución.",YES,PREMISE,EXPLANATION
+507-34650-6,Vamos que creo que es un claro ejemplo de lo que mejora la zona.,YES,PREMISE,RESTATEMENT
+507-34756-0,"Conozco la zona más de lo que se piensa, y aunque pongan oficinas no quiere decir nada.",NO,SPAM,NONE
+507-34756-1,Que está mejor no lo puede dudar nadie con el mero hecho de asfaltar y condicionar la zona.,NO,SPAM,NONE
+507-34756-2,"Por la mañana está bien con el tráfico normal de gente trabajando, pero la gente que quda cuando se acaba el tránsito de trabajo no la cambia.",NO,SPAM,NONE
+507-34756-3,"En el Pozo el caso es parecido, ya no predominan las chabolas y la gentuza, pero por mucho ladrillo, farolas y adoquines que pongas para acondicionar las calles, barrios, no deja de haber más delincuencia y delitos.",YES,CLAIM,NONE
+507-85785-0,De acuerdísimo con todo.,NO,SPAM,NONE
+507-85785-1,Pienso igual.,NO,SPAM,NONE
+507-85785-2,Soy de Carabanchel y esto no lo cambian unos rascacielos.,NO,SPAM,NONE
+507-59634-0,Efectivamente.,NO,SPAM,NONE
+507-59634-1,"Esa zona antiguamente era la flex, y estaba totalmente abandonada.",NO,SPAM,NONE
+507-34789-0,Creo que lo que propones resultaría echar a la gente que vive en la zona sur de alquiler a una zona más barata y que sólo pervivirían los que ya son propietarios.,YES,CLAIM,NONE
+507-34789-1,Justamente eso ha pasado en Méndez alvaro en muchos casos.,NO,SPAM,NONE
+507-34789-2,"Así que creo que esta propuesta es un poco un lavado de cara que no sirve realmente, además de que cono comentan por ahí conllevaría un montón de tráfico e incomodidades además de que no estoy a favor de invertir en más construcción.",NO,SPAM,NONE
+507-35406-0,No estoy del todo de acuerdo.,NO,SPAM,NONE
+507-35406-1,"Esta claro que si la zona mejora el nivel de vida subirá pegado a esa zona, pero también se mejorará el nivel económico de la gente, mejorando la prosperidad de los negocios de la zona y se mejorará la cantidad de trabajo.",YES,PREMISE,ADDITION
+507-35406-2,Respecto al tráfico estoy totalmente en desacuerdo con lo que dices.,NO,SPAM,NONE
+507-35406-3,"Actualmente en las 4 torres trabajan miles de personas y no hay para nada ningún problema de tráfico alrededor, sin embargo en el nudo sur si hay a diario atascos.",YES,CLAIM,NONE
+507-35406-4,"Las zonas más pobladas están en el sur y si el trabajo lo tienen en el sur habría menos desplazamientos, y si además les permites desplazarse en transporte público con una gran oferta de líneas de autobús, metro, cercanias, etc. , el tráfico mejoraría en la zona sur y en todo Madrid.",YES,PREMISE,ADDITION
+507-38882-0,Crees que la gente que trabaja en sectores que no son de oficinas como por ejemplo la construcción o la hostelería que son la mayoría de los que viven de alquiler en el sur trabajarían y se beneficiarían de las torres? Dejo un enlace en relación a lo que digo: https: //es.,YES,CLAIM,NONE
+507-38882-1,M. Wikipedia.,NO,SPAM,NONE
+507-38882-2,Org/wiki/Gentrificaci%C3%B3n.,NO,SPAM,NONE
+507-35403-0,Aquí hay una propuesta que resulta muy interesante y parecida a esta: .,NO,SPAM,NONE
+507-37415-0,"Basta de propuestas como la de la Operación Chamartín, cuando en el sur hay desastres como las vías del tren, la M40 y otras carreteras que dividen y destrozan barrios y nadie ha dicho ni pío porque no hay intereses creados.",YES,CLAIM,NONE
+507-37415-1,Que se solucione primero el sur de Madrid antes de volver a dejar precioso el norte a costa de machacar a los de siempre.,YES,CLAIM,NONE
+507-59633-0,Totalmente de acuerdo con tu idea.,NO,SPAM,NONE
+507-59633-1,Sobre todo en el hecho de que se sigan estudiando proyectos como el de chamartin y aquí en el sur no haya ningúno.,YES,CLAIM,NONE
+507-60901-0,Sería genial conseguir más apoyos!.,NO,SPAM,NONE
+507-66085-0,Una gran propuesta.,NO,SPAM,NONE
+507-66085-1,A ver si el actual equipo de gobierno hace algo con contundencia con los barrios marginados del sur.,NO,SPAM,NONE
+507-69302-0,Qué vergüenza da ver cómo algunos ciudadanos quieren hacer creer a la gente que existe algo casi genético que impide a los barrios del sur mejorar si se invierte en ellos.,NO,SPAM,NONE
+507-69302-1,¡Pues no hay ejemplos casi de lo contrario! Basta ya de discriminar al sur de Madrid.,YES,CLAIM,NONE
+507-81092-0,Es hora de que el ayuntamiento garantice el cumplimiento de este derecho fundamental cuando las personas no son capaces por falta de recursos.,NO,SPAM,NONE
+507-81092-1,"Al igual que estamos reclamando la remunicipalización de determinados servicios públicos, demandamos también la remunicipalización de un derecho básico como es el comer que muchas personas en nuestra ciudad no pueden ejercer por falta de medios económicos.",NO,SPAM,NONE
+507-85687-0,Barro de trabajadores necesita mejorar ya.,NO,SPAM,NONE
+507-85749-0,A ver si esto sufre un empuje ahora con las noticias de la operación Chamartín y se acuerdan del sur de Madrid también.,NO,SPAM,NONE
+507-85816-0,Totalmente de acuerdo con la propuesta.,NO,SPAM,NONE
+507-85816-1,"Si bien es cierto que construir una zona de oficinas y grandes edificios no es la solución mágica, si es el primer paso para reequilibrar la ciudad y conseguir que, con medidas adicionales adecuadamente planificadas y coordinadas, las características de la ciudad en el norte y en el sur no sigan separándose más sino que puedan aproximarse un poco.",NO,SPAM,NONE
+507-85816-2,"Igualmente, como se ha dicho, si la zona sur esta mucho más poblada y los grandes centros de trabajo y oficinas se construyen en el norte, se produce un ineficiente trasvase diario de personas hacia el norte que lo único que hace es aumentar el tráfico, la contaminación y reducir calidad de vida.",YES,PREMISE,SIMILARITY
+507-85985-0,Estoy totalmente de acuerdo.,NO,SPAM,NONE
+507-85985-1,El sur también existe.,NO,SPAM,NONE
+507-93233-0,"Es cierto que con un par de rascacielos no se arregla nada, pero sí es cierto lo que apuntaban otros comentarios en que el sur está más poblado que el norte, y que en el norte están situadas más sedes de empresas y centros de trabajo que en el sur, y que ello implica miles de desplazamientos todos los días con el consecuente aumento del tráfico y la contaminación.",YES,CLAIM,NONE
+507-93233-1,Vivo al lado de la M30 y lo veo desde mi casa todos los días.,NO,SPAM,NONE
+629-93233-0,Sancionar a la gente que deposite basuras en la calle,YES,CLAIM,NONE
+629-93233-0,"Mayor vigilancia en las calles, para sancionar a la gente que arroja basuras, excrementos de perros, deposita mobiliario.",YES,CLAIM,NONE
+629-18601-0,"Colillas, cáscaras de pipas, envoltorios.",NO,SPAM,NONE
+629-18601-1,Hace falta una campaña de concienciación al ciudadano de que la limpieza en Madrid es cosa de todos.,YES,CLAIM,NONE
+629-19090-0,"Por supuesto, .",NO,SPAM,NONE
+629-18690-0,"Y de paso, sancionar también a los que saquean los contenedores de reciclaje y los cubos de basura y lo dejan todo tirado por la acera.",YES,CLAIM,NONE
+629-18690-1,Esto es inadmisible.,NO,SPAM,NONE
+629-73939-0,Madrid libre de excrementos vota.,NO,SPAM,NONE
+629-18783-0,"Y para no hacer propuestas nuevas, entender también que dentro de esta propuesta se encuadra orinar en la calle, defecar en la calle, etc.",YES,CLAIM,NONE
+629-51958-0,"Para evitar esto debería haber baños públicos, como en todas las grandes ciudades.",YES,CLAIM,NONE
+629-51958-1,En Madrid no hay ni uno.,NO,SPAM,NONE
+629-51958-2,"Siempre que puedo entro a un bar, pero cuando no hay ningúno abierto no te queda otra que hacer pis en la calle.",NO,SPAM,NONE
+629-51958-3,Y es un asco.,NO,SPAM,NONE
+629-55734-0,"Hombre, en todas las grandes ciudades.",NO,SPAM,NONE
+629-55734-1,"En Roma no hay, en Londres solo en la National Gallery es de acceso gratuito en París tampoco, en Nueva York cero salvo en zonas ultraturisticas, en Berlín alguno más.",NO,SPAM,NONE
+629-55734-2,"Para no mear en la calle, hay que salir meao de casa, que luego los wateres públicos acaban siendo nidos de mierda en los que da asco entrar.",YES,CLAIM,NONE
+629-55734-3,"Los borrachos que se mean en la calle al salir de los bares cuando no hay ningúno abierto, deberían mear antes y beber menos.",YES,CLAIM,NONE
+629-74853-0,"Coincido básicamente con tu comentario pero hay que entender que hay profesionales del coche como los taxistas que no tienen donde hacer sus necesidades o la gente que tiene una edad y la próstata a reventar también tiene derecho a salir de casa y un urinario público facilitaría las cosas y también para los indigentes que no están en la calle por gusto, en cuanto al trato pues habría que vigilarlo muy de cerca para que esté en condiciones.",YES,CLAIM,NONE
+629-18858-0,"Haría falta un análisis Dafo para determinar cuál es el verdadero problema, trabajar con un equipo multidisciplinar, ya que es muy necesario tanto para la tarea de acompañamiento como para el desarrollo social y comunitario, y así esclarecer la paga inclusiva para llevar a cabo esta labor.",YES,CLAIM,NONE
+629-18945-0,Hay dos problemas: educación: no hay.,NO,SPAM,NONE
+629-18945-1,"Autoridad: perdida, no hay.",NO,SPAM,NONE
+629-18945-2,"Solución: re-educación y finalmente, la sanción.",NO,SPAM,NONE
+629-18945-3,Como los puntos del carnet de conducir.,NO,SPAM,NONE
+629-18945-4,"Pero como no hay tiempo, ni dinero, la medida que entendemos todos es el palo.",NO,SPAM,NONE
+629-18945-5,Las ordenanzas están hechas.,NO,SPAM,NONE
+629-18945-6,Falta cumplirlas.,NO,SPAM,NONE
+629-18945-7,Ensucias = sanción.,NO,SPAM,NONE
+629-18945-8,Botellón = sanción.,NO,SPAM,NONE
+629-18945-9,Ruido = sanción.,NO,SPAM,NONE
+629-18945-10,Etc.,NO,SPAM,NONE
+629-18945-11,"Sólo necesitamos más policía para vigilar, corregir y en último caso, iniciar la sanción.",NO,SPAM,NONE
+629-18945-12,"Sencillo, bajo mi punto de vista.",NO,SPAM,NONE
+629-19001-0,Da pena ir por un parque y ver todo lleno de basura.,NO,SPAM,NONE
+629-19001-1,"Entre semana incluso, lleno de latas, envoltorios de sándwiches, papeles, botellas, de todo.",NO,SPAM,NONE
+629-19001-2,Para echarse a llorar.,NO,SPAM,NONE
+629-19001-3,"Hay que ser vago, y gentuza para no poder coger las dos cosas que uses en cada comida y tirarla a la papelera que hay a 10 pasos.",NO,SPAM,NONE
+629-19001-4,"Una buena multa es lo que hace falta, que sino hay gente aunque probablemente provengan del cerdo, no del mono como se cree que no aprende.",YES,CLAIM,NONE
+629-19071-0,Estoy de acuerdo.,NO,SPAM,NONE
+629-19071-1,Yo he hecho esta propuesta Sobre concienciación para no ensuciar.,NO,SPAM,NONE
+629-19076-0,Otra que va en la misma dirección.,NO,SPAM,NONE
+629-19078-0,Votado.,NO,SPAM,NONE
+629-19078-1,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, por favor votad.",NO,SPAM,NONE
+629-19108-0,Vivo en el Barrio de Las Letras donde además tengo una tienda.,NO,SPAM,NONE
+629-19108-1,Estoy harta de limpiar pis y cacas de perritos todos los días por la mala educación ciudadana de sus dueños.,NO,SPAM,NONE
+629-19144-0,"Hola, tenemos un problema no solo de incivismo en la vía pública, sino de incivismo con la propiedad pública y privada a base del terrorismo grafitero.",NO,SPAM,NONE
+629-19144-1,Os animo a todos a que os suméis a esta propuesta para luchar contra los grafitis: Gracias!.,NO,SPAM,NONE
+629-19620-0,Completamente de acuerdo.,NO,SPAM,NONE
+629-19620-1,Me parece una guarrería ver una ciudad llena de pintadas.,NO,SPAM,NONE
+629-19620-2,Dice poco de sus habitantes.,NO,SPAM,NONE
+629-19157-0,"A los humanos que no limpian los excrementos de sus mascotas, obligarles a limpiar, con agua y jabón, las calles y plazas y a los humanos que hacen pipi en los cubos de basura, que les castiguen obligandoles a fregar los cubos y el suelo.",YES,CLAIM,NONE
+629-19171-0,Más bibliotecas en Madrid.,NO,SPAM,NONE
+629-19171-1,Vota aquí para la construcción de una en el Barrio de la Concepción: .,NO,SPAM,NONE
+629-19287-0,En Puente de Vallecas es un problema muchos vecinos incívicos tiran las bolsas de basuras en la acera o en los alcorque de los árboles.,YES,CLAIM,NONE
+629-19287-1,Tenemos las calles siempre sucias.,NO,SPAM,NONE
+629-19287-2,Buena iniciativa que solo funcionaria si se le toca el bolsillo a los incívicos.,YES,CLAIM,NONE
+629-19503-0,Siento decirte que en el puente de vallecas esos vecinos incívicos son en su mayoría de etnia gitana.,NO,SPAM,NONE
+629-21236-0,"Estoy desacuerdo con su afirmación y aunque si fuera así me da igual que sean gitanos que payos, extranjeros o nacionales, altos o bajitos.",NO,SPAM,NONE
+629-21236-1,Creo que se debería sancionar a cualquier ciudadano que ensucie la vía pública.,YES,CLAIM,NONE
+629-21236-2,Por que es una falta de respeto para su conciudadanos.,YES,PREMISE,REASON
+629-21236-3,Y por mucho que nos gastemos en limpieza viaria no tendremos las calles limpias si hay gente que las ensucia por capricho.,YES,PREMISE,ADDITION
+629-46538-0,Vete al barrio de Salamanca y está igual de asqueroso.,NO,SPAM,NONE
+629-19379-0,"Estoy de acuerdo con sancionar a los incivicos pero también creo que toda la gente que recibe una ayuda social, debería contribuir y colaborar para mantener las ciudades limpias!.",YES,PREMISE,ADDITION
+629-19523-0,"Vivo en la Colonia Moscardo, en el limite de Usera con Carabanchel y Arganzuela, la suciedad llega a unos extremos insoportables, las basuras, latas, bolsas de plástico, botellas de cerveza, y los eternos excrementos de perro lo inundan todo.",NO,SPAM,NONE
+629-19523-1,"Estoy convencido que de que la solución no esta únicamente en la limpieza, por supuesto debe limpiarse pero ensuciar no puede quedar impune, si cometer estos atropellos para con el resto de los ciudadanos no tiene consecuencias, viviremos en un eterno estercolero y los incívicos solo comprenderán si parte del sueldo de los limpiadores sale de sus multas por ensuciar.",YES,PREMISE,RESULT
+629-19532-0,"En el Parque de Santa Maria, la gente deja bolsas de basura donde el empleado de la finca deja los cubos de basura unas horas antes de que pasen los camiones de recogida, pero estos a veces solo recogen los cubos y ahí se quedan todo el día, al final se rompen las bolsas y todo queda hecho un asco.",NO,SPAM,NONE
+629-19532-1,Estoy de acuerdo que se sancione y que se haga una campaña que enseñe a comportarse.,YES,CLAIM,NONE
+629-19667-0,Y que me decís de los cerrajeros ensuciando las puertas con pegatinas? apoya mi propuesta en.,NO,SPAM,NONE
+629-19744-0,"Yo apoyo tu propuesta, Madrid sin lugar a dudas cada vez esta más sucia y sobre todo en los barrios del sur.",YES,CLAIM,NONE
+629-19744-1,Y esto por desgracia es culpa de la anterior alcaldesa que lo que hizo fue recortar en personal de limpieza.,YES,PREMISE,ADDITION
+629-19841-0,"En el mismo sentido, esta propuesta de eliminar el SER y que quienes trabajan en este tema se dediquen a la vigilancia de la limpieza en las calles, sancionando a quien, por ejemplo, deje la basura al menos en Bellas Vistas, Tetuán, este problema es también importante.",YES,CLAIM,NONE
+629-20102-0,"Debería sancionar a la gente que ensucia la ciudad, pero creo que mejor que multas serían trabajos sociales limpiando la ciudad, es una mejor forma de concienciar.",YES,PREMISE,CONCESSION
+629-20136-0,Para sancionar harán falta más Agentes.,YES,CLAIM,NONE
+629-20185-0,El problema de la suciedad es evidente y también que muchos ciudadanos no son responsables y dejan sus desechos en cualquier lugar.,NO,SPAM,NONE
+629-20185-1,"Sin embargo, lo que ahora me parece más interesante es que surjan ideas de cómo vamos a vigilar que estas personas hagan uso de papeleras, basuras y puntos limpios adecuadamente.",YES,CLAIM,NONE
+629-20185-2,"Pagar a agentes que sancionen estas conductas no me parece la mejor solución o al menos la única teniendo en cuenta que quienes tiran la basura en cualquier lado lo hacen en su mayoría, de noche.",YES,CLAIM,NONE
+629-20185-3,"Propongo que se haga una campaña sería de difusión a los ciudadanos de la nueva política de limpieza y respeto a espacios comunes, para empezar.",YES,CLAIM,NONE
+629-20185-4,"Se me ocurre que los ciudadanos que cometan esta falta, podrán ser denunciados por cualquier vecino a las asociaciones de vecinos más cercana y que estos, su vez informarán al ayuntamiento para que éste sancione debedamente.",YES,CLAIM,NONE
+629-20185-5,"De esta forma no sólo los agentes velarán por la limpieza, sino que los propios vecinos se harán responsables.",YES,PREMISE,RESULT
+629-20262-0,"He propuesto también concienciar podría estar bien 1º concienciar, 2º avisar de que se va a sancionar 3º sancionar;",YES,CLAIM,NONE
+629-20262-1,"como ha dicho Santiago Lopez, sería mejor con trabajo a la comunidad no sé si es posible.",YES,CLAIM,NONE
+629-20273-0,Ningúna medida sancionadora si no va acompañada de una campaña importante y sería de concienciación ciudadana sobre la limpieza de nuestra casa común.,YES,CLAIM,NONE
+629-20928-0,Creo que es muy difícil perseguir a las personas que ensucian la ciudad.,NO,SPAM,NONE
+629-20928-1,"Deberíamos ser los propios ciudadanos, los que recrimináramos estos comportamientos a los que ensucian.",NO,SPAM,NONE
+629-21630-0,"El problema inmediato es la basura que se acumula en la calle: al lado de los contenedores, en las papeleras desbordadas.",NO,SPAM,NONE
+629-21630-1,Etc.,NO,SPAM,NONE
+629-21630-2,Pero el problema viene del fondo: La irresponsabilidad de quienes no les importa manchar lo que es de todos y frente a esto una solución a largo plazo: educaciön y desafortunadamente muchas veces solo entendemos cuando se nos sanciona;,NO,SPAM,NONE
+629-21630-3,"pero yo no impondría sancionas económicas, impondría charlas y seminarios trabajos sociales limpiando jardines, plazas.",YES,CLAIM,NONE
+629-22053-0,"Desgraciadamente la gente que deja basura, mierdas de perro y mea en la calle solo entiende la sanción como único método disuasorio de su conducta.",NO,SPAM,NONE
+629-22053-1,Son gente que además se pone agresiva si les llamas la atención.,NO,SPAM,NONE
+629-22053-2,Parece que en Japon tienen el mismo problema.,NO,SPAM,NONE
+629-22053-3,"No se si lo que proponen sirve para algo, pero igual da pistas.",NO,SPAM,NONE
+629-22053-4,Crean en Japón una aplicación para denunciar las heces de perro sin recoger Saludos.,NO,SPAM,NONE
+629-22380-0,Es un problema que afecta a todos los barrios.,NO,SPAM,NONE
+629-22380-1,No debemos acobardarnos si vemos como un vecino ensucia la calle con porquerías: Desde un chicle a una nevera pasando por bolsas de ropa y excrementos de perro.,YES,CLAIM,NONE
+629-22380-2,Hay que insistir y echar la bronca.,YES,CLAIM,NONE
+629-22380-3,"Y si el sujeto en cuestión se pone violento, se llama a la policia.",YES,PREMISE,ADDITION
+629-22380-4,"No me he visto nunca en la tesitura, pero habrá que sacar fuerzas de donde se pueda.",NO,SPAM,NONE
+629-22732-0,Apoyo.,NO,SPAM,NONE
+629-22732-1,Y yo he colgado otra propuesta que además de mantener limpios los puntos de basuras sea solidaria.,NO,SPAM,NONE
+629-22732-2,Recogida domiciliaria de muebles y enseres - id.,NO,SPAM,NONE
+629-22732-3,Es/proposals/1471 Echarle un vistazo y apoyarla también.,NO,SPAM,NONE
+629-22735-0,Perdón.,NO,SPAM,NONE
+629-22735-1,Puse mal el enlace.,NO,SPAM,NONE
+629-22735-2,Es este.,NO,SPAM,NONE
+629-22772-0,En muchos puntos de la ciudad se acumula basura.,NO,SPAM,NONE
+629-22772-1,Los servicios municipales la recogen.,NO,SPAM,NONE
+629-22772-2,"¡pero no es su misión! ¡Esa basura no debería estar ahí! ¡Son los vecinos, insolidarios y sucios, que se dedican a tirar sus deshechos en cualquier parte! Qué asco.",NO,SPAM,NONE
+629-22773-0,"Perdón, quise decir desechos y no eso que he escrito.",NO,SPAM,NONE
+629-23427-0,"Voy todos los día a trabajar y pasar por la calle de la Palma da asco, y no es que sea culpa del ayuntamiento, es que los vecinos no respetan nada.",NO,SPAM,NONE
+629-23427-1,"Hay bolsas de basura en la calle día y noche, suciedad, pintadas, orines, churretes en las aceras, cacas de perro, los adoquines levantados.",NO,SPAM,NONE
+629-23427-2,Se producen multitud de caídas de personas mayores y también no tan mayores.,NO,SPAM,NONE
+629-23525-0,"También en el barrio de Ciudad Lineal, donde alguien va tirando bolsas de escombros de obra junto a los contenedores de basura y llevan meses ahí sin que nadie los recoja.",NO,SPAM,NONE
+629-24426-0,"En lugar de sancionar, ¿Por qué no mejorar el servicio de recogida de muebles?.",YES,CLAIM,NONE
+629-24426-1,"Que se acorte el plazo de recogida, de 3 días a 1 ó 2.",YES,CLAIM,NONE
+629-24426-2,Estoy seguro que se reduciría el volumen de muebles en la calle.,YES,PREMISE,RESULT
+629-24426-3,"Lo que no puede ser, es que vayas a cambiar el colchón, te traigan el nuevo el lunes, y tengas el viejo parapetrado en casa hasta el jueves, porque el servicio está hasta arriba en muchas ocasiones.",NO,SPAM,NONE
+629-24426-4,Un saludo.,NO,SPAM,NONE
+629-24868-0,Votado.,NO,SPAM,NONE
+629-24868-1,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, no a los Cerdos por favor votad.",NO,SPAM,NONE
+629-25998-0,Carmena Dimisión.,NO,SPAM,NONE
+629-26855-0,"Jajaja ¿Te crees que no había ratones con Ana Botella? Yo te puedo decir todas las calles en las que los he visto o tenido que cambiar mi ruta por verlos delante, y todo desde que la limpieza, sobretodo de algunos barrios más que en otros, dejó de ser una preioridad y se puso en manos privadas.",NO,SPAM,NONE
+629-26855-1,"Fuera Carmena no, exigir responsabilidades a los gestores que pusieron nuestra ciudad a la altura de las más sucias del mundo.",NO,SPAM,NONE
+629-26855-2,Los ratones no salen más que a la basura y la comida que hay en la calle.,NO,SPAM,NONE
+629-26482-0,Propuesta no relacionada con esta.,NO,SPAM,NONE
+629-26549-0,Control de Puntos Limpios: .,NO,SPAM,NONE
+629-26899-0,"Totalmente de acuerdo, votado.",NO,SPAM,NONE
+629-26899-1,"Además de la suciedad, el incremento de comportamientos incivilizados que padecemos muchos vecinos, que abarcan desde ensuciar hasta tomar los espacios públicos para emborracharse, gritar, pelearse, etc. Se ha convertido en el día a día de muchos barrios.",NO,SPAM,NONE
+629-26899-2,"Por favor, echad un ojo a esta propuesta y votad para que los que hacen lo que les da la gana se anden con más ojo.",NO,SPAM,NONE
+629-26899-3,"Las calles son de todos, y tenemos que aprender a cuidar lo público: .",YES,CLAIM,NONE
+629-27349-0,Apoyada ruego apoyo y difusión He abierto un propuesta en el Ayuntamiento de Madrid para que se incluya en los programas de los colegios clases para la educación por el respeto a los animales.,NO,SPAM,NONE
+629-27349-1,"Por favor, a los que estáis empadronados en Madrid, podéis votar y estáis de acuerdo: votad la propuesta.",NO,SPAM,NONE
+629-27349-2,Por un mundo mejor desde las aulas.,NO,SPAM,NONE
+629-27349-3,"Un país, una civilación se puede juzgar por la forma en que trata a sus animales.",NO,SPAM,NONE
+629-27349-4,M. Gandhi.,NO,SPAM,NONE
+629-27996-0,Totalmente de acuerdo.,NO,SPAM,NONE
+629-27996-1,"La gente utiliza los contenedores de vidrio y cartón para dejar muebles, ropa y hasta bastura orgánica.",NO,SPAM,NONE
+629-27996-2,"Y si les dices algo, encima se ponen chulitos.",NO,SPAM,NONE
+629-28214-0,En el edificio en el que vivo hay uno que se dedica a tirar su basura desde la ventana.,NO,SPAM,NONE
+629-30384-0,"Estoy de acuerdo, pero también habría que ver que educación tenemos, vivo en Vallecas y compruebo que se ha aumentado el servicio, sin embargo es imposible, los vecino dejan la basura fuera de los contenedores, tiran todo por el suelo e incluso ya se orina en cualquier sitio.",YES,PREMISE,OPPOSITION
+629-30384-1,Necesitamos se nos recuerde y se nos concience que es un servicio que pagamos todos y que deberíamos ser limpios para optimizarlo.,YES,CLAIM,NONE
+629-33735-0,"Hola, creo que nuestras son complementarias.",NO,SPAM,NONE
+629-33735-1,Propongo recoger y transportar la basura por la red de metro.,YES,CLAIM,NONE
+629-33735-2,"Yo en principio no creo que sea una buena idea sancionar, aunque en algunas ocasiones es necesario para concienciar creo que es una buena idea ayudar a la gente a encontrar soluciones para sus problemas y no darles excusas.",YES,PREMISE,CONCESSION
+629-33735-3,"Si alguien deposita su basura en la calle teniendo la oportunidad de depositarla en un lugar mucho claramente conocido y de fácil acceso como una boca de metro, quizas debería recibir algún tipo de sanción.",YES,PREMISE,CONDITION
+629-36452-0,Totalmente de aceuerdo! En mi barrio es flipante ver a la gente tirar las cosas al suelo teniendo papeleras al lado!.,NO,SPAM,NONE
+629-41076-0,Votado.,NO,SPAM,NONE
+629-41076-1,"Por favor, apoyad mi iniciativa sobre limpieza en la ciudad.",NO,SPAM,NONE
+629-41076-2,Entre todos nos háremos oir.,NO,SPAM,NONE
+629-42648-0,No se donde vive Ni me importa.,NO,SPAM,NONE
+629-42648-1,Gracias a Dios yo que también vivo en Madrid no veo las cosas que usted alude.,NO,SPAM,NONE
+629-42648-2,Quizás lo mejor para uted sea localizar otro sitio de residencia que cumpla sus expectativas.,NO,SPAM,NONE
+629-42655-0,Vivo en la zona centro.,NO,SPAM,NONE
+629-42655-1,"Y mi expectativa es que la gente tenga educación, otra gente ni la tiene ni la ha conocido.",NO,SPAM,NONE
+629-46412-0,Hay una propuesta muy buena para acabar con las cacas de los perros en la calle.,NO,SPAM,NONE
+629-46412-1,Por favor votadla y dadle difusión.,NO,SPAM,NONE
+629-50152-0,Lo sucios que se quedan los parques en un día es de vergüenza.,NO,SPAM,NONE
+629-50152-1,Se tiene que limpiar pero hay que ser mucho más limpixs.,NO,SPAM,NONE
+629-50152-2,Si no no sirve de nada.,NO,SPAM,NONE
+629-50152-3,Hay muchas papeleras y no cuesta nada.,NO,SPAM,NONE
+629-52900-0,Yo vivo en Carabanchel bajo Oporto En cuestión de 10 años el problema de la limpieza se ha disparado.,NO,SPAM,NONE
+629-52900-1,"La clave esta en la falta de educación y concienciación, y es muy difícil de resolver.",YES,CLAIM,NONE
+629-52900-2,Me temo que en este país sólo respondemos si nos ponen multas.,YES,CLAIM,NONE
+629-52900-3,"Tiramos colillas, dejamos bolsas de basura en los huecos de los árboles, orinamos e n las puertas de los garajes, dejamos botellas en los parques, .",NO,SPAM,NONE
+629-52900-4,Y por qué esto no se ve en otras ciudades europeas? Campañas de concienciación y sanciones.,NO,SPAM,NONE
+629-55732-0,Todo mi apoyo a esta propuesta.,NO,SPAM,NONE
+629-55732-1,"Se debería exigir a las comunidades de vecinos el acceso de todos los vecinos a los cubos de basura en el interior de los portales y bajo multa, el adecuado mantenimiento de sus aceras y zonas más inmediatas de la calle, y denunciar el incumplimiento.",YES,CLAIM,NONE
+629-62914-0,"La gente es muy vaga, tenemos puntos limpios donde poder dejar ese tipo de basuras.",NO,SPAM,NONE
+629-62914-1,Me pone negra ver al lado de los contenedores de panel y de vidrio todo tipo de enseres.,NO,SPAM,NONE
+629-73182-0,"Cuando veo los parques llenos de excrementos de perros, de basura, perros sueltos fuera del horario permitido, sin bozal los que deben llevarlo, etc. , pienso en que esas multas que no se han puesto son dinero perdido para invertir en concienciar a los ciudadanos o mejorar Madrid.",NO,SPAM,NONE
+629-76214-0,"Mi hija de 12 años propone: Yo propongo que no haya multas por la música de los bares, restaurantes o de la calle que por lo menos alegra las calles y que haya multas por la gente que contamina el país con latas, basura etc. Por el suelo al igual que con la caca de los perros que nos desaniman a pasear.",YES,CLAIM,NONE
+629-86505-0,"La gente es una guarra, tengo vecinos que dejan bolsas de basura en la calle en lugar de bajar al cuarto de basuras y tirarlo al contenedor.",NO,SPAM,NONE
+629-92981-0,"El barrio de Usera lleva mucho tiempo descuidado y faltó de limpieza pero, en los últimos años, sus vecinos también andan faltos de civismo.",NO,SPAM,NONE
+629-92981-1,"Se dejan bolsas de basura en cualquier esquina, muebles, colchones y porquería de todas las clases.",NO,SPAM,NONE
+629-92981-2,Se hace necesaria la aplicación de multas ejemplares en estos barrios en los que parece que únicamente reclamamos nuestros derechos pero no atendemos nuestras obligaciones más básicas para la convivencia y salubridad.,YES,CLAIM,NONE
+878-92981-0,Gestión ética de la población de palomas urbanas,YES,CLAIM,NONE
+878-92981-0,"Para gestionar la población de palomas urbanas existen métodos éticos que no incurren en maltrato animal, como incurre la captura de estas aves y posterior sacrifico.",NO,SPAM,NONE
+878-92981-1,Pienso anticonceptivo.,NO,SPAM,NONE
+878-92981-0,"Hola amigos, lanzamos de nuevo la propuesta ya que fue archivada, a ver si podemos recabar más votos esta vez Código de la propuesta: mad-2016-12-14890 Gestión ética de la población de palomas urbanas 2016 os dejo el link para que la apoyéis si aún seguís pensando en esta cohabitación con la fauna urbana y en especial con las palomas.",NO,SPAM,NONE
+878-92981-1,GRacias Patricia  no a la captura y sacrificio de palomas urbanas en Madrid.,NO,SPAM,NONE
+878-92981-2,"Aplicación del pienso anticonceptivo, palomares ecológicos y otros métodos de disuasión y medidas por parte de urbanismo y parques.",YES,CLAIM,NONE
+878-92981-3,"En todas las ciudades de España se están realizando campañas sistemáticas de exterminio de palomas urbanas, cazándolas mediante redes automáticas o jaulas trampa para su posterior sacrificio por gaseamiento mediante CO2 Sólo en la ciudad de Barcelona se exterminan cada año más de 60000 palomas.",NO,SPAM,NONE
+878-92981-4,"Esta masacre lleva más de 20 años realizándose, sin ningún resultado salvo que ciertas empresas se lucren.",NO,SPAM,NONE
+878-92981-5,"Este sistema aparte de ser cruel, no reduce o controla la población de palomas urbanas.",NO,SPAM,NONE
+878-92981-6,Está demostrado que es esta masacre es ineficaz y supone que nuestros ayuntamientos están malgastando nuestro dinero en maltrato animal gratuito Hay estudios europeos y estadounidenses demuestran que la utilización de pienso anticonceptivo es una opción eficaz y viable.,NO,SPAM,NONE
+878-92981-7,"En las localidades del estado español que se ha puesto en práctica el uso de anticonceptivos en palomas se ha reducido hasta un 80 la población en pocos años, como en los municipios de Cardona y Molins de Rei.",NO,SPAM,NONE
+878-92981-8,"Este sistema de control de la natalidad en palomas es totalmente indoloro y no implica muerte, no como los métodos que se están llevando a cabo ahora.",NO,SPAM,NONE
+878-92981-9,Ventajas del pienso anticonceptivo como método de control de la población de palomas urbanas El video enlazado a esta propuesta explica las alternativas con claridad:  https: //youtu.,NO,SPAM,NONE
+878-92981-10,Be/u1wSN1isBy8 Desde malp reclamamos un cambio en la política de control de la población de palomas para una gestión ética y eficaz de su población ahora en Madrid También existen otros métodos complementarios como son la instalación de palomares ecológicos educativos y de control y medidas disuasorias o urbanísticas que ayudan a mantener una población de palomas estable y sana.,YES,CLAIM,NONE
+878-92981-11,"Si quieres saber más sobre captura y sacrificio de palomas urbanas y las posibles alternativas, puedes ver este vídeo o ir a nuestra página web.",NO,SPAM,NONE
+878-92981-12,"Ya han firmado la campaña a nivel nacional más de 10000 personas: y a nivel local en Madrid, ya la han firmado más de 3600 personas: Acabemos con el maltrato animal en Madrid.",NO,SPAM,NONE
+878-92981-13,"Madrid, cuidad amiga de los animales nuevo video explicativo:  https: //youtu.",NO,SPAM,NONE
+878-92981-14,Be/8rd5ih_ReJ4 140716 El pasado 14 de julio se aprobó en la Asamblea de Madrid la nueva ley 42016 sobre protección animal en toda nuestra Comunidad de Madrid.,NO,SPAM,NONE
+878-92981-15,"En ella, en su disposición adicional se promueve la gestión de palomar urbanas a través de pienso anticonceptivo y huevos falsos palomares ecológicos ergo, si contamos con que la nueva ley trae una dotación económica, ahora no quedan escusas para que los ayuntamientos de la Comunidad de Madrid y menos el de Madrid Capital, sigan capturando y matando palomas.",YES,CLAIM,NONE
+878-92981-16,Al menos ya no habrá más captura urbana en la Comunidad de Madrid.,YES,CLAIM,NONE
+878-92981-17,Un pequeño paso.,NO,SPAM,NONE
+878-92981-18,"Por fin una gestión ética de palomas urbanas, al igual que en la misma ley se incluye la gestión de ética de perros y gatos feral o abandonados o de todo tipo.",NO,SPAM,NONE
+878-92981-19,"No obstante, sigamos pidiéndoselo a Carmena para que no dude en aplicar el pienso anticonceptivo para aves lo antes posible firma y difunde porfa, ya van 2000 firmantes Picos y Plumas Mis Amigas Las Palomas  .",NO,SPAM,NONE
+878-20737-0,"En Barcelona se usa, y está dando buenos resultados.",NO,SPAM,NONE
+878-20939-0,"Barcelona es, claramente, una ciudad adelantada a nuestros tiempos.",NO,SPAM,NONE
+878-20939-1,Enhorabuena!.,NO,SPAM,NONE
+878-25817-0,"Lo mejor es el pienso y no matar a los animales como si no importaran, eso debería prohibirse.",NO,SPAM,NONE
+878-27927-0,"El problema de las palomas se solucionaría de una manera muy sencilla y natural: depredadores naturales ej. : halcones peregrinos, de los que ya contamos con 7 nidos en Madrid capital y dejar de darlas de comer.",YES,CLAIM,NONE
+878-27927-1,Al alimentarlas aumenta el número de huevos en las puestas y se multiplican por encima de lo sostenible.,NO,SPAM,NONE
+878-27927-2,"Sio no tienen depredadores la población degenera, ya que nos depredadores naturales eliminan los individuos enfermos;",YES,CLAIM,NONE
+878-27927-3,así vemos palomas degeneradas y enfermas por doquier.,YES,PREMISE,RESULT
+878-29991-0,"Está muy bien introducir depredadores naturales, que es un método de control poblacional complementario, pero el caso no es dejar de alimentarlas y que mueran de hambre, sino al igual que la Gestión de las Colonias Felinas se puede hacer a través del CES bc hay que controlar su población controlando su cría, mediante pienso anticonceptivo y cerrando lugares de nidada.",YES,PREMISE,OPPOSITION
+878-29991-1,"La solución no pasa por que los animales mueran de hambre, eso no soluciona nada, sino que su número sea estable y estén sanas y críen lo justo para mantener la población que queremos en nuestras ciudades.",YES,CLAIM,NONE
+878-29991-2,"El hambre no es la solución, eso sólo mata pichones y enferma a todos.",YES,PREMISE,REASON
+878-29991-3,"Es un caso parecido a no dar de comer a los gatos, lo único que pasa es que las crías mueren, los jóvenes enferman y los adultos sobreviven de manera lamentable, pero en ningún caso se reduce la población.",NO,SPAM,NONE
+878-73416-0,El problema es el gran número de palomas que hay ahora mismo en la ciudad.,NO,SPAM,NONE
+878-73416-1,En Moratalaz por ejemplo por el parque de Dionisio Ridruejo es expectacular tanto el número de las que hay como el tamaño.,NO,SPAM,NONE
+878-73416-2,"Está todo lleno de excrementos y además están acabando con otras aves más pequeñas gorriones, etc. Con depredadores naturales es imposible dado el gran número que hay, habría que optar por capturas controladas y piensos que eviten su reproducción.",YES,CLAIM,NONE
+878-95871-0,"Entiendo tu preocupación pero demostrada está la ineficacia de la captura de palomas, sólo sirve para rejuvenecer la población y nada más, tirar el dinero público y maltratar animales.",YES,CLAIM,NONE
+878-95871-1,Pero existe una solución ética que pasa por la administración de pienso anticonceptivo y uso de huevos falsos palomares ecológicos cierre de los huecos de nidada fuera de la temporada de cría.,YES,PREMISE,ALTERNATIVE
+878-96997-0,Mi preocupación con el pienso anticonceptivo es si realmente hay estudios fiables y que se hayan realizado con el suficiente tiempo como para estar seguros de que no provoca el mismo efecto en otras aves y/o animales que puedan ingerirlos y que incluso están en peligro de extinción.,YES,CLAIM,NONE
+878-96997-1,"Y también me gustaría saber si se ha avanzado algo en el cuidado de las enfermas, pues si vosotros no tenéis disponibilidad, la única opción es el pagar a un veterinario particular, lo cual no tiene cabida en la economía de muchos particulares sensibles a los animales.",YES,PREMISE,REASON
+878-97005-0,"HOla Ciudadana25, te comento.",NO,SPAM,NONE
+878-97005-1,"Hay estudios científicos probados sobre la eficacia del pienso, en Ïtalia y en otros países.",YES,CLAIM,NONE
+878-97005-2,Así que su eficacia a día de hoy no se cuestiona.,YES,PREMISE,RESULT
+878-97005-3,El pienso viene adminstrándose ya por 15-20 años.,NO,SPAM,NONE
+878-97005-4,En el video que hay adjunto a la entrada se muestran algunos datos sobre los estudios.,NO,SPAM,NONE
+878-97005-5,"MIra, hay tres piensos actualmente en uso en diferentes países: .",NO,SPAM,NONE
+878-97006-0,El pienso está estudiado eficacia y protocolo de administración así como su seguridad sanitaria y medioambiental.,NO,SPAM,NONE
+878-97008-0,"Sobre el tema de las palomas y su no admisión en los centros de recuperación de fauna salvaje, tenemos una campaña abierta para corregir este especismo que sólo lleva a pichones muertos no es justo que por nacer paloma no tengas una oportunidad al igual que sí latienes si eres una cría huérfana de cualquier otra ave si puedes difunde la campaña: .",NO,SPAM,NONE
+878-97009-0,"En todo caso, nosotras abrimos la web de primeros auxilios para ayudar a las personas y palomas en apuros, pero evidentemente ante lesiones físicas y operaciones hay que asistir a un veterinario.",NO,SPAM,NONE
+878-97009-1,"Pero igualmente hay que hacerlo si uno se encuentra un gato, pues en malas condiciones difícilmente lo van a salvar en la perrera.",NO,SPAM,NONE
+878-97009-2,Ahora en Madrid en ppio con la nueva ley 42016 de pa los gatos y perros tienen más oportunidades y yno serán sacrificados en las perreras los sanos en principio y se va a invertir en su mejor gestión.,NO,SPAM,NONE
+878-97010-0,"Te djeo la web de primero auxilios, nosotros salvo la web y el change, y las aves que podemos recuperar con nuestros pocos recursos humanos y económicos, es lo que hemos podido ofrecer al mundo: .",NO,SPAM,NONE
+878-96195-0,Hola Patricia: Dado que hay más de 3000 firmas de Madrid en la plataforma de change.,NO,SPAM,NONE
+878-96195-1,"Org, le recomendaria que contactara con los firmantes para que apoyaran la propuesta también aquí.",NO,SPAM,NONE
+878-96195-2,"Seguira quedando recorrido hasta los 500000 pero con que firmen la mitad de ellos ya le dara un buen espaldarazo a esta propuesta, que le dara visibilidad y atraera más apoyos.",NO,SPAM,NONE
+878-96195-3,Un saludo.,NO,SPAM,NONE
+878-96262-0,"Sí, eso he intentado, volveré a mandarlo vía change.",NO,SPAM,NONE
+878-96262-1,Org para ver si los firmantes de change se animan.,NO,SPAM,NONE
+878-96262-2,Gracias.,NO,SPAM,NONE
+878-99539-0,"Nos estamos quedando sin población de gorriones a causa de las palomas, estas son tantas que arrasan con todo, no digamos de como ponen de porquería calles, fachadas, farolas, y cualquir sitio donde puedan posarse.",NO,SPAM,NONE
+878-99539-1,La gente sigue echándolas de comer con la consiguiente suciedad de las calles.,NO,SPAM,NONE
+878-99539-2,"Urge hacer algo pronto, pero algo eficaz.",NO,SPAM,NONE
+878-112657-0,"Eso de los gorriones no es cierto, es un falso mito como lo de que las cotorras acaban con los gorriones.",NO,SPAM,NONE
+878-138712-0,"Dónde lo venden, yo me lo compro! Estoy desesperada.",NO,SPAM,NONE
+878-141148-0,Hola Patricia.,NO,SPAM,NONE
