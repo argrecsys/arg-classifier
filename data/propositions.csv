@@ -607,3 +607,92 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 494-162653-7,Por favor.,NO,SPAM,NONE
 494-162653-8,"Cuando una va a Castilla, hasta la más humilde ermita románica tiene su valor.",NO,SPAM,NONE
 494-162653-9,Espero que Madrid lo haga pronto.,NO,SPAM,NONE
+507-162653-0,Equilibrar riqueza entre la zona norte y sur de Madrid,YES,CLAIM,NONE
+507-162653-0,Crear zonas de grandes edificios como ocurre en la Castellana norte y con su ampliación ya propuesta pero en la zona Sur de Madrid para equilibrar económicamente los barrios ricos del norte.,YES,CLAIM,NONE
+507-162653-0,Replanificar la ampliación del paseo de la Castellana hacia la zona norte con más torres que enriquecen aún más la zona más rica de Madrid y produce más desequilibrio entre norte y sur.,YES,CLAIM,NONE
+507-162653-1,"Esta replanificación supondría crear esa zona de gran riqueza económica en la zona sur de Madrid, en cualquiera de las zonas municipales existentes, o incluso aprovechando zonas mal aprovechadas.",YES,CLAIM,NONE
+507-162653-2,"Una idea sería recalificar terrenos municipales en cualquiera de los barrios del sur de Madrid, que permitiera crear una gran zona de torres como en la zona norte y que podría venderse al sector privado, utilizando esa inversión privada para crear instalaciones municipales que ayuden a los vecinos del sur.",YES,CLAIM,NONE
+507-162653-3,"Una posibilidad sería la estación de contenedores del Abroñigal, que tiene una ubicación ideal con conexión con M30 M40 y A4 con posibilidad de crear parada de cercanías al tener ya conexión con Atocha, y a escasos metros de la estación Sur de Autobuses.",YES,CLAIM,NONE
+507-162653-4,"Todo esto lo haría ideal para que sea una zona interesante a inversores La estación pertenece a adifrenfe por tanto pseudo-publico, y al igual que se expropia a particulares para hacer una carretera, también se puede hacer aquí.",YES,CLAIM,NONE
+507-162653-5,"Esta posibilidad es una de las muchas que podría valorar el ayuntamiento cualquiera de los barrios del sur afectados cerca de la caja mágica, en la zona de Entrevías pegado a M40 incluso soterrando todo el nudo sur con la inversión privada que se obtenga con la venta de esos terrenos construyendo las torres en toda esa nueva zona resultante y que podría mejorar barrios como:        .",YES,CLAIM,NONE
+507-18270-0,Ya hay una propuesta como esta.,NO,SPAM,NONE
+507-18270-1,"Unid los votos, por favor.",NO,SPAM,NONE
+507-20101-0,Buenas compañero.,NO,SPAM,NONE
+507-20101-1,Pásanos enlace para unir los temas y votos.,NO,SPAM,NONE
+507-25080-0,No la encuentro.,NO,SPAM,NONE
+507-18387-0,Completamente de acuerdo.,NO,SPAM,NONE
+507-18803-0,Más inversión en la zona norte el sur siempre se lleva más tajada ESO es así.,NO,SPAM,NONE
+507-21634-0,No comparto tu opinión.,NO,SPAM,NONE
+507-22808-0,En Vallecas llevamos 23 años en el olvido más absoluto.,NO,SPAM,NONE
+507-24332-0,23 sólo? ¡Poco me parece! Hace mucho no veo una apuesta firme del ayuntamiento en el barrio.,NO,SPAM,NONE
+507-20437-0,Mi propuesta está alineada y engloba varias peticiones en especial para VIllaverde Saludos.,NO,SPAM,NONE
+507-23718-0,Podría ser en esa zona.,NO,SPAM,NONE
+507-22806-0,Me gustaría que le echarás un vistazo a ver que te parece esa propuesta.,NO,SPAM,NONE
+507-22806-1,Gracias.,NO,SPAM,NONE
+507-25558-0,Lo mismo pasa con los terrenos que tiene ADIF de logística en Villaverde Bajo.,YES,PREMISE,SIMILARITY
+507-25558-1,Que se trasladen a otros terrenos por un canje o que se les expropie.,YES,CLAIM,NONE
+507-25558-2,"No tienen sentido en el s. XXI dividiendo por completo los barrios de Villaverde Bajo, Los Rosales, El Espinillo, Butarque y San Cristóbal de los Ángeles.",YES,PREMISE,REASON
+507-28736-0,Esas zonas también podrían valorarse para esta idea.,NO,SPAM,NONE
+507-26334-0,Venimos del debate aquí: .,NO,SPAM,NONE
+507-29880-0,No estoy de acuerdo porque traer a nuestros barrios esos grandes edificios de oficinas sería transformar un barrio donde se puede más o menos respirar y pasear a convertirse en un lugar lleno coches contaminación.,YES,CLAIM,NONE
+507-29880-1,"Para que este barrio impulse la inversión hay que fomentar lugares de ocio educativo, teatros, cines, museos, eso si sería una buena inversión porque tenemos espacio para aparcar sin atascos, es una zona amplia y podemos llegar a hacer un barrio que promueva la cultura, y a su vez el consumo en restaurantes, terrazas, hacer incluso alguna terraza mirador en el parque la Gavia, donde hay buenas vistas al igual que la terraza que ya existe en el Cerro del Tio Pio en Puente de Vallecas y que por cierto es un lugar excepcional también para pasar un rato de ocio encuchando música y tomando algo por supuesto estos lugares tendrían que tener parques infantiles al lado para fomentar el encuentro familiar y disfrutar de todo lo que potencialmente tenemos y no hemos desarrollado aún.",YES,PREMISE,ADDITION
+507-31565-0,La existencia de grandes edificios no implica para nada más contaminación.,YES,CLAIM,NONE
+507-31565-1,Como ejemplo mira el complejo de Azca.,YES,PREMISE,EXPLANATION
+507-31565-2,Es una zona totalmente restringida al tráfico en dónde tiene todo el interior zona peatonal.,YES,PREMISE,PRECISION
+507-31565-3,Lo mismo ocurre con las cuatro torres de la zona norte.,YES,PREMISE,SIMILARITY
+507-31565-4,Para nada hay más tráfico en esa zona del que ya hay en por ejemplo el nudo sur.,YES,PREMISE,PRECISION
+507-32584-0,Esa propuesta no tiene que ver.,NO,SPAM,NONE
+507-32676-0,Jaja ¿y que? jajaja.,NO,SPAM,NONE
+507-32676-1,Es un pelmazo.,NO,SPAM,NONE
+507-32834-0,Cada apoyo cuenta.,NO,SPAM,NONE
+507-32678-0,"Lo de equilibrar económicamente Madrid es buena idea, pero eso abriría un debate más bien en lugar de ser una propuesta, creo yo.",NO,SPAM,NONE
+507-32678-1,"Porque ¿Cómo hacerlo? ¿construyendo grandes edificios en el sur? ¿pero y si hay mejores maneras de crear riqueza en un barrio que construir grandes edificios de oficinas? ¿no habrá mejores maneras de atraer inversiones, y tiendas y que se yo? ¿Qué clase de riqueza buscamos? ¿conocéis la zona de la estación sur de autobuses y Méndez Álvaro, con esos enormes edificios vacíos de noche, sin tiendas un corte ingles sin viviendas, con unos cines donde de noche hay que cruzar de acera si viene alguien enfrente por lo solitario y abandonado que aparece todo a esas horas en que terminan las películas? ¿es esa la clase de riqueza que buscamos, artificial, de encargo de grandes despachos? ¿no será mejor la riqueza que germina en los barrios cuando se pone el caldo de cultivo adecuado y las condiciones adecuadas?.",NO,SPAM,NONE
+507-32807-0,"Por mucho que hagas rascacielos y apartamentos de lujo en el sur, seguirá habiendo desequilibrio económico ya que el entorno no lo cambias, al igual que no cambias la delincuencia y la gente con la que convives, no estoy diciendo que en el norte sea todo de color de rosa, que hay problemas de desigualdad como en cualquier sitio, pero no lo veo factible, la verdad, además la gente de esos barrios se quejará del consecuente encarecimiento de la vida.",YES,PREMISE,ADDITION
+507-34650-0,No estoy para nada de acuerdo contigo.,NO,SPAM,NONE
+507-34650-1,En la zona de Mendez Álvaro que indicas como mal ejemplo creo que es todo lo contrario.,YES,CLAIM,NONE
+507-34650-2,"Creo que no sabes como era esa zona antes de crear la zona de cine, centro comercial y torres.",YES,CLAIM,NONE
+507-34650-3,Anteriormente esa zona era una escombrera dónde se vendía droga y había incluso chabolas.,YES,PREMISE,PRECISION
+507-34650-4,Actualmente esa zona es muy rica y no tiene ningún tipo de problema.,YES,PREMISE,PRECISION
+507-34650-5,"De hecho en la zona se han empezado a crear viviendas que son de lujo y algunas empresas muy importantes se han localizado muy próximas como una constructora y una multinacional española dedicada al refinado, y otra de distribución.",YES,PREMISE,EXPLANATION
+507-34650-6,Vamos que creo que es un claro ejemplo de lo que mejora la zona.,YES,PREMISE,RESTATEMENT
+507-34756-0,"Conozco la zona más de lo que se piensa, y aunque pongan oficinas no quiere decir nada.",NO,SPAM,NONE
+507-34756-1,Que está mejor no lo puede dudar nadie con el mero hecho de asfaltar y condicionar la zona.,NO,SPAM,NONE
+507-34756-2,"Por la mañana está bien con el tráfico normal de gente trabajando, pero la gente que quda cuando se acaba el tránsito de trabajo no la cambia.",NO,SPAM,NONE
+507-34756-3,"En el Pozo el caso es parecido, ya no predominan las chabolas y la gentuza, pero por mucho ladrillo, farolas y adoquines que pongas para acondicionar las calles, barrios, no deja de haber más delincuencia y delitos.",YES,CLAIM,NONE
+507-85785-0,De acuerdísimo con todo.,NO,SPAM,NONE
+507-85785-1,Pienso igual.,NO,SPAM,NONE
+507-85785-2,Soy de Carabanchel y esto no lo cambian unos rascacielos.,NO,SPAM,NONE
+507-59634-0,Efectivamente.,NO,SPAM,NONE
+507-59634-1,"Esa zona antiguamente era la flex, y estaba totalmente abandonada.",NO,SPAM,NONE
+507-34789-0,Creo que lo que propones resultaría echar a la gente que vive en la zona sur de alquiler a una zona más barata y que sólo pervivirían los que ya son propietarios.,YES,CLAIM,NONE
+507-34789-1,Justamente eso ha pasado en Méndez alvaro en muchos casos.,NO,SPAM,NONE
+507-34789-2,"Así que creo que esta propuesta es un poco un lavado de cara que no sirve realmente, además de que cono comentan por ahí conllevaría un montón de tráfico e incomodidades además de que no estoy a favor de invertir en más construcción.",NO,SPAM,NONE
+507-35406-0,No estoy del todo de acuerdo.,NO,SPAM,NONE
+507-35406-1,"Esta claro que si la zona mejora el nivel de vida subirá pegado a esa zona, pero también se mejorará el nivel económico de la gente, mejorando la prosperidad de los negocios de la zona y se mejorará la cantidad de trabajo.",YES,PREMISE,ADDITION
+507-35406-2,Respecto al tráfico estoy totalmente en desacuerdo con lo que dices.,NO,SPAM,NONE
+507-35406-3,"Actualmente en las 4 torres trabajan miles de personas y no hay para nada ningún problema de tráfico alrededor, sin embargo en el nudo sur si hay a diario atascos.",YES,CLAIM,NONE
+507-35406-4,"Las zonas más pobladas están en el sur y si el trabajo lo tienen en el sur habría menos desplazamientos, y si además les permites desplazarse en transporte público con una gran oferta de líneas de autobús, metro, cercanias, etc. , el tráfico mejoraría en la zona sur y en todo Madrid.",YES,PREMISE,ADDITION
+507-38882-0,Crees que la gente que trabaja en sectores que no son de oficinas como por ejemplo la construcción o la hostelería que son la mayoría de los que viven de alquiler en el sur trabajarían y se beneficiarían de las torres? Dejo un enlace en relación a lo que digo: https: //es.,YES,CLAIM,NONE
+507-38882-1,M. Wikipedia.,NO,SPAM,NONE
+507-38882-2,Org/wiki/Gentrificaci%C3%B3n.,NO,SPAM,NONE
+507-35403-0,Aquí hay una propuesta que resulta muy interesante y parecida a esta: .,NO,SPAM,NONE
+507-37415-0,"Basta de propuestas como la de la Operación Chamartín, cuando en el sur hay desastres como las vías del tren, la M40 y otras carreteras que dividen y destrozan barrios y nadie ha dicho ni pío porque no hay intereses creados.",YES,CLAIM,NONE
+507-37415-1,Que se solucione primero el sur de Madrid antes de volver a dejar precioso el norte a costa de machacar a los de siempre.,YES,CLAIM,NONE
+507-59633-0,Totalmente de acuerdo con tu idea.,NO,SPAM,NONE
+507-59633-1,Sobre todo en el hecho de que se sigan estudiando proyectos como el de chamartin y aquí en el sur no haya ningúno.,YES,CLAIM,NONE
+507-60901-0,Sería genial conseguir más apoyos!.,NO,SPAM,NONE
+507-66085-0,Una gran propuesta.,NO,SPAM,NONE
+507-66085-1,A ver si el actual equipo de gobierno hace algo con contundencia con los barrios marginados del sur.,NO,SPAM,NONE
+507-69302-0,Qué vergüenza da ver cómo algunos ciudadanos quieren hacer creer a la gente que existe algo casi genético que impide a los barrios del sur mejorar si se invierte en ellos.,NO,SPAM,NONE
+507-69302-1,¡Pues no hay ejemplos casi de lo contrario! Basta ya de discriminar al sur de Madrid.,YES,CLAIM,NONE
+507-81092-0,Es hora de que el ayuntamiento garantice el cumplimiento de este derecho fundamental cuando las personas no son capaces por falta de recursos.,NO,SPAM,NONE
+507-81092-1,"Al igual que estamos reclamando la remunicipalización de determinados servicios públicos, demandamos también la remunicipalización de un derecho básico como es el comer que muchas personas en nuestra ciudad no pueden ejercer por falta de medios económicos.",NO,SPAM,NONE
+507-85687-0,Barro de trabajadores necesita mejorar ya.,NO,SPAM,NONE
+507-85749-0,A ver si esto sufre un empuje ahora con las noticias de la operación Chamartín y se acuerdan del sur de Madrid también.,NO,SPAM,NONE
+507-85816-0,Totalmente de acuerdo con la propuesta.,NO,SPAM,NONE
+507-85816-1,"Si bien es cierto que construir una zona de oficinas y grandes edificios no es la solución mágica, si es el primer paso para reequilibrar la ciudad y conseguir que, con medidas adicionales adecuadamente planificadas y coordinadas, las características de la ciudad en el norte y en el sur no sigan separándose más sino que puedan aproximarse un poco.",NO,SPAM,NONE
+507-85816-2,"Igualmente, como se ha dicho, si la zona sur esta mucho más poblada y los grandes centros de trabajo y oficinas se construyen en el norte, se produce un ineficiente trasvase diario de personas hacia el norte que lo único que hace es aumentar el tráfico, la contaminación y reducir calidad de vida.",YES,PREMISE,SIMILARITY
+507-85985-0,Estoy totalmente de acuerdo.,NO,SPAM,NONE
+507-85985-1,El sur también existe.,NO,SPAM,NONE
+507-93233-0,"Es cierto que con un par de rascacielos no se arregla nada, pero sí es cierto lo que apuntaban otros comentarios en que el sur está más poblado que el norte, y que en el norte están situadas más sedes de empresas y centros de trabajo que en el sur, y que ello implica miles de desplazamientos todos los días con el consecuente aumento del tráfico y la contaminación.",YES,CLAIM,NONE
+507-93233-1,Vivo al lado de la M30 y lo veo desde mi casa todos los días.,NO,SPAM,NONE
