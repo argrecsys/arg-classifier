@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.0
+    Version: 0.8.0
     Created on: May 13, 2022
-    Updated on: Jun 2, 2022
+    Updated on: Jun 6, 2022
     Description: Data processing module
 """
 
@@ -99,7 +99,8 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
                     lbl_start = span['start']
                     lbl_end = span['end']
                     
-                    if lbl_start >= ix_start and lbl_end <= ix_end:
+                    # If a statement wraps a span or if a span wraps a statement...
+                    if (lbl_start >= ix_start and lbl_end <= ix_end) or (ix_start >= lbl_start and ix_end <= lbl_end):
                         label2 = span['label']
                         
                         if label2 != LABEL_LINKER:

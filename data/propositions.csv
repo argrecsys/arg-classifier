@@ -254,8 +254,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 152-19175-0,"Pues no es mi intención mentir a nadie, quizá tenga desconocimiento, pero si se genera una industria potente dudo mucho que no se reciclen las placas solares en un futuro, lo que no se pueden reciclar seguro son los desechos radiactivos de las centrales nucleares.",YES,CLAIM,NONE
 152-26112-0,"Coincido en que siempre hay que informarse antes de votar, pero también antes de expresar opiniones con tanta contundencia y tan poco fundamentadas.",NO,SPAM,NONE
 152-26112-1,"Los materiales con los que se construyen los paneles solares son fundamentalmente silicio, vidrio, aluminio y cobre, fáciles de reciclar y no contaminantes.",YES,CLAIM,NONE
-152-26112-2,La vida útil de los paneles es bastante superior a 25 años y el.,NO,SPAM,NONE
-152-26112-3,"Beneficio medioambiental obtenido por la producción limpia de energía, es muy superior a los pequeños impactos derivados de la fabricación y el reciclado.",NO,SPAM,NONE
+152-26112-2,La vida útil de los paneles es bastante superior a 25 años y el.,YES,PREMISE,PRECISION
+152-26112-3,"Beneficio medioambiental obtenido por la producción limpia de energía, es muy superior a los pequeños impactos derivados de la fabricación y el reciclado.",YES,PREMISE,PRECISION
 152-26112-4,Ya está bien de satanizar una tecnología tan positiva para la sociedad y el medio ambiente simplemente por que va contra los intereses de las grandes compañías eléctricas y sus abusivos beneficios.,NO,SPAM,NONE
 152-18958-0,"Apoyaría esta propuesta, pero parece que no puedo, porque vivo en un pueblo de Madrid.",NO,SPAM,NONE
 152-18958-1,Good.,NO,SPAM,NONE
@@ -296,8 +296,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 152-21896-2,"Si estuviesen bien hechas funcionarían, estamos en españistan.",NO,SPAM,NONE
 152-21179-0,Yo os apoyo ampollare.,NO,SPAM,NONE
 152-22115-0,Madrid debería declararse Ciudad por el autoconsumo.,YES,CLAIM,NONE
-152-22115-1,No sé si es competencia del Ayunt.,NO,SPAM,NONE
-152-22115-2,"Pero dada la zancadilla que el ministerio y las empresas eléctricas le está poniendo al autoconsumo energético en España, sería un buen mensaje político.",NO,SPAM,NONE
+152-22115-1,No sé si es competencia del Ayunt.,YES,PREMISE,REASON
+152-22115-2,"Pero dada la zancadilla que el ministerio y las empresas eléctricas le está poniendo al autoconsumo energético en España, sería un buen mensaje político.",YES,PREMISE,REASON
 152-22115-3,"Esto no es una utopía, es una realidad y una libertad ya presente en muchos países donde, por ejemplo, tú puedes llegar a IKea Inglaterra y comprar tu kit solar para autoconsumo.",NO,SPAM,NONE
 152-22115-4,"Ikea instala placas en todas sus tiendas del mundo menos en las de España, porque aquí no se lo permiten.",NO,SPAM,NONE
 152-22115-5,"Las comunidades podrían tener sus paneles para gastos comunitarios ascensores, luces, piscina, carga coches eléctricos en garaje y particulares.",NO,SPAM,NONE
@@ -356,11 +356,11 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 152-83300-4,Lo que les fastidiaria a las hidroeléctricas y me encanta la idea de comentarlo con subemciones y estoy de acuerdo que crearían puestos de trabajo.,YES,CLAIM,NONE
 152-83300-5,Sólo una pregunta No aprobó hace poco el Gobierno una ley que penaliza el uso de la energía solar y del autoconsumo? ¿No habría que cambiar antes esa ley?.,NO,SPAM,NONE
 152-84004-0,Habria que hacerlo de manera que la comunidad de propietarios no tenga que realizar ningúna consulta a todos los comuneros.,YES,CLAIM,NONE
-152-84004-1,"Es decir, que el vecino que quiera, pueda instalar sin pedir permiso a la comunidad.",NO,SPAM,NONE
-152-84004-2,"Si no, se complica.",NO,SPAM,NONE
+152-84004-1,"Es decir, que el vecino que quiera, pueda instalar sin pedir permiso a la comunidad.",YES,PREMISE,RESTATEMENT
+152-84004-2,"Si no, se complica.",YES,PREMISE,RESTATEMENT
 152-84004-3,"Y de subvenciones nada, da lugar a clientelismo.",YES,PREMISE,ADDITION
 152-87441-0,"Hola, Aquí tenéis una propuesta parecida.",NO,SPAM,NONE
-417-87441-0,Gratuidad del tlf 010 Inf.,NO,SPAM,NONE
+417-87441-0,Gratuidad del tlf 010 Inf.,YES,CLAIM,NONE
 417-87441-0,He llamado a estos números y me vino un recargo en la factura por no ser número gratuito ni fijo para mi sorpresa.,NO,SPAM,NONE
 417-18534-0,Creo que no es necesario que sea gratuito.,YES,CLAIM,NONE
 417-18534-1,Mucho 91 resulta incluido en las tarifas planas de fijo y existe uno para el 010 que es el 91 529 82 10 y de la policia municipal en vez del 092 creo que es el 917131440.,YES,PREMISE,PRECISION
@@ -486,10 +486,10 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 417-97563-0,"Porfa, que alguien retome esta propuesta para con un año por delante, recabar más apoyos además de que repitan los más de 16000 que la habían apoyado antes de caducar Las peticiones de los ciudadanos no deberían caducar como si fuera un pastel o una medicina.",NO,SPAM,NONE
 417-97563-1,Si se pone de nuevo que se Notifique lo más y mejor posible.,NO,SPAM,NONE
 494-97563-0,Plan integral contra grafitis,YES,CLAIM,NONE
-494-97563-0,Limpieza integral de las paredes y cierres grafiteados.,NO,SPAM,NONE
-494-97563-1,Vigilancia real por parte de la policía.,NO,SPAM,NONE
-494-97563-2,Disuadir a los infractores con multas o trabajos comunitarios.,NO,SPAM,NONE
-494-97563-3,Lugares dedicados para grafitis.,NO,SPAM,NONE
+494-97563-0,Limpieza integral de las paredes y cierres grafiteados.,YES,CLAIM,NONE
+494-97563-1,Vigilancia real por parte de la policía.,YES,CLAIM,NONE
+494-97563-2,Disuadir a los infractores con multas o trabajos comunitarios.,YES,CLAIM,NONE
+494-97563-3,Lugares dedicados para grafitis.,YES,CLAIM,NONE
 494-97563-0,"El centro de Madrid es maravilloso, pero no hay barrio que no dé un aspecto realmente degradado a consecuencia de los miles de grafitis que ensucian fachadas y cierres metálicos de comercios.",NO,SPAM,NONE
 494-97563-1,Pero este problema afecta a toda la ciudad.,NO,SPAM,NONE
 494-97563-2,Necesitamos poner en valor la belleza de nuestra ciudad.,NO,SPAM,NONE
@@ -665,8 +665,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 507-59634-0,Efectivamente.,NO,SPAM,NONE
 507-59634-1,"Esa zona antiguamente era la flex, y estaba totalmente abandonada.",NO,SPAM,NONE
 507-34789-0,Creo que lo que propones resultaría echar a la gente que vive en la zona sur de alquiler a una zona más barata y que sólo pervivirían los que ya son propietarios.,YES,CLAIM,NONE
-507-34789-1,Justamente eso ha pasado en Méndez alvaro en muchos casos.,NO,SPAM,NONE
-507-34789-2,"Así que creo que esta propuesta es un poco un lavado de cara que no sirve realmente, además de que cono comentan por ahí conllevaría un montón de tráfico e incomodidades además de que no estoy a favor de invertir en más construcción.",NO,SPAM,NONE
+507-34789-1,Justamente eso ha pasado en Méndez alvaro en muchos casos.,YES,PREMISE,PRECISION
+507-34789-2,"Así que creo que esta propuesta es un poco un lavado de cara que no sirve realmente, además de que cono comentan por ahí conllevaría un montón de tráfico e incomodidades además de que no estoy a favor de invertir en más construcción.",YES,PREMISE,PRECISION
 507-35406-0,No estoy del todo de acuerdo.,NO,SPAM,NONE
 507-35406-1,"Esta claro que si la zona mejora el nivel de vida subirá pegado a esa zona, pero también se mejorará el nivel económico de la gente, mejorando la prosperidad de los negocios de la zona y se mejorará la cantidad de trabajo.",YES,PREMISE,ADDITION
 507-35406-2,Respecto al tráfico estoy totalmente en desacuerdo con lo que dices.,NO,SPAM,NONE
@@ -683,14 +683,14 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 507-60901-0,Sería genial conseguir más apoyos!.,NO,SPAM,NONE
 507-66085-0,Una gran propuesta.,NO,SPAM,NONE
 507-66085-1,A ver si el actual equipo de gobierno hace algo con contundencia con los barrios marginados del sur.,NO,SPAM,NONE
-507-69302-0,Qué vergüenza da ver cómo algunos ciudadanos quieren hacer creer a la gente que existe algo casi genético que impide a los barrios del sur mejorar si se invierte en ellos.,NO,SPAM,NONE
+507-69302-0,Qué vergüenza da ver cómo algunos ciudadanos quieren hacer creer a la gente que existe algo casi genético que impide a los barrios del sur mejorar si se invierte en ellos.,YES,PREMISE,REASON
 507-69302-1,¡Pues no hay ejemplos casi de lo contrario! Basta ya de discriminar al sur de Madrid.,YES,CLAIM,NONE
 507-81092-0,Es hora de que el ayuntamiento garantice el cumplimiento de este derecho fundamental cuando las personas no son capaces por falta de recursos.,NO,SPAM,NONE
 507-81092-1,"Al igual que estamos reclamando la remunicipalización de determinados servicios públicos, demandamos también la remunicipalización de un derecho básico como es el comer que muchas personas en nuestra ciudad no pueden ejercer por falta de medios económicos.",NO,SPAM,NONE
 507-85687-0,Barro de trabajadores necesita mejorar ya.,NO,SPAM,NONE
 507-85749-0,A ver si esto sufre un empuje ahora con las noticias de la operación Chamartín y se acuerdan del sur de Madrid también.,NO,SPAM,NONE
-507-85816-0,Totalmente de acuerdo con la propuesta.,NO,SPAM,NONE
-507-85816-1,"Si bien es cierto que construir una zona de oficinas y grandes edificios no es la solución mágica, si es el primer paso para reequilibrar la ciudad y conseguir que, con medidas adicionales adecuadamente planificadas y coordinadas, las características de la ciudad en el norte y en el sur no sigan separándose más sino que puedan aproximarse un poco.",NO,SPAM,NONE
+507-85816-0,Totalmente de acuerdo con la propuesta.,YES,CLAIM,NONE
+507-85816-1,"Si bien es cierto que construir una zona de oficinas y grandes edificios no es la solución mágica, si es el primer paso para reequilibrar la ciudad y conseguir que, con medidas adicionales adecuadamente planificadas y coordinadas, las características de la ciudad en el norte y en el sur no sigan separándose más sino que puedan aproximarse un poco.",YES,CLAIM,NONE
 507-85816-2,"Igualmente, como se ha dicho, si la zona sur esta mucho más poblada y los grandes centros de trabajo y oficinas se construyen en el norte, se produce un ineficiente trasvase diario de personas hacia el norte que lo único que hace es aumentar el tráfico, la contaminación y reducir calidad de vida.",YES,PREMISE,SIMILARITY
 507-85985-0,Estoy totalmente de acuerdo.,NO,SPAM,NONE
 507-85985-1,El sur también existe.,NO,SPAM,NONE
@@ -715,23 +715,23 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 629-55734-3,"Los borrachos que se mean en la calle al salir de los bares cuando no hay ningúno abierto, deberían mear antes y beber menos.",YES,CLAIM,NONE
 629-74853-0,"Coincido básicamente con tu comentario pero hay que entender que hay profesionales del coche como los taxistas que no tienen donde hacer sus necesidades o la gente que tiene una edad y la próstata a reventar también tiene derecho a salir de casa y un urinario público facilitaría las cosas y también para los indigentes que no están en la calle por gusto, en cuanto al trato pues habría que vigilarlo muy de cerca para que esté en condiciones.",YES,CLAIM,NONE
 629-18858-0,"Haría falta un análisis Dafo para determinar cuál es el verdadero problema, trabajar con un equipo multidisciplinar, ya que es muy necesario tanto para la tarea de acompañamiento como para el desarrollo social y comunitario, y así esclarecer la paga inclusiva para llevar a cabo esta labor.",YES,CLAIM,NONE
-629-18945-0,Hay dos problemas: educación: no hay.,NO,SPAM,NONE
-629-18945-1,"Autoridad: perdida, no hay.",NO,SPAM,NONE
-629-18945-2,"Solución: re-educación y finalmente, la sanción.",NO,SPAM,NONE
-629-18945-3,Como los puntos del carnet de conducir.,NO,SPAM,NONE
-629-18945-4,"Pero como no hay tiempo, ni dinero, la medida que entendemos todos es el palo.",NO,SPAM,NONE
-629-18945-5,Las ordenanzas están hechas.,NO,SPAM,NONE
-629-18945-6,Falta cumplirlas.,NO,SPAM,NONE
-629-18945-7,Ensucias = sanción.,NO,SPAM,NONE
-629-18945-8,Botellón = sanción.,NO,SPAM,NONE
-629-18945-9,Ruido = sanción.,NO,SPAM,NONE
-629-18945-10,Etc.,NO,SPAM,NONE
-629-18945-11,"Sólo necesitamos más policía para vigilar, corregir y en último caso, iniciar la sanción.",NO,SPAM,NONE
-629-18945-12,"Sencillo, bajo mi punto de vista.",NO,SPAM,NONE
-629-19001-0,Da pena ir por un parque y ver todo lleno de basura.,NO,SPAM,NONE
-629-19001-1,"Entre semana incluso, lleno de latas, envoltorios de sándwiches, papeles, botellas, de todo.",NO,SPAM,NONE
-629-19001-2,Para echarse a llorar.,NO,SPAM,NONE
-629-19001-3,"Hay que ser vago, y gentuza para no poder coger las dos cosas que uses en cada comida y tirarla a la papelera que hay a 10 pasos.",NO,SPAM,NONE
+629-18945-0,Hay dos problemas: educación: no hay.,YES,CLAIM,NONE
+629-18945-1,"Autoridad: perdida, no hay.",YES,CLAIM,NONE
+629-18945-2,"Solución: re-educación y finalmente, la sanción.",YES,CLAIM,NONE
+629-18945-3,Como los puntos del carnet de conducir.,YES,CLAIM,NONE
+629-18945-4,"Pero como no hay tiempo, ni dinero, la medida que entendemos todos es el palo.",YES,CLAIM,NONE
+629-18945-5,Las ordenanzas están hechas.,YES,CLAIM,NONE
+629-18945-6,Falta cumplirlas.,YES,CLAIM,NONE
+629-18945-7,Ensucias = sanción.,YES,CLAIM,NONE
+629-18945-8,Botellón = sanción.,YES,CLAIM,NONE
+629-18945-9,Ruido = sanción.,YES,CLAIM,NONE
+629-18945-10,Etc.,YES,CLAIM,NONE
+629-18945-11,"Sólo necesitamos más policía para vigilar, corregir y en último caso, iniciar la sanción.",YES,CLAIM,NONE
+629-18945-12,"Sencillo, bajo mi punto de vista.",YES,CLAIM,NONE
+629-19001-0,Da pena ir por un parque y ver todo lleno de basura.,YES,CLAIM,NONE
+629-19001-1,"Entre semana incluso, lleno de latas, envoltorios de sándwiches, papeles, botellas, de todo.",YES,CLAIM,NONE
+629-19001-2,Para echarse a llorar.,YES,CLAIM,NONE
+629-19001-3,"Hay que ser vago, y gentuza para no poder coger las dos cosas que uses en cada comida y tirarla a la papelera que hay a 10 pasos.",YES,CLAIM,NONE
 629-19001-4,"Una buena multa es lo que hace falta, que sino hay gente aunque probablemente provengan del cerdo, no del mono como se cree que no aprende.",YES,CLAIM,NONE
 629-19071-0,Estoy de acuerdo.,NO,SPAM,NONE
 629-19071-1,Yo he hecho esta propuesta Sobre concienciación para no ensuciar.,NO,SPAM,NONE
@@ -777,8 +777,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 629-20262-0,"He propuesto también concienciar podría estar bien 1º concienciar, 2º avisar de que se va a sancionar 3º sancionar;",YES,CLAIM,NONE
 629-20262-1,"como ha dicho Santiago Lopez, sería mejor con trabajo a la comunidad no sé si es posible.",YES,CLAIM,NONE
 629-20273-0,Ningúna medida sancionadora si no va acompañada de una campaña importante y sería de concienciación ciudadana sobre la limpieza de nuestra casa común.,YES,CLAIM,NONE
-629-20928-0,Creo que es muy difícil perseguir a las personas que ensucian la ciudad.,NO,SPAM,NONE
-629-20928-1,"Deberíamos ser los propios ciudadanos, los que recrimináramos estos comportamientos a los que ensucian.",NO,SPAM,NONE
+629-20928-0,Creo que es muy difícil perseguir a las personas que ensucian la ciudad.,YES,CLAIM,NONE
+629-20928-1,"Deberíamos ser los propios ciudadanos, los que recrimináramos estos comportamientos a los que ensucian.",YES,CLAIM,NONE
 629-21630-0,"El problema inmediato es la basura que se acumula en la calle: al lado de los contenedores, en las papeleras desbordadas.",NO,SPAM,NONE
 629-21630-1,Etc.,NO,SPAM,NONE
 629-21630-2,Pero el problema viene del fondo: La irresponsabilidad de quienes no les importa manchar lo que es de todos y frente a esto una solución a largo plazo: educaciön y desafortunadamente muchas veces solo entendemos cuando se nos sanciona;,NO,SPAM,NONE
@@ -871,8 +871,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 629-92981-1,"Se dejan bolsas de basura en cualquier esquina, muebles, colchones y porquería de todas las clases.",NO,SPAM,NONE
 629-92981-2,Se hace necesaria la aplicación de multas ejemplares en estos barrios en los que parece que únicamente reclamamos nuestros derechos pero no atendemos nuestras obligaciones más básicas para la convivencia y salubridad.,YES,CLAIM,NONE
 878-92981-0,Gestión ética de la población de palomas urbanas,YES,CLAIM,NONE
-878-92981-0,"Para gestionar la población de palomas urbanas existen métodos éticos que no incurren en maltrato animal, como incurre la captura de estas aves y posterior sacrifico.",NO,SPAM,NONE
-878-92981-1,Pienso anticonceptivo.,NO,SPAM,NONE
+878-92981-0,"Para gestionar la población de palomas urbanas existen métodos éticos que no incurren en maltrato animal, como incurre la captura de estas aves y posterior sacrifico.",YES,CLAIM,NONE
+878-92981-1,Pienso anticonceptivo.,YES,CLAIM,NONE
 878-92981-0,"Hola amigos, lanzamos de nuevo la propuesta ya que fue archivada, a ver si podemos recabar más votos esta vez Código de la propuesta: mad-2016-12-14890 Gestión ética de la población de palomas urbanas 2016 os dejo el link para que la apoyéis si aún seguís pensando en esta cohabitación con la fauna urbana y en especial con las palomas.",NO,SPAM,NONE
 878-92981-1,GRacias Patricia  no a la captura y sacrificio de palomas urbanas en Madrid.,NO,SPAM,NONE
 878-92981-2,"Aplicación del pienso anticonceptivo, palomares ecológicos y otros métodos de disuasión y medidas por parte de urbanismo y parques.",YES,CLAIM,NONE
@@ -937,7 +937,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 878-112657-0,"Eso de los gorriones no es cierto, es un falso mito como lo de que las cotorras acaban con los gorriones.",NO,SPAM,NONE
 878-138712-0,"Dónde lo venden, yo me lo compro! Estoy desesperada.",NO,SPAM,NONE
 878-141148-0,Hola Patricia.,NO,SPAM,NONE
-879-141148-0,Si reciclas.,NO,SPAM,NONE
+879-141148-0,Si reciclas.,YES,CLAIM,NONE
 879-141148-0,"Implantar máquinas de recogida de envases en los supermercados, centros comerciales.",YES,CLAIM,NONE
 879-141148-1,Cada vez que reciclas recibe una cantidad de dinero por haber depositado vidrio/envases en el contenedor.,YES,CLAIM,NONE
 879-141148-0,"La idea es Implantar máquinas de recogida de envases en los supermercados, centros comerciales.",YES,CLAIM,NONE
@@ -1022,11 +1022,11 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 879-65508-1,"Echar un vistazo en torno a los contenedores de basura y de reciclaje y veréis que mal se recicla: papeles en bolsas de plástico, botes de pintura en envases, espejos y cristales de ventana en vidrios, ramas y maderas en envases, juguetes en envases, etc. ¿Por qué nos costará tanto implicarnos en el bien común?.",YES,PREMISE,REASON
 879-66692-0,"Más que tener más máquinas sólo para botellas, lo que hace falta es instalar un sistema de retorno en general que sea prioritario antes que el sistema ecoembes, que no funciona porque está pensado para ecoembes yno para las ciudadanas o la gestión más eficient de basuras.",YES,CLAIM,NONE
 879-66692-1,Ambientologa.,NO,SPAM,NONE
-879-75310-0,"La Unidad Reciclaje Móvil URM estárá basado en una implantación integral de gestión de residuos no impositiva, voluntaria.",NO,SPAM,NONE
-879-75310-1,En cambio el SDDR que se intenta aquí es impositivo y detrás del mismo es lógico que existan ciertos intereses económicos.,NO,SPAM,NONE
-879-75310-2,Las máquines expendedoras de la devolución?.,NO,SPAM,NONE
-879-77805-0,La intención es buena pero esta propuesta se queda corta en muchos aspectos.,NO,SPAM,NONE
-879-77805-1,Una gestión municipal en todo el proceso de la gestión de los alimentos sobrantes optimizaría su utilización y la gente sin recursos podría alimentarse diariamente.,NO,SPAM,NONE
+879-75310-0,"La Unidad Reciclaje Móvil URM estárá basado en una implantación integral de gestión de residuos no impositiva, voluntaria.",YES,CLAIM,NONE
+879-75310-1,En cambio el SDDR que se intenta aquí es impositivo y detrás del mismo es lógico que existan ciertos intereses económicos.,YES,CLAIM,NONE
+879-75310-2,Las máquines expendedoras de la devolución?.,YES,CLAIM,NONE
+879-77805-0,La intención es buena pero esta propuesta se queda corta en muchos aspectos.,YES,CLAIM,NONE
+879-77805-1,Una gestión municipal en todo el proceso de la gestión de los alimentos sobrantes optimizaría su utilización y la gente sin recursos podría alimentarse diariamente.,YES,CLAIM,NONE
 879-77805-2,"Por ello, plantee hace unos días, una propuesta mucho más completa y ambiciosa que esta que propones y para la que pido el voto de la gente: .",NO,SPAM,NONE
 7-77805-0,Limpiar las calles,YES,CLAIM,NONE
 7-77805-0,Algo tan básico como limpiar.,YES,CLAIM,NONE
@@ -1116,8 +1116,8 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 7-17466-1,Las únicas calles que se limpian son Espítu Santo y Manuela Malasaña.,NO,SPAM,NONE
 7-17466-2,El estado del barrio roza la insalubridad.,NO,SPAM,NONE
 7-17466-3,La gestión en cuanto a limpieza ha sido y sigue siendo más que pésima.,NO,SPAM,NONE
-7-17472-0,"Ahora Madrid ya puso planes de limpieza urgentes durante el verano, para adelantar los planes de limpieza regulares, para encontrarse con todo tipo de externalizaciones y contratos blindados por el partido anterior.",NO,SPAM,NONE
-7-17472-1,Llevan en ello desde que llegaron.,NO,SPAM,NONE
+7-17472-0,"Ahora Madrid ya puso planes de limpieza urgentes durante el verano, para adelantar los planes de limpieza regulares, para encontrarse con todo tipo de externalizaciones y contratos blindados por el partido anterior.",YES,PREMISE,REASON
+7-17472-1,Llevan en ello desde que llegaron.,YES,PREMISE,REASON
 7-17472-2,Convendría informarse antes de hacer proponer iniciativas ciudadanas de este calibre.,YES,CLAIM,NONE
 7-17607-0,Pues les ha cundido poco.,NO,SPAM,NONE
 7-17607-1,Siguen estando hechas un asco.,NO,SPAM,NONE
