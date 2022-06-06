@@ -1028,3 +1028,301 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 879-77805-0,La intención es buena pero esta propuesta se queda corta en muchos aspectos.,NO,SPAM,NONE
 879-77805-1,Una gestión municipal en todo el proceso de la gestión de los alimentos sobrantes optimizaría su utilización y la gente sin recursos podría alimentarse diariamente.,NO,SPAM,NONE
 879-77805-2,"Por ello, plantee hace unos días, una propuesta mucho más completa y ambiciosa que esta que propones y para la que pido el voto de la gente: .",NO,SPAM,NONE
+7-77805-0,Limpiar las calles,YES,CLAIM,NONE
+7-77805-0,Algo tan básico como limpiar.,YES,CLAIM,NONE
+7-17092-0,Pero si esto está ya en el programa y es una prioridad.,NO,SPAM,NONE
+7-17107-0,Pues no termina de cumplirse el compromiso.,NO,SPAM,NONE
+7-17107-1,Ir por el centro es un asco muchas veces.,NO,SPAM,NONE
+7-17127-0,"Por centro y por los barrios, yo me avergüenzo cada día que salgo de mi casa y veo las calles.",NO,SPAM,NONE
+7-17137-0,Pero que llevan 3 meses! y este problema es de años y años.,NO,SPAM,NONE
+7-17137-1,Por Dios un voto de confianza.,NO,SPAM,NONE
+7-17141-0,Pero es que en tres mes se tenía que haber visto un poco de movimiento y que conste que les vote precisamente para ver la mejoría.,NO,SPAM,NONE
+7-17200-0,La semana pasada tuve la desgraciada fortuna de cruzarme con una rata cerca de Atocha.,NO,SPAM,NONE
+7-17200-1,En mi vida me había encontrado con ratas por la calle en Madrid.,NO,SPAM,NONE
+7-17212-0,La suciedad que hay por mi barrio se ha multiplicado en estos 3 meses precisamente.,NO,SPAM,NONE
+7-17212-1,Yo también les vote y es impresicindible que empiecen a tomar medidas ya porque es vergonzoso tener una ciudad como Madrid tan sumamente sucia.,YES,CLAIM,NONE
+7-17212-2,A este paso la ciudad va a parecer una cloaca.,NO,SPAM,NONE
+7-17218-0,"Pues habrá que exigirlo a gritos para que se pongan urgentemente, yo también creo que en estos meses no solo no ha mejorado si no que ha empeorado, yo me avergüenzo de esta ciudad, y no hay que olvidar que es la capital y tendría que dar ejemplo.",YES,CLAIM,NONE
+7-17232-0,"Coincido plenamente contigo en lo de la limpieza de distritos, algunos dan autentico asco, aunque también tiene que haber algo de responsabilidad por parte de la gente de no ensuciar las calles.",YES,PREMISE,CONCESSION
+7-17232-1,Algunos piensan que es un estercolero y pueden ir tirando todo lo que les venga en la real gana.,NO,SPAM,NONE
+7-17232-2,Deberían tomarse medidas en uno y otro sentido.,YES,CLAIM,NONE
+7-17237-0,"Totalmente de acuerdo, otra medida sería que las autoridades aplicarán la ley en este sentido y sancionaran a los sucios pero para eso hay que vigilar y no pasar de largo.",YES,CLAIM,NONE
+7-17346-0,Una cosa es predicar y otra dar trigo.,NO,SPAM,NONE
+7-17346-1,La demagogia es gratuita.,NO,SPAM,NONE
+7-17346-2,En mi barrio Hortaleza - Santa María hace dosmeses.,NO,SPAM,NONE
+7-17348-0,Que no se limpia.,NO,SPAM,NONE
+7-17348-1,Foco de infeccionesseguro.,NO,SPAM,NONE
+7-17135-0,El Ayuntamiento ya tiene entre sus objetivos y tareas habituales limpiar las calles.,NO,SPAM,NONE
+7-17135-1,"Para hacer una propuesta, sería necesario algo tan básico como concretar qué medidas concretas de limpieza se solicitan.",NO,SPAM,NONE
+7-17139-0,"Si es una tarea habitual, en mi barrio lo de habitual es una vez al mes.",NO,SPAM,NONE
+7-17139-1,La medida que se solicita es que se lleve a cabo la tarea que se presupone hay que hacer.,YES,CLAIM,NONE
+7-17139-2,"Quiero dignidad en las calles, nada más.",NO,SPAM,NONE
+7-17166-0,Entiendo tu enfado con el problema mayúsculo que es la limpieza en la ciudad porque lo compartimos todos.,NO,SPAM,NONE
+7-17166-1,"Sin embargo, creo que este tipo de propuestas genéricas no llegan a ningúna parte, ya que ya es una prioridad para todos.",YES,CLAIM,NONE
+7-17166-2,"Mejor sería informarse de los motivos por los que los actuales contratos de limpieza con empresas adjudicatarias no están funcionando te aconsejo este artículo: y después proponemos algo concreto para solucionar el problema: ¿seguir como hasta ahora hasta que expiren los contratos? ¿Rompemos los contratos, pagamos la multa, y remunicipalizamos el servicio? o cualquier otra que se nos ocurra.",YES,CLAIM,NONE
+7-17178-0,"Yo no soy la alcaldesa, eso lo tiene que solucionar ella, para eso se le eligió, si hay una cláusulas que obligan a hacer bien el servicio y no se hace se podrán tomar medidas.",NO,SPAM,NONE
+7-17178-1,Sólo sé que mi barrio está muy sucio y fue el distrito que más votó a este nuevo gobierno municipal para que ahora esté tan olvidado.,NO,SPAM,NONE
+7-17178-2,Pagamos nuestros impuestos igual que otros distritos.,NO,SPAM,NONE
+7-17187-0,Creo que tenemos visiones distintas del tipo de propuestas que se deberían hacer para ser consideradas en referéndum.,NO,SPAM,NONE
+7-17187-1,"En todo caso comparto al 100 tu malestar por el problema de la limpieza, y ojalá que se solucione lo antes posible.",NO,SPAM,NONE
+7-17191-0,"Estaría bien que los concejales de los distritos se dieran una vuelta por los barrios, claro que el de Vallecas Villa cuando viera toda la basura en las calles se volvería corriendo a su despacho.",YES,CLAIM,NONE
+7-17620-0,"Marta g tu hace mucho que no paseas por Madrid no? Papeleras que rebosan basura, calles llenas de hojas, colillas, cacas de perro, bolsas.",NO,SPAM,NONE
+7-17620-1,La medida concreta es que haya más personal que deje las aceras y Madrid limpio.,YES,CLAIM,NONE
+7-17620-2,"Así de sencillo, escoba y recogedor en mano.",NO,SPAM,NONE
+7-17146-0,"A exigir a las contratas que cumplan, o incluso ponerles penalizaciones por incumplimientos.",YES,CLAIM,NONE
+7-17239-0,También hacer un programa de educar a algunos ciudadanos para no ensuciar.,YES,CLAIM,NONE
+7-17245-0,"Totalmente de acuerdo, educar y sancionar y mientras tanto limpiar y limpiar.",YES,CLAIM,NONE
+7-17615-0,Aquí la educación no basta.,NO,SPAM,NONE
+7-17615-1,La gente solo aprende a golpe de multa.,NO,SPAM,NONE
+7-17615-2,"Cuando le dices a algún dueño de un perro que recoja la caca de su perro, encima se encaran, te insultan y casi te agreden.",NO,SPAM,NONE
+7-17615-3,"Si les multaran con 2000 pavos cuando les vieran, se acabaria con la mala educación.",NO,SPAM,NONE
+7-19156-0,Creo que primero habría que hacer una buena campaña de concienciación.,YES,CLAIM,NONE
+7-19156-1,"Y efectivamente, posteriormente pasar a unas buenas multas.",YES,PREMISE,ADDITION
+7-19148-0,Muy acertado y.,NO,SPAM,NONE
+7-17266-0,"Limpieza de suciedad, basura, graffitis y remodelación de aluche.",NO,SPAM,NONE
+7-17305-0,"Algunas calles, por no decir la mayoría, del barrio de Carabanchel están intransitables por la cantidad de basura que se acumula en ellas.",NO,SPAM,NONE
+7-17305-1,Los contenedores de basura existentes siempre están desbordados.,NO,SPAM,NONE
+7-17305-2,Hay que estar pendiente de dónde se pisa porque las cacas de perro están por todas partes.,NO,SPAM,NONE
+7-17305-3,El olor a orines es insoportable.,NO,SPAM,NONE
+7-17305-4,Siento asco y vergüenza de este que ha sido siempre mi barrio y que ha ido deteriorándose a pasos de gigante en los últimos años.,NO,SPAM,NONE
+7-17309-0,"Señora Carmena: escuche a los ciudadanos la gente ya no habla de papelitos en el suelo, sino de ratas, .",NO,SPAM,NONE
+7-17333-0,"Además de la obvia necesidad de limpiar las calles a fondo especialmente del centro, que manifiesta un estado lamentable es necesario un plan global que eduque en colegios y barrios, informe en las calles a vecinos, transeúntes y colectivos y, como paso transitorio a la normalización, sancione a quien orine, escupa y defeque en la vía pública, no recoja los excrementos de sus animales y permita que estos orinen en portales y macetas, tire papeles, chicles, colillas o cualquier objeto que ensucie la vía y no participe en el correcto proceso de reciclaje.",NO,SPAM,NONE
+7-17333-1,"Lo primero es la concienciación, la información y la educación cívica y medio ambiental pero la situación de Madrid empieza a exigir medidas excepcionales en esta materia.",NO,SPAM,NONE
+7-17359-0,Totalmente de acuerdo contigo.,NO,SPAM,NONE
+7-17359-1,"No es más limpio el que más limpia, si no el que menos ensucia.",NO,SPAM,NONE
+7-17359-2,"Yo también viví en el extranjero y a base de multas muy gordas acaba la gente educada, lo cual es una pena pero es así.",NO,SPAM,NONE
+7-17359-3,Hasta que no salga de nosotros mismos el problema de la suciedad lo tendremos siempre.,NO,SPAM,NONE
+7-17359-4,Lo ideal sería vivir sin necesidad de tener un policía y un barrendero detrás de nosotros.,NO,SPAM,NONE
+7-17359-5,Un poquito de conciencia social y sentido común bastaría.,NO,SPAM,NONE
+7-18414-0,La normativa ya existe ¿Por qué no se hace cumplir? ¿Por qué se hace la vista gorda?.,NO,SPAM,NONE
+7-47520-0,"Totalmente de acuerdo, pero sinceramente, no me apetece esperar 10 años para que esté limpio, que es el tiempo mínimo necesario para que se eduque a la gente en los colegios, así que prefiero buenas brigadas de limpieza y sanciones duras contra los guarros.",YES,CLAIM,NONE
+7-75403-0,Disculpa los colegios no son el problema ni los niños.,NO,SPAM,NONE
+7-75403-1,La suciedad la creamos los adultos.,NO,SPAM,NONE
+7-75403-2,"Veo todos los días como gente tira papeles al suelo teniendo a dos pasos una papelera, gente con perros dejar la mierda y si es en medio de la calle mejor que mejor, que casualidad que los niños nada de nada.",NO,SPAM,NONE
+7-76716-0,"No he dicho que el problema sean los niños, lo que hago es responder a una persona que dice que hay que hacer un plan global de educación para que la gente no sea guarra, a esto he respondido que estoy de acuerdo en que hay que hacerlo, pero que como educar toma tiempo, al menos 10 años para cambiar significativamente las costumbres gracias a los chavales que van saliendo con esta educación recibida, y que no me apetece tener la ciudad hecha un asco tanto tiempo;",NO,SPAM,NONE
+7-76716-1,"por lo tanto, creo que hay que tener buenas brigadas de limpieza y además actuar en la educación de las personas, no solo de los niños.",YES,CLAIM,NONE
+7-85677-0,"De acuerdo pero a los guarros la educación solo les entra cuando les tocan el bolsillo, unas cuantas multas a los guarrazos y ya verá como cunde el ejemplo, sucedió lo mismo en tráfico hasta que no apareció el carnet por puntos y sus consecuencias no hubo un resultado efectivo.",YES,CLAIM,NONE
+7-83302-0,Si porque los carteles nuevos que han puesto no son muy eficaces.,NO,SPAM,NONE
+7-83302-1,Al menos en mi barrio en usera.,NO,SPAM,NONE
+7-83302-2,Se debería realizar un estudio para ver si esos carteles realmente redujeron la basura en las zonas donde los pusieron o sólo sirvieron para gastar dinero en unos cartelitos muy bonitos pero no tengo la certeza de que sirvan para algo.,YES,CLAIM,NONE
+7-83302-3,Y a las pruebas me remito.,NO,SPAM,NONE
+7-83302-4,Mi barrio está sucio.,NO,SPAM,NONE
+7-85676-0,"Lo mismo que mi barrio, Arganzuela también está muy sucio pero no porque no limpien que limpian sino porque hay unos cuantos guarros que les encanta esparcir basura por todos los lados, por lo que recomiendo educación ya que parece que los cartelitos no son útiles a base de multazo a los guarros.",YES,CLAIM,NONE
+7-17369-0,Propuesta relacionada: multar por los excrementos de lso perros: .,NO,SPAM,NONE
+7-17376-0,"Esto es lo más importante, calles limpias.",NO,SPAM,NONE
+7-17376-1,No sería agradable ir a una ciudad tan bonita como Londres y que estuviese lleno de mierda.,NO,SPAM,NONE
+7-17441-0,"Hay que volverse a sentirse orgulloso de nuestra ciudad, recuperarla, y por muchas cosas que se hagan si no está limpia, lo demás será inútil.",NO,SPAM,NONE
+7-17466-0,"Es lamentable el estado de las calles en la zona centro de Madrid, por no hablar ya en concreto de Malasaña, donde los vecinos tenemos que convivir rodeados de basura, calles llenas de orín, excrementos no solo de animales de 4 patas vómitos, botellas rotas.",NO,SPAM,NONE
+7-17466-1,Las únicas calles que se limpian son Espítu Santo y Manuela Malasaña.,NO,SPAM,NONE
+7-17466-2,El estado del barrio roza la insalubridad.,NO,SPAM,NONE
+7-17466-3,La gestión en cuanto a limpieza ha sido y sigue siendo más que pésima.,NO,SPAM,NONE
+7-17472-0,"Ahora Madrid ya puso planes de limpieza urgentes durante el verano, para adelantar los planes de limpieza regulares, para encontrarse con todo tipo de externalizaciones y contratos blindados por el partido anterior.",NO,SPAM,NONE
+7-17472-1,Llevan en ello desde que llegaron.,NO,SPAM,NONE
+7-17472-2,Convendría informarse antes de hacer proponer iniciativas ciudadanas de este calibre.,YES,CLAIM,NONE
+7-17607-0,Pues les ha cundido poco.,NO,SPAM,NONE
+7-17607-1,Siguen estando hechas un asco.,NO,SPAM,NONE
+7-17923-0,¿De qué sirve limpiar a fondo un tiempo si después se deja de limpiar?.,NO,SPAM,NONE
+7-17485-0,"Excepcional inversión en Parque Madrid Rio que todos los madrileños y turistas disfrutan y escasez de servicios esenciales como la limpieza en sus calles adyacentes como Antonio López, donde hay un hotel de 4 estrellas, numerosos negocios de hostelería y comercio y residen tantos vecinos como yo que el fin de semana paseamos entre basura al salir del portal.",NO,SPAM,NONE
+7-17534-0,No olviden el problema de limpieza que tenemos en barrios como Villaverde.,NO,SPAM,NONE
+7-17534-1,"La limpieza no es suficiente, horas después está nuevamente sucia.",NO,SPAM,NONE
+7-17534-2,En este caso principalmente por las personas que rebuscan en las bolsas de la basura.,NO,SPAM,NONE
+7-17534-3,"Propongo, además de un plan de información y ayuda para estas personas que por diferentes motivos buscan en la basura y que los contenedores se soterren en todo Madrid.",YES,CLAIM,NONE
+7-17534-4,Además multas disuasorias o trabajos de limpieza para aquellas personas que arrojen basura de cualquier tipo al suelo.,YES,PREMISE,ADDITION
+7-17593-0,"Una parte del problema es que hay que limpiar, otra parte es que hay que no ensuciar, Madrid esta sucio porque la gente es bastante irrespetuosa, deja la basura a las 9 de la mañana en los árboles o al lado de las papeleras, tiran muebles en la acera, doblar una caja de cartón para meterla en un contenedor parece que es algo muy complicado El primer paso para que todo este más limpio es que no se ensucie.",NO,SPAM,NONE
+7-17626-0,"Lo ideal es que no se manche, pero lo necesario es que se limpie.",NO,SPAM,NONE
+7-17626-1,"Culpar al ciudadano es lo habitual, pero pongo un simil para que se entienda.",NO,SPAM,NONE
+7-17626-2,"Si entras en un bar con el suelo lleno de servilletas sucias yo no entro la tendencia es a tirar la servilletas, es un acto inconsciente.",NO,SPAM,NONE
+7-17626-3,Si el bar está limpio buscarás la papelera.,NO,SPAM,NONE
+7-18320-0,"La única basura aceptable en un pueblo culto, es el polvo del ambiente, hojas de árboles, alguna rama y nada más.",NO,SPAM,NONE
+7-18320-1,"Todo lo demás proviene de la mano del hombre y no siempre de la mano Los papeles, latas, maderas, vidrios, botellas, plásticos, colillas, heces, vómitos, orines, etc. No llegaron solos a las calles, siempre hay un ciudadano sucio, resentido social, mal educado que expresa su mala conducta arrojando basura-.",NO,SPAM,NONE
+7-17844-0,"Hola, en mi opinión no me parece una prioridad a día de hoy.",YES,CLAIM,NONE
+7-17844-1,Creo que la ciudadanía deberíamos volcarnos más en acciones que realmente supongan un beneficio inmediato para los habitantes de Madrid.,YES,CLAIM,NONE
+7-17844-2,"La limpieza es importante pero no prioritaria, por tanto no apoyaré esta propuesta porque no lo veo prioritario.",YES,PREMISE,RESULT
+7-17957-0,¡¿Qué no es prioritario la limpieza de una ciudad? !.,NO,SPAM,NONE
+7-18052-0,Si para ti la limpieza no es prioritaria me imagino que tampoco lo será para ti la sanidad pública.,YES,CLAIM,NONE
+7-18101-0,La higiene pública es una de las máximas de cualquier sociedad civilizada y su ausencia una puerta abierta a otro males.,NO,SPAM,NONE
+7-18101-1,"Madrid se encuentra en un estado antihigienico, con evidentes problemas de salubridad en muchos casos Alguien se ha parado a ver el estado de los puntos de recogida en el distrito Centro? por ejemplo.",NO,SPAM,NONE
+7-18314-0,Por supuesto.,NO,SPAM,NONE
+7-18314-1,"Y el problema añadido es que en Madrid llueve poco, un tanto en otoño, algunas gotas en invierno y otro chubasco en primavera, el verano nada de nada, por eso se requiere tanta limpieza.",YES,PREMISE,REASON
+7-18314-2,"Necesitamos muchos camiones con mangueras de agua, barrer no es suficiente.",YES,CLAIM,NONE
+7-18314-3,Las calles apestan.,NO,SPAM,NONE
+7-18313-0,"Rober, leo estupefacto tu opinión e intuyo que eres uno de los que ensucia Madrid.",NO,SPAM,NONE
+7-18313-1,"Si la basura no te parece un problema, creo que tienes un serio problema sobre el concepto de una metropoli y capital de un país tan importante como es España.",NO,SPAM,NONE
+7-18912-0,Date una vuelta por Vallecas y después me dices si es una prioridad o no.,NO,SPAM,NONE
+7-17858-0,"Hasta el centro esta sucio, la periferia Valdebernardo ya da asco.",NO,SPAM,NONE
+7-17858-1,"La basura algún día ni la recogen, basura fuera de los contenedores días y días.",NO,SPAM,NONE
+7-17858-2,¿Qué está pasando?.,NO,SPAM,NONE
+7-18024-0,"Es una de las prioridades que deseamos tener los ciudadanos de Madrid, entre comillas, porque parece que se confirma y cada vez a una escala mayor que hay ciudadanos de primera y ciudadanos de segunda.",NO,SPAM,NONE
+7-18024-1,"Ejemplos muchos pero aquí va uno muy significativo: El barrio de Salamanca, barrio del Retiro, Puerta del Sol, y alrededores solo 100 metros a la redonda de la Asamblea de Madrid, están impolutos de limpios, pero una calle como es García Miranda, con solo cincuenta metros de longitus, tres papeleras, dos colegios especiales y seis portales de vecinos esta abandonada, papeleras llenas, toda clase de basura debajo de los coches, árboles que se están secando, alcantarillas que no nos dejan dormir por la noche, solares ocupados por camiones de muy dudosa identidad y todo esto a tan solo 300 metros de la puerta principal de La Asamblea de Madrid, y cosa curiosa, por mi calle pasan todos los coches oficiales de los diputados de La Asamblea de Madrid, pero claro como van con cristales tintados.",NO,SPAM,NONE
+7-18124-0,"Hola, incluyo aquí esta otra propuesta relacionada: Plan integral anti grafitis ¡Gracias!.",NO,SPAM,NONE
+7-18538-0,Espero que con el cambio de gobierno mejore la limpieza en Madrid.,NO,SPAM,NONE
+7-18538-1,"Tengo dos contenedores de vidrio y cartón en la puerta de casa y la gente los usa de basurero colchones, muebles, maderas, ladrillos y lo peor, bolsas de basura orgánica he presentado varias reclamaciones al ayuntamiento y siempre me decían que lo limpian 3 veces al día, pero no es cierto.",NO,SPAM,NONE
+7-18538-2,Pueden pasar tres días isn que retiren los desperdicios.,NO,SPAM,NONE
+7-18538-3,"También pido que por favor, multan a los que dejan la basura en la calle sin más.",YES,CLAIM,NONE
+7-18538-4,Gracias.,NO,SPAM,NONE
+7-18541-0,No entiendo que haya gente que diga que la limpieza no es prioridad cuando vivimos entre basura y los problemas de salubridad que supone.,YES,CLAIM,NONE
+7-18554-0,Yo esta semana he notado que pasan por la calle a limpiar todos los días cosa que hace mucho tiempo no se hacía no obstante se necesita una limpieza a fondo de calles y contenedores después de años de abandono.,NO,SPAM,NONE
+7-18558-0,Incluyo el barrio del PAU de Carabanchel y específicamente las papeleras.,NO,SPAM,NONE
+7-18558-1,Están tan a reventar que se sale la basura.,NO,SPAM,NONE
+7-18569-0,"No entiendo que no se exija a la empresa de limpieza contrata que cumpla con su obligación, si alguien tiene una empleada de hogar a la que paga porque le limpie y no lo hace ¿no toma medidas?.",YES,CLAIM,NONE
+7-18836-0,El Ayuntamiento debería anular el contrato de limpieza de la ciudad.,YES,CLAIM,NONE
+7-18904-0,"Una de las principales pautas por las que valoraré al nuevo gobierno, al que he votado, es por la limpieza.",NO,SPAM,NONE
+7-18904-1,"Espero que acabe, lo antes posible, con la dejadez que nos han dejado los anteriores desgobiernos de Madrid.",NO,SPAM,NONE
+7-18920-0,"Ese fue uno de mis motivos para votar a este nuevo gobierno y de la vergüenza que sentía al ver tanta suciedad y con la esperanza de que cambiara, pero al ver pasas los meses y no ver mejoría, ya empiezan a decepcionarme.",NO,SPAM,NONE
+7-19041-0,"No tengas tanta prisa seamos realistas, no veas el lio que hay montao con los ERTES de limpieza, mientras no se arrelge ese lio no hay barrenderos suficientes.",NO,SPAM,NONE
+7-19073-0,Realista es salir a la calle y ver tanta suciedad y pensar dónde vas nuestros impuestos ¿hasta cuándo hay que tener paciencia? porque ya llevamos tiempo y con el nuevo gobierno nos gustaría empezar a ver resultados.,NO,SPAM,NONE
+7-19214-0,"¿Solo las calles? Hay que luchar también contra la suciedad en las paredes: los grafitis Por favor, apoyad esta otra propuesta para luchar contra esta lacra: Gracias!.",NO,SPAM,NONE
+7-19385-0,En puente Vallecas esta muy sucio.,NO,SPAM,NONE
+7-19445-0,Pero estos que están gobernando ¿no se presentaron con un programa electoral? Cúmplanlo o es que no tenían y lo están haciendo ahora.,NO,SPAM,NONE
+7-19608-0,De paso se puede abrir el debate que esta asociado a este.,NO,SPAM,NONE
+7-19608-1,Soluciones para que los perros no meen por la calle.,NO,SPAM,NONE
+7-19608-2,Es una guarrada ver las calles del centro llenas de meadas de perro.,NO,SPAM,NONE
+7-19608-3,Ahora limpian más pero aun así es una cerdada.,NO,SPAM,NONE
+7-19608-4,Si las personas no podemos mear por la calle porque los perros sí? La solución no es sencilla pero seguro que hay ideas.,NO,SPAM,NONE
+7-19608-5,"¿Propuestas? No se, si los habéis enseñado a mear y cagar fuera de casa ¿no les podéis enseñar que solo meen en las jardineras de los árboles? y que el ayuntamiento garantice que las haya por todos lados No sé, pero algo hay que hacer, la zona que hablas por ejemplo es una cardada, las calles de la zona de embajadores-casco es asqueroso como están todos los bolardos y paredes llenas de meadas de perro.",NO,SPAM,NONE
+7-19608-6,"No sé, a los dueños, tratar de hacer algo, porque los que no tenemos perros vamos a acabar pensando que lo mejor sería prohibirlos.",NO,SPAM,NONE
+7-19608-7,Mejor convivencia respetuosa.,NO,SPAM,NONE
+7-19608-8,Una campaña desde el ayuntamiento para concienciar a los dueños de perro no estría mal.,NO,SPAM,NONE
+7-21382-0,Que las personas no pueden mear por la calle? Ya lo creo.,NO,SPAM,NONE
+7-21382-1,Y cagan también.,NO,SPAM,NONE
+7-21382-2,Muchas de las meadas que atribuyes a perros lamento decirte que son de paisanos.,NO,SPAM,NONE
+7-21382-3,"Por lo demás, no pierdo más tiempo en rebatirte porque no hay por donde coger tu mensaje.",NO,SPAM,NONE
+7-21908-0,Debe usted informarse antes de criticar: Ahora Madrid prácticamente inició su legislatura con el problema de la limpieza.,NO,SPAM,NONE
+7-21908-1,"Creó un plan urgente para el verano, pues aún había mucho que hablar con las empresas al cargo, donde se descubrió muchas irregularidades, y había también que hacer todas las gestiones administrativas necesarias, descubriéndose en ello el blindaje de muchos contratos que no se puede rescindir.",NO,SPAM,NONE
+7-21908-2,Además se encontraron con el problema de la plaga de los árboles de la zona este.,NO,SPAM,NONE
+7-21908-3,"En agosto presentaron el plan de refuerzo de la limpieza, pero aún siguen con el problema de las empresas concesionarias.",NO,SPAM,NONE
+7-21908-4,"Lo dicho, antes de criticar, conviene informarse.",NO,SPAM,NONE
+7-22352-0,"El responsable único es el Ayuntamiento que debe atajar esta situación y no lo hace, bien por dejadez o bien por decisiones inútiles que solo agravan el problema.",YES,CLAIM,NONE
+7-22352-1,Es intolerable que llevemos casi 4 meses y la ciudad este más sucia que nunca.,NO,SPAM,NONE
+7-22352-2,Deben solucionarlo ya Queremos hechos no palabras!.,NO,SPAM,NONE
+7-21036-0,Pero limpieza limpiando.,NO,SPAM,NONE
+7-21036-1,"No con esos camiones que con sus chorros de agua dejan los coches aparcados como si hubiesen realizado el Paris_Dakar, o los portales de madera rotos por la podredumbre de la humedad que dejan día tras día.",NO,SPAM,NONE
+7-21036-2,Se han vuelto muy cómodos y caros los servicios de limpieza externalizados.,NO,SPAM,NONE
+7-79028-0,No me parece que se deba faltar el respeto para dar una propuesta o algo así.,NO,SPAM,NONE
+7-79028-1,Yo quiero un Madrid más limpio.,NO,SPAM,NONE
+7-79028-2,Pero hay distritos en los que somos muy cerdos.,NO,SPAM,NONE
+7-79028-3,Vivo en Vallecas.,NO,SPAM,NONE
+7-79028-4,Y habiendo papeleras he visto.,NO,SPAM,NONE
+7-79028-5,", desde colchones en la calle, bolsas de restos de una meréndola de mc donals.",NO,SPAM,NONE
+7-79028-6,", latas de bebida.",NO,SPAM,NONE
+7-79028-7,", restos de comida en las aceras y así un largo etc. Vivo entre puente y el Pau.",NO,SPAM,NONE
+7-79028-8,Y te da igual donde mires.,NO,SPAM,NONE
+7-79028-9,Si queremos un barrio limpio empecemos por ser limpios.,NO,SPAM,NONE
+7-79028-10,Tengo perros 2 y recojo religiosamente sus cosas siempre.,NO,SPAM,NONE
+7-79028-11,Y si no tengo bolsa porque se me terminan siempre hay alguien para dartela.,NO,SPAM,NONE
+7-79028-12,Igual que yo las doy.,NO,SPAM,NONE
+7-79028-13,No sirve de nada que limpien.,NO,SPAM,NONE
+7-79028-14,No hace mucho paso por mis calles en el Pau una cuadrilla.,NO,SPAM,NONE
+7-79028-15,Lo dejaron muy bien.,NO,SPAM,NONE
+7-79028-16,", y si lo veis ahora.",NO,SPAM,NONE
+7-79028-17,Tenemos lo que creamos.,NO,SPAM,NONE
+7-79028-18,Barrios guarros porque somos así.,NO,SPAM,NONE
+7-79028-19,Yo he estado en el extranjero y la educación y pensamiento civico no tiene nada que ver con lo que hay en este páis.,NO,SPAM,NONE
+7-79028-20,Hay que tocar en todos lados.,NO,SPAM,NONE
+7-79028-21,Primero los adultos y de ahí para abajo.,NO,SPAM,NONE
+7-21545-0,Podrias haber ampliado el terreno al resto de barrios y no solo a Vallecas.,YES,CLAIM,NONE
+7-21545-1,"Todo Madrid, en especial los barrios periféricos en mi opinión son los más descuidados.",YES,PREMISE,PRECISION
+7-21545-2,"En San Blas he llegado a ver un kiwi reventado en medio de la calle casi una semana, y un pañal usado o no, no lo sé durante casi lo mismo.",NO,SPAM,NONE
+7-21704-0,Y qué tal una campaña para educar a la ciudadanía y enseñarla a ser más limpia?.,YES,CLAIM,NONE
+7-21704-1,"No recuerdo ningúna campaña enfocada a enseñar a la gente a mantener limpia su ciudad, tampoco se enseña en los colegios y pocos padres se lo inculcan a sus hijos.",NO,SPAM,NONE
+7-21704-2,"Una campaña potente que ayude a concierciarnos que la ciudad no se ensucia sola, si no que la ensucian los malos ciudadanos me parece primordial.",YES,CLAIM,NONE
+7-22113-0,Más limpieza en Puente de Vallecas pero tb multas para los infractores.,NO,SPAM,NONE
+7-22113-1,Es increible ver como la gente tira todo a la calle.,NO,SPAM,NONE
+7-22113-2,"Los paquetes de tabaco vacios, los envases, las cáscaras de frutas.",NO,SPAM,NONE
+7-22113-3,Es increible.,NO,SPAM,NONE
+7-22113-4,Y digo lo de las multas porque parece que es lo único que entendemos.,NO,SPAM,NONE
+7-22734-0,"Propongo hacer como el las playas, banderas con la categoría de la limpieza de los distritos, para que los vecinos que menos cuiden sus barrios se den cuenta de lo descuidado que lo tienen, a la vez que premiar aquellas personas que tienen perfectamente cuidados sus terrazas y balcones con maravillosas plantas.",YES,CLAIM,NONE
+7-24421-0,"Muy de acuerdo con tu propuesta, pero por favor, incluye un punto en el que diga que: se suprima la tasa de basuras.",YES,CLAIM,NONE
+7-24421-1,"Empezaron a cobrarla hace ya unos años, y desde entonces Madrid está mucho más sucio, con lo cual intuyo que esa tasa es para sacarnos los cuartos.",YES,PREMISE,REASON
+7-24421-2,"Un saludo, tienes mi apoyo.",NO,SPAM,NONE
+7-46726-0,"Si la propuesta se basa, en que las cacas de los perros vas a limpiarlas tú, la voto y la difundo;",NO,SPAM,NONE
+7-46726-1,"si se basa en multar, tasar con impuestos o dañar en cualquier forma a los tenedores de mascotas, mira, imprimes la propuesta, la haces un canutillo y te la metes por el, luego si quieres la defecas en la vía pública, la recoges, y la tiras en una papelera.",NO,SPAM,NONE
+7-46726-2,"Para propuestas creadas por un animal de bellota, el mismo tipo de soluciones.",NO,SPAM,NONE
+7-46736-0,Me parece que no te has leído la propuesta.,NO,SPAM,NONE
+7-46736-1,"Pero si solo querías dejar constancia de tu exquisita buena educación, a lo mejor este no es el foro apropiado.",NO,SPAM,NONE
+7-46736-2,Por favor ahórrate la respuesta.,NO,SPAM,NONE
+7-46736-3,Gracias.,NO,SPAM,NONE
+7-46761-0,"Propuesta leída, me reitero en lo dicho anteriormente.",NO,SPAM,NONE
+7-46761-1,"Y si tú quieres aprovechar cada comentario que hay escrito en esta propuesta para publicitar tonterías, primero, te has equivocado de persona y segundo, nunca he abierto a los carteros comerciales en mi domicilio, y no lo voy a aguantar también en internet, por lo tanto creo que este tampoco es el lugar apropiado para ti, dedícate a repartir publicidad del telepizza, eres tan cansino que se te dará bien.",NO,SPAM,NONE
+7-46761-2,"Me has dicho que me ahorrara la respuesta, pero.",NO,SPAM,NONE
+7-46761-3,"¿Cómo iba a dejar de brindarte la oportunidad de leer mis palabras? Asi, puedes imprimir también este, y metértelo por donde el anterior, que se que te hace ilusión.",NO,SPAM,NONE
+7-46761-4,"A diferencia de ti, me gustaría que me contestaras, pero en caso contrario supongo que estarás liado en el baño, o en la calle buscanco heces.",NO,SPAM,NONE
+7-46761-5,Buena suerte.,NO,SPAM,NONE
+7-24499-0,Madrid está cada vez más sucio.,NO,SPAM,NONE
+7-24499-1,Yo creía que la nueva alcaldesa lo arreglaría y sin embargo está peor que nunca.,NO,SPAM,NONE
+7-24499-2,"Esto no es una propuesta nueva sino un deber incumplido y como tal no debería estar aquí, sino en el buzón de quejas y reclamaciones.",NO,SPAM,NONE
+7-26854-0,"Como nos gusta exigir! Es como tener un hijo y a los 3 días de colegio ya le exigimos que nos traiga las notas con un 10 Seamos sensatos, la culpa no es del nuevo gobierno, sino del anterior y su política de privatización de servicios a través de un contrato a 10 años! ni mal ni menos! Con ello ha hipotecado la limpieza de nuestra ciudad! Ese anterior gobierno debería pedir disculpas a todos y todas las madrileñas.",NO,SPAM,NONE
+7-26854-1,"Demos tiempo al nuevo gobierno para que puedan estudiar, dialogar y legar a las mejores soluciones para que Madrid brille!.",NO,SPAM,NONE
+7-25561-0,"Me da que esto está ocurriendo en muchos sitios, no solo en Villa de Vallecas.",NO,SPAM,NONE
+7-25606-0,"Carabanchel tiene muchas calles llenas de mierda hay que decirlo así colillas, papeles de reparto, plásticos, organicos.",NO,SPAM,NONE
+7-25606-1,"Somos en general muy guarros, parece que nos gusta vivir así.",NO,SPAM,NONE
+7-25606-2,"Por favor, hay que limpiar, si, pero también hay que concienciar.",YES,CLAIM,NONE
+7-25606-3,"Campañas de publicidad como las de la DGT para accidentes, podrían hacerse para Madrid, por una Ciudad Zero Basuras.",YES,CLAIM,NONE
+7-26548-0,Algo que tiene que ver con esto es el control de Puntos Limpios: .,NO,SPAM,NONE
+7-26853-0,"Propongo que salgas con una escoba y empueces a limpiar, detrás iré yo, te lo prometo.",YES,CLAIM,NONE
+7-26853-1,"Mientras tanto, más paciencia, que así llevamos unos años y pocos se quejaban de la situación.",YES,PREMISE,ADDITION
+7-26853-2,A ver si ahora vamos a exigir al un nuevo gobierno lo que no le exigimos al que estuvo 20 años en el Consistorio.,YES,PREMISE,PRECISION
+7-26898-0,"Votado, totalmente de acuerdo.",NO,SPAM,NONE
+7-26898-1,"También influye que a la vez que se han hecho recortes, hay mucha gente incívica que ensucia porque sí.",NO,SPAM,NONE
+7-26898-2,"Por favor, votad: .",NO,SPAM,NONE
+7-27755-0,En el Barrio de San Pascual - Concepción las calles siguen estando muy sucias.,NO,SPAM,NONE
+7-27755-1,Ya se lo hicimos notar personalmente a la Sra. Carmena y a la Sra. Sabanés en una visita al barrio.,NO,SPAM,NONE
+7-27755-2,Sí es verdad que baldean de cuando en cuando algunas calles.,NO,SPAM,NONE
+7-27811-0,"En Arganzuela también tenemos ese problema, cierto es que ha mejorado mucho pero sigue sin limpiar con agua y huele fatal!.",NO,SPAM,NONE
+7-27811-1,Por favor!.,NO,SPAM,NONE
+7-28086-0,"Buena noticia, Carmena anuncia contratación 400 barrenderos.",NO,SPAM,NONE
+7-28086-1,Parece que nos escuchan.,NO,SPAM,NONE
+7-29220-0,Es el anuncio número 500 perohacer hacen poco y mal.,NO,SPAM,NONE
+7-29301-0,"Sí, hoy a las 0322 AM estaba el barrendero con la pala metálica dando golpes al cubo y despertando a todos los vecinos.",NO,SPAM,NONE
+7-29301-1,Buen trabajo.,NO,SPAM,NONE
+7-29221-0,Tanto criticar a Botella y ahora esta mucho peor.,NO,SPAM,NONE
+7-30234-0,"Y no será por la herencia recibida de la Sra. Botella, y la mierda de contratos que hizo para la limpieza de Madrid?.",NO,SPAM,NONE
+7-31089-0,"Y por qué no un programa de concienciación estratégico a largo plazo con sucesivas campañas para convertirnos todos los madrileños y madrileñas en ciudadanos limpios y respetuosos con los espacios públicos de nuestra ciudad? Hace unos meses me contaba un amigo su experiencia en la maratón de Tokyo, en la que cientos de voluntarios hacían de papelera humana para asegurar la limpieza durante la maratón;",NO,SPAM,NONE
+7-31089-1,porque en una de las ciudades con las calles más limpias del planeta me cuentan que no hay papeleras.,NO,SPAM,NONE
+7-31089-2,Y es que no son necesarias si la población cuida su ciudad y lleva sus desperdicios en una bolsa hasta que llega a su casa o al trabajo.,NO,SPAM,NONE
+7-31089-3,"Los empleados públicos están contratados para limpiar las ciudades de los resultados del tiempo: las hojas de los árboles, el barro de la lluvia, etc. No para recoger los excrementos de nuestras mascotas y todos los desperdicios que tiramos me incluyo por cortesía, por si alguna vez lo hubiera hecho por absoluto despiste los ciudadanos.",NO,SPAM,NONE
+7-32086-0,"Yo no sé quién mueve los hilos, pero veo bastante más actividad en limpiar calles aceras y jardines.",NO,SPAM,NONE
+7-32086-1,¡Será que Carola IV después de Carlos III lo mejor que le ha ocurrido a Madrid ha puesto firmes a unos cuantos?.,NO,SPAM,NONE
+7-35759-0,"El Ayuntamiento está tan ocupado leyendo propuestas y escuchando a sus ciudadanos, que se olvida de los que son sus obligaciones fundamentales, prestar servicios públicos de calidad a los ciudadanos.",NO,SPAM,NONE
+7-35759-1,"Pero claro, es más bonito dedicarse al blal bla bla que recoger la basura.",NO,SPAM,NONE
+7-37078-0,"Creo que antes que limpiar, el ciudadano debería dejar de ensuciar.",YES,CLAIM,NONE
+7-37078-1,No cuesta nada gurdarse un papel en la mano hasta encontrar una papelera.,NO,SPAM,NONE
+7-37078-2,"Y tampoco es necesario que haya papeleras a cada 50 metros, podemos aguantar un poquito más que eso sin tener qun tirar la basura por donde nos apetezca.",YES,CLAIM,NONE
+7-37078-3,"Tener papeleras por todas partes también cuesta dinero, y fomenta que la gente sea aún más in cívica y sucia.",NO,SPAM,NONE
+7-37078-4,"Madrid es una ciudad sucia, no por falta de limpieza, pero sí por falta de educación.",NO,SPAM,NONE
+7-40678-0,"Apoyada, y no sólo para vallecas sino especialmente para el centro Otra propuesta relacionada es.",NO,SPAM,NONE
+7-42634-0,Limpiar de que pro favor matiza porque no se a que te refieres con lo de limpiar las calles.,NO,SPAM,NONE
+7-51049-0,"Estimada Sra. Alcaldesa: en los últimos días observo con suma preocupación como mi calle aparece de la noche a la mañana, sorprendentemente, totalmente cubierta de basura bolsas abiertas y esparcidas en la vía, que llevan dos semanas sin barrer.",NO,SPAM,NONE
+7-51049-1,"Como no creo en las casualidades, y como sospecho del contínuo empeño de algunos sectores ideológicos y empresariales en desprestigiar su capacidad de gestión, deseo poner esta situación tan anomala en su conocimiento, para que tome Ud. Las medidas de control oportunas sobre las empresas concesionarias que deberían cumplir diligentemente con sus obligaciones en cuanto a la limpieza viaria.",NO,SPAM,NONE
+7-51049-2,La vía en concreto es la c Diego Manchado del Distrito de Puente de Vallecas.,NO,SPAM,NONE
+7-51049-3,"Atentamente, un vecino de Madrid.",NO,SPAM,NONE
+7-63450-0,"No es más limpio el que más limpia, sino el que menos ensucia.",NO,SPAM,NONE
+7-63450-1,"Hay que educar a los ciudadanos, aunque sea a base de multas.",NO,SPAM,NONE
+7-75400-0,Vivo en la zona latina y cerca zona Madrid río.,NO,SPAM,NONE
+7-75400-1,"Desde hace más de 2 meses no pasa nadie a limpiar las calles y cada vez que voy al colegio de mi hija tengo que ir esquivando las mierdas de los perros, palomas papeles publicidad de prostitutas y masajes orientales que dejan en los coches.",NO,SPAM,NONE
+7-75400-2,Justo en Madrid río todo limpio pero qué pasa con las calles paralelas que les separa solamente un paso de peatones? el sábado pasado que diluviaba en Madrid veo a una persona de la limpieza.,NO,SPAM,NONE
+7-75400-3,Paseando el carro? qué se va a limpiar un día de lluvia? por favor.,NO,SPAM,NONE
+7-77184-0,El problema principal es la propia ciudadanía que somos unos cerdos.,NO,SPAM,NONE
+7-77184-1,"En mi barrio pasa e barrendero y a las 5 horas literalmente, porque es cuando saco al perro ya está otra vez la calle llena de basura, papeles, envoltorios, .",NO,SPAM,NONE
+7-77184-2,Y luego ves las papeleras vacías.,NO,SPAM,NONE
+7-77184-3,En mi barrio al menos mis vecinos son unos cerdos.,NO,SPAM,NONE
+7-77668-0,Mejor algo más básico aun.,NO,SPAM,NONE
+7-77668-1,No ensuciar.,NO,SPAM,NONE
+7-78347-0,Eduquense y no ensucien tanto.,NO,SPAM,NONE
+7-78347-1,La limpieza de las calles debe aplicarse igual en todos los distritos.,NO,SPAM,NONE
+7-78347-2,Porque en distritos como Vallecas haya mucha gente que le gusta ser poco educada y civica.,NO,SPAM,NONE
+7-78347-3,No se debe gastar más dinero para lumpiezas extras.,YES,CLAIM,NONE
+7-78347-4,Si no que se eduque la gente que para eso la educación es gratuita y para todos.,YES,PREMISE,ALTERNATIVE
+7-82383-0,"Mi madre que era una señora muy sabia para mi, claro está decía no es más limpio quien más lava si no quien menos ensucia.",NO,SPAM,NONE
+7-82383-1,"La base está en la educación, para todo;",NO,SPAM,NONE
+7-82383-2,educación desde la familia y los colegios.,NO,SPAM,NONE
+7-83301-0,"Sí limpiar limpian al menos en mi barrio Usera, pero la gente no colabora demasiado, al rato o al día siguiente más y lo vuelven a limpiar porque yo veo a los camiones y servicio de limpieza y. Otra vez, no dan a basto, la verdad ¿Qué se puede hacer? a lo mejor habría que multar a los marranetes recurrentes multa que puedan pagar con dinero u horas de trabajo limpiando.",NO,SPAM,NONE
+7-83301-1,Una idea.,NO,SPAM,NONE
+7-84455-0,"Las empresas privadas de limpieza tienen que cumplir con lo firmado en contrato, de lo contrario el Ayuntamiento perfectamente y obligatoriamente deben rescindir el contrato, e incluso si así figura en contrato, que debería de figurar sancionar económicamente a estas.",YES,CLAIM,NONE
+7-85675-0,"Limpiar las calles si, ensuciar menos también y más cultura cívica para no ensuciar las calles también, no se trata de limpiar mucho si el ciudadano no es consciente de reciclar y utilizar las papelera y contenedores adecuadamente y en cuanto a su argumento de menos propuesta y limpiar ya no es incompatible una cosa con la otra, me gustaría que pusiera la misma enjundia con los guarr@s que ensucian las calles.",YES,CLAIM,NONE
+7-87740-0,Habrá que empezar por no ensuciar entonces.,NO,SPAM,NONE
+7-91145-0,"El barrio de San Isidro da bastante pena, sobretodo desde que está ocupada la casa en la calle José Garrido.",NO,SPAM,NONE
+7-91145-1,La calle está llena de excrementos de los perros que dejan sueltos y de los cuales nos recogen sus excrementos.,NO,SPAM,NONE
+7-91145-2,Por otro lado dejan ropa tirada por el suelo de toda la calle y muebles y basura.,NO,SPAM,NONE
+7-91145-3,Esto empeora si el único servicio que hay es un barrendero que pasa como mucho una vez a la semana.,NO,SPAM,NONE
+7-91145-4,"Por favor, nosotros también merecemos un barrio limpio.",NO,SPAM,NONE
