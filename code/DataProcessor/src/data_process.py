@@ -69,7 +69,7 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
             proposal_id = row['proposal_id']
         elif 'comment_id' in row:
             comment_id = row['comment_id']
-        text = row['text']
+        text = row['text'].strip()
         tokens = row['tokens']
         spans = row['spans']
         relations = row['relations']
@@ -78,13 +78,16 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
         break_marks = [token for token in tokens if token['text'] in BREAK_MARKS]
         if len(break_marks) == 0:
             break_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
-            
+        elif tokens[-1]['text'] not in BREAK_MARKS:
+            break_marks.append({'text': '', 'start': len(text)-1, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False})
+        
         # Annotate sentences
         sent_text = ''
         sent_id = 0
         ix_start = 0
         
         for mark in break_marks:
+            record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
             ix_end = mark['end']
             sent_text = text[ix_start : ix_end]
             sent_text = sent_text.strip()
@@ -131,12 +134,15 @@ def pre_process_dataset(in_dataset:list, language:str) -> list:
                 label1 = sent_label["label1"]
                 label2 = sent_label["label2"]
                 label3 = sent_label["label3"]
-                record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
                 out_dataset.append([record_id, sent_text, label1, label2, label3])
                 
                 # Update sentence number
                 sent_id += 1
-            
+                
+            else:
+                # Invalid sentence
+                print(" - Invalid:", record_id, sent_text)
+                
             # Update start index
             ix_start = ix_end + 1
     
