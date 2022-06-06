@@ -361,6 +361,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 152-84004-3,"Y de subvenciones nada, da lugar a clientelismo.",YES,PREMISE,ADDITION
 152-87441-0,"Hola, Aquí tenéis una propuesta parecida.",NO,SPAM,NONE
 417-87441-0,Gratuidad del tlf 010 Inf.,YES,CLAIM,NONE
+417-87441-1,Ayuntamiento y 092 Policía Local,YES,CLAIM,NONE
 417-87441-0,He llamado a estos números y me vino un recargo en la factura por no ser número gratuito ni fijo para mi sorpresa.,NO,SPAM,NONE
 417-18534-0,Creo que no es necesario que sea gratuito.,YES,CLAIM,NONE
 417-18534-1,Mucho 91 resulta incluido en las tarifas planas de fijo y existe uno para el 010 que es el 91 529 82 10 y de la policia municipal en vez del 092 creo que es el 917131440.,YES,PREMISE,PRECISION
@@ -475,6 +476,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 417-85167-0,"Ok con que sea gratuito, siempre que el servicio lo presten voluntarios sin sueldo.",YES,PREMISE,CONDITION
 417-85167-1,"Pero como no creo que sea ese el caso, prefiero que lo paguen los que lo utilizan y no que vaya a mi costa.",YES,PREMISE,OPPOSITION
 417-85167-2,"Vamos, el mismo principio que queréis aplicar respecto del IBI a los edificios de la Iglesia, que es que el patrimonio nacional lo pague quien lo use, en ese caso, los cristianos.",YES,PREMISE,RESTATEMENT
+417-85167-3,"Y de paso, hacemos lo mismo con los partidos, con los sindicatos, con los ministerios, etc.",YES,PREMISE,ADDITION
 417-85391-0,"De que nos sirve que las compañías telefónicas nos venden que podemos llamar a todos los teléfonos de toda España pagando una cuota fija, si cuando necesitamos hablar con nuestro Ayuntamiento o policía nos cuesta el dinero, y por supuesto con unos precios muy caros.",NO,SPAM,NONE
 417-85462-0,Son teléfonos de servicio público.,NO,SPAM,NONE
 417-85807-0,"Todos los teléfonos que nos relacionen con la administración local o estatal, y con las empresas que nos suministran los servicios básicos, agua, luz, gas, banco deben ser gratuitos y tendremos que presionar a las empresas de telefonía que se nieguen.",YES,CLAIM,NONE
@@ -566,6 +568,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 494-38888-2,"Habréis visto que la mejor manera de que no pongan la firmita dichosa es pintar un mural, muchos comercios lo han hecho.",YES,CLAIM,NONE
 494-38888-3,"Todos ganamos, los vecinos vemos murales chulos en lugar de pintadas, los grafiteros profesionales tienen su espacio para expresarse, y los que solo saben poner garabatos en las paredes, que disfruten del arte y aprendan, en lugar de manchar paredes con sus firmitas.",YES,PREMISE,RESULT
 494-75865-0,Eso es una leyenda urbana por lo menos en Madrid.,NO,SPAM,NONE
+494-75865-1,"Muchos negocios pagan para que les decoren sus cierres y así evitar los asquerosas pintadas y a los pcos días aparecen también, en Madrid no se respeta n ada solo tienes que darte una vuelta por el centro, malasña, lavapies etc.",NO,SPAM,NONE
 494-39017-0,Limpieza integral de fachadas además para eso pagamos ibi.,NO,SPAM,NONE
 494-39017-1,Y para los infractores sanciones serias para que se les quiten las ganas.,NO,SPAM,NONE
 494-39017-2,Y por supuesto vigilancia policial.,NO,SPAM,NONE
@@ -938,6 +941,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 878-138712-0,"Dónde lo venden, yo me lo compro! Estoy desesperada.",NO,SPAM,NONE
 878-141148-0,Hola Patricia.,NO,SPAM,NONE
 879-141148-0,Si reciclas.,YES,CLAIM,NONE
+879-141148-1,Te pagamos,YES,CLAIM,NONE
 879-141148-0,"Implantar máquinas de recogida de envases en los supermercados, centros comerciales.",YES,CLAIM,NONE
 879-141148-1,Cada vez que reciclas recibe una cantidad de dinero por haber depositado vidrio/envases en el contenedor.,YES,CLAIM,NONE
 879-141148-0,"La idea es Implantar máquinas de recogida de envases en los supermercados, centros comerciales.",YES,CLAIM,NONE
@@ -1069,6 +1073,7 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 7-17620-0,"Marta g tu hace mucho que no paseas por Madrid no? Papeleras que rebosan basura, calles llenas de hojas, colillas, cacas de perro, bolsas.",NO,SPAM,NONE
 7-17620-1,La medida concreta es que haya más personal que deje las aceras y Madrid limpio.,YES,CLAIM,NONE
 7-17620-2,"Así de sencillo, escoba y recogedor en mano.",NO,SPAM,NONE
+7-17620-3,"Y que los camiones de basura pasen con más frecuencia y no tres veces a la semana, porque la basura se acumula y empiezan los olores, ratas, etc.",YES,CLAIM,NONE
 7-17146-0,"A exigir a las contratas que cumplan, o incluso ponerles penalizaciones por incumplimientos.",YES,CLAIM,NONE
 7-17239-0,También hacer un programa de educar a algunos ciudadanos para no ensuciar.,YES,CLAIM,NONE
 7-17245-0,"Totalmente de acuerdo, educar y sancionar y mientras tanto limpiar y limpiar.",YES,CLAIM,NONE
