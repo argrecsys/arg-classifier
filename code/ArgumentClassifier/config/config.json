@@ -2,7 +2,7 @@
 	"features": {
 		"remove_stopwords": true,
 		"scale_data": true,
-		"dim_reduction": true,
+		"dim_reduction": "lda",
 		"bow_unigrams": true,
 		"bow_bigrams": false,
 		"bow_trigrams": false,

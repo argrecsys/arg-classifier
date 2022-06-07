@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.6.0
+    Version: 0.7.0
     Created on: Oct 19, 2021
-    Updated on: Jun 1, 2022
+    Updated on: Jun 7, 2022
     Description: ML engine utility functions.
 """
 
@@ -25,6 +25,10 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
+
+######################
+### UTIL FUNCTIONS ###
+######################
 
 # Util function - Transform labels
 def get_label_dict(task_type:str, labels:list) -> dict:
@@ -79,7 +83,7 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
         labels = df[y_label]
         enc = LabelEncoder()
         label_encoder = enc.fit(labels)
-        y = label_encoder.transform(labels) + 1
+        y = label_encoder.transform(labels)
         m = len(set(y)) - 1
         
         # Create model
@@ -94,6 +98,17 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
         m_df = pd.concat([m_df, df[[y_label]]], axis=1)
     
     return m_df, m_variance
+
+# Util function - Calculates basic dataframe column stats
+def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
+    data = df[col_name]
+    df_new = pd.concat([data.value_counts(), data.value_counts(normalize=True).mul(100)], 
+                   axis=1, keys=('counts', 'percentage'))
+    return df_new
+
+######################
+### CORE FUNCTIONS ###
+######################
 
 # Core function - Calculate difference between real and predicted
 def calculate_errors(task_type:str, y_real:list, y_pred:list, verbose:bool) -> tuple:
