@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.4
+    Version: 0.9.5
     Created on: Aug 27, 2021
     Updated on: Jun 7, 2022
     Description: Main class of the argument classifier.
@@ -79,6 +79,7 @@ def start_app(task_type:str, ml_algo:str):
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
+        model_classes = [*label_dict.values()]
         
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, train_setup)
@@ -88,10 +89,10 @@ def start_app(task_type:str, ml_algo:str):
         # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
         
         # 5. Validate model - Estimating model performance
-        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, train_setup)
+        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, model_classes, train_setup)
         
         # 6. Test model
-        metrics_test = ml_ngx.test_model(clf, X_test, y_test)
+        metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)
         
         # 7. Error analysis
         error_ids = ml_ngx.get_mislabeled_records()
