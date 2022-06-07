@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.2
+    Version: 0.9.3
     Created on: Oct 07, 2021
-    Updated on: Jun 2, 2022
+    Updated on: Jun 7, 2022
     Description: ML engine class.
 """
 
@@ -221,10 +221,6 @@ class MLEngine:
         # Added label column
         df[self.label_column] = label_list
         
-        # Calculate DataFrame sparsity
-        df_sparsity = uml.calc_df_sparsity(df)
-        print('DataFrame sparsity:', df_sparsity)
-        
         return df
     
     ###########################
@@ -247,6 +243,10 @@ class MLEngine:
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
             dataset.to_csv(df_filepath_full, index=False)
             
+            # Calculate DataFrame sparsity
+            ds_sparsity = uml.calc_df_sparsity(dataset)
+            print('Original dataset sparsity:', ds_sparsity)
+            
             # Dimensionality reduction
             if feat_setup["dim_reduction"]:
                 # dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', 0.95)
@@ -265,8 +265,9 @@ class MLEngine:
             dataset[self.label_column] = label_list
             
             if self.verbose:
+                print('Dataset labels info:')
                 print(label_dict)
-                print(dataset.groupby([self.label_column])[self.label_column].count())
+                print(mlu.get_df_col_stats(dataset, self.label_column))
                 print(dataset)
         
         return dataset, label_dict
