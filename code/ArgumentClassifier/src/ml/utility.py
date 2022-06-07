@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.0
+    Version: 0.7.5
     Created on: Oct 19, 2021
     Updated on: Jun 7, 2022
     Description: ML engine utility functions.
@@ -14,11 +14,10 @@ from util import ml as uml
 # Import Python base libraries
 import pandas as pd
 
-# Import ML libraries
-from sklearn.metrics import confusion_matrix
+# Import ML librarie
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_score, recall_score
-from sklearn.metrics import f1_score
+from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_auc_score
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
@@ -111,7 +110,7 @@ def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
 ######################
 
 # Core function - Calculate difference between real and predicted
-def calculate_errors(task_type:str, y_real:list, y_pred:list, verbose:bool) -> tuple:
+def calculate_errors(task_type:str, y_real:list, y_pred:list) -> tuple:
     conf_mx = confusion_matrix(y_real, y_pred)
     accuracy = accuracy_score(y_real, y_pred)
     
@@ -126,13 +125,8 @@ def calculate_errors(task_type:str, y_real:list, y_pred:list, verbose:bool) -> t
         recall = recall_score(y_real, y_pred, average='micro')
         f1 = f1_score(y_real, y_pred, average='micro')
         roc_score = 0
-        
-    if verbose:
-        print(conf_mx)
-        print("accuracy:", accuracy, ", precision:", precision, ", recall:", recall, ", f1-score:", f1, ", roc_curve:", roc_score)
-        #cpl.plot_confusion_matrix(conf_mx)
     
-    return accuracy, precision, recall, f1, roc_score
+    return conf_mx, accuracy, precision, recall, f1, roc_score
 
 # Core function - Calculates mislabeled records
 def calc_mislabeled_records(index, y_real, y_pred):

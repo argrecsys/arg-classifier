@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.4
+    Version: 0.9.5
     Created on: Oct 07, 2021
     Updated on: Jun 7, 2022
     Description: ML engine class.
@@ -23,6 +23,9 @@ from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 from sklearn.model_selection import cross_val_predict, StratifiedKFold
 from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report
+
+# Import ML algorithms
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -223,6 +226,17 @@ class MLEngine:
         
         return df
     
+    # Core function - Calculate model errors
+    def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list) -> tuple:
+        conf_mx, accuracy, precision, recall, f1, roc_score = mlu.calculate_errors(self.task_type, y_real, y_pred)
+    
+        if self.verbose:
+            print(conf_mx)
+            print(classification_report(y_real, y_pred, target_names=model_classes))
+            print("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1, roc_score))
+        
+        return accuracy, precision, recall, f1, roc_score
+    
     ###########################
     ### ML PUBLIC FUNCTIONS ###
     ###########################
@@ -254,7 +268,7 @@ class MLEngine:
                     dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo, 0.95)
                 elif dr_algo == "LDA":
                     dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo)
-                print('- Explained Variance Ratio:', sum(pca_variance) * 100)
+                print('- Explained variance ratio:', sum(pca_variance) * 100)
             
             # Save it to disk
             dataset.to_csv(df_filepath, index=False)
@@ -345,7 +359,7 @@ class MLEngine:
         return clf, params
     
     # ML function - Validate model
-    def validate_model(self, clf, X:pd.DataFrame, y:pd.Series, train_setup:dict) -> tuple:
+    def validate_model(self, clf, X:pd.DataFrame, y:pd.Series, model_classes:list, train_setup:dict) -> tuple:
         print("- Validating model:")
         y_real = []
         y_pred = []
@@ -367,18 +381,19 @@ class MLEngine:
             y_real = y.values
             y_pred = cross_val_predict(clf, X, y, cv=cv_k)
         
-        # Return metrics
-        return mlu.calculate_errors(self.task_type, y_real, y_pred, self.verbose)
+        # Calculate and return error metrics
+        return self.__calculate_model_errors(y_real, y_pred, model_classes)
     
     # ML function - Test model
-    def test_model(self, clf, X_test:pd.DataFrame, y_test:pd.Series) -> tuple:
+    def test_model(self, clf, X_test:pd.DataFrame, y_test:pd.Series, model_classes:list) -> tuple:
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
         
         # Calculate mislabeled records
         self.mislabeled_records = mlu.calc_mislabeled_records(X_test.index, y_test, y_test_pred)
         
-        return mlu.calculate_errors(self.task_type, y_test, y_test_pred, self.verbose)
+        # Calculate and return error metrics
+        return self.__calculate_model_errors(y_test, y_test_pred, model_classes)
     
     # ML function - Get ids of mislabeled records
     def get_mislabeled_records(self) -> dict:
