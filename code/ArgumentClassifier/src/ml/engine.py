@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.3
+    Version: 0.9.4
     Created on: Oct 07, 2021
     Updated on: Jun 7, 2022
     Description: ML engine class.
@@ -81,7 +81,7 @@ class MLEngine:
         
         # Validation
         if len(features) != len(labels):
-            print(" - The length of the data and the labels is different")
+            print("- The length of the data and the labels is different")
             return None
         
         # Temp variables
@@ -245,13 +245,16 @@ class MLEngine:
             
             # Calculate DataFrame sparsity
             ds_sparsity = uml.calc_df_sparsity(dataset)
-            print('Original dataset sparsity:', ds_sparsity)
+            print('- Original dataset sparsity:', ds_sparsity)
             
             # Dimensionality reduction
-            if feat_setup["dim_reduction"]:
-                # dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'PCA', 0.95)
-                dataset, pca_variance = mlu.apply_dim_reduction(dataset, 'LDA')
-                print('Explained Variance Ratio:', sum(pca_variance) * 100)
+            dr_algo = feat_setup["dim_reduction"].upper()
+            if dr_algo != "":
+                if dr_algo == "PCA":
+                    dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo, 0.95)
+                elif dr_algo == "LDA":
+                    dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo)
+                print('- Explained Variance Ratio:', sum(pca_variance) * 100)
             
             # Save it to disk
             dataset.to_csv(df_filepath, index=False)
@@ -265,10 +268,10 @@ class MLEngine:
             dataset[self.label_column] = label_list
             
             if self.verbose:
-                print('Dataset labels info:')
+                print('- Dataset labels info:')
                 print(label_dict)
                 print(mlu.get_df_col_stats(dataset, self.label_column))
-                print(dataset)
+                print('\n', dataset)
         
         return dataset, label_dict
     

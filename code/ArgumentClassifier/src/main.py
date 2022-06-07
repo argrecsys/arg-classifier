@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.3
+    Version: 0.9.4
     Created on: Aug 27, 2021
     Updated on: Jun 7, 2022
     Description: Main class of the argument classifier.
@@ -32,7 +32,8 @@ def get_curr_dataset_name(feat_setup:dict) -> str:
     ds_name = "ds_"
     
     for v in feat_setup.values():
-        ds_name += str(int(v))
+        if type(v) is bool:
+            ds_name += str(int(v))
     
     return ds_name
 
@@ -48,7 +49,7 @@ def save_error_ids(error_ids, X_test):
 def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) -> int:
     filepath = result_folder + "metrics.csv"
     model_id = ml_ngx.get_next_model_id(filepath)
-    header = ["id", "task", "dataset", "configuration", "method", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    header = ["id", "task", "dataset", "configuration", "method", "dim_red", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
     data = [[model_id, task] + row for row in data]
     result = ufl.save_csv_data(filepath, header, data, mode="a")
     
@@ -99,8 +100,9 @@ def start_app(task_type:str, ml_algo:str):
         # 8. Save model params and results
         results = []
         dataset_name = get_curr_dataset_name(feat_setup)
-        results.append([dataset_name, "validation", ml_algo, json.dumps(params), *metrics_val, datetime.now()])
-        results.append([dataset_name, "test", ml_algo, json.dumps(params), *metrics_test, datetime.now()])
+        dr_algo = feat_setup["dim_reduction"]
+        results.append([dataset_name, "validation", ml_algo, dr_algo, json.dumps(params), *metrics_val, datetime.now()])
+        results.append([dataset_name, "test", ml_algo, dr_algo, json.dumps(params), *metrics_test, datetime.now()])
         model_id = save_results(result_folder, results, task_type, ml_ngx)
         
         # 9. Create and save model
@@ -118,7 +120,7 @@ def start_app(task_type:str, ml_algo:str):
 if __name__ == "__main__":
     print('>> START PROGRAM:', str(datetime.now()))
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
-    algos = [ModelType.NAIVE_BAYES.value, ModelType.GRADIENT_BOOSTING.value]
+    algos = [ModelType.GRADIENT_BOOSTING.value]
     for task, algo in list(product(tasks, algos)):
         print("\n>> %s (%s) - %s:" % (task.title(), algo, str(datetime.now())))
         start_app(task, algo)

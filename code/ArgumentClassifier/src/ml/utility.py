@@ -26,6 +26,10 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 
+######################
+### UTIL FUNCTIONS ###
+######################
+
 # Util function - Transform labels
 def get_label_dict(task_type:str, labels:list) -> dict:
     label_dict = {}
@@ -79,7 +83,7 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
         labels = df[y_label]
         enc = LabelEncoder()
         label_encoder = enc.fit(labels)
-        y = label_encoder.transform(labels) + 1
+        y = label_encoder.transform(labels)
         m = len(set(y)) - 1
         
         # Create model
@@ -101,6 +105,10 @@ def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
     df_new = pd.concat([data.value_counts(), data.value_counts(normalize=True).mul(100)], 
                    axis=1, keys=('counts', 'percentage'))
     return df_new
+
+######################
+### CORE FUNCTIONS ###
+######################
 
 # Core function - Calculate difference between real and predicted
 def calculate_errors(task_type:str, y_real:list, y_pred:list, verbose:bool) -> tuple:
