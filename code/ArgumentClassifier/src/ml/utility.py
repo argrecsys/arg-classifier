@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.5
+    Version: 0.7.6
     Created on: Oct 19, 2021
-    Updated on: Jun 7, 2022
+    Updated on: Jun 8, 2022
     Description: ML engine utility functions.
 """
 
@@ -65,7 +65,7 @@ def value_to_features(values:list, prefix:str):
 def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
     m_df = None
     m_variance = []
-    method = method.upper()
+    method = method.lower()
     
     # Data
     n_cols = len(df.columns)
@@ -73,20 +73,19 @@ def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
     y_label = df.columns[-1]
     
     # Create a DataFrame from PCA
-    if method == "PCA":
+    if method == "pca":
         pca = PCA(n_components=n)
         m_data = pca.fit_transform(X)
         m_variance = pca.explained_variance_ratio_
     
-    elif method == "LDA":
+    elif method == "lda":
         labels = df[y_label]
         enc = LabelEncoder()
-        label_encoder = enc.fit(labels)
-        y = label_encoder.transform(labels)
-        m = len(set(y)) - 1
+        y = enc.fit_transform(labels)
+        n = len(set(y)) - 1
         
         # Create model
-        lda = LDA(n_components=m)
+        lda = LDA(n_components=n)
         m_data = lda.fit_transform(X, y)
         m_variance = lda.explained_variance_ratio_
     
