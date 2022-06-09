@@ -92,7 +92,7 @@ def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
 ######################
 
 # Core function - Calculate difference between real and predicted
-def calculate_errors(task_type:str, y_real:list, y_pred:list) -> tuple:
+def calculate_errors(task_type:str, y_real:list, y_pred:list, avg_type:str="") -> tuple:
     conf_mx = confusion_matrix(y_real, y_pred)
     accuracy = accuracy_score(y_real, y_pred)
     
@@ -103,9 +103,9 @@ def calculate_errors(task_type:str, y_real:list, y_pred:list) -> tuple:
         roc_score = roc_auc_score(y_real, y_pred)
         
     elif task_type == TaskType.CLASSIFICATION.value:
-        precision = precision_score(y_real, y_pred, average='micro')
-        recall = recall_score(y_real, y_pred, average='micro')
-        f1 = f1_score(y_real, y_pred, average='micro')
+        precision = precision_score(y_real, y_pred, average=avg_type)
+        recall = recall_score(y_real, y_pred, average=avg_type)
+        f1 = f1_score(y_real, y_pred, average=avg_type)
         roc_score = 0
     
     return conf_mx, accuracy, precision, recall, f1, roc_score

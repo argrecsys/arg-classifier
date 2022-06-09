@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.8
+    Version: 0.9.9
     Created on: Oct 07, 2021
-    Updated on: Jun 8, 2022
+    Updated on: Jun 9, 2022
     Description: ML engine class.
 """
 
@@ -11,7 +11,7 @@
 from util import files as ufl
 from util import ml as uml
 import ml.utility as mlu
-from ml.constant import ModelType
+from ml.constant import ModelType, DimReduction, ScaleData
 
 # Import Python base libraries
 import os
@@ -27,7 +27,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 
 # Import data transformers
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import Binarizer
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
@@ -43,6 +44,7 @@ class MLEngine:
     def __init__(self, language:str, task_type:str, verbose:bool=True):
         self.encoding = "utf-8"
         self.label_column = "label"
+        self.metric_avg = "micro"
         self.language = language
         self.task_type = task_type
         self.verbose = verbose
@@ -306,28 +308,34 @@ class MLEngine:
         
         return X_train, X_test, y_train, y_test
     
-    # ML function - Create model with default params
+    # ML function - Create model pipeline with default params
     def create_model(self, pipeline_setup:dict, model_classes, model_state:int):
         params = {}
-        scale_data = pipeline_setup["scale_data"]
-        dim_red_algo = pipeline_setup["dim_red_algo"].upper()
-        cls_algo = pipeline_setup["method"]
+        ml_algo = pipeline_setup["ml_algo"]
+        data_scale_algo = pipeline_setup["data_scale_algo"]
+        dim_red_algo = pipeline_setup["dim_red_algo"]
         
         # Adding pipeline steps
         estimators = []
-        if scale_data:
-            estimators.append(("scaler", MinMaxScaler()))
-        
-        if dim_red_algo == "PCA":
-            n_comp = 200
-            estimators.append(("reducer", PCA(n_components=n_comp)))
-        elif dim_red_algo == "LDA":
-            n_comp = len(model_classes) - 1
-            estimators.append(("reducer", LDA(n_components=n_comp)))
-        
-        if cls_algo == ModelType.NAIVE_BAYES.value:
+        if ml_algo == ModelType.NAIVE_BAYES.value:
+            estimators.append(('binarizer', Binarizer()))
             estimators.append(('model', MultinomialNB()))
+            
         else:
+            if data_scale_algo == ScaleData.NORMALIZE.value:
+                estimators.append(("scaler", MinMaxScaler()))
+                
+            elif data_scale_algo == ScaleData.STANDARDIZE.value:
+                estimators.append(("scaler", StandardScaler()))
+            
+            if dim_red_algo == DimReduction.PCA.value:
+                n_comp = 300
+                estimators.append(("reducer", PCA(n_components=n_comp)))
+                
+            elif dim_red_algo == DimReduction.LDA.value:
+                n_comp = len(model_classes) - 1
+                estimators.append(("reducer", LDA(n_components=n_comp)))
+                
             params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
             estimators.append(('model', GradientBoostingClassifier(**params)))
         
@@ -396,7 +404,7 @@ class MLEngine:
         clf.fit(X, y)
         
         # Calculate and return error metrics
-        return self.__calculate_model_errors(y_real, y_pred, model_classes)
+        return self.__calculate_model_errors(y_real, y_pred, model_classes, self.metric_avg)
     
     # ML function - Test model
     def test_model(self, clf, X_test:np.ndarray, y_test:np.ndarray, model_classes:list) -> tuple:
@@ -407,7 +415,7 @@ class MLEngine:
         self.mislabeled_records = mlu.calc_mislabeled_records(y_test, y_test_pred)
         
         # Calculate and return error metrics
-        return self.__calculate_model_errors(y_test, y_test_pred, model_classes)
+        return self.__calculate_model_errors(y_test, y_test_pred, model_classes, self.metric_avg)
     
     # ML function - Get ids of mislabeled records
     def get_mislabeled_records(self) -> dict:
