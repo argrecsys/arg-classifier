@@ -234,8 +234,7 @@ class MLEngine:
         return df
     
     # Core function - Create model pipeline with default params
-    def __create_model(self, pipeline_setup:dict, model_classes, model_state:int) -> tuple:
-        params = {}
+    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes, model_state:int) -> Pipeline:
         ml_algo = pipeline_setup["ml_algo"]
         data_scale_algo = pipeline_setup["data_scale_algo"]
         dim_red_algo = pipeline_setup["dim_red_algo"]
@@ -247,12 +246,14 @@ class MLEngine:
             estimators.append(('model', MultinomialNB()))
             
         else:
+            # 1. Add data scaler
             if data_scale_algo == ScaleData.NORMALIZE.value:
                 estimators.append(("scaler", MinMaxScaler()))
                 
             elif data_scale_algo == ScaleData.STANDARDIZE.value:
                 estimators.append(("scaler", StandardScaler()))
             
+            # 2. Add dim reducer
             if dim_red_algo == DimReduction.PCA.value:
                 n_comp = 300
                 estimators.append(("reducer", PCA(n_components=n_comp)))
@@ -261,15 +262,18 @@ class MLEngine:
                 n_comp = len(model_classes) - 1
                 estimators.append(("reducer", LDA(n_components=n_comp)))
                 
-            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-            estimators.append(('model', GradientBoostingClassifier(**params)))
+            # 3. Add model
+            if model_params:
+                estimators.append(('model', GradientBoostingClassifier(**model_params)))
+            else:
+                estimators.append(('model', GradientBoostingClassifier()))
         
         # Create model pipeline
         pipe = Pipeline(estimators)
         print(pipe)
         
         # Return model and model params
-        return pipe, params
+        return pipe
     
     # Core function - Calculate model errors
     def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list, avg_type:str) -> tuple:
@@ -351,7 +355,8 @@ class MLEngine:
         
         # Create model pipeline
         print("- Creating model:")
-        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
+        params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+        clf = self.__create_model(pipeline_setup, params, model_classes, model_state)
         
         # Train model with train data
         print("- Training model:")
@@ -365,7 +370,8 @@ class MLEngine:
         
         # Create model pipeline
         print("- Creating model:")
-        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
+        params = {}
+        clf = self.__create_model(pipeline_setup, params, model_classes, model_state)
         
         # Fit model with train data
         print("- Fitting model:")
@@ -397,8 +403,7 @@ class MLEngine:
         y = dataset[self.label_column].values
         
         # Create final model
-        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
-        clf.fit(X, y)
+        clf, params = self.create_and_train_model(pipeline_setup, X, y, model_classes, model_state)
         
         # Model persistence
         jl.dump(clf, filepath) 
