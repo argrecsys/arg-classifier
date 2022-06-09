@@ -307,7 +307,7 @@ class MLEngine:
         
         return X_train, X_test, y_train, y_test
     
-    # ML function - Create model with default params
+    # ML function - Create model pipeline with default params
     def create_model(self, pipeline_setup:dict, model_classes, model_state:int):
         params = {}
         ml_algo = pipeline_setup["ml_algo"]

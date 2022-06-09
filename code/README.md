@@ -59,9 +59,9 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 		"synt_stats": true
 	},
 	"pipeline": {
-		"data_scale_algo": "normalize",
-		"dim_red_algo": "pca",
-		"ml_algo": "gradient boosting"
+		"data_scale_algo": "normalize",   // standardize
+		"dim_red_algo": "pca",            // lda
+		"ml_algo": "gradient boosting"    // naive bayes
 	},
 	"train": {
 		"cv_k": 10,
@@ -74,8 +74,8 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"result_folder": "../../../results/",
-	"task": "detection",      // classification
-	"y_label": "sent_label1"  // sent_label2
+	"task": "detection",                  // classification
+	"y_label": "sent_label1"              // sent_label2
 }
 ```
 
