@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.9
+    Version: 0.9.10
     Created on: Oct 07, 2021
     Updated on: Jun 9, 2022
     Description: ML engine class.
@@ -233,9 +233,47 @@ class MLEngine:
         
         return df
     
+    # Core function - Create model pipeline with default params
+    def __create_model(self, pipeline_setup:dict, model_classes, model_state:int) -> tuple:
+        params = {}
+        ml_algo = pipeline_setup["ml_algo"]
+        data_scale_algo = pipeline_setup["data_scale_algo"]
+        dim_red_algo = pipeline_setup["dim_red_algo"]
+        
+        # Adding pipeline steps
+        estimators = []
+        if ml_algo == ModelType.NAIVE_BAYES.value:
+            estimators.append(('binarizer', Binarizer()))
+            estimators.append(('model', MultinomialNB()))
+            
+        else:
+            if data_scale_algo == ScaleData.NORMALIZE.value:
+                estimators.append(("scaler", MinMaxScaler()))
+                
+            elif data_scale_algo == ScaleData.STANDARDIZE.value:
+                estimators.append(("scaler", StandardScaler()))
+            
+            if dim_red_algo == DimReduction.PCA.value:
+                n_comp = 300
+                estimators.append(("reducer", PCA(n_components=n_comp)))
+                
+            elif dim_red_algo == DimReduction.LDA.value:
+                n_comp = len(model_classes) - 1
+                estimators.append(("reducer", LDA(n_components=n_comp)))
+                
+            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+            estimators.append(('model', GradientBoostingClassifier(**params)))
+        
+        # Create model pipeline
+        pipe = Pipeline(estimators)
+        print(pipe)
+        
+        # Return model and model params
+        return pipe, params
+    
     # Core function - Calculate model errors
-    def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list) -> tuple:
-        conf_mx, accuracy, precision, recall, f1, roc_score = mlu.calculate_errors(self.task_type, y_real, y_pred)
+    def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list, avg_type:str) -> tuple:
+        conf_mx, accuracy, precision, recall, f1, roc_score = mlu.calculate_errors(self.task_type, y_real, y_pred, avg_type)
     
         if self.verbose:
             print(conf_mx)
@@ -308,103 +346,33 @@ class MLEngine:
         
         return X_train, X_test, y_train, y_test
     
-    # ML function - Create model pipeline with default params
-    def create_model(self, pipeline_setup:dict, model_classes, model_state:int):
-        params = {}
-        ml_algo = pipeline_setup["ml_algo"]
-        data_scale_algo = pipeline_setup["data_scale_algo"]
-        dim_red_algo = pipeline_setup["dim_red_algo"]
-        
-        # Adding pipeline steps
-        estimators = []
-        if ml_algo == ModelType.NAIVE_BAYES.value:
-            estimators.append(('binarizer', Binarizer()))
-            estimators.append(('model', MultinomialNB()))
-            
-        else:
-            if data_scale_algo == ScaleData.NORMALIZE.value:
-                estimators.append(("scaler", MinMaxScaler()))
-                
-            elif data_scale_algo == ScaleData.STANDARDIZE.value:
-                estimators.append(("scaler", StandardScaler()))
-            
-            if dim_red_algo == DimReduction.PCA.value:
-                n_comp = 300
-                estimators.append(("reducer", PCA(n_components=n_comp)))
-                
-            elif dim_red_algo == DimReduction.LDA.value:
-                n_comp = len(model_classes) - 1
-                estimators.append(("reducer", LDA(n_components=n_comp)))
-                
-            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-            estimators.append(('model', GradientBoostingClassifier(**params)))
+    # ML function - Create and train model
+    def create_and_train_model(self, pipeline_setup:dict, X_train:np.ndarray, y_train:np.ndarray, model_classes, model_state:int) -> tuple:
         
         # Create model pipeline
-        pipe = Pipeline(estimators)
-        print(pipe)
+        print("- Creating model:")
+        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
         
-        # Return model and model params
-        return pipe, params
-    
-    # ML function - Create and fit (with grid search) model
-    def create_and_fit_model(self, algorithm:str, X_train:np.ndarray, y_train:np.ndarray, model_state:int, cv_k:int) -> tuple:
-        clf = None
-        params = {}
-        
-        if algorithm == ModelType.NAIVE_BAYES.value:
-            # Naive Bayes
-            clf = MultinomialNB()
-            clf.fit(X_train, y_train)
-        
-        elif algorithm == ModelType.GRADIENT_BOOSTING.value:
-            # GB hyper-params space
-            space = {'learning_rate': [0.15, 0.1, 0.05, 0.01, 0.005],
-                     'n_estimators': [50, 75, 100, 125, 150],
-                     'max_depth': [3, 4, 5, 6, 7],
-                     'min_samples_split': [2, 3, 4, 5],
-                     'min_samples_leaf': [1, 2, 5, 7, 11]}
-            
-            # Gradient Boosting tuning
-            tuning = GridSearchCV(estimator=GradientBoostingClassifier(random_state=model_state), 
-                                  param_grid=space, scoring='accuracy', cv=cv_k, n_jobs=8)
-            tuning.fit(X_train, y_train)
-            
-            # Keep the best
-            clf = tuning.best_estimator_
-            params = tuning.best_params_
+        # Train model with train data
+        print("- Training model:")
+        clf.fit(X_train, y_train)
         
         # Return model and model params
         return clf, params
     
-    # ML function - Train and validate model
-    def train_model(self, clf, X:np.ndarray, y:np.ndarray, model_classes:list, train_setup:dict) -> tuple:
-        print("- Training model:")
-        y_real = []
-        y_pred = []
+    # ML function - Create and fit model
+    def create_and_fit_model(self, pipeline_setup:dict, X_train:np.ndarray, y_train:np.ndarray, model_classes, model_state:int, train_setup:dict) -> tuple:
         
-        cv_stratified = train_setup["cv_stratified"]
-        cv_k = train_setup["cv_k"]
-        model_state = train_setup["model_state"]
+        # Create model pipeline
+        print("- Creating model:")
+        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
         
-        # Evaluate model error
-        if cv_stratified:
-            kf = StratifiedKFold(n_splits=cv_k, shuffle=True, random_state=model_state)
-        else:
-            kf = KFold(n_splits=cv_k, shuffle=True, random_state=model_state)
+        # Fit model with train data
+        print("- Fitting model:")
         
-        for train_index, test_index in kf.split(X, y):
-            x_train_fold, x_test_fold = X[train_index], X[test_index]
-            y_train_fold, y_test_fold = y[train_index], y[test_index]
-            
-            clf.fit(x_train_fold, y_train_fold)
-            y_real += list(y_test_fold)
-            y_pred += list(clf.predict(x_test_fold))
         
-        # Train model with full data
-        clf.fit(X, y)
-        
-        # Calculate and return error metrics
-        return self.__calculate_model_errors(y_real, y_pred, model_classes, self.metric_avg)
+        # Return model and model params
+        return clf, params
     
     # ML function - Test model
     def test_model(self, clf, X_test:np.ndarray, y_test:np.ndarray, model_classes:list) -> tuple:
@@ -422,14 +390,14 @@ class MLEngine:
         return self.mislabeled_records
     
     # ML function - Creates and save final model
-    def create_save_model(self, filepath:str, dataset:pd.DataFrame, pipeline_setup:dict, model_classes, model_state:int):
+    def create_and_save_model(self, filepath:str, dataset:pd.DataFrame, pipeline_setup:dict, model_classes, model_state:int):
         
         # Features (X) and labels (y)
         X = dataset.drop(self.label_column, axis=1).values
         y = dataset[self.label_column].values
         
         # Create final model
-        clf, params = self.create_model(pipeline_setup, model_classes, model_state)
+        clf, params = self.__create_model(pipeline_setup, model_classes, model_state)
         clf.fit(X, y)
         
         # Model persistence
