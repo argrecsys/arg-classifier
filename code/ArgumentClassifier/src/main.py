@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.5
+    Version: 0.9.8
     Created on: Aug 27, 2021
-    Updated on: Jun 7, 2022
+    Updated on: Jun 8, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -15,7 +15,6 @@ from ml.constant import ModelType, TaskType
 # Import Python base libraries
 import json
 from datetime import datetime
-from itertools import product
 
 ######################
 ### CORE FUNCTIONS ###
@@ -49,7 +48,7 @@ def save_error_ids(error_ids, X_test):
 def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) -> int:
     filepath = result_folder + "metrics.csv"
     model_id = ml_ngx.get_next_model_id(filepath)
-    header = ["id", "task", "dataset", "configuration", "method", "dim_red", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
+    header = ["id", "task", "dataset", "configuration", "pipeline", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
     data = [[model_id, task] + row for row in data]
     result = ufl.save_csv_data(filepath, header, data, mode="a")
     
@@ -58,21 +57,24 @@ def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) ->
     return model_id
 
 # Start application
-def start_app(task_type:str, ml_algo:str):
+def start_app(task_type:str):
     app_setup = read_app_setup()
     
     if len(app_setup):
         
         # 0. Program variables
         feat_setup = app_setup["features"]
+        pipeline_setup = app_setup["pipeline"]
         train_setup = app_setup["train"]
         create_dataset = app_setup["create_dataset"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
         result_folder = app_setup["result_folder"]
+        ml_algo = pipeline_setup["method"]
         model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
+        print("\n>> %s (%s) - %s:" % (task.title(), ml_algo, str(datetime.now())))
         
         # 1. Machine Learning engine object
         ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
@@ -84,12 +86,12 @@ def start_app(task_type:str, ml_algo:str):
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, train_setup)
         
-        # 4. Train or calibrate model
-        clf, params = ml_ngx.create_model(ml_algo, X_train, y_train, model_state)
-        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
+        # 4. Create model pipeline
+        clf, params = ml_ngx.create_model(pipeline_setup, model_classes, model_state)
         
         # 5. Validate model - Estimating model performance
-        metrics_val = ml_ngx.validate_model(clf, X_train, y_train, model_classes, train_setup)
+        metrics_val = ml_ngx.train_model(clf, X_train, y_train, model_classes, train_setup)
+        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
         
         # 6. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)
@@ -101,14 +103,14 @@ def start_app(task_type:str, ml_algo:str):
         # 8. Save model params and results
         results = []
         dataset_name = get_curr_dataset_name(feat_setup)
-        dr_algo = feat_setup["dim_reduction"]
-        results.append([dataset_name, "validation", ml_algo, dr_algo, json.dumps(params), *metrics_val, datetime.now()])
-        results.append([dataset_name, "test", ml_algo, dr_algo, json.dumps(params), *metrics_test, datetime.now()])
+        results.append([dataset_name, "validation", json.dumps(pipeline_setup), json.dumps(params), *metrics_val, datetime.now()])
+        results.append([dataset_name, "test", json.dumps(pipeline_setup), json.dumps(params), *metrics_test, datetime.now()])
         model_id = save_results(result_folder, results, task_type, ml_ngx)
         
         # 9. Create and save model
         if model_id > 0:
-            fnl_clf = ml_ngx.create_save_model(model_folder, model_id, ml_algo, dataset, model_state)
+            filepath = model_folder + ml_algo.replace(" ", "_") + "_model_" + str(model_id) + ".joblib"
+            fnl_clf = ml_ngx.create_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
             
             #  10. Make predictions
             pass
@@ -121,10 +123,8 @@ def start_app(task_type:str, ml_algo:str):
 if __name__ == "__main__":
     print('>> START PROGRAM:', str(datetime.now()))
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
-    algos = [ModelType.GRADIENT_BOOSTING.value]
-    for task, algo in list(product(tasks, algos)):
-        print("\n>> %s (%s) - %s:" % (task.title(), algo, str(datetime.now())))
-        start_app(task, algo)
+    for task in tasks:
+        start_app(task)
     print(">> END PROGRAM:", str(datetime.now()))
 #####################
 #### END PROGRAM ####

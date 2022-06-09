@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.5
+    Version: 0.9.8
     Created on: Oct 07, 2021
-    Updated on: Jun 7, 2022
+    Updated on: Jun 8, 2022
     Description: ML engine class.
 """
 
@@ -15,17 +15,24 @@ from ml.constant import ModelType
 
 # Import Python base libraries
 import os
+import numpy as np
 import pandas as pd
 import joblib as jl
 
 # Import ML libraries
 from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
-from sklearn.model_selection import cross_val_predict, StratifiedKFold
+from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 
+# Import data transformers
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+
 # Import ML algorithms
+from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -54,21 +61,23 @@ class MLEngine:
     # Read CSV file of labels
     def __read_label_file(self, data_path:str) -> list:
         labels = []
-        
+        label_pattern = "sent_label"
         filepath = data_path + "propositions.csv"
         lines = ufl.get_list_from_plain_file(filepath, self.encoding)
         
         if len(lines) > 1:
+            header = lines[0].replace("\n", "").split(",")
+            n_labels = sum([1 if col_name.startswith(label_pattern) else 0 for col_name in header])
+            
             for line in lines[1:]:
                 data = line.replace("\n", "").split(",")
-                n = len(data)
+                n_cols = len(data)
                 
                 # Save data
-                prop_id = data[0]
-                label1 = data[n-3]
-                label2 = data[n-2]
-                label3 = data[n-1]
-                label = {"id": prop_id, "sent_label1": label1, "sent_label2": label2, "sent_label3": label3}
+                label = {"id": data[0]}
+                for i in range(0, n_labels):
+                    ix = n_cols - n_labels + i
+                    label[label_pattern+str(i+1)] = data[ix]
                 labels.append(label)
         
         return labels
@@ -217,10 +226,6 @@ class MLEngine:
             df["synt_parse_tree_depth"] = parse_tree_depth
             df["synt_sub_clauses_count"] = sub_clauses_count
         
-        # Scale final dataframe
-        if feat_setup["scale_data"]:
-            df = mlu.normalize_df(df)
-        
         # Added label column
         df[self.label_column] = label_list
         
@@ -248,32 +253,17 @@ class MLEngine:
         df_filepath = data_path + "dataset.csv"
         
         if force_create_dataset or not os.path.exists(df_filepath):
-            df_filepath_full = data_path + "dataset_full.csv"
             
-            # Creation full dataset
+            # Creation of initial dataset
             features = self.__read_feature_file(data_path)
             labels = self.__read_label_file(data_path)
             stopwords = self.__read_stopword_list(data_path)
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
-            dataset.to_csv(df_filepath_full, index=False)
-            
-            # Calculate DataFrame sparsity
-            ds_sparsity = uml.calc_df_sparsity(dataset)
-            print('- Original dataset sparsity:', ds_sparsity)
-            
-            # Dimensionality reduction
-            dr_algo = feat_setup["dim_reduction"].upper()
-            if dr_algo != "":
-                if dr_algo == "PCA":
-                    dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo, 0.95)
-                elif dr_algo == "LDA":
-                    dataset, pca_variance = mlu.apply_dim_reduction(dataset, dr_algo)
-                print('- Explained variance ratio:', sum(pca_variance) * 100)
             
             # Save it to disk
             dataset.to_csv(df_filepath, index=False)
         else:
-            # Read it from disk
+            # Or, read it from disk
             dataset = ufl.get_df_from_csv(df_filepath)
         
         # Final formatting
@@ -282,6 +272,11 @@ class MLEngine:
             dataset[self.label_column] = label_list
             
             if self.verbose:
+                # Calculate dataset sparsity
+                ds_sparsity = uml.calc_df_sparsity(dataset)
+                print('- Original dataset sparsity:', ds_sparsity)
+                
+                # Show dataset labels info
                 print('- Dataset labels info:')
                 print(label_dict)
                 print(mlu.get_df_col_stats(dataset, self.label_column))
@@ -291,18 +286,20 @@ class MLEngine:
     
     # ML function - Split dataset into train/test
     def split_dataset(self, dataset:pd.DataFrame, train_setup:dict) -> tuple:
-        model_state = train_setup["model_state"]
         cv_stratified = train_setup["cv_stratified"]
         perc_test = train_setup["perc_test"]
-        X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
-        y = dataset[self.label_column]
+        model_state = train_setup["model_state"]
+        
+        # Features (X) and labels (y)
+        X = dataset.drop(self.label_column, axis=1).values
+        y = dataset[self.label_column].values
         
         if cv_stratified:
             sss = StratifiedShuffleSplit(n_splits=1, test_size=perc_test, random_state=model_state)
             
             for train_index, test_index in sss.split(X, y):
-                X_train, X_test = X.iloc[train_index, :], X.iloc[test_index, :]
-                y_train, y_test = y.iloc[train_index], y.iloc[test_index]
+                X_train, X_test = X[train_index], X[test_index]
+                y_train, y_test = y[train_index], y[test_index]
             
         else:
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=perc_test, random_state=model_state)
@@ -310,26 +307,39 @@ class MLEngine:
         return X_train, X_test, y_train, y_test
     
     # ML function - Create model with default params
-    def create_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int):
-        clf = None
+    def create_model(self, pipeline_setup:dict, model_classes, model_state:int):
         params = {}
+        scale_data = pipeline_setup["scale_data"]
+        dim_red_algo = pipeline_setup["dim_red_algo"].upper()
+        cls_algo = pipeline_setup["method"]
         
-        if algorithm == ModelType.NAIVE_BAYES.value:
-            # Naive Bayes
-            clf = MultinomialNB()
-            clf.fit(X_train, y_train)
+        # Adding pipeline steps
+        estimators = []
+        if scale_data:
+            estimators.append(("scaler", MinMaxScaler()))
         
-        elif algorithm == ModelType.GRADIENT_BOOSTING.value:
-            # Gradient Boosting
+        if dim_red_algo == "PCA":
+            n_comp = 200
+            estimators.append(("reducer", PCA(n_components=n_comp)))
+        elif dim_red_algo == "LDA":
+            n_comp = len(model_classes) - 1
+            estimators.append(("reducer", LDA(n_components=n_comp)))
+        
+        if cls_algo == ModelType.NAIVE_BAYES.value:
+            estimators.append(('model', MultinomialNB()))
+        else:
             params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-            clf = GradientBoostingClassifier(**params)
-            clf.fit(X_train, y_train)
+            estimators.append(('model', GradientBoostingClassifier(**params)))
+        
+        # Create model pipeline
+        pipe = Pipeline(estimators)
+        print(pipe)
         
         # Return model and model params
-        return clf, params
+        return pipe, params
     
     # ML function - Create and fit (with grid search) model
-    def create_and_fit_model(self, algorithm:str, X_train:pd.DataFrame, y_train:pd.Series, model_state:int, cv_k:int) -> tuple:
+    def create_and_fit_model(self, algorithm:str, X_train:np.ndarray, y_train:np.ndarray, model_state:int, cv_k:int) -> tuple:
         clf = None
         params = {}
         
@@ -358,39 +368,43 @@ class MLEngine:
         # Return model and model params
         return clf, params
     
-    # ML function - Validate model
-    def validate_model(self, clf, X:pd.DataFrame, y:pd.Series, model_classes:list, train_setup:dict) -> tuple:
-        print("- Validating model:")
+    # ML function - Train and validate model
+    def train_model(self, clf, X:np.ndarray, y:np.ndarray, model_classes:list, train_setup:dict) -> tuple:
+        print("- Training model:")
         y_real = []
         y_pred = []
-        model_state = train_setup["model_state"]
-        cv_k = train_setup["cv_k"]
-        cv_stratified = train_setup["cv_stratified"]
         
+        cv_stratified = train_setup["cv_stratified"]
+        cv_k = train_setup["cv_k"]
+        model_state = train_setup["model_state"]
+        
+        # Evaluate model error
         if cv_stratified:
-            skf = StratifiedKFold(n_splits=cv_k, shuffle=True, random_state=model_state)
-            
-            for train_index, test_index in skf.split(X, y):
-                x_train_fold, x_test_fold = X.iloc[train_index, :], X.iloc[test_index, :]
-                y_train_fold, y_test_fold = y.iloc[train_index], y.iloc[test_index]
-                clf.fit(x_train_fold, y_train_fold)
-                
-                y_real += list(y_test_fold.values)
-                y_pred += list(clf.predict(x_test_fold))
+            kf = StratifiedKFold(n_splits=cv_k, shuffle=True, random_state=model_state)
         else:
-            y_real = y.values
-            y_pred = cross_val_predict(clf, X, y, cv=cv_k)
+            kf = KFold(n_splits=cv_k, shuffle=True, random_state=model_state)
+        
+        for train_index, test_index in kf.split(X, y):
+            x_train_fold, x_test_fold = X[train_index], X[test_index]
+            y_train_fold, y_test_fold = y[train_index], y[test_index]
+            
+            clf.fit(x_train_fold, y_train_fold)
+            y_real += list(y_test_fold)
+            y_pred += list(clf.predict(x_test_fold))
+        
+        # Train model with full data
+        clf.fit(X, y)
         
         # Calculate and return error metrics
         return self.__calculate_model_errors(y_real, y_pred, model_classes)
     
     # ML function - Test model
-    def test_model(self, clf, X_test:pd.DataFrame, y_test:pd.Series, model_classes:list) -> tuple:
+    def test_model(self, clf, X_test:np.ndarray, y_test:np.ndarray, model_classes:list) -> tuple:
         print("- Testing model:")
         y_test_pred = clf.predict(X_test)
         
         # Calculate mislabeled records
-        self.mislabeled_records = mlu.calc_mislabeled_records(X_test.index, y_test, y_test_pred)
+        self.mislabeled_records = mlu.calc_mislabeled_records(y_test, y_test_pred)
         
         # Calculate and return error metrics
         return self.__calculate_model_errors(y_test, y_test_pred, model_classes)
@@ -400,13 +414,15 @@ class MLEngine:
         return self.mislabeled_records
     
     # ML function - Creates and save final model
-    def create_save_model(self, model_folder:str, model_id:int, algorithm:str, dataset:pd.DataFrame, model_state:int):
-        filepath = model_folder + algorithm.replace(" ", "_") + "_model_" + str(model_id) + ".joblib"
-        X = dataset.loc[:, ~dataset.columns.isin([self.label_column])]
-        y = dataset[self.label_column]
+    def create_save_model(self, filepath:str, dataset:pd.DataFrame, pipeline_setup:dict, model_classes, model_state:int):
+        
+        # Features (X) and labels (y)
+        X = dataset.drop(self.label_column, axis=1).values
+        y = dataset[self.label_column].values
         
         # Create final model
-        clf = self.create_model(algorithm, X, y, model_state)
+        clf, params = self.create_model(pipeline_setup, model_classes, model_state)
+        clf.fit(X, y)
         
         # Model persistence
         jl.dump(clf, filepath) 
