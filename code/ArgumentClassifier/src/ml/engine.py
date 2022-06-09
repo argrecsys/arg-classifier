@@ -44,6 +44,7 @@ class MLEngine:
     def __init__(self, language:str, task_type:str, verbose:bool=True):
         self.encoding = "utf-8"
         self.label_column = "label"
+        self.metric_avg = "micro"
         self.language = language
         self.task_type = task_type
         self.verbose = verbose
@@ -328,7 +329,7 @@ class MLEngine:
                 estimators.append(("scaler", StandardScaler()))
             
             if dim_red_algo == DimReduction.PCA.value:
-                n_comp = 200
+                n_comp = 300
                 estimators.append(("reducer", PCA(n_components=n_comp)))
                 
             elif dim_red_algo == DimReduction.LDA.value:
@@ -403,7 +404,7 @@ class MLEngine:
         clf.fit(X, y)
         
         # Calculate and return error metrics
-        return self.__calculate_model_errors(y_real, y_pred, model_classes)
+        return self.__calculate_model_errors(y_real, y_pred, model_classes, self.metric_avg)
     
     # ML function - Test model
     def test_model(self, clf, X_test:np.ndarray, y_test:np.ndarray, model_classes:list) -> tuple:
@@ -414,7 +415,7 @@ class MLEngine:
         self.mislabeled_records = mlu.calc_mislabeled_records(y_test, y_test_pred)
         
         # Calculate and return error metrics
-        return self.__calculate_model_errors(y_test, y_test_pred, model_classes)
+        return self.__calculate_model_errors(y_test, y_test_pred, model_classes, self.metric_avg)
     
     # ML function - Get ids of mislabeled records
     def get_mislabeled_records(self) -> dict:

@@ -18,8 +18,8 @@
 		"synt_stats": true
 	},
 	"pipeline": {
-		"data_scale_algo": "standardize",
-		"dim_red_algo": "lda",
+		"data_scale_algo": "",
+		"dim_red_algo": "pca",
 		"ml_algo": "gradient boosting"
 	},
 	"train": {
