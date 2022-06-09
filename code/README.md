@@ -59,9 +59,9 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 		"synt_stats": true
 	},
 	"pipeline": {
+		"data_scale_algo": "normalize",
 		"dim_red_algo": "pca",
-		"scale_data": true,
-		"method": "gradient boosting"
+		"ml_algo": "gradient boosting"
 	},
 	"train": {
 		"cv_k": 10,

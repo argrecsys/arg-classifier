@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.8
+    Version: 0.9.9
     Created on: Aug 27, 2021
-    Updated on: Jun 8, 2022
+    Updated on: Jun 9, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -71,7 +71,7 @@ def start_app(task_type:str):
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
         result_folder = app_setup["result_folder"]
-        ml_algo = pipeline_setup["method"]
+        ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
         print("\n>> %s (%s) - %s:" % (task.title(), ml_algo, str(datetime.now())))

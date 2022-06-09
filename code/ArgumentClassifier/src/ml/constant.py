@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.1.0
+    Version: 0.2.0
     Created on: Oct 19, 2021
-    Updated on: Oct 19, 2021
+    Updated on: Jun 9, 2022
     Description: ML engine contants.
 """
 
@@ -22,6 +22,22 @@ class TaskType(enum.Enum):
 class ModelType(enum.Enum):
     NAIVE_BAYES = "naive bayes"
     GRADIENT_BOOSTING = "gradient boosting"
+    
+    def __str__(self):
+        return self.value
+
+# Using enum class create the data scale algorithms enumeration
+class ScaleData(enum.Enum):
+    NORMALIZE = "normalize"
+    STANDARDIZE = "standardize"
+    
+    def __str__(self):
+        return self.value
+    
+# Using enum class create the dimensionality reduction algorithms enumeration
+class DimReduction(enum.Enum):
+    LDA = "lda"
+    PCA = "pca"
     
     def __str__(self):
         return self.value
