@@ -1,8 +1,6 @@
 {
 	"features": {
 		"remove_stopwords": true,
-		"scale_data": true,
-		"dim_reduction": "lda",
 		"bow_unigrams": true,
 		"bow_bigrams": false,
 		"bow_trigrams": false,
@@ -18,6 +16,11 @@
 		"key_words": true,
 		"struc_stats": true,
 		"synt_stats": true
+	},
+	"pipeline": {
+		"dim_red_algo": "pca",
+		"scale_data": true,
+		"method": "gradient boosting"
 	},
 	"train": {
 		"cv_k": 10,

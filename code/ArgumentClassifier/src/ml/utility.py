@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.7.6
+    Version: 0.8.0
     Created on: Oct 19, 2021
     Updated on: Jun 8, 2022
     Description: ML engine utility functions.
@@ -12,6 +12,7 @@ from ml.constant import TaskType
 from util import ml as uml
 
 # Import Python base libraries
+import numpy as np
 import pandas as pd
 
 # Import ML librarie
@@ -23,7 +24,6 @@ from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import LabelEncoder
 
 ######################
 ### UTIL FUNCTIONS ###
@@ -62,40 +62,23 @@ def value_to_features(values:list, prefix:str):
     return key_words
 
 # Util function - Apply dimensionality reduction
-def apply_dim_reduction(df:pd.DataFrame, method:str, n:float=5) -> pd.DataFrame:
-    m_df = None
-    m_variance = []
-    method = method.lower()
-    
-    # Data
-    n_cols = len(df.columns)
-    X = df.values[:,:n_cols-1]
-    y_label = df.columns[-1]
+def apply_dim_reduction(X:np.ndarray, method:str, n:float, y:np.ndarray=None) -> np.ndarray:
+    x_reduced = []
+    variance = []
+    method = method.upper()
     
     # Create a DataFrame from PCA
-    if method == "pca":
-        pca = PCA(n_components=n)
-        m_data = pca.fit_transform(X)
-        m_variance = pca.explained_variance_ratio_
+    if method == "PCA":
+        model = PCA(n_components=n)
+        x_reduced = model.fit_transform(X)
+        variance = model.explained_variance_ratio_
     
     elif method == "lda":
-        labels = df[y_label]
-        enc = LabelEncoder()
-        y = enc.fit_transform(labels)
-        n = len(set(y)) - 1
-        
-        # Create model
-        lda = LDA(n_components=n)
-        m_data = lda.fit_transform(X, y)
-        m_variance = lda.explained_variance_ratio_
+        model = LDA(n_components=n)
+        x_reduced = model.fit_transform(X, y)
+        variance = model.explained_variance_ratio_
     
-    # Create final df
-    if len(m_variance) > 0:
-        components = [method+str(i) for i in range(1, len(m_variance)+1)]
-        m_df = pd.DataFrame(data=m_data, columns=components)
-        m_df = pd.concat([m_df, df[[y_label]]], axis=1)
-    
-    return m_df, m_variance
+    return x_reduced, variance
 
 # Util function - Calculates basic dataframe column stats
 def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
@@ -128,10 +111,10 @@ def calculate_errors(task_type:str, y_real:list, y_pred:list) -> tuple:
     return conf_mx, accuracy, precision, recall, f1, roc_score
 
 # Core function - Calculates mislabeled records
-def calc_mislabeled_records(index, y_real, y_pred):
+def calc_mislabeled_records(y_real, y_pred):
     records = {"t1_error":[], "t2_error":[]}
         
-    for ix, real, pred in zip(index, y_real, y_pred):
+    for ix, (real, pred) in enumerate(zip(y_real, y_pred)):
         if real == 1 and pred == 0:
             records["t2_error"].append(ix)
         elif real == 0 and pred == 1:
