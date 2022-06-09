@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.9
+    Version: 0.9.10
     Created on: Aug 27, 2021
     Updated on: Jun 9, 2022
     Description: Main class of the argument classifier.
@@ -44,12 +44,17 @@ def save_error_ids(error_ids, X_test):
         #for rid in v:
         #    print(rid, X_test.loc[rid])
 
-# Save model result
-def save_results(result_folder:str, data:list, task:str, ml_ngx:mle.MLEngine) -> int:
+# Save model metrics
+def save_metrics(data:list, task_type:str, dataset_name:str, configuration:str, pipeline_setup:dict, params:dict, metrics:tuple):
+    if metrics:
+        data.append([task_type, dataset_name, configuration, json.dumps(pipeline_setup), json.dumps(params), *metrics, datetime.now()])
+
+# Save model results
+def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     filepath = result_folder + "metrics.csv"
     model_id = ml_ngx.get_next_model_id(filepath)
     header = ["id", "task", "dataset", "configuration", "pipeline", "params", "accuracy", "precision", "recall", "f1-score", "roc-score", "datestamp"]
-    data = [[model_id, task] + row for row in data]
+    data = [[model_id] + row for row in data]
     result = ufl.save_csv_data(filepath, header, data, mode="a")
     
     if not result:
@@ -86,33 +91,31 @@ def start_app(task_type:str):
         # 3. Split dataset
         X_train, X_test, y_train, y_test = ml_ngx.split_dataset(dataset, train_setup)
         
-        # 4. Create model pipeline
-        clf, params = ml_ngx.create_model(pipeline_setup, model_classes, model_state)
+        # 4. Create or fit model pipeline
+        metrics_val = ()
+        # clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
+        clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
         
-        # 5. Validate model - Estimating model performance
-        metrics_val = ml_ngx.train_model(clf, X_train, y_train, model_classes, train_setup)
-        # clf, params = ml_ngx.create_and_fit_model(ml_algo, X_train, y_train, model_state, cv_k)
-        
-        # 6. Test model
+        # 5. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)
         
-        # 7. Error analysis
+        # 6. Error analysis
         error_ids = ml_ngx.get_mislabeled_records()
         save_error_ids(error_ids, X_test)
         
-        # 8. Save model params and results
+        # 7. Save model params and results
         results = []
         dataset_name = get_curr_dataset_name(feat_setup)
-        results.append([dataset_name, "validation", json.dumps(pipeline_setup), json.dumps(params), *metrics_val, datetime.now()])
-        results.append([dataset_name, "test", json.dumps(pipeline_setup), json.dumps(params), *metrics_test, datetime.now()])
-        model_id = save_results(result_folder, results, task_type, ml_ngx)
+        save_metrics(results, task_type, dataset_name, "validation", pipeline_setup, params, metrics_val)
+        save_metrics(results, task_type, dataset_name, "test", pipeline_setup, params, metrics_test)
+        model_id = save_results(result_folder, results, ml_ngx)
         
-        # 9. Create and save model
+        # 8. Create final model and save it
         if model_id > 0:
             filepath = model_folder + ml_algo.replace(" ", "_") + "_model_" + str(model_id) + ".joblib"
-            fnl_clf = ml_ngx.create_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
+            # fnl_clf = ml_ngx.create_and_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
             
-            #  10. Make predictions
+            #  9. Use model (make predictions)
             pass
     else:
         print(">> ERROR - The application configuration could not be read.", str(datetime.now()))

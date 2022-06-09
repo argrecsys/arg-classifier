@@ -19,7 +19,7 @@
 	},
 	"pipeline": {
 		"data_scale_algo": "",
-		"dim_red_algo": "pca",
+		"dim_red_algo": "",
 		"ml_algo": "gradient boosting"
 	},
 	"train": {
