@@ -22,7 +22,6 @@ import joblib as jl
 # Import ML libraries
 from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
-from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 
@@ -234,7 +233,7 @@ class MLEngine:
         return df
     
     # Core function - Create model pipeline with default params
-    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes, model_state:int) -> Pipeline:
+    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes) -> Pipeline:
         ml_algo = pipeline_setup["ml_algo"]
         data_scale_algo = pipeline_setup["data_scale_algo"]
         dim_red_algo = pipeline_setup["dim_red_algo"]
@@ -263,10 +262,7 @@ class MLEngine:
                 estimators.append(("reducer", LDA(n_components=n_comp)))
                 
             # 3. Add model
-            if model_params:
-                estimators.append(('model', GradientBoostingClassifier(**model_params)))
-            else:
-                estimators.append(('model', GradientBoostingClassifier()))
+            estimators.append(('model', GradientBoostingClassifier(**model_params)))
         
         # Create model pipeline
         pipe = Pipeline(estimators)
@@ -356,7 +352,7 @@ class MLEngine:
         # Create model pipeline
         print("- Creating model:")
         params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-        clf = self.__create_model(pipeline_setup, params, model_classes, model_state)
+        clf = self.__create_model(pipeline_setup, params, model_classes)
         
         # Train model with train data
         print("- Training model:")
@@ -370,12 +366,37 @@ class MLEngine:
         
         # Create model pipeline
         print("- Creating model:")
-        params = {}
-        clf = self.__create_model(pipeline_setup, params, model_classes, model_state)
+        params = {'random_state': model_state}
+        clf = self.__create_model(pipeline_setup, params, model_classes)
+        scores = ()
         
         # Fit model with train data
         print("- Fitting model:")
+        ml_algo = pipeline_setup["ml_algo"]
+        cv_k = train_setup["cv_k"]
         
+        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            
+            # GB hyper-params space
+            space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.01, 0.005],
+                     'model__n_estimators': [75, 100, 125, 150, 200],
+                     'model__max_depth': [3, 4, 5, 6, 7],
+                     'model__min_samples_leaf': [1, 2, 5, 7, 11],
+                     'model__min_samples_split': [2, 3, 4, 5]}
+            
+            # Gradient Boosting tuning
+            metric = "f1_" + self.metric_avg
+            tuning = GridSearchCV(estimator=clf, param_grid=space, scoring=metric, cv=cv_k, n_jobs=8, refit=True)
+            tuning.fit(X_train, y_train)
+            
+            # Keep the best
+            clf = tuning.best_estimator_
+            params = tuning.best_params_
+            scores = tuning.cv_results_['mean_test_score'][0], tuning.cv_results_['std_test_score'][0]
+        
+        if self.verbose:
+            print(params)
+            print(scores)
         
         # Return model and model params
         return clf, params
