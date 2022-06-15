@@ -351,7 +351,8 @@ class MLEngine:
         
         # Create model pipeline
         print("- Creating model:")
-        params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+        # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+        params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
         clf = self.__create_model(pipeline_setup, params, model_classes)
         
         # Train model with train data
