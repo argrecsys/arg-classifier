@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-0.9.10-blue)
-![last-update](https://img.shields.io/badge/last_update-6/9/2022-orange)
+![version](https://img.shields.io/badge/version-0.9.11-blue)
+![last-update](https://img.shields.io/badge/last_update-6/15/2022-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
@@ -22,7 +22,7 @@ Below are links to all datasets (both intermediate and final) created and used b
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
 - Data processor (Python module):
-  - python 3.8.x
+  - python 3.9.x
 
 - Feature extractor (Java module):
   - JDK 16
@@ -32,7 +32,7 @@ The implemented solutions depend on or make use of the following libraries:
   - JSON Java 20210307
 
 - Argument classifier (Python module):
-  - python 3.8.x
+  - python 3.9.x
   - sklearn 0.24.2
   - nltk 3.6.3
 
