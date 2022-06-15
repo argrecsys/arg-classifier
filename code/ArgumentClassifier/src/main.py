@@ -93,8 +93,8 @@ def start_app(task_type:str):
         
         # 4. Create or fit model pipeline
         metrics_val = ()
-        # clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
-        clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
+        clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
+        # clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
         
         # 5. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)
