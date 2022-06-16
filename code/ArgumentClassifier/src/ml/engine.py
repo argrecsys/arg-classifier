@@ -232,7 +232,7 @@ class MLEngine:
         return df
     
     # Core function - Create model pipeline with default params
-    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes) -> Pipeline:
+    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes:list) -> Pipeline:
         ml_algo = pipeline_setup["ml_algo"]
         data_scale_algo = pipeline_setup["data_scale_algo"]
         dim_red_algo = pipeline_setup["dim_red_algo"]
@@ -253,7 +253,7 @@ class MLEngine:
             
             # 2. Add dim reducer
             if dim_red_algo == DimReduction.PCA.value:
-                n_comp = 300
+                n_comp = 100
                 estimators.append(("reducer", PCA(n_components=n_comp)))
                 
             elif dim_red_algo == DimReduction.LDA.value:
