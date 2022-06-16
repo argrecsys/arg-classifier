@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.0
+    Version: 0.9.0
     Created on: Oct 19, 2021
-    Updated on: Jun 8, 2022
+    Updated on: Jun 16, 2022
     Description: ML engine utility functions.
 """
 
@@ -16,9 +16,8 @@ import numpy as np
 import pandas as pd
 
 # Import ML librarie
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
@@ -92,23 +91,25 @@ def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
 ######################
 
 # Core function - Calculate difference between real and predicted
-def calculate_errors(task_type:str, y_real:list, y_pred:list, avg_type:str="") -> tuple:
+def calculate_errors(task_type:str, y_real:list, y_pred:list, target_names:list, avg_type:str="") -> tuple:
+    
+    # Calculate model metrics
     conf_mx = confusion_matrix(y_real, y_pred)
-    accuracy = accuracy_score(y_real, y_pred)
+    report = classification_report(y_real, y_pred, target_names=target_names)
+    output = classification_report(y_real, y_pred, output_dict=True)
     
+    # Get model metrics
+    accuracy = output['accuracy']
+    weighted_avg = output['weighted avg']
+    precision = weighted_avg['precision']
+    recall = weighted_avg['recall']
+    f1_score = weighted_avg['f1-score']
+    roc_score = 0
     if task_type == TaskType.DETECTION.value:
-        precision = precision_score(y_real, y_pred)
-        recall = recall_score(y_real, y_pred)
-        f1 = f1_score(y_real, y_pred)
         roc_score = roc_auc_score(y_real, y_pred)
-        
-    elif task_type == TaskType.CLASSIFICATION.value:
-        precision = precision_score(y_real, y_pred, average=avg_type)
-        recall = recall_score(y_real, y_pred, average=avg_type)
-        f1 = f1_score(y_real, y_pred, average=avg_type)
-        roc_score = 0
     
-    return conf_mx, accuracy, precision, recall, f1, roc_score
+    # Return model metrics
+    return conf_mx, accuracy, precision, recall, f1_score, roc_score, report
 
 # Core function - Calculates mislabeled records
 def calc_mislabeled_records(y_real, y_pred):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.10
+    Version: 0.9.12
     Created on: Oct 07, 2021
-    Updated on: Jun 9, 2022
+    Updated on: Jun 16, 2022
     Description: ML engine class.
 """
 
@@ -23,7 +23,6 @@ import joblib as jl
 from nltk.stem import SnowballStemmer
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import classification_report
 
 # Import data transformers
 from sklearn.preprocessing import Binarizer
@@ -273,14 +272,15 @@ class MLEngine:
     
     # Core function - Calculate model errors
     def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list, avg_type:str) -> tuple:
-        conf_mx, accuracy, precision, recall, f1, roc_score = mlu.calculate_errors(self.task_type, y_real, y_pred, avg_type)
+        results = mlu.calculate_errors(self.task_type, y_real, y_pred, model_classes, avg_type)
+        conf_mx, accuracy, precision, recall, f1_score, roc_score, report = results
     
         if self.verbose:
             print(conf_mx)
-            print(classification_report(y_real, y_pred, target_names=model_classes))
-            print("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1, roc_score))
+            print(report)
+            print("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1_score, roc_score))
         
-        return accuracy, precision, recall, f1, roc_score
+        return accuracy, precision, recall, f1_score, roc_score
     
     ###########################
     ### ML PUBLIC FUNCTIONS ###
