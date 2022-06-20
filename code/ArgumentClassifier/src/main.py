@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.12
+    Version: 0.9.13
     Created on: Aug 27, 2021
-    Updated on: Jun 16, 2022
+    Updated on: Jun 20, 2022
     Description: Main class of the argument classifier.
 """
 
 # Import Custom libraries
 from util import files as ufl
 import ml.engine as mle
-from ml.constant import ModelType, TaskType
+from ml.constant import TaskType
 
 # Import Python base libraries
 import json

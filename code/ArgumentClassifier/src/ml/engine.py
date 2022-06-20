@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.12
+    Version: 0.9.13
     Created on: Oct 07, 2021
-    Updated on: Jun 16, 2022
+    Updated on: Jun 20, 2022
     Description: ML engine class.
 """
 
 # Import Custom libraries
 from util import files as ufl
 from util import ml as uml
+from ml.constant import TaskType
 import ml.utility as mlu
 from ml.constant import ModelType, DimReduction, ScaleData
 
@@ -232,7 +233,7 @@ class MLEngine:
         return df
     
     # Core function - Create model pipeline with default params
-    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes) -> Pipeline:
+    def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes:list) -> Pipeline:
         ml_algo = pipeline_setup["ml_algo"]
         data_scale_algo = pipeline_setup["data_scale_algo"]
         dim_red_algo = pipeline_setup["dim_red_algo"]
@@ -253,7 +254,7 @@ class MLEngine:
             
             # 2. Add dim reducer
             if dim_red_algo == DimReduction.PCA.value:
-                n_comp = 300
+                n_comp = 100
                 estimators.append(("reducer", PCA(n_components=n_comp)))
                 
             elif dim_red_algo == DimReduction.LDA.value:
@@ -281,6 +282,23 @@ class MLEngine:
             print("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1_score, roc_score))
         
         return accuracy, precision, recall, f1_score, roc_score
+    
+    # Core function - Get model params based on the current AM task
+    def __get_model_params(self, model_state:int) -> dict:
+        params = {}
+        
+        if self.task_type == TaskType.DETECTION.value:
+            params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
+            # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+        
+        elif self.task_type == TaskType.CLASSIFICATION.value:
+            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+            # params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
+            # params = {'learning_rate': 0.05, 'n_estimators': 200, 'max_depth': 4, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+            # params = {'learning_rate': 0.1, 'n_estimators': 175, 'random_state': model_state}
+        
+        print(params)
+        return params
     
     ###########################
     ### ML PUBLIC FUNCTIONS ###
@@ -351,9 +369,8 @@ class MLEngine:
         
         # Create model pipeline
         print("- Creating model:")
-        # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-        params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
-        print(params)
+        
+        params = self.__get_model_params(model_state)
         clf = self.__create_model(pipeline_setup, params, model_classes)
         
         # Train model with train data
@@ -380,11 +397,11 @@ class MLEngine:
         if ml_algo == ModelType.GRADIENT_BOOSTING.value:
             
             # GB hyper-params space
-            space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.01, 0.005],
-                     'model__n_estimators': [75, 100, 125, 150, 200],
-                     'model__max_depth': [3, 4, 5, 6, 7],
-                     'model__min_samples_leaf': [1, 2, 5, 7, 11],
-                     'model__min_samples_split': [2, 3, 4, 5]}
+            space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
+                     'model__n_estimators': [150, 175, 200, 225, 250],
+                     'model__max_depth': [2, 3, 4, 5, 6],
+                     'model__min_samples_leaf': [1, 2, 5, 7],
+                     'model__min_samples_split': [2, 3]}
             
             # Gradient Boosting tuning
             metric = "f1_" + self.metric_avg
