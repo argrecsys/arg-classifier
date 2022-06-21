@@ -326,8 +326,8 @@ class MLEngine:
         
         elif ml_algo == ModelType.SVM.value:
             space = [
-                {'model__C': [1, 10, 100, 1000], 'model__kernel': ['linear']},
-                {'model__C': [1, 10, 100, 1000], 'model__kernel': ['rbf'], 'model__gamma': [0.001, 0.0001]},
+                {'model__C': [0.1, 1, 10, 100, 1000], 'model__kernel': ['linear']},
+                {'model__C': [0.1, 1, 10, 100, 1000], 'model__kernel': ['rbf'], 'model__gamma': [1, 0.1, 0.01, 0.001, 0.0001]},
             ]
         
         print(space)
