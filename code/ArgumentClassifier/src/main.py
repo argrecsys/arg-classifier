@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.13
+    Version: 0.9.14
     Created on: Aug 27, 2021
-    Updated on: Jun 20, 2022
+    Updated on: Jun 21, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -93,8 +93,8 @@ def start_app(task_type:str):
         
         # 4. Create or fit model pipeline
         metrics_val = ()
-        clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
-        # clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
+        # clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
+        clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
         
         # 5. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)

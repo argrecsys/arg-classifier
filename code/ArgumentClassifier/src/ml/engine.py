@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.13
+    Version: 0.9.14
     Created on: Oct 07, 2021
-    Updated on: Jun 20, 2022
+    Updated on: Jun 21, 2022
     Description: ML engine class.
 """
 
@@ -34,6 +34,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 # Import ML algorithms
 from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
 from sklearn.ensemble import GradientBoostingClassifier
 
 # Machine Learning API class
@@ -262,7 +263,11 @@ class MLEngine:
                 estimators.append(("reducer", LDA(n_components=n_comp)))
                 
             # 3. Add model
-            estimators.append(('model', GradientBoostingClassifier(**model_params)))
+            if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+                estimators.append(('model', GradientBoostingClassifier(**model_params)))
+            
+            elif ml_algo == ModelType.SVM.value:
+                estimators.append(('model', SVC(**model_params)))
         
         # Create model pipeline
         pipe = Pipeline(estimators)
@@ -284,21 +289,49 @@ class MLEngine:
         return accuracy, precision, recall, f1_score, roc_score
     
     # Core function - Get model params based on the current AM task
-    def __get_model_params(self, model_state:int) -> dict:
+    def __get_model_params(self, ml_algo:str, model_state:int) -> dict:
         params = {}
         
-        if self.task_type == TaskType.DETECTION.value:
-            params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
-            # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            if self.task_type == TaskType.DETECTION.value:
+                params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
+                # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+            
+            elif self.task_type == TaskType.CLASSIFICATION.value:
+                params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+                # params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
+                # params = {'learning_rate': 0.05, 'n_estimators': 200, 'max_depth': 4, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+                # params = {'learning_rate': 0.1, 'n_estimators': 175, 'random_state': model_state}
         
-        elif self.task_type == TaskType.CLASSIFICATION.value:
-            params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-            # params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
-            # params = {'learning_rate': 0.05, 'n_estimators': 200, 'max_depth': 4, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-            # params = {'learning_rate': 0.1, 'n_estimators': 175, 'random_state': model_state}
-        
+        elif ml_algo == ModelType.SVM.value:
+            if self.task_type == TaskType.DETECTION.value:
+                params = {}
+                
+            elif self.task_type == TaskType.CLASSIFICATION.value:
+                params = {}
+            
         print(params)
         return params
+    
+    # Core function - Get model param space
+    def __get_model_param_space(self, ml_algo:str) -> dict:
+        space = {}
+        
+        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
+                     'model__n_estimators': [150, 175, 200, 225, 250],
+                     'model__max_depth': [2, 3, 4, 5, 6],
+                     'model__min_samples_leaf': [1, 2, 5, 7],
+                     'model__min_samples_split': [2, 3]}
+        
+        elif ml_algo == ModelType.SVM.value:
+            space = [
+                {'model__C': [1, 10, 100, 1000], 'model__kernel': ['linear']},
+                {'model__C': [1, 10, 100, 1000], 'model__kernel': ['rbf'], 'model__gamma': [0.001, 0.0001]},
+            ]
+        
+        print(space)
+        return space
     
     ###########################
     ### ML PUBLIC FUNCTIONS ###
@@ -366,15 +399,16 @@ class MLEngine:
     
     # ML function - Create and train model
     def create_and_train_model(self, pipeline_setup:dict, X_train:np.ndarray, y_train:np.ndarray, model_classes, model_state:int) -> tuple:
+        ml_algo = pipeline_setup["ml_algo"]
         
         # Create model pipeline
-        print("- Creating model:")
+        print("- Creating model:", ml_algo)
         
-        params = self.__get_model_params(model_state)
+        params = self.__get_model_params(ml_algo, model_state)
         clf = self.__create_model(pipeline_setup, params, model_classes)
         
         # Train model with train data
-        print("- Training model:")
+        print("- Training model:", ml_algo)
         clf.fit(X_train, y_train)
         
         # Return model and model params
@@ -382,40 +416,33 @@ class MLEngine:
     
     # ML function - Create and fit model
     def create_and_fit_model(self, pipeline_setup:dict, X_train:np.ndarray, y_train:np.ndarray, model_classes, model_state:int, train_setup:dict) -> tuple:
+        ml_algo = pipeline_setup["ml_algo"]
         
         # Create model pipeline
-        print("- Creating model:")
+        print("- Creating model:", ml_algo)
         params = {'random_state': model_state}
         clf = self.__create_model(pipeline_setup, params, model_classes)
         scores = ()
         
         # Fit model with train data
-        print("- Fitting model:")
-        ml_algo = pipeline_setup["ml_algo"]
+        print("- Fitting model:", ml_algo)
         cv_k = train_setup["cv_k"]
+        space = self.__get_model_param_space(ml_algo)        
+            
+        # Model tuning
+        metric = "f1_" + self.metric_avg
+        tuning = GridSearchCV(estimator=clf, param_grid=space, scoring=metric, cv=cv_k, n_jobs=8, refit=True)
+        tuning.fit(X_train, y_train)
         
-        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            
-            # GB hyper-params space
-            space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
-                     'model__n_estimators': [150, 175, 200, 225, 250],
-                     'model__max_depth': [2, 3, 4, 5, 6],
-                     'model__min_samples_leaf': [1, 2, 5, 7],
-                     'model__min_samples_split': [2, 3]}
-            
-            # Gradient Boosting tuning
-            metric = "f1_" + self.metric_avg
-            tuning = GridSearchCV(estimator=clf, param_grid=space, scoring=metric, cv=cv_k, n_jobs=8, refit=True)
-            tuning.fit(X_train, y_train)
-            
-            # Keep the best
-            clf = tuning.best_estimator_
-            params = tuning.best_params_
-            scores = tuning.cv_results_['mean_test_score'][0], tuning.cv_results_['std_test_score'][0]
+        # Keep the best
+        clf = tuning.best_estimator_
+        params = tuning.best_params_
+        scores = tuning.cv_results_['mean_test_score'][0], tuning.cv_results_['std_test_score'][0]
         
         if self.verbose:
             print(params)
             print(scores)
+            # print(tuning.cv_results_)
         
         # Return model and model params
         return clf, params
