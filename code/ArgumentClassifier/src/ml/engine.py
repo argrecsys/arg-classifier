@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.14
+    Version: 0.9.16
     Created on: Oct 07, 2021
-    Updated on: Jun 21, 2022
+    Updated on: Jun 22, 2022
     Description: ML engine class.
 """
 
@@ -242,9 +242,24 @@ class MLEngine:
         # Adding pipeline steps
         estimators = []
         if ml_algo == ModelType.NAIVE_BAYES.value:
-            estimators.append(('binarizer', Binarizer()))
-            estimators.append(('model', MultinomialNB()))
+            model_params.pop('random_state', None)
             
+            # Simple NB approach vs. dimensionality-reduced approach
+            if dim_red_algo == "":
+                estimators.append(('binarizer', Binarizer()))
+                estimators.append(('model', MultinomialNB(**model_params)))
+            else:
+                # 2. Add dim reducer
+                if dim_red_algo == DimReduction.PCA.value:
+                    n_comp = 100
+                    estimators.append(("reducer", PCA(n_components=n_comp)))
+                    
+                elif dim_red_algo == DimReduction.LDA.value:
+                    n_comp = len(model_classes) - 1
+                    estimators.append(("reducer", LDA(n_components=n_comp)))
+                
+                estimators.append(("scaler", MinMaxScaler()))    
+                estimators.append(('model', MultinomialNB()))
         else:
             # 1. Add data scaler
             if data_scale_algo == ScaleData.NORMALIZE.value:
@@ -292,7 +307,10 @@ class MLEngine:
     def __get_model_params(self, ml_algo:str, model_state:int) -> dict:
         params = {}
         
-        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+        if ml_algo == ModelType.NAIVE_BAYES.value:
+            params = {'alpha': 1}
+            
+        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.DETECTION.value:
                 params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
                 # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
@@ -305,11 +323,11 @@ class MLEngine:
         
         elif ml_algo == ModelType.SVM.value:
             if self.task_type == TaskType.DETECTION.value:
-                params = {}
+                params = {'C': 0.1, 'kernel': 'linear', 'random_state': model_state}
                 
             elif self.task_type == TaskType.CLASSIFICATION.value:
-                params = {}
-            
+                params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
+        
         print(params)
         return params
     
@@ -317,7 +335,10 @@ class MLEngine:
     def __get_model_param_space(self, ml_algo:str) -> dict:
         space = {}
         
-        if ml_algo == ModelType.GRADIENT_BOOSTING.value:
+        if ml_algo == ModelType.NAIVE_BAYES.value:
+            space = {'model__alpha': (1, 0.1, 0.01, 0.001, 0.0001, 0.0001)}
+        
+        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
                      'model__n_estimators': [150, 175, 200, 225, 250],
                      'model__max_depth': [2, 3, 4, 5, 6],
