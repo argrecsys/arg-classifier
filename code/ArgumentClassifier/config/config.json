@@ -20,7 +20,7 @@
 	"pipeline": {
 		"data_scale_algo": "",
 		"dim_red_algo": "",
-		"ml_algo": "support-vector-machine"
+		"ml_algo": "naive-bayes"
 	},
 	"train": {
 		"cv_k": 10,
