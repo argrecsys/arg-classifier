@@ -20,7 +20,7 @@
 	"pipeline": {
 		"data_scale_algo": "",
 		"dim_red_algo": "",
-		"ml_algo": "naive-bayes"
+		"ml_algo": "logistic-regression"
 	},
 	"train": {
 		"cv_k": 10,
