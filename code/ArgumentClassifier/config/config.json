@@ -19,8 +19,8 @@
 	},
 	"pipeline": {
 		"data_scale_algo": "",
-		"dim_red_algo": "",
-		"ml_algo": "naive-bayes"
+		"dim_red_algo": "pca",
+		"ml_algo": "support-vector-machine"
 	},
 	"train": {
 		"cv_k": 10,

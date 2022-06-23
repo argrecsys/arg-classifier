@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.16
+    Version: 0.9.18
     Created on: Oct 07, 2021
-    Updated on: Jun 22, 2022
+    Updated on: Jun 23, 2022
     Description: ML engine class.
 """
 
@@ -33,6 +33,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 # Import ML algorithms
 from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import SVC
 from sklearn.ensemble import GradientBoostingClassifier
@@ -283,7 +284,13 @@ class MLEngine:
             
             elif ml_algo == ModelType.SVM.value:
                 estimators.append(('model', SVC(**model_params)))
-        
+            
+            elif ml_algo == ModelType.LOG_REG.value:
+                model_params.pop('random_state', None)
+                if len(model_classes) > 2:
+                    model_params['multi_class'] = 'multinomial'
+                estimators.append(('model', LogisticRegression(**model_params)))
+            
         # Create model pipeline
         pipe = Pipeline(estimators)
         print(pipe)
@@ -308,18 +315,25 @@ class MLEngine:
         params = {}
         
         if ml_algo == ModelType.NAIVE_BAYES.value:
-            params = {'alpha': 1}
+            if self.task_type == TaskType.DETECTION.value:
+                params = {'alpha': 1}
+                
+            elif self.task_type == TaskType.CLASSIFICATION.value:
+                params = {'alpha': 1}
             
+        elif ml_algo == ModelType.LOG_REG.value:
+            if self.task_type == TaskType.DETECTION.value:
+                params = {'C': 1, 'penalty': 'none', 'solver': 'saga'}
+                
+            elif self.task_type == TaskType.CLASSIFICATION.value:
+                params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
+        
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.DETECTION.value:
                 params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
-                # params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
             
             elif self.task_type == TaskType.CLASSIFICATION.value:
                 params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-                # params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
-                # params = {'learning_rate': 0.05, 'n_estimators': 200, 'max_depth': 4, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-                # params = {'learning_rate': 0.1, 'n_estimators': 175, 'random_state': model_state}
         
         elif ml_algo == ModelType.SVM.value:
             if self.task_type == TaskType.DETECTION.value:
@@ -338,6 +352,11 @@ class MLEngine:
         if ml_algo == ModelType.NAIVE_BAYES.value:
             space = {'model__alpha': (1, 0.1, 0.01, 0.001, 0.0001, 0.0001)}
         
+        elif ml_algo == ModelType.LOG_REG.value:
+            space = {'model__solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],
+                     'model__penalty':['none', 'elasticnet', 'l1', 'l2'],
+                     'model__C':[0.001, 0.01, 0.1, 1, 10, 100]}
+        
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
                      'model__n_estimators': [150, 175, 200, 225, 250],
@@ -347,9 +366,12 @@ class MLEngine:
         
         elif ml_algo == ModelType.SVM.value:
             space = [
-                {'model__C': [0.1, 1, 10, 100, 1000], 'model__kernel': ['linear']},
-                {'model__C': [0.1, 1, 10, 100, 1000], 'model__kernel': ['rbf'], 'model__gamma': [1, 0.1, 0.01, 0.001, 0.0001]},
-            ]
+                {'model__C': [0.1, 1, 10, 100, 1000],
+                 'model__kernel': ['linear']},
+                {'model__C': [0.1, 1, 10, 100, 1000],
+                 'model__kernel': ['rbf'],
+                 'model__gamma': [1, 0.1, 0.01, 0.001, 0.0001]}
+                ]
         
         print(space)
         return space
