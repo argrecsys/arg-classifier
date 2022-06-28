@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.18
+    Version: 1.0.0
     Created on: Aug 27, 2021
-    Updated on: Jun 23, 2022
+    Updated on: Jun 28, 2022
     Description: Main class of the argument classifier.
 """
 
 # Import Custom libraries
 from util import files as ufl
 import ml.engine as mle
+import ml.logging as mll
 from ml.constant import TaskType
 
 # Import Python base libraries
@@ -62,7 +63,8 @@ def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     return model_id
 
 # Start application
-def start_app(task_type:str):
+def start_app(log:mll.MLLog, task_type:str):
+    log.log_info('\n>> START PROGRAM')
     app_setup = read_app_setup()
     
     if len(app_setup):
@@ -79,10 +81,10 @@ def start_app(task_type:str):
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
-        print("\n>> %s (%s) - %s:" % (task.title(), ml_algo, str(datetime.now())))
+        log.log_info(">> %s (%s):" % (task.title(), ml_algo))
         
         # 1. Machine Learning engine object
-        ml_ngx = mle.MLEngine(language=language, task_type=task_type, verbose=True)
+        ml_ngx = mle.MLEngine(language=language, task_type=task_type, log=log)
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
@@ -118,17 +120,18 @@ def start_app(task_type:str):
             #  9. Use model (make predictions)
             pass
     else:
-        print(">> ERROR - The application configuration could not be read.", str(datetime.now()))
+        log.log_error(">> ERROR - The application configuration could not be read.")
+    
+    log.log_info(">> END PROGRAM")
 
 #####################
 ### START PROGRAM ###
 #####################
 if __name__ == "__main__":
-    print('>> START PROGRAM:', str(datetime.now()))
+    log = mll.MLLog()
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
     for task in tasks:
-        start_app(task)
-    print(">> END PROGRAM:", str(datetime.now()))
+        start_app(log, task)
 #####################
 #### END PROGRAM ####
 #####################
