@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.18
+    Version: 1.0.0
     Created on: Oct 07, 2021
-    Updated on: Jun 23, 2022
+    Updated on: Jun 28, 2022
     Description: ML engine class.
 """
 
@@ -12,6 +12,7 @@ from util import files as ufl
 from util import ml as uml
 from ml.constant import TaskType
 import ml.utility as mlu
+import ml.logging as mll
 from ml.constant import ModelType, DimReduction, ScaleData
 
 # Import Python base libraries
@@ -42,13 +43,13 @@ from sklearn.ensemble import GradientBoostingClassifier
 class MLEngine:
     
     # Constructor
-    def __init__(self, language:str, task_type:str, verbose:bool=True):
+    def __init__(self, language:str, task_type:str, log:mll.MLLog):
         self.encoding = "utf-8"
         self.label_column = "label"
         self.metric_avg = "micro"
         self.language = language
         self.task_type = task_type
-        self.verbose = verbose
+        self.log = log
         self.mislabeled_records = {"t1_error":[], "t2_error":[]}
         
     ######################
@@ -96,7 +97,7 @@ class MLEngine:
         
         # Validation
         if len(features) != len(labels):
-            print("- The length of the data and the labels is different")
+            self.log.log_info("- The length of the data and the labels is different")
             return None
         
         # Temp variables
@@ -293,7 +294,7 @@ class MLEngine:
             
         # Create model pipeline
         pipe = Pipeline(estimators)
-        print(pipe)
+        self.log.log_info(str(pipe))
         
         # Return model and model params
         return pipe
@@ -302,11 +303,10 @@ class MLEngine:
     def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list, avg_type:str) -> tuple:
         results = mlu.calculate_errors(self.task_type, y_real, y_pred, model_classes, avg_type)
         conf_mx, accuracy, precision, recall, f1_score, roc_score, report = results
-    
-        if self.verbose:
-            print(conf_mx)
-            print(report)
-            print("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1_score, roc_score))
+        
+        self.log.log_info(conf_mx)
+        self.log.log_info(report)
+        self.log.log_info("accuracy: %0.2f, precision: %0.2f, recall: %0.2f, f1-score: %0.2f, roc-curve: %0.2f \n" % (accuracy, precision, recall, f1_score, roc_score))
         
         return accuracy, precision, recall, f1_score, roc_score
     
@@ -342,7 +342,7 @@ class MLEngine:
             elif self.task_type == TaskType.CLASSIFICATION.value:
                 params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
         
-        print(params)
+        self.log.log_info(params)
         return params
     
     # Core function - Get model param space
@@ -373,7 +373,7 @@ class MLEngine:
                  'model__gamma': [1, 0.1, 0.01, 0.001, 0.0001]}
                 ]
         
-        print(space)
+        self.log.log_info(space)
         return space
     
     ###########################
@@ -405,16 +405,15 @@ class MLEngine:
             label_dict, label_list = mlu.get_label_dict(self.task_type, dataset[self.label_column].tolist())
             dataset[self.label_column] = label_list
             
-            if self.verbose:
-                # Calculate dataset sparsity
-                ds_sparsity = uml.calc_df_sparsity(dataset)
-                print('- Original dataset sparsity:', ds_sparsity)
-                
-                # Show dataset labels info
-                print('- Dataset labels info:')
-                print(label_dict)
-                print(mlu.get_df_col_stats(dataset, self.label_column))
-                print('\n', dataset)
+            # Calculate dataset sparsity
+            ds_sparsity = uml.calc_df_sparsity(dataset)
+            self.log.log_info('- Original dataset sparsity: ' + str(ds_sparsity))
+            
+            # Show dataset labels info
+            self.log.log_info('- Dataset labels info:')
+            self.log.log_info(str(label_dict))
+            self.log.log_info(str(mlu.get_df_col_stats(dataset, self.label_column)))
+            self.log.log_info('\n' + str(dataset))
         
         return dataset, label_dict
     
@@ -445,13 +444,13 @@ class MLEngine:
         ml_algo = pipeline_setup["ml_algo"]
         
         # Create model pipeline
-        print("- Creating model:", ml_algo)
+        self.log.log_info("- Creating model: " + ml_algo)
         
         params = self.__get_model_params(ml_algo, model_state)
         clf = self.__create_model(pipeline_setup, params, model_classes)
         
         # Train model with train data
-        print("- Training model:", ml_algo)
+        self.log.log_info("- Training model: " + ml_algo)
         clf.fit(X_train, y_train)
         
         # Return model and model params
@@ -462,13 +461,13 @@ class MLEngine:
         ml_algo = pipeline_setup["ml_algo"]
         
         # Create model pipeline
-        print("- Creating model:", ml_algo)
+        self.log.log_info("- Creating model: " + ml_algo)
         params = {'random_state': model_state}
         clf = self.__create_model(pipeline_setup, params, model_classes)
         scores = ()
         
         # Fit model with train data
-        print("- Fitting model:", ml_algo)
+        self.log.log_info("- Fitting model:" + ml_algo)
         cv_k = train_setup["cv_k"]
         space = self.__get_model_param_space(ml_algo)        
             
@@ -483,16 +482,16 @@ class MLEngine:
         scores = tuning.cv_results_['mean_test_score'][0], tuning.cv_results_['std_test_score'][0]
         
         if self.verbose:
-            print(params)
-            print(scores)
-            # print(tuning.cv_results_)
+            self.log.log_info(params)
+            self.log.log_info(scores)
+            self.log.log_info(tuning.cv_results_)
         
         # Return model and model params
         return clf, params
     
     # ML function - Test model
     def test_model(self, clf, X_test:np.ndarray, y_test:np.ndarray, model_classes:list) -> tuple:
-        print("- Testing model:")
+        self.log.log_info("- Testing model:")
         y_test_pred = clf.predict(X_test)
         
         # Calculate mislabeled records
