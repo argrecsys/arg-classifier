@@ -3,7 +3,7 @@
     Created by: Andrés Segura-Tinoco
     Version: 1.0.0
     Created on: Jun 28, 2022
-    Updated on: Jun 28, 2022
+    Updated on: Jun 29, 2022
     Description: Manages ML engine auditing
 """
 
@@ -19,7 +19,7 @@ class MLLog:
         self.verbose = verbose
         
         # Create logger
-        self.logger = logging.getLogger('ml_log')
+        self.logger = logging.getLogger('ml_logger')
         self.logger.setLevel(logging.DEBUG)
         
         # Create file handler which logs even debug messages
@@ -34,18 +34,18 @@ class MLLog:
         self.logger.addHandler(fh)
         self.logger.addHandler(ch)
     
+    # Log a debug message
+    def log_debug(self, msg:str):
+        full_msg = msg + ' - ' + str(datetime.now())
+        self.logger.debug(full_msg)
+        if self.verbose:
+            print(full_msg)
+    
     # Log an info message
     def log_info(self, msg:str):
         msg = msg if type(msg) == "str" else str(msg)
         full_msg = msg + ' - ' + str(datetime.now())
         self.logger.info(full_msg)
-        if self.verbose:
-            print(full_msg)
-    
-    # Log an error message
-    def log_debug(self, msg:str):
-        full_msg = msg + ' - ' + str(datetime.now())
-        self.logger.debug(full_msg)
         if self.verbose:
             print(full_msg)
     
