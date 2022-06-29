@@ -3,7 +3,7 @@
     Created by: Andrés Segura-Tinoco
     Version: 1.0.0
     Created on: Aug 27, 2021
-    Updated on: Jun 28, 2022
+    Updated on: Jun 29, 2022
     Description: Main class of the argument classifier.
 """
 
@@ -43,7 +43,7 @@ def save_error_ids(error_ids, X_test):
     for k, v in error_ids.items():
         print(k, ':', v)
         #for rid in v:
-        #    print(rid, X_test.loc[rid])
+        #    print(rid, X_test[rid])
 
 # Save model metrics
 def save_metrics(data:list, task_type:str, dataset_name:str, configuration:str, pipeline_setup:dict, params:dict, metrics:tuple):
@@ -63,8 +63,8 @@ def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     return model_id
 
 # Start application
-def start_app(log:mll.MLLog, task_type:str):
-    log.log_info('\n>> START PROGRAM')
+def start_app(logger:mll.MLLog, task_type:str):
+    logger.log_info('\n>> START PROGRAM')
     app_setup = read_app_setup()
     
     if len(app_setup):
@@ -81,10 +81,10 @@ def start_app(log:mll.MLLog, task_type:str):
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
         y_label = "sent_label1" if task_type == "detection" else "sent_label2"
-        log.log_info(">> %s (%s):" % (task.title(), ml_algo))
+        logger.log_info(">> %s (%s):" % (task.title(), ml_algo))
         
         # 1. Machine Learning engine object
-        ml_ngx = mle.MLEngine(language=language, task_type=task_type, log=log)
+        ml_ngx = mle.MLEngine(language=language, task_type=task_type, logger=logger)
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
@@ -120,18 +120,18 @@ def start_app(log:mll.MLLog, task_type:str):
             #  9. Use model (make predictions)
             pass
     else:
-        log.log_error(">> ERROR - The application configuration could not be read.")
+        logger.log_error(">> ERROR - The application configuration could not be read.")
     
-    log.log_info(">> END PROGRAM")
+    logger.log_info(">> END PROGRAM")
 
 #####################
 ### START PROGRAM ###
 #####################
 if __name__ == "__main__":
-    log = mll.MLLog()
+    logger = mll.MLLog()
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
     for task in tasks:
-        start_app(log, task)
+        start_app(logger, task)
 #####################
 #### END PROGRAM ####
 #####################
