@@ -115,7 +115,7 @@ def start_app(logger:mll.MLLog, task_type:str):
         # 8. Create final model and save it
         if model_id > 0:
             filepath = model_folder + ml_algo.replace(" ", "_") + "_model_" + str(model_id) + ".joblib"
-            # fnl_clf = ml_ngx.create_and_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
+            fnl_clf = ml_ngx.create_and_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
             
             #  9. Use model (make predictions)
             pass
@@ -128,7 +128,7 @@ def start_app(logger:mll.MLLog, task_type:str):
 ### START PROGRAM ###
 #####################
 if __name__ == "__main__":
-    logger = mll.MLLog()
+    logger = mll.MLLog(True)
     tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
     for task in tasks:
         start_app(logger, task)

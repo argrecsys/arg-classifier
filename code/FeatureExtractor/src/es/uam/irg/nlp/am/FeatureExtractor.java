@@ -57,7 +57,7 @@ public class FeatureExtractor {
     }
 
     /**
-     * Extracts the characteristics of the proposition file.
+     * Complete feature extraction from the proposition file.
      *
      * @return
      */
@@ -80,6 +80,35 @@ public class FeatureExtractor {
             if (features != null) {
                 System.out.println(">> Total propositions with features: " + features.size());
                 result = IOManager.saveTextFeatures(FEATURES_FILEPATH, features);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(FeatureExtractor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return result;
+    }
+
+    /**
+     * Simple extraction of text features.
+     *
+     * @param text
+     * @return
+     */
+    public String simpleFeatExtraction(String text) {
+        String result = "";
+
+        // ML pipeline
+        try {
+            // 1. Get lexicon of linkers
+            List<ArgumentLinker> lexicon = this.lnkManager.getLexicon(true);
+
+            // 2. Extract features from propositions dataset
+            TextFeature features = extractArgumentFeatures(text, lexicon);
+            
+            // 3. Save results
+            if (features != null) {
+                result = features.toString();
             }
 
         } catch (Exception ex) {
@@ -118,6 +147,18 @@ public class FeatureExtractor {
             }
         });
 
+        return features;
+    }
+
+    /**
+     *
+     * @param rawData
+     * @param lexicon
+     * @return
+     */
+    private TextFeature extractArgumentFeatures(String text, List<ArgumentLinker> lexicon) {
+        TextFeature features = new ArgumentFeature("0-0-0", text, this.argEngine, lexicon);
+        features.extraction();
         return features;
     }
 
