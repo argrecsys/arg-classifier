@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.0
+    Version: 0.9.0
     Created on: May 11, 2022
-    Updated on: Jun 6, 2022
+    Updated on: Mar 13, 2023
     Description: Main module.
 """
 
@@ -25,18 +25,31 @@ def read_app_setup() -> dict:
     return setup
 
 # Data pre-processing module
-def data_preprocessing(language:str, folder_path:str) -> bool:
+def data_preprocessing(language:str, folder_path:str, anno_tool:str) -> bool:
     result = False
     
-    # 1. Read JSON input dataset
-    in_filepath = folder_path + "annotations.jsonl"
-    json_dataset = fl.get_list_from_jsonl(in_filepath)
-    print(" - Total number of records read:", len(json_dataset))
-    
-    # 2. Processing dataset
-    df = dp.pre_process_dataset(json_dataset, language)
-    print(df)
-    
+    if anno_tool == "argael":
+        
+        # 1. Read JSON input dataset
+        in_folder_path = folder_path + "annotations"
+        csv_dataset = fl.get_list_from_csvl(in_folder_path)
+        
+        # 2. Processing dataset
+        df = dp.pre_process_argael_dataset(csv_dataset, language)
+        print(df)
+        
+        
+    elif anno_tool == "prodigy":
+        
+        # 1. Read JSON input dataset
+        in_file_path = folder_path + "annotations.jsonl"
+        json_dataset = fl.get_list_from_jsonl(in_file_path)
+        print(" - Total number of records read:", len(json_dataset))
+        
+        # 2. Processing dataset
+        df = dp.pre_process_prodigy_dataset(json_dataset, language)
+        print(df)
+        
     # 3. Save dataframe to CSV file
     out_filepath = folder_path + "propositions.csv"
     result = fl.save_df_to_csv(df, out_filepath)
@@ -58,13 +71,14 @@ def start_app():
         result = False
         
         # 0. Program variables
+        anno_tool = app_setup["anno_tool"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         task = app_setup["task"]
         
         # Task to be exeuted
         if task == "preprocessing":
-            result = data_preprocessing(language, data_folder)
+            result = data_preprocessing(language, data_folder, anno_tool)
             
         elif task == "postprocessing":
             result = data_postprocessing(language, data_folder)
