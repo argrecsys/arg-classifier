@@ -1,11 +1,12 @@
 # Solution
-The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data (using the Prodigy tool), the subsequent feature extraction and the final construction and validation of the classification models. Specifically, the modules (Programming Artifacts) are the following: Data Processor, Feature Extractor and Argument Classifier.
+The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the ARGAEL tool (also supports annotations from Prodigy), the subsequent feature extraction and the final construction and validation of the classification models. Specifically, the modules (Programming Artifacts) are the following: Data Processor, Feature Extractor and Argument Classifier.
 
 ### Data Processor
-Module in charge of pre-processing the data to convert the output of the Prodigy tool into a valid input for the feature extraction module.
-The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/main/code/DataProcessor/config/config.json">params.json</a> file) of this module are:
+Module in charge of pre-processing the data to convert the output of the ARGAEL (or Prodigy) tool into a valid input for the feature extraction module.
+The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/main/code/DataProcessor/config/config.json">config.json</a> file) of this module are:
 ```json
 {
+	"anno_tool": "argael",   // or prodigy
 	"data_folder": "../../../data/",
 	"language": "spanish",
 	"task": "preprocessing"

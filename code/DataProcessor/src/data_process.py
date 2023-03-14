@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.8.0
+    Version: 0.9.0
     Created on: May 13, 2022
-    Updated on: Jun 6, 2022
+    Updated on: Mar 14, 2022
     Description: Data processing module
 """
 
@@ -54,13 +54,24 @@ def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> 
     
     return rel_category
 
-# Pre-processing dataset from JSON to CSV
-def pre_process_dataset(in_dataset:list, language:str) -> list:
+# Pre-processing dataset from a list of CSV files to an unique CSV file
+def pre_process_argael_dataset(raw_text:list, in_dataset:list, language:str) -> list:
+    out_dataset = []
+    header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
+    
+    
+    
+    # Return outcome
+    df = pd.DataFrame(out_dataset, columns=header)
+    return df
+
+# Pre-processing dataset from a list of JSON files to an unique CSV file
+def pre_process_prodigy_dataset(in_dataset:list, language:str) -> list:
     out_dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     
     # for-in loop
-    comment_id = '0'
+    proposal_id = '0'
     comment_id = '0'
     for row in in_dataset:
         
