@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.0
+    Version: 0.9.1
     Created on: May 11, 2022
-    Updated on: Mar 13, 2023
+    Updated on: Mar 15, 2023
     Description: Main module.
 """
 
@@ -32,10 +32,14 @@ def data_preprocessing(language:str, folder_path:str, anno_tool:str) -> bool:
         
         # 1. Read JSON input dataset
         in_folder_path = folder_path + "annotations"
-        csv_dataset = fl.get_list_from_csvl(in_folder_path)
+        csv_dataset = fl.get_dict_from_csvl(in_folder_path)
         
-        # 2. Processing dataset
-        df = dp.pre_process_argael_dataset(csv_dataset, language)
+        # 2. Preprocessing input data
+        raw_text = []
+        in_dataset = {}
+        
+        # 3. Processing dataset
+        df = dp.pre_process_argael_dataset(raw_text, in_dataset, language)
         print(df)
         
     elif anno_tool == "prodigy":
