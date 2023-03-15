@@ -38,7 +38,6 @@ def data_preprocessing(language:str, folder_path:str, anno_tool:str) -> bool:
         df = dp.pre_process_argael_dataset(csv_dataset, language)
         print(df)
         
-        
     elif anno_tool == "prodigy":
         
         # 1. Read JSON input dataset
