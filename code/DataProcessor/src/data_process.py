@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.0
+    Version: 0.9.1
     Created on: May 13, 2022
-    Updated on: Mar 14, 2022
+    Updated on: Mar 15, 2023
     Description: Data processing module
 """
 
@@ -55,7 +55,7 @@ def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> 
     return rel_category
 
 # Pre-processing dataset from a list of CSV files to an unique CSV file
-def pre_process_argael_dataset(raw_text:list, in_dataset:list, language:str) -> list:
+def pre_process_argael_dataset(raw_text:list, in_dataset:dict, language:str) -> list:
     out_dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     

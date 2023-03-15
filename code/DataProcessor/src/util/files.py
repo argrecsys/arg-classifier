@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.4.0
+    Version: 1.5.0
     Created on: Oct 06, 2021
-    Updated on: Mar 14, 2023
+    Updated on: Mar 15, 2023
     Description: Files library with utility functions
 """
 
 # Import Python base libraries
 import os
+import csv
 import json
 import yaml
 import pandas as pd
@@ -27,12 +28,19 @@ def get_list_from_json(json_path:str, encoding:str="utf-8") -> list:
     return result
 
 # Read list (of csv) from a set of CSV files
-def get_list_from_csvl(folder_path:str, encoding:str="utf-8") -> list:
-    result = []
+def get_dict_from_csvl(folder_path:str, encoding:str="utf-8") -> list:
+    result = {}
     
     try:
-        pass
-        
+        print(folder_path)
+        for file in os.listdir(folder_path):
+            print(file)
+            if file.endswith(".csv"):
+                filepath = os.path.join(folder_path, file)
+                csv_data = get_list_from_csv(filepath, encoding)
+                print(filepath, len(csv_data))
+                result[file] = csv_data
+                
     except Exception as e:
         print(e)
         
@@ -102,6 +110,16 @@ def get_df_from_csv(filepath:str, delimiter:str=",", encoding:str="utf-8") -> pd
         df = pd.read_csv(filepath, sep=delimiter, encoding=encoding)
 
     return df
+
+# Read a list from a CSV file
+def get_list_from_csv(filepath:str, encoding:str="utf-8") -> list:
+    data = []
+    
+    with open(filepath, mode="r", encoding=encoding) as file:
+        csvreader = csv.reader(file)
+        data = [row for row in csvreader]
+    
+    return data
 
 # Save or update a CSV data
 def save_csv_data(file_path:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:

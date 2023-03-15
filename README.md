@@ -1,11 +1,11 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-1.1.1-blue)
-![last-update](https://img.shields.io/badge/last_update-3/14/2023-orange)
+![version](https://img.shields.io/badge/version-1.1.2-blue)
+![last-update](https://img.shields.io/badge/last_update-3/15/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
 
-The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the ARGAEL tool (also supports annotations from Prodigy), the subsequent feature extraction and the final construction and validation of the classification models.
+The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL</a> tool (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the classification models.
 
 ## Pipeline diagram
 ![Pipeline diagram](https://raw.githubusercontent.com/argrecsys/arg-classifier/main/image/pipeline-diagram.svg)
@@ -14,10 +14,10 @@ Below are links to all datasets (both intermediate and final) created and used b
 - Decide Madrid <a href="https://decide.madrid.es/" target="_blank">platform</a>
 - Proposals <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/proposals" target="_blank">JSONL files</a>
 - Annotations <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/annotations" target="_blank">CSV files</a>
-- Propositions <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/propositions.csv" target="_blank">CSV file</a>
+- Annotated propositions <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/propositions.csv" target="_blank">CSV file</a>
 - Features <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/features.json" target="_blank">JSON file</a>
 - Labeled dataset <a href="https://github.com/argrecsys/arg-classifier/blob/main/data/dataset.csv" target="_blank">CSV file</a>
-- Results <a href="https://github.com/argrecsys/arg-classifier/blob/main/results/metrics.csv" target="_blank">CSV file</a>
+- Models results <a href="https://github.com/argrecsys/arg-classifier/blob/main/results/metrics.csv" target="_blank">CSV file</a>
 
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
