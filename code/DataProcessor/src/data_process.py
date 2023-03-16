@@ -12,23 +12,23 @@ import pandas as pd
 from typing import Final
 
 # Class constants basic
-BREAK_MARKS: Final[set] = {'.', ';'}
+BREAK_MARKS: Final[set] = {".", ";"}
 VALID_SENT_SIZE: Final[int] = 3
 
 # Class constants label 1
-LABEL_YES: Final[str] = 'YES'
-LABEL_NO: Final[str] = 'NO'
+LABEL_YES: Final[str] = "YES"
+LABEL_NO: Final[str] = "NO"
 
 # Class constants label 2
-LABEL_MAJOR_CLAIM: Final[str] = 'MAJOR_CLAIM'
-LABEL_CLAIM: Final[str] = 'CLAIM'
-LABEL_PREMISE: Final[str] = 'PREMISE'
-LABEL_SPAM: Final[str] = 'SPAM'
-LABEL_LINKER: Final[str] = 'LINKER'
+LABEL_MAJOR_CLAIM: Final[str] = "MAJOR_CLAIM"
+LABEL_CLAIM: Final[str] = "CLAIM"
+LABEL_PREMISE: Final[str] = "PREMISE"
+LABEL_SPAM: Final[str] = "SPAM"
+LABEL_LINKER: Final[str] = "LINKER"
 
 # Class constants label 2
-LABEL_INTENTS: Final[set] = {'SUPPORT', 'ATTACK', 'LINKS'}
-LABEL_NONE: Final[str] = 'NONE'
+LABEL_INTENTS: Final[set] = {"SUPPORT", "ATTACK", "LINKS"}
+LABEL_NONE: Final[str] = "NONE"
 
 # Validates whether a statement is valid or not
 def __is_valid_sentence(sent_text:str) -> bool:
@@ -41,67 +41,81 @@ def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> 
     
     if label2 == LABEL_PREMISE:
         for rel in relations:
-            source = rel['head_span'] if rel['head_span']['label'] == LABEL_PREMISE else rel['child_span']
+            source = rel["head_span"] if rel["head_span"]["label"] == LABEL_PREMISE else rel["child_span"]
             
-            if source['start'] == lbl_start and source['end'] == lbl_end:
-                label = rel['label']
+            if source["start"] == lbl_start and source["end"] == lbl_end:
+                label = rel["label"]
                 if label not in LABEL_INTENTS:
                     rel_categories.append(label)
     
-    rel_category = 'NONE'
+    rel_category = LABEL_NONE
     if len(rel_categories):
         rel_category = rel_categories[0]
     
     return rel_category
 
 # Pre-processing dataset from a list of CSV files to an unique CSV file
-def pre_process_argael_dataset(raw_text:list, in_dataset:dict, language:str) -> list:
-    out_dataset = []
+def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> list:
+    dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
-    
-    doc_ids = in_dataset.keys()
-    print(len(doc_ids))
-    print(doc_ids)
+        
+    for doc_id in ("878"): #annotations.keys():        
+        proposal = proposals[doc_id]
+        annotation = annotations[doc_id]
+        
+        # for-in loop
+        proposal_id = "0"
+        comment_id = "0"
+        for row in proposal:
+        
+            # Read basic info
+            if "proposal_id" in row:
+                proposal_id = row["proposal_id"]
+            elif "comment_id" in row:
+                comment_id = row["comment_id"]
+            text = row["text"].strip()
+            print(proposal_id, comment_id, text)
+            
     
     # Return outcome
-    df = pd.DataFrame(out_dataset, columns=header)
+    df = pd.DataFrame(dataset, columns=header)
     return df
 
 # Pre-processing dataset from a list of JSON files to an unique CSV file
-def pre_process_prodigy_dataset(in_dataset:list, language:str) -> list:
-    out_dataset = []
+def pre_process_prodigy_dataset(annotations:list, language:str) -> list:
+    dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     
     # for-in loop
-    proposal_id = '0'
-    comment_id = '0'
-    for row in in_dataset:
+    proposal_id = "0"
+    comment_id = "0"
+    for row in annotations:
         
         # Read basic info
-        if 'proposal_id' in row:
-            proposal_id = row['proposal_id']
-        elif 'comment_id' in row:
-            comment_id = row['comment_id']
-        text = row['text'].strip()
-        tokens = row['tokens']
-        spans = row['spans']
-        relations = row['relations']
+        if "proposal_id" in row:
+            proposal_id = row["proposal_id"]
+        elif "comment_id" in row:
+            comment_id = row["comment_id"]
+        text = row["text"].strip()
+        tokens = row["tokens"]
+        spans = row["spans"]
+        relations = row["relations"]
         
         # Identify break marks
-        break_marks = [token for token in tokens if token['text'] in BREAK_MARKS]
+        break_marks = [token for token in tokens if token["text"] in BREAK_MARKS]
         if len(break_marks) == 0:
-            break_marks = [{'text': '.', 'start': 0, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False}]
-        elif tokens[-1]['text'] not in BREAK_MARKS:
-            break_marks.append({'text': '', 'start': len(text)-1, 'end': len(text), 'id': len(tokens), 'ws': True, 'disabled': False})
+            break_marks = [{"text": ".", "start": 0, "end": len(text), "id": len(tokens), "ws": True, "disabled": False}]
+        elif tokens[-1]["text"] not in BREAK_MARKS:
+            break_marks.append({"text": "", "start": len(text)-1, "end": len(text), "id": len(tokens), "ws": True, "disabled": False})
         
         # Annotate sentences
-        sent_text = ''
+        sent_text = ""
         sent_id = 0
         ix_start = 0
         
         for mark in break_marks:
             record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
-            ix_end = mark['end']
+            ix_end = mark["end"]
             sent_text = text[ix_start : ix_end]
             sent_text = sent_text.strip()
             sent_len = ix_end - ix_start
@@ -112,12 +126,12 @@ def pre_process_prodigy_dataset(in_dataset:list, language:str) -> list:
                 # Select candidate labels
                 sent_labels = []
                 for span in spans:
-                    lbl_start = span['start']
-                    lbl_end = span['end']
+                    lbl_start = span["start"]
+                    lbl_end = span["end"]
                     
                     # If a statement wraps a span or if a span wraps a statement...
                     if (lbl_start >= ix_start and lbl_end <= ix_end) or (ix_start >= lbl_start and ix_end <= lbl_end):
-                        label2 = span['label']
+                        label2 = span["label"]
                         
                         if label2 != LABEL_LINKER:
                             label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
@@ -147,7 +161,7 @@ def pre_process_prodigy_dataset(in_dataset:list, language:str) -> list:
                 label1 = sent_label["label1"]
                 label2 = sent_label["label2"]
                 label3 = sent_label["label3"]
-                out_dataset.append([record_id, sent_text, label1, label2, label3])
+                dataset.append([record_id, sent_text, label1, label2, label3])
                 
                 # Update sentence number
                 sent_id += 1
@@ -160,7 +174,7 @@ def pre_process_prodigy_dataset(in_dataset:list, language:str) -> list:
             ix_start = ix_end + 1
     
     # Return outcome
-    df = pd.DataFrame(out_dataset, columns=header)
+    df = pd.DataFrame(dataset, columns=header)
     return df
 
 # Post-processing dataset from CSV to CSV

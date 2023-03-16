@@ -109,7 +109,7 @@ def start_app():
 ### START PROGRAM ###
 #####################
 if __name__ == "__main__":
-    print('>> START DATA PROCESSOR:', str(datetime.now()))
+    print(">> START DATA PROCESSOR:", str(datetime.now()))
     start_app()    
     print(">> END DATA PROCESSOR:", str(datetime.now()))
 #####################
