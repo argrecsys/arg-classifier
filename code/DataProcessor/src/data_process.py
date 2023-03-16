@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.1
+    Version: 0.9.2
     Created on: May 13, 2022
-    Updated on: Mar 15, 2023
+    Updated on: Mar 16, 2023
     Description: Data processing module
 """
 
@@ -59,7 +59,9 @@ def pre_process_argael_dataset(raw_text:list, in_dataset:dict, language:str) -> 
     out_dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     
-    
+    doc_ids = in_dataset.keys()
+    print(len(doc_ids))
+    print(doc_ids)
     
     # Return outcome
     df = pd.DataFrame(out_dataset, columns=header)
