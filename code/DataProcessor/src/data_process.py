@@ -35,8 +35,18 @@ def __is_valid_sentence(sent_text:str) -> bool:
     result = (len(sent_text) >= VALID_SENT_SIZE) and (any(c.isalpha() for c in sent_text))
     return result
 
-# Find the relation category between the claim and the premise and its main intent
-def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> str:
+# Find the (Prodigy) relation category between the claim and the premise and its main intent
+def __find_argael_relation(label2:str) -> str:
+    rel_categories = []
+    
+    rel_category = LABEL_NONE
+    if len(rel_categories):
+        rel_category = rel_categories[0]
+    
+    return rel_category
+
+# Find the (Prodigy) relation category between the claim and the premise and its main intent
+def __find_prodigy_relation(label2:str, lbl_start:int, lbl_end:int, relations:list) -> str:
     rel_categories = []
     
     if label2 == LABEL_PREMISE:
@@ -54,14 +64,27 @@ def __find_relations(label2:str, lbl_start:int, lbl_end:int, relations:list) -> 
     
     return rel_category
 
+# Split a sentence by many break marks
+def __split_by_many_break_marks(text, break_marks) -> list:
+    new_text = text
+    period_mark = "."
+    for mark in break_marks:
+        if mark != period_mark:
+            new_text = new_text.replace(mark, ".")
+    sentences = [sent.strip() for sent in new_text.split(period_mark)]
+    return sentences
+
 # Pre-processing dataset from a list of CSV files to an unique CSV file
 def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> list:
     dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
         
-    for doc_id in ("878"): #annotations.keys():        
+    for doc_id in (7,86,109,152,417,494,507,629,879,879): #annotations.keys():        
+        doc_id = str(doc_id)
         proposal = proposals[doc_id]
         annotation = annotations[doc_id]
+        arg_comps = annotation["comp"]
+        arg_rels = annotation["rel"]
         
         # for-in loop
         proposal_id = "0"
@@ -74,7 +97,64 @@ def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -
             elif "comment_id" in row:
                 comment_id = row["comment_id"]
             text = row["text"].strip()
-            print(proposal_id, comment_id, text)
+            
+            # Annotate sentences
+            sentences = __split_by_many_break_marks(text, BREAK_MARKS)
+            sent_id = 0
+            
+            for sent_text in sentences:
+                record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
+                sent_len = len(sent_text)
+                
+                # If it is a valid sentence
+                if __is_valid_sentence(sent_text):
+                    
+                    # Select candidate labels
+                    sent_labels = []
+                    for ac in arg_comps:
+                        ac_id = ac[0]
+                        ac_text = ac[1]
+                        ac_type = ac[2]
+                        
+                        # If a statement wraps a span or if a span wraps a statement...
+                        label2 = LABEL_SPAM
+                        if (sent_text in ac_text) or (ac_text in sent_text):
+                            label2 = ac_type.upper()
+                            label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
+                            label2 = LABEL_CLAIM if label2 == LABEL_MAJOR_CLAIM else label2
+                            label3 = __find_argael_relation(label2)
+                            labels = {"label1": label1, "label2": label2, "label3": label3, "len": len(ac_text)}
+                            sent_labels.append(labels)
+                    
+                    if len(sent_labels) == 0:
+                        labels = {"label1": LABEL_NO, "label2": LABEL_SPAM, "label3": LABEL_NONE, "len": sent_len}
+                        sent_labels.append(labels)
+                    
+                    # Select more representative label
+                    sent_label = {}
+                    sent_share = {}
+                    max_share = 0
+                    for label in sent_labels:
+                        curr_label = label["label2"]
+                        curr_share = sent_share.get(curr_label, 0) + (label["len"] / sent_len)
+                        sent_share[curr_label] = curr_share
+                        
+                        if curr_share > max_share:
+                            max_share = curr_share
+                            sent_label = label
+                    
+                    # Save outcome
+                    label1 = sent_label["label1"]
+                    label2 = sent_label["label2"]
+                    label3 = sent_label["label3"]
+                    dataset.append([record_id, sent_text, label1, label2, label3])
+                    
+                    # Update sentence number
+                    sent_id += 1
+                    
+                else:
+                    # Invalid sentence
+                    print(" - Invalid:", record_id, sent_text)
             
     
     # Return outcome
@@ -136,7 +216,7 @@ def pre_process_prodigy_dataset(annotations:list, language:str) -> list:
                         if label2 != LABEL_LINKER:
                             label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
                             label2 = LABEL_CLAIM if label2 == LABEL_MAJOR_CLAIM else label2
-                            label3 = __find_relations(label2, lbl_start, lbl_end, relations)
+                            label3 = __find_prodigy_relation(label2, lbl_start, lbl_end, relations)
                             labels = {"label1": label1, "label2": label2, "label3": label3, "len": (lbl_end - lbl_start)}
                             sent_labels.append(labels)
                 
