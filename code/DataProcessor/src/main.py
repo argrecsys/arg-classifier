@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.1
+    Version: 0.9.2
     Created on: May 11, 2022
-    Updated on: Mar 15, 2023
+    Updated on: Mar 16, 2023
     Description: Main module.
 """
 
@@ -30,27 +30,40 @@ def data_preprocessing(language:str, folder_path:str, anno_tool:str) -> bool:
     
     if anno_tool == "argael":
         
-        # 1. Read JSON input dataset
-        in_folder_path = folder_path + "annotations"
-        csv_dataset = fl.get_dict_from_csvl(in_folder_path)
+        # 1. Read raw documents (from JSON files)
+        filepath = folder_path + "proposals"
+        proposals = fl.get_dict_from_folder(filepath, "jsonl")
+        print(" - Total number of proposals:", len(proposals))
         
-        # 2. Preprocessing input data
-        raw_text = []
-        in_dataset = {}
+        # 2. Read annotation dataset (from CSV files)
+        filepath = folder_path + "annotations"
+        set_annotations = fl.get_dict_from_folder(filepath, "csv")
         
-        # 3. Processing dataset
-        df = dp.pre_process_argael_dataset(raw_text, in_dataset, language)
+        # 3. Preprocessing annotations
+        annotations = {}
+        for key, value in set_annotations.items():
+            tokens = key.split("_")
+            if len(tokens) == 3:
+                file_name = tokens[0]
+                file_type = tokens[2]
+                doc = annotations.get(file_name, {})
+                doc[file_type] = value
+                annotations[file_name] = doc
+        print(" - Total number of annotations:", len(annotations))
+        
+        # 4. Processing dataset
+        df = dp.pre_process_argael_dataset(proposals, annotations, language)
         print(df)
         
     elif anno_tool == "prodigy":
         
-        # 1. Read JSON input dataset
-        in_file_path = folder_path + "annotations.jsonl"
-        json_dataset = fl.get_list_from_jsonl(in_file_path)
-        print(" - Total number of records read:", len(json_dataset))
+        # 1. Read annotation dataset (from JSONL file)
+        filepath = folder_path + "annotations.jsonl"
+        annotations = fl.get_list_from_jsonl(filepath)
+        print(" - Total number of annotations:", len(annotations))
         
         # 2. Processing dataset
-        df = dp.pre_process_prodigy_dataset(json_dataset, language)
+        df = dp.pre_process_prodigy_dataset(annotations, language)
         print(df)
         
     # 3. Save dataframe to CSV file
@@ -96,7 +109,7 @@ def start_app():
 ### START PROGRAM ###
 #####################
 if __name__ == "__main__":
-    print('>> START DATA PROCESSOR:', str(datetime.now()))
+    print(">> START DATA PROCESSOR:", str(datetime.now()))
     start_app()    
     print(">> END DATA PROCESSOR:", str(datetime.now()))
 #####################
