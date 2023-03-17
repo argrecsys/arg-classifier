@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.2
+    Version: 0.9.3
     Created on: May 13, 2022
-    Updated on: Mar 16, 2023
+    Updated on: Mar 17, 2023
     Description: Data processing module
 """
 
@@ -64,22 +64,12 @@ def __find_prodigy_relation(label2:str, lbl_start:int, lbl_end:int, relations:li
     
     return rel_category
 
-# Split a sentence by many break marks
-def __split_by_many_break_marks(text, break_marks) -> list:
-    new_text = text
-    period_mark = "."
-    for mark in break_marks:
-        if mark != period_mark:
-            new_text = new_text.replace(mark, ".")
-    sentences = [sent.strip() for sent in new_text.split(period_mark)]
-    return sentences
-
 # Pre-processing dataset from a list of CSV files to an unique CSV file
 def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> list:
     dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
         
-    for doc_id in (7,86,109,152,417,494,507,629,879,879): #annotations.keys():        
+    for doc_id in annotations.keys():        
         doc_id = str(doc_id)
         proposal = proposals[doc_id]
         annotation = annotations[doc_id]
@@ -97,14 +87,24 @@ def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -
             elif "comment_id" in row:
                 comment_id = row["comment_id"]
             text = row["text"].strip()
+            tokens = [{"text": token, "ix": (i + 1)} for i, token in enumerate(text)]
+            
+            # Identify break marks
+            break_marks = [token for token in tokens if token["text"] in BREAK_MARKS]
+            if (len(break_marks) == 0) or (tokens[-1]["text"] not in BREAK_MARKS):
+                break_marks = [{"text": ".", "ix": len(text)}]
             
             # Annotate sentences
-            sentences = __split_by_many_break_marks(text, BREAK_MARKS)
+            sent_text = ""
             sent_id = 0
+            ix_start = 0
             
-            for sent_text in sentences:
+            for mark in break_marks:
                 record_id = proposal_id + "-" + comment_id + "-" + str(sent_id)
-                sent_len = len(sent_text)
+                ix_end = mark["ix"]
+                sent_text = text[ix_start : ix_end]
+                sent_text = sent_text.strip()
+                sent_len = ix_end - ix_start
                 
                 # If it is a valid sentence
                 if __is_valid_sentence(sent_text):
@@ -155,8 +155,10 @@ def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -
                 else:
                     # Invalid sentence
                     print(" - Invalid:", record_id, sent_text)
-            
-    
+                    
+                # Update start index
+                ix_start = ix_end + 1
+
     # Return outcome
     df = pd.DataFrame(dataset, columns=header)
     return df
