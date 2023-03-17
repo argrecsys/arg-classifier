@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.3
+    Version: 0.9.4
     Created on: May 13, 2022
     Updated on: Mar 17, 2023
     Description: Data processing module
@@ -35,13 +35,23 @@ def __is_valid_sentence(sent_text:str) -> bool:
     result = (len(sent_text) >= VALID_SENT_SIZE) and (any(c.isalpha() for c in sent_text))
     return result
 
-# Find the (Prodigy) relation category between the claim and the premise and its main intent
-def __find_argael_relation(label2:str) -> str:
+# Find the (ARGAEL) relation category between the claim and the premise and its main intent
+def __find_argael_relation(ac_id:str, relations:list, rel_type:str) -> str:
     rel_categories = []
+    
+    for rel in relations:
+        ac_id2 = rel[2]
+        rel_name = rel[3]
+        if ac_id == ac_id2:
+            rel_categories.append(rel_name)
     
     rel_category = LABEL_NONE
     if len(rel_categories):
-        rel_category = rel_categories[0]
+        tokens = rel_categories[0].upper().split(":")
+        if rel_type == "CATEGORY":
+            rel_category = tokens[0]
+        else:
+            rel_category = tokens[1].strip()
     
     return rel_category
 
@@ -68,7 +78,7 @@ def __find_prodigy_relation(label2:str, lbl_start:int, lbl_end:int, relations:li
 def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> list:
     dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
-        
+    
     for doc_id in annotations.keys():        
         doc_id = str(doc_id)
         proposal = proposals[doc_id]
@@ -119,10 +129,10 @@ def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -
                         # If a statement wraps a span or if a span wraps a statement...
                         label2 = LABEL_SPAM
                         if (sent_text in ac_text) or (ac_text in sent_text):
-                            label2 = ac_type.upper()
+                            label2 = ac_type.upper().replace(" ", "_")
                             label1 = LABEL_NO if label2 == LABEL_SPAM else LABEL_YES
                             label2 = LABEL_CLAIM if label2 == LABEL_MAJOR_CLAIM else label2
-                            label3 = __find_argael_relation(label2)
+                            label3 = __find_argael_relation(ac_id, arg_rels, "SUB_CATEGORY")
                             labels = {"label1": label1, "label2": label2, "label3": label3, "len": len(ac_text)}
                             sent_labels.append(labels)
                     

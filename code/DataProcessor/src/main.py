@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.3
+    Version: 0.9.4
     Created on: May 11, 2022
     Updated on: Mar 17, 2023
     Description: Main module.
