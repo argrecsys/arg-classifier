@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
 ![version](https://img.shields.io/badge/version-1.1.3-blue)
-![last-update](https://img.shields.io/badge/last_update-3/17/2023-orange)
+![last-update](https://img.shields.io/badge/last_update-3/19/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
@@ -23,6 +23,7 @@ Below are links to all datasets (both intermediate and final) created and used b
 The implemented solutions depend on or make use of the following libraries:
 - Data processor (Python module):
   - python 3.9.x
+  - spaCy 3.3.1
 
 - Feature extractor (Java module):
   - JDK 16
