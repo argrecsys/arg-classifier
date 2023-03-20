@@ -59,7 +59,7 @@ class MLEngine:
     # Read JSON file of features
     def __read_feature_file(self, data_path:str) -> list:
         filepath = data_path + "features.json"
-        features = ufl.get_list_from_jsonl(filepath, self.encoding)
+        features = ufl.get_list_from_json(filepath, self.encoding)
         return features
     
     # Read CSV file of labels
@@ -98,7 +98,7 @@ class MLEngine:
         # Validation
         if len(features) != len(labels):
             self.logger.log_info("- The length of the data and the labels is different")
-            self.logger.log_info("- Features dataset length:", len(features), ", and labels file length:", len(labels))
+            self.logger.log_info("  Features dataset length: " + str(len(features)) + ", and labels file length: " + str(len(labels)))
             return None
         
         # Temp variables
@@ -481,7 +481,7 @@ class MLEngine:
         scores = ()
         
         # Fit model with train data
-        self.logger.log_info("- Fitting model:" + ml_algo)
+        self.logger.log_info("- Fitting model: " + ml_algo)
         cv_k = train_setup["cv_k"]
         space = self.__get_model_param_space(ml_algo)        
             

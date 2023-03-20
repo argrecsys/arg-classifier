@@ -33,6 +33,5 @@
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"result_folder": "../../../results/",
-	"task": "arg-detection",
-	"y_label": "sent_label1"
+	"task": "arg-detection"
 }
