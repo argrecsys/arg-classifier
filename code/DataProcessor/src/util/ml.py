@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.2.0
+    Version: 0.3.0
     Created on: May 11, 2022
-    Updated on: May 16, 2022
+    Updated on: Mar 20, 2023
     Description: ML library with utility functions
 """
 
@@ -45,7 +45,7 @@ def create_df_from_sparse_matrix(matrix:list) -> pd.DataFrame:
     # Word vectorization
     vectorizer = CountVectorizer(analyzer=lambda x: x)
     data = vectorizer.fit_transform(matrix).toarray()
-    columns = vectorizer.get_feature_names()
+    columns = vectorizer.get_feature_names_out()
         
     # Create dataframe
     df = pd.DataFrame(data, columns=columns)
