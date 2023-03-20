@@ -1,5 +1,5 @@
 # Solution
-The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL tool</a> (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the classification models.Specifically, the modules (Programming Artifacts) are the following: Data Processor, Feature Extractor and Argument Classifier.
+The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL</a> tool (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the feature-based classification models. Specifically, the modules (Programming Artifacts) are the following: Data Processor, Feature Extractor and Argument Classifier.
 
 ### Data Processor
 Module in charge of pre-processing the data to convert the output of the ARGAEL (or Prodigy) tool into a valid input for the feature extraction module.
@@ -75,8 +75,8 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"result_folder": "../../../results/",
-	"task": "detection",                  // classification
-	"y_label": "sent_label1"              // sent_label2
+	"task": "arg-detection",              // arg-classification, rel-classification
+	"y_label": "sent_label1"              // sent_label2, sent_label3
 }
 ```
 

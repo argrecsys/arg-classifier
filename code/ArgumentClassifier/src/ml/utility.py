@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.9.0
+    Version: 0.10.0
     Created on: Oct 19, 2021
-    Updated on: Jun 16, 2022
+    Updated on: Mar 20, 2023
     Description: ML engine utility functions.
 """
 
@@ -34,12 +34,12 @@ def get_label_dict(task_type:str, labels:list) -> dict:
     label_list = []
     
     # Update label field
-    if task_type == TaskType.DETECTION.value:
+    if task_type == TaskType.ARG_DETECTION.value:
         # Labels: non-argumentative or argumentative
         label_dict = { 0: "no", 1: "yes" }
         label_list = [0 if item == "no" else 1 for item in labels]
         
-    elif task_type == TaskType.CLASSIFICATION.value:
+    elif task_type == TaskType.ARG_CLASSIFICATION.value or task_type == TaskType.REL_CLASSIFICATION.value:
         label_dict = uml.convert_categ_to_num(labels)
         label_list = [label_dict[item] for item in labels]
         label_dict = {v: k for k, v in label_dict.items()}
@@ -105,7 +105,7 @@ def calculate_errors(task_type:str, y_real:list, y_pred:list, target_names:list,
     recall = weighted_avg['recall']
     f1_score = weighted_avg['f1-score']
     roc_score = 0
-    if task_type == TaskType.DETECTION.value:
+    if task_type == TaskType.ARG_DETECTION.value:
         roc_score = roc_auc_score(y_real, y_pred)
     
     # Return model metrics

@@ -1,64 +1,57 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.3.0
+    Version: 1.6.0
     Created on: Oct 06, 2021
-    Updated on: May 27, 2022
+    Updated on: Mar 16, 2023
     Description: Files library with utility functions
 """
 
 # Import Python base libraries
 import os
+import csv
 import json
 import yaml
 import pandas as pd
 
-# Read list (of dict) from JSON file
-def get_list_from_json(json_path:str, encoding:str="utf-8") -> list:
-    result = []
+# Read a list of objects from a folder
+# Supported extensions: csv, json, jsonl, txt
+def get_dict_from_folder(folder_path:str, extension:str, encoding:str="utf-8") -> dict:
+    result = {}
     
     try:
-        with open(json_path, mode="r", encoding=encoding) as file:
-            result = json.load(file)
+        file_ext = "." + extension.lower()
         
+        for file in os.listdir(folder_path):
+            if file.endswith(file_ext):
+                filepath = os.path.join(folder_path, file)
+                file_data = None
+                
+                if file_ext == ".csv":
+                    file_data = get_list_from_csv(filepath, encoding)
+                
+                elif file_ext == ".json":
+                    file_data = get_dict_from_json(filepath, encoding)
+                
+                elif file_ext == ".jsonl":
+                    file_data = get_list_from_jsonl(filepath, encoding)
+                
+                elif file_ext == ".txt":
+                    file_data = get_list_from_plain_file(filepath, encoding)
+                    
+                if file_data:
+                    file_name = file.replace(file_ext,  "")
+                    result[file_name] = file_data
+                
     except Exception as e:
         print(e)
         
     return result
 
-# Read list (of dict) from JSONL (json lines format) file
-def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> list:
-    result = []
-    
-    try:
-        json_list = []
-        with open(json_path, mode="r", encoding=encoding) as file:
-            json_list = list(file)
-        
-        result = [json.loads(jline) for jline in json_list]
-        
-    except Exception as e:
-        print(e)
-        
-    return result
-
-# Read list from plain file
-def get_list_from_plain_file(file_path:str, encoding:str="utf-8") -> list:
-    result = []
-    
-    try:
-        with open(file_path, mode="r", encoding=encoding) as file:
-            result = file.readlines()
-        
-    except Exception as e:
-        print(e)
-    
-    return result
-
-# Read dict from JSON file
+# Read a dict from a JSON file
 def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
     result = {}
-
+    
     try:
         with open(json_path, mode="r", encoding=encoding) as file:
             result = json.load(file)
@@ -68,7 +61,7 @@ def get_dict_from_json(json_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# Read dict from YAML file
+# Read a dict from YAML file
 def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
     result = {}
     
@@ -82,14 +75,59 @@ def get_dict_from_yaml(yaml_path:str, encoding:str="utf-8") -> dict:
         
     return result
 
-# Read pandas DataFrame from CSV file
-def get_df_from_csv(filepath:str, delimiter:str=",", encoding:str="utf-8") -> pd.DataFrame:
-    df = None
+# Read a pandas DataFrame from CSV file
+def get_df_from_csv(csv_path:str, delimiter:str=",", encoding:str="utf-8") -> pd.DataFrame:
+    result = None
     
-    if os.path.exists(filepath):
-        df = pd.read_csv(filepath, sep=delimiter, encoding=encoding)
+    try:
+        result = pd.read_csv(csv_path, sep=delimiter, encoding=encoding)
+        
+    except Exception as e:
+        print(e)
+        
+    return result
 
-    return df
+# Read a list from a CSV file
+def get_list_from_csv(csv_path:str, encoding:str="utf-8") -> list:
+    result = []
+    
+    try:
+        with open(csv_path, mode="r", encoding=encoding) as file:
+            csvreader = csv.reader(file)
+            result = [row for row in csvreader]
+            
+    except Exception as e:
+        print(e)
+            
+    return result
+
+# Read a list of dict from a JSONL (json lines format) file
+def get_list_from_jsonl(json_path:str, encoding:str="utf-8") -> list:
+    result = []
+    
+    try:
+        json_list = []
+        with open(json_path, mode="r", encoding=encoding) as file:
+            json_list = list(file)
+        result = [json.loads(jline) for jline in json_list]
+        
+    except Exception as e:
+        print(e)
+        
+    return result
+
+# Read a list from plain file
+def get_list_from_plain_file(file_path:str, encoding:str="utf-8") -> list:
+    result = []
+    
+    try:
+        with open(file_path, mode="r", encoding=encoding) as file:
+            result = file.readlines()
+        
+    except Exception as e:
+        print(e)
+    
+    return result
 
 # Save or update a CSV data
 def save_csv_data(file_path:str, header:list, data:list, mode:str="w", encoding:str="utf-8") -> bool:

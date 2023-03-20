@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.0.0
+    Version: 1.1.0
     Created on: Aug 27, 2021
-    Updated on: Jun 29, 2022
+    Updated on: Mar 20, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -36,6 +36,17 @@ def get_curr_dataset_name(feat_setup:dict) -> str:
             ds_name += str(int(v))
     
     return ds_name
+
+# Return the target label from the current task
+def get_target_label(task_name:str) -> str:
+    target_label = ""
+    if task_name == TaskType.ARG_DETECTION.value:
+        target_label = "sent_label1"
+    elif task_name == TaskType.ARG_CLASSIFICATION.value:
+        target_label = "sent_label2"
+    elif task_name == TaskType.REL_CLASSIFICATION.value:
+        target_label = "sent_label3"
+    return target_label
 
 # Save error analysis
 def save_error_ids(error_ids, X_test):
@@ -80,7 +91,7 @@ def start_app(logger:mll.MLLog, task_type:str):
         result_folder = app_setup["result_folder"]
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
-        y_label = "sent_label1" if task_type == "detection" else "sent_label2"
+        y_label = get_target_label(task_type)
         logger.log_info(">> %s (%s):" % (task.title(), ml_algo))
         
         # 1. Machine Learning engine object
@@ -129,7 +140,7 @@ def start_app(logger:mll.MLLog, task_type:str):
 #####################
 if __name__ == "__main__":
     logger = mll.MLLog(True)
-    tasks = [TaskType.DETECTION.value, TaskType.CLASSIFICATION.value]
+    tasks = [TaskType.ARG_DETECTION.value, TaskType.ARG_CLASSIFICATION.value, TaskType.REL_CLASSIFICATION.value]
     for task in tasks:
         start_app(logger, task)
 #####################

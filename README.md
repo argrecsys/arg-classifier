@@ -1,11 +1,11 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-1.1.3-blue)
-![last-update](https://img.shields.io/badge/last_update-3/19/2023-orange)
+![version](https://img.shields.io/badge/version-1.2.0-blue)
+![last-update](https://img.shields.io/badge/last_update-3/20/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
 
-The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL</a> tool (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the classification models.
+The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL</a> tool (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the feature-based classification models.
 
 ## Pipeline diagram
 ![Pipeline diagram](https://raw.githubusercontent.com/argrecsys/arg-classifier/main/image/pipeline-diagram.svg)
@@ -22,20 +22,20 @@ Below are links to all datasets (both intermediate and final) created and used b
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
 - Data processor (Python module):
-  - python 3.9.x
-  - spaCy 3.3.1
+  - python v3.9.x
+  - spaCy v3.3.1
 
 - Feature extractor (Java module):
   - JDK 16
-  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> 4.4.0
-  - <a href="https://mongodb.github.io/mongo-java-driver/" target="_blank">MongoDB Java Driver</a> 3.12.10
-  - Snake YAML 1.9
-  - JSON Java 20210307
+  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> v4.5.3
+  - <a href="https://mongodb.github.io/mongo-java-driver/" target="_blank">MongoDB Java Driver</a> v3.12.10
+  - Snake YAML v1.9
+  - JSON Java v20210307
 
 - Argument classifier (Python module):
-  - python 3.9.x
-  - sklearn 0.24.2
-  - nltk 3.6.3
+  - python v3.9.x
+  - sklearn v0.24.2
+  - nltk v3.6.3
 
 ## Authors
 Created on Aug 18, 2021  
