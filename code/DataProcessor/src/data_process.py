@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.10.0
+    Version: 0.10.1
     Created on: May 13, 2022
-    Updated on: Mar 19, 2023
+    Updated on: Mar 20, 2023
     Description: Data processing module
 """
 
@@ -15,6 +15,7 @@ from typing import Final
 # Class constants basic
 BREAK_MARKS: Final[set] = {".", ";"}
 VALID_SENT_SIZE: Final[int] = 3
+MIN_NUM_SENTS: Final[int] = 2
 
 # Class constants label 1
 LABEL_YES: Final[str] = "YES"
@@ -31,13 +32,12 @@ LABEL_LINKER: Final[str] = "LINKER"
 LABEL_INTENTS: Final[set] = {"SUPPORT", "ATTACK", "LINKS"}
 LABEL_NONE: Final[str] = "NONE"
 
-# spaCy Spanish large model
+# spaCy Spanish large model: https://spacy.io/models/es
 spacy_nlp = spacy.load("es_core_news_lg")
 
 # Validates whether a statement is valid or not
-def __is_valid_sentence(sent_text:str) -> bool:
-    n_tokens = len(sent_text.split(" "))
-    if (len(sent_text) >= VALID_SENT_SIZE) and (any(c.isalpha() for c in sent_text)) and (n_tokens >= 2):
+def __is_valid_sentence(text:str) -> bool:
+    if (len(text) >= VALID_SENT_SIZE) and (any(c.isalpha() for c in text)) and (len(text.split(" ")) >= MIN_NUM_SENTS):
         return True
     return False
 
@@ -81,7 +81,7 @@ def __find_prodigy_relation(label2:str, lbl_start:int, lbl_end:int, relations:li
     return rel_category
 
 # Pre-processing dataset from a list of CSV files to an unique CSV file
-def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> list:
+def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -> pd.DataFrame:
     dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     
@@ -172,7 +172,7 @@ def pre_process_argael_dataset(proposals:list, annotations:dict, language:str) -
     return df
 
 # Pre-processing dataset from a list of JSON files to an unique CSV file
-def pre_process_prodigy_dataset(annotations:list, language:str) -> list:
+def pre_process_prodigy_dataset(annotations:list, language:str) -> pd.DataFrame:
     dataset = []
     header = ["sent_id", "sent_text", "sent_label1", "sent_label2", "sent_label3"]
     
@@ -268,8 +268,10 @@ def pre_process_prodigy_dataset(annotations:list, language:str) -> list:
     return df
 
 # Post-processing dataset from CSV to CSV
-def post_process_dataset(in_dataset:list, language:str) -> list:
-    out_dataset = []
+def post_process_dataset(in_dataset:list, language:str) -> pd.DataFrame:
+    dataset = []
+    header = []
     
     # Return outcome
-    return out_dataset
+    df = pd.DataFrame(dataset, columns=header)
+    return df

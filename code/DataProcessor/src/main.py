@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.10.0
+    Version: 0.10.1
     Created on: May 11, 2022
-    Updated on: Mar 19, 2023
+    Updated on: Mar 20, 2023
     Description: Main module.
 """
 
@@ -66,9 +66,9 @@ def data_preprocessing(language:str, folder_path:str, anno_tool:str) -> bool:
         df = dp.pre_process_prodigy_dataset(annotations, language)
         print(df)
         
-    # 3. Save dataframe to CSV file
-    out_filepath = folder_path + "propositions.csv"
-    result = fl.save_df_to_csv(df, out_filepath)
+    # Save dataframe to CSV file
+    filepath = folder_path + "propositions.csv"
+    result = fl.save_df_to_csv(df, filepath)
     print(" - Total number of records saved:", len(df))
     
     return result
