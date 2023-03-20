@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.4.0
+    Version: 0.5.0
     Created on: Oct 19, 2021
-    Updated on: Jun 23, 2022
+    Updated on: Mar 20, 2023
     Description: ML engine contants.
 """
 
@@ -12,8 +12,9 @@ import enum
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
-    DETECTION = 'detection'
-    CLASSIFICATION = 'classification'
+    ARG_DETECTION = 'arg-detection'
+    ARG_CLASSIFICATION = 'arg-classification'
+    REL_CLASSIFICATION = 'rel-classification'
     
     def __str__(self):
         return self.value

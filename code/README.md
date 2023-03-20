@@ -75,8 +75,8 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"result_folder": "../../../results/",
-	"task": "detection",                  // classification
-	"y_label": "sent_label1"              // sent_label2
+	"task": "arg-detection",              // arg-classification, rel-classification
+	"y_label": "sent_label1"              // sent_label2, sent_label3
 }
 ```
 

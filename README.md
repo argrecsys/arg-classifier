@@ -27,7 +27,7 @@ The implemented solutions depend on or make use of the following libraries:
 
 - Feature extractor (Java module):
   - JDK 16
-  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> v4.4.0
+  - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> v4.5.3
   - <a href="https://mongodb.github.io/mongo-java-driver/" target="_blank">MongoDB Java Driver</a> v3.12.10
   - Snake YAML v1.9
   - JSON Java v20210307

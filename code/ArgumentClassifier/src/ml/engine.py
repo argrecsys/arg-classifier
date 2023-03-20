@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.0.0
+    Version: 1.1.0
     Created on: Oct 07, 2021
-    Updated on: Jun 29, 2022
+    Updated on: Mar 20, 2023
     Description: ML engine class.
 """
 
@@ -59,7 +59,7 @@ class MLEngine:
     # Read JSON file of features
     def __read_feature_file(self, data_path:str) -> list:
         filepath = data_path + "features.json"
-        features = ufl.get_list_from_json(filepath, self.encoding)
+        features = ufl.get_list_from_jsonl(filepath, self.encoding)
         return features
     
     # Read CSV file of labels
@@ -98,6 +98,7 @@ class MLEngine:
         # Validation
         if len(features) != len(labels):
             self.logger.log_info("- The length of the data and the labels is different")
+            self.logger.log_info("- Features dataset length:", len(features), ", and labels file length:", len(labels))
             return None
         
         # Temp variables
@@ -315,33 +316,45 @@ class MLEngine:
         params = {}
         
         if ml_algo == ModelType.NAIVE_BAYES.value:
-            if self.task_type == TaskType.DETECTION.value:
+            if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {'alpha': 1}
                 
-            elif self.task_type == TaskType.CLASSIFICATION.value:
+            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
+                params = {'alpha': 1}
+                
+            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {'alpha': 1}
             
         elif ml_algo == ModelType.LOG_REG.value:
-            if self.task_type == TaskType.DETECTION.value:
+            if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {'C': 1, 'penalty': 'none', 'solver': 'saga'}
                 
-            elif self.task_type == TaskType.CLASSIFICATION.value:
+            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
+                params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
+        
+            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            if self.task_type == TaskType.DETECTION.value:
+            if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {'learning_rate': 0.1, 'n_estimators': 200, 'max_depth': 3, 'min_samples_leaf': 5, 'min_samples_split': 2, 'random_state': model_state}
             
-            elif self.task_type == TaskType.CLASSIFICATION.value:
+            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
                 params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
-        
+                
+            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
+                params = {'learning_rate': 0.1, 'n_estimators': 150, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': model_state}
+                
         elif ml_algo == ModelType.SVM.value:
-            if self.task_type == TaskType.DETECTION.value:
+            if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {'C': 0.1, 'kernel': 'linear', 'random_state': model_state}
                 
-            elif self.task_type == TaskType.CLASSIFICATION.value:
+            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
                 params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
-        
+                
+            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
+                params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
+                
         self.logger.log_info(params)
         return params
     
@@ -395,7 +408,8 @@ class MLEngine:
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
             
             # Save it to disk
-            dataset.to_csv(df_filepath, index=False)
+            if dataset is not None:
+                dataset.to_csv(df_filepath, index=False)
         else:
             # Or, read it from disk
             dataset = ufl.get_df_from_csv(df_filepath)
