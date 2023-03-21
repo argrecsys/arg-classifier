@@ -25,6 +25,7 @@
 	"train": {
 		"cv_k": 10,
 		"cv_stratified": true,
+		"hp_tuning": false,
 		"model_state": 42,
 		"perc_test": 0.2
 	},

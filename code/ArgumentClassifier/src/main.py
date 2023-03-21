@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.1.0
+    Version: 1.1.1
     Created on: Aug 27, 2021
-    Updated on: Mar 20, 2023
+    Updated on: Mar 21, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -106,8 +106,10 @@ def start_app(logger:mll.MLLog, task_type:str):
         
         # 4. Create or fit model pipeline
         metrics_val = ()
-        clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
-        # clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
+        if train_setup["hp_tuning"]:
+            clf, params = ml_ngx.create_and_fit_model(pipeline_setup, X_train, y_train, model_classes, model_state, train_setup)
+        else:
+            clf, params = ml_ngx.create_and_train_model(pipeline_setup, X_train, y_train, model_classes, model_state)
         
         # 5. Test model
         metrics_test = ml_ngx.test_model(clf, X_test, y_test, model_classes)

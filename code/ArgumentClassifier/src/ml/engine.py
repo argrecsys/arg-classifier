@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.1.0
+    Version: 1.1.1
     Created on: Oct 07, 2021
-    Updated on: Mar 20, 2023
+    Updated on: Mar 21, 2023
     Description: ML engine class.
 """
 
@@ -327,7 +327,7 @@ class MLEngine:
             
         elif ml_algo == ModelType.LOG_REG.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {'C': 1, 'penalty': 'none', 'solver': 'saga'}
+                params = {'C': 1, 'penalty': 'l2', 'solver': 'newton-cg'}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
                 params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
@@ -495,10 +495,11 @@ class MLEngine:
         params = tuning.best_params_
         scores = tuning.cv_results_['mean_test_score'][0], tuning.cv_results_['std_test_score'][0]
         
-        if self.verbose:
-            self.logger.log_info(params)
-            self.logger.log_info(scores)
-            self.logger.log_info(tuning.cv_results_)
+        # Verbose
+        self.logger.log_info("- Results:")
+        self.logger.log_info(params)
+        self.logger.log_info(scores)
+        self.logger.log_info(tuning.cv_results_)
         
         # Return model and model params
         return clf, params
