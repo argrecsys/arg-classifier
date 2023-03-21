@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.0.0
+    Version: 1.1.0
     Created on: Jun 28, 2022
-    Updated on: Jun 29, 2022
+    Updated on: Mar 21, 2023
     Description: Manages ML engine auditing
 """
 
@@ -33,6 +33,9 @@ class MLLog:
         # Add the handlers to the logger
         self.logger.addHandler(fh)
         self.logger.addHandler(ch)
+        
+        # Otherwise root logger prints things again
+        self.logger.propagate = False
     
     # Log a debug message
     def log_debug(self, msg:str):
