@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.10.0
+    Version: 0.11.0
     Created on: Oct 19, 2021
-    Updated on: Mar 20, 2023
+    Updated on: Mar 22, 2023
     Description: ML engine utility functions.
 """
 
@@ -19,7 +19,7 @@ import pandas as pd
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, TruncatedSVD
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
@@ -66,12 +66,17 @@ def apply_dim_reduction(X:np.ndarray, method:str, n:float, y:np.ndarray=None) ->
     variance = []
     method = method.upper()
     
-    # Create a DataFrame from PCA
+    # Create a DataFrame from DR
     if method == "PCA":
         model = PCA(n_components=n)
         x_reduced = model.fit_transform(X)
         variance = model.explained_variance_ratio_
     
+    elif mehtod == "SVD":
+        model = TruncatedSVD(n_components=n)
+        x_reduced = model.fit_transform(X)
+        variance = model.explained_variance_ratio_
+
     elif method == "lda":
         model = LDA(n_components=n)
         x_reduced = model.fit_transform(X, y)

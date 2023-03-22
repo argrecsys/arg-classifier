@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.1.1
+    Version: 1.2.0
     Created on: Oct 07, 2021
-    Updated on: Mar 21, 2023
+    Updated on: Mar 22, 2023
     Description: ML engine class.
 """
 
@@ -29,7 +29,7 @@ from sklearn.model_selection import GridSearchCV
 # Import data transformers
 from sklearn.preprocessing import Binarizer
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, TruncatedSVD
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 # Import ML algorithms
@@ -244,54 +244,44 @@ class MLEngine:
         
         # Adding pipeline steps
         estimators = []
+        
+        # 1. Add data scaler
+        if data_scale_algo == ScaleData.NORMALIZE.value:
+            estimators.append(("scaler", MinMaxScaler()))
+            
+        elif data_scale_algo == ScaleData.STANDARDIZE.value:
+            estimators.append(("scaler", StandardScaler()))
+        
+        # 2. Add dim reducer
+        if dim_red_algo == DimReduction.PCA.value:
+            n_comp = 100
+            estimators.append(("reducer", PCA(n_components=n_comp)))
+            
+        elif dim_red_algo == DimReduction.SVD.value:
+            n_comp = 100
+            estimators.append(("reducer", TruncatedSVD(n_components=n_comp)))
+            
+        elif dim_red_algo == DimReduction.LDA.value:
+            n_comp = len(model_classes) - 1
+            estimators.append(("reducer", LDA(n_components=n_comp)))
+            
+        # 3. Add model
         if ml_algo == ModelType.NAIVE_BAYES.value:
             model_params.pop('random_state', None)
-            
-            # Simple NB approach vs. dimensionality-reduced approach
-            if dim_red_algo == "":
-                estimators.append(('binarizer', Binarizer()))
-                estimators.append(('model', MultinomialNB(**model_params)))
-            else:
-                # 2. Add dim reducer
-                if dim_red_algo == DimReduction.PCA.value:
-                    n_comp = 100
-                    estimators.append(("reducer", PCA(n_components=n_comp)))
-                    
-                elif dim_red_algo == DimReduction.LDA.value:
-                    n_comp = len(model_classes) - 1
-                    estimators.append(("reducer", LDA(n_components=n_comp)))
-                
-                estimators.append(("scaler", MinMaxScaler()))    
-                estimators.append(('model', MultinomialNB()))
-        else:
-            # 1. Add data scaler
-            if data_scale_algo == ScaleData.NORMALIZE.value:
-                estimators.append(("scaler", MinMaxScaler()))
-                
-            elif data_scale_algo == ScaleData.STANDARDIZE.value:
-                estimators.append(("scaler", StandardScaler()))
-            
-            # 2. Add dim reducer
-            if dim_red_algo == DimReduction.PCA.value:
-                n_comp = 100
-                estimators.append(("reducer", PCA(n_components=n_comp)))
-                
-            elif dim_red_algo == DimReduction.LDA.value:
-                n_comp = len(model_classes) - 1
-                estimators.append(("reducer", LDA(n_components=n_comp)))
-                
-            # 3. Add model
-            if ml_algo == ModelType.GRADIENT_BOOSTING.value:
-                estimators.append(('model', GradientBoostingClassifier(**model_params)))
-            
-            elif ml_algo == ModelType.SVM.value:
-                estimators.append(('model', SVC(**model_params)))
-            
-            elif ml_algo == ModelType.LOG_REG.value:
-                model_params.pop('random_state', None)
-                if len(model_classes) > 2:
-                    model_params['multi_class'] = 'multinomial'
-                estimators.append(('model', LogisticRegression(**model_params)))
+            estimators.append(('binarizer', Binarizer()))
+            estimators.append(('model', MultinomialNB(**model_params)))
+        
+        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            estimators.append(('model', GradientBoostingClassifier(**model_params)))
+        
+        elif ml_algo == ModelType.SVM.value:
+            estimators.append(('model', SVC(**model_params)))
+        
+        elif ml_algo == ModelType.LOG_REG.value:
+            model_params.pop('random_state', None)
+            if len(model_classes) > 2:
+                model_params['multi_class'] = 'multinomial'
+            estimators.append(('model', LogisticRegression(**model_params)))
             
         # Create model pipeline
         pipe = Pipeline(estimators)
@@ -317,23 +307,23 @@ class MLEngine:
         
         if ml_algo == ModelType.NAIVE_BAYES.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {'alpha': 1}
+                params = {'alpha': 1, 'fit_prior': True}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {'alpha': 1}
+                params = {'alpha': 1, 'fit_prior': True}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = {'alpha': 1}
+                params = {'alpha': 1, 'fit_prior': True}
             
         elif ml_algo == ModelType.LOG_REG.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {'C': 1, 'penalty': 'l2', 'solver': 'newton-cg'}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
+                params = {'C': 0.1, 'penalty': 'l2', 'solver': 'newton-cg'}
         
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
+                params = {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
@@ -350,7 +340,7 @@ class MLEngine:
                 params = {'C': 0.1, 'kernel': 'linear', 'random_state': model_state}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
+                params = {'C': 0.1, 'kernel': 'linear'}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {'C': 10, 'gamma': 0.001, 'kernel': 'rbf', 'random_state': model_state}
@@ -363,12 +353,13 @@ class MLEngine:
         space = {}
         
         if ml_algo == ModelType.NAIVE_BAYES.value:
-            space = {'model__alpha': (1, 0.1, 0.01, 0.001, 0.0001, 0.0001)}
+            space = {'model__alpha': [0.001, 0.01, 0.1, 1, 10, 100],
+                     'model__fit_prior': [True, False]}
         
         elif ml_algo == ModelType.LOG_REG.value:
             space = {'model__solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],
-                     'model__penalty':['none', 'elasticnet', 'l1', 'l2'],
-                     'model__C':[0.001, 0.01, 0.1, 1, 10, 100]}
+                     'model__penalty': ['none', 'elasticnet', 'l1', 'l2'],
+                     'model__C': [0.001, 0.01, 0.1, 1, 10, 100]}
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             space = {'model__learning_rate': [0.15, 0.1, 0.05, 0.02, 0.01],
