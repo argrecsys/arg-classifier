@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.5.0
+    Version: 0.6.0
     Created on: Oct 19, 2021
-    Updated on: Mar 20, 2023
+    Updated on: Mar 22, 2023
     Description: ML engine contants.
 """
 
@@ -41,6 +41,7 @@ class ScaleData(enum.Enum):
 class DimReduction(enum.Enum):
     LDA = "lda"
     PCA = "pca"
+    SVD = "svd"
     
     def __str__(self):
         return self.value

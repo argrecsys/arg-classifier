@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.1.1
+    Version: 1.2.0
     Created on: Aug 27, 2021
-    Updated on: Mar 21, 2023
+    Updated on: Mar 22, 2023
     Description: Main class of the argument classifier.
 """
 
