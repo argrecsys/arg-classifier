@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.0
+    Version: 1.2.1
     Created on: Aug 27, 2021
-    Updated on: Mar 22, 2023
+    Updated on: Mar 23, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -74,12 +74,12 @@ def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     return model_id
 
 # Start application
-def start_app(logger:mll.MLLog, task_type:str):
-    logger.log_info('\n>> START PROGRAM')
-    app_setup = read_app_setup()
+def start_app(logger:mll.MLLog, app_setup:dict):
+    tasks = app_setup["tasks"]
     
-    if len(app_setup):
-        
+    for task in tasks:
+        logger.log_info("\n>> Scenario begins")
+    
         # 0. Program variables
         feat_setup = app_setup["features"]
         pipeline_setup = app_setup["pipeline"]
@@ -89,13 +89,14 @@ def start_app(logger:mll.MLLog, task_type:str):
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
         result_folder = app_setup["result_folder"]
+        dr_algo= pipeline_setup["dim_red_algo"]
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
-        y_label = get_target_label(task_type)
-        logger.log_info(">> %s (%s):" % (task.title(), ml_algo))
+        y_label = get_target_label(task)
+        logger.log_info("- %s (%s - %s):" % (task.title(), ml_algo, dr_algo))
         
         # 1. Machine Learning engine object
-        ml_ngx = mle.MLEngine(language=language, task_type=task_type, logger=logger)
+        ml_ngx = mle.MLEngine(language=language, task_type=task, logger=logger)
         
         # 2. Read dataset
         dataset, label_dict = ml_ngx.create_dataset(data_folder, y_label, create_dataset, feat_setup)
@@ -121,8 +122,8 @@ def start_app(logger:mll.MLLog, task_type:str):
         # 7. Save model params and results
         results = []
         dataset_name = get_curr_dataset_name(feat_setup)
-        save_metrics(results, task_type, dataset_name, "validation", pipeline_setup, params, metrics_val)
-        save_metrics(results, task_type, dataset_name, "test", pipeline_setup, params, metrics_test)
+        save_metrics(results, task, dataset_name, "validation", pipeline_setup, params, metrics_val)
+        save_metrics(results, task, dataset_name, "test", pipeline_setup, params, metrics_test)
         model_id = save_results(result_folder, results, ml_ngx)
         
         # 8. Create final model and save it
@@ -132,19 +133,26 @@ def start_app(logger:mll.MLLog, task_type:str):
             
             #  9. Use model (make predictions)
             pass
-    else:
-        logger.log_error(">> ERROR - The application configuration could not be read.")
     
-    logger.log_info(">> END PROGRAM")
+        logger.log_info(">> Scenario ends")
 
 #####################
 ### START PROGRAM ###
 #####################
+from itertools import product
+
 if __name__ == "__main__":
-    logger = mll.MLLog(True)
-    tasks = [TaskType.ARG_DETECTION.value, TaskType.ARG_CLASSIFICATION.value, TaskType.REL_CLASSIFICATION.value]
-    for task in tasks:
-        start_app(logger, task)
+    logger = mll.MLLog(verbose=True)
+    logger.log_info('>> START PROGRAM')
+    app_setup = read_app_setup()
+    
+    if len(app_setup):
+        start_app(logger, app_setup)
+    else:
+        logger.log_error(">> ERROR - The application configuration could not be read.")
+    
+    logger.log_info(">> END PROGRAM\n")
+    logger = None
 #####################
 #### END PROGRAM ####
 #####################
