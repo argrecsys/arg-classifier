@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.1
+    Version: 1.2.2
     Created on: Aug 27, 2021
     Updated on: Mar 23, 2023
     Description: Main class of the argument classifier.
@@ -14,6 +14,7 @@ import ml.logging as mll
 from ml.constant import TaskType
 
 # Import Python base libraries
+import time
 import json
 from datetime import datetime
 
@@ -52,7 +53,7 @@ def get_target_label(task_name:str) -> str:
 def save_error_ids(error_ids, X_test):
     
     for k, v in error_ids.items():
-        print(k, ':', v)
+        print(k, ":", v)
         #for rid in v:
         #    print(rid, X_test[rid])
 
@@ -78,6 +79,7 @@ def start_app(logger:mll.MLLog, app_setup:dict):
     tasks = app_setup["tasks"]
     
     for task in tasks:
+        start_time = time.time()
         logger.log_info("\n>> Scenario begins")
     
         # 0. Program variables
@@ -89,7 +91,7 @@ def start_app(logger:mll.MLLog, app_setup:dict):
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
         result_folder = app_setup["result_folder"]
-        dr_algo= pipeline_setup["dim_red_algo"]
+        dr_algo = pipeline_setup["dim_red_algo"]
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
         y_label = get_target_label(task)
@@ -135,6 +137,7 @@ def start_app(logger:mll.MLLog, app_setup:dict):
             pass
     
         logger.log_info(">> Scenario ends")
+        logger.log_info("- Elapsed time: %s seconds ---" % (time.time() - start_time))
 
 #####################
 ### START PROGRAM ###
@@ -143,7 +146,7 @@ from itertools import product
 
 if __name__ == "__main__":
     logger = mll.MLLog(verbose=True)
-    logger.log_info('>> START PROGRAM')
+    logger.log_info("\n>> START PROGRAM")
     app_setup = read_app_setup()
     
     if len(app_setup):
@@ -151,7 +154,7 @@ if __name__ == "__main__":
     else:
         logger.log_error(">> ERROR - The application configuration could not be read.")
     
-    logger.log_info(">> END PROGRAM\n")
+    logger.log_info(">> END PROGRAM")
     logger = None
 #####################
 #### END PROGRAM ####
