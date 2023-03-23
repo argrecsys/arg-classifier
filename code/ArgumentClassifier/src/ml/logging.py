@@ -15,11 +15,11 @@ class MLLog:
     
     # Constructor
     def __init__(self, verbose=False):
-        self.log_path = '../log/log_file.log'
+        self.log_path = "../log/log_file.log"
         self.verbose = verbose
         
         # Create logger
-        self.logger = logging.getLogger('ml_logger')
+        self.logger = logging.getLogger("ml_logger")
         self.logger.setLevel(logging.DEBUG)
         
         # Create file handler which logs even debug messages
@@ -39,7 +39,7 @@ class MLLog:
     
     # Log a debug message
     def log_debug(self, msg:str):
-        full_msg = msg + ' - ' + str(datetime.now())
+        full_msg = msg + " - " + str(datetime.now())
         self.logger.debug(full_msg)
         if self.verbose:
             print(full_msg)
@@ -47,14 +47,14 @@ class MLLog:
     # Log an info message
     def log_info(self, msg:str):
         msg = msg if type(msg) == "str" else str(msg)
-        full_msg = msg + ' - ' + str(datetime.now())
+        full_msg = msg + " - " + str(datetime.now())
         self.logger.info(full_msg)
         if self.verbose:
             print(full_msg)
     
     # Log an error message
     def log_error(self, msg:str):
-        full_msg = msg + ' - ' + str(datetime.now())
+        full_msg = msg + " - " + str(datetime.now())
         self.logger.error(full_msg)
         if self.verbose:
             print(full_msg)

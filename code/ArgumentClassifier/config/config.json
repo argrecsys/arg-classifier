@@ -18,14 +18,14 @@
 		"synt_stats": true
 	},
 	"pipeline": {
-		"data_scale_algo": "",
-		"dim_red_algo": "pca",
+		"data_scale_algo": "normalize",
+		"dim_red_algo": "svd",
 		"ml_algo": "support-vector-machine"
 	},
 	"train": {
 		"cv_k": 10,
 		"cv_stratified": true,
-		"hp_tuning": false,
+		"hp_tuning": true,
 		"model_state": 42,
 		"perc_test": 0.2
 	},
@@ -34,5 +34,5 @@
 	"language": "spanish",
 	"model_folder": "../../../models/",
 	"result_folder": "../../../results/",
-	"task": "arg-detection"
+	"tasks": ["arg-detection", "arg-classification"]
 }

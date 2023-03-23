@@ -12,9 +12,9 @@ import enum
 
 # Using enum class create the task type enumeration
 class TaskType(enum.Enum):
-    ARG_DETECTION = 'arg-detection'
-    ARG_CLASSIFICATION = 'arg-classification'
-    REL_CLASSIFICATION = 'rel-classification'
+    ARG_DETECTION = "arg-detection"
+    ARG_CLASSIFICATION = "arg-classification"
+    REL_CLASSIFICATION = "rel-classification"
     
     def __str__(self):
         return self.value

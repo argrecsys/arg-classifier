@@ -72,7 +72,7 @@ def apply_dim_reduction(X:np.ndarray, method:str, n:float, y:np.ndarray=None) ->
         x_reduced = model.fit_transform(X)
         variance = model.explained_variance_ratio_
     
-    elif mehtod == "SVD":
+    elif method == "SVD":
         model = TruncatedSVD(n_components=n)
         x_reduced = model.fit_transform(X)
         variance = model.explained_variance_ratio_
@@ -88,7 +88,7 @@ def apply_dim_reduction(X:np.ndarray, method:str, n:float, y:np.ndarray=None) ->
 def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
     data = df[col_name]
     df_new = pd.concat([data.value_counts(), data.value_counts(normalize=True).mul(100)], 
-                   axis=1, keys=('counts', 'percentage'))
+                   axis=1, keys=("counts", "percentage"))
     return df_new
 
 ######################
@@ -104,11 +104,11 @@ def calculate_errors(task_type:str, y_real:list, y_pred:list, target_names:list,
     output = classification_report(y_real, y_pred, output_dict=True)
     
     # Get model metrics
-    accuracy = output['accuracy']
-    weighted_avg = output['weighted avg']
-    precision = weighted_avg['precision']
-    recall = weighted_avg['recall']
-    f1_score = weighted_avg['f1-score']
+    accuracy = output["accuracy"]
+    weighted_avg = output["weighted avg"]
+    precision = weighted_avg["precision"]
+    recall = weighted_avg["recall"]
+    f1_score = weighted_avg["f1-score"]
     roc_score = 0
     if task_type == TaskType.ARG_DETECTION.value:
         roc_score = roc_auc_score(y_real, y_pred)
