@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-1.2.5-blue)
-![last-update](https://img.shields.io/badge/last_update-3/23/2023-orange)
+![version](https://img.shields.io/badge/version-1.2.6-blue)
+![last-update](https://img.shields.io/badge/last_update-3/24/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
