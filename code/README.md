@@ -62,7 +62,7 @@ The input parameters (<a href="https://github.com/argrecsys/arg-classifier/blob/
 	"pipeline": {
 		"data_scale_algo": "normalize",   // standardize
 		"dim_red_algo": "pca",            // svd, lda
-		"ml_algo": "gradient-boosting"    // logistic-regression, naive-bayes, support-vector-machine
+		"ml_algo": "gradient-boosting"    // naive-bayes, logistic-regression, support-vector-machine
 	},
 	"train": {
 		"cv_k": 10,

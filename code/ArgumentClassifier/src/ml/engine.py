@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.2
+    Version: 1.2.3
     Created on: Oct 07, 2021
-    Updated on: Mar 23, 2023
+    Updated on: Mar 24, 2023
     Description: ML engine class.
 """
 
@@ -487,7 +487,7 @@ class MLEngine:
         scores = tuning.cv_results_["mean_test_score"][0], tuning.cv_results_["std_test_score"][0]
         
         # Verbose
-        self.logger.log_info("- Results:")
+        self.logger.log_info("- Fitting results:")
         self.logger.log_info(params)
         self.logger.log_info(scores)
         self.logger.log_info(tuning.cv_results_)
