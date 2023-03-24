@@ -446,6 +446,78 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 21567-182852-0,El ruido es un problema que va un aumento y que la mayoría de los vecinos de Madrid sufrimos.,YES,CLAIM,NONE
 21567-182852-1,"Apoyo esta iniciativa y os dejo por aquí esta otra, que también lucha contra el ruido, por si os interesa apoyarla.",NO,SPAM,NONE
 21567-187603-0,y pido colaboración para Implantar red cámaras que registren comportamientos incívicos.,NO,SPAM,NONE
+2412-0-0,Metro para viajeros de tren y avión,YES,CLAIM,NONE
+2412-0-0,Muchas estaciones son utilizadas por viajeros con destino a estaciones de tren y al aeropuerto y trasladando maletas.,YES,CLAIM,NONE
+2412-28158-0,Estupenda propuesta!.,NO,SPAM,NONE
+2412-28664-0,Metro no es competencia de la Comunidad?.,NO,SPAM,NONE
+2412-28930-0,La inauguración de la l8 la hicieron conjuntamente Aguire y Gallardón.,YES,CLAIM,NONE
+2412-28930-1,"Si lo es para inaugurar, que lo sea para arreglar problemas o exigir a la Comunidad dichas soluciones como se hace con los Servicios de Limpiezas externalizados, con los bancos y los desahucios etc.",YES,PREMISE,RESULT
+2412-28930-2,"El 90 de los usuarios de Metro viven en Madrid capital, algo tendrá que decir nuestro Ayuntamiento.",YES,CLAIM,NONE
+2412-28930-3,"Ya informé también a la Comunidad pero mucho me temo que no interesa a la Administración arreglar este problema, entonces que no nos pidan que utilicemos el metro.",NO,SPAM,NONE
+2412-29160-0,El ayuntamiento podrá presionar pero no tiene competencias.,YES,CLAIM,NONE
+2412-29160-1,El Metro es de la Comunidad de Madrid.,NO,SPAM,NONE
+2412-29256-0,"A eso me refiero, a que presione pues, si puede acudir a las inauguraciones a bombo y platillo, ¿cómo no va a poder presionar si el 90 de los usuarios residen en la ciudad de Madrid?.",YES,CLAIM,NONE
+2412-29282-0,"Razón tienes con lo de las escaleras mecánicas, pero no por la gente con maleta sino por cualquier usuario.",NO,SPAM,NONE
+2412-29282-1,Si quieren comodidad en el transporte al aeropuerto el metro no es el medio más adecuado.,YES,CLAIM,NONE
+2412-29282-2,Existen otros mucho más cómodos.,YES,PREMISE,EXPLANATION
+2412-29473-0,"Lógico, para cualquier usuario pero ya hay más temas para ello, aquí resalto una peculiaridad.",NO,SPAM,NONE
+2412-29473-1,"Ahora, responder con obviedades nunca me ha gustado, pero vamos a ello.",NO,SPAM,NONE
+2412-29473-2,¿Quién habla de comodidad?,NO,SPAM,NONE
+2412-29473-3,De lo que se habla es de que desde los distintos gobiernos locales siempre dicen que se utilice el transporte público.,NO,SPAM,NONE
+2412-29473-4,Veamos desde la t1 hasta Aluche.,NO,SPAM,NONE
+2412-29473-5,Metro 3€ con las incidencias indicadas en mi comentario.,NO,SPAM,NONE
+2412-29473-6,Bus: deja en el centro y luego hay que ir al metro.,NO,SPAM,NONE
+2412-29473-7,Vaya solución.,NO,SPAM,NONE
+2412-29473-8,Taxi: 50€ ¿Comodidad?,NO,SPAM,NONE
+2412-29473-9,"para eso utilizo el vehículo privado porque si no hacen un transporte público adecuado para las distintas circunstancias, de nada sirve recomendarlo.",NO,SPAM,NONE
+2412-30002-0,"Creo que todo es susceptible de mejora, claramente, pero que disponemos de uno de los mejores servicios públicos de enlace con el aeropuerto, de todo el mundo.",YES,CLAIM,NONE
+2412-30002-1,"Un tema es que tenga que cargar con una maleta escaleras arriba, que eso sucede tanto yendo al aeropuerto como en un uso normal del servicio, y otro bien distinto es la promoción que se haga por parte de las administraciones públicas del uso del tranporte público.",YES,CLAIM,NONE
+2412-30002-2,"Por su entrada creia que se referia a lo pimero, pero su comentario me dá a entender que lo que le molesta es que se recomiende usar transporte público para ir al aeropuerto.",YES,PREMISE,ADDITION
+2412-30002-3,"El servicio al aeropuerto es un servicio extra del metro, no tiene que estar perfectamente adecuado para las distintas circustancias como solicita usted en su ultima frase.",YES,PREMISE,CONCLUSION
+2412-30710-0,No creo que tengamos uno de los mejores servicios públicos de enlace con el aeropuerto del mundo.,YES,CLAIM,NONE
+2412-30710-1,"Todo es opinable, yo opino que no y además no afectaría al tema que planteo.",YES,PREMISE,ADDITION
+2412-30710-2,"La promoción del transporte público es parte de mi propuesta, no quieren vehículos privados: zona azul y verde.",NO,SPAM,NONE
+2412-30710-3,El enorme atasco en todas las entradas de Madrid a través de todas las carreteras nacionales el pasado lunes.,NO,SPAM,NONE
+2412-30710-4,El eterno aparcamiento en doble fila en todo Madrid.,NO,SPAM,NONE
+2412-30710-5,"Si no hay un buen transporte público, Madrid seguirá siendo un caos circulatorio.",YES,CLAIM,NONE
+2412-30710-6,"Por eso promocionan el transporte público pero si no cubre las necesidades que cada tramo requiere, no servirá de nada.",YES,PREMISE,OPPOSITION
+2412-30710-7,"A mí no me molesta nada, no es la expresión adecuada, a mí me indigna que en una estación como Nuevos Ministerios con metro, cercanías, enlaces con estaciones de tren y aeropuerto, por donde circulan miles de viajeros, no funcionen las escaleras mecánicas y no haya rampas.",NO,SPAM,NONE
+2412-30710-8,Y no es un servicio extra es un servicio más que se paga aparte.,NO,SPAM,NONE
+2412-58536-0,Estoy contigo.,NO,SPAM,NONE
+2412-58536-1,La solución no es moverse en taxi ni en coche.,YES,CLAIM,NONE
+2412-58536-2,La realidad con el turismo la veo yo todos los días en la parada de metro Gran Vía.,NO,SPAM,NONE
+2412-58536-3,"Me da vergüenza ajena ver diariamente cómo cientos de personas van acarreando como pueden sus maletas para llegar a sus hoteles, o los estudiantes que vienen a hacer sus cursos a nuestra ciudad, con varias maletas a cuestas que son más grandes que ellos.",NO,SPAM,NONE
+2412-58536-4,Y que no me digan que en la salida de la calle Montera no hay sitio para un ascensor que por cierto lo hubo hasta el año 1970 Red_de_San_Luis.,NO,SPAM,NONE
+2412-34532-0,Yo modificaría el título de la propuesta.,NO,SPAM,NONE
+2412-34532-1,Es poco aclarador.,NO,SPAM,NONE
+2412-34546-0,Dame alguna idea.,NO,SPAM,NONE
+2412-34546-1,Es complicado el titulo porque es algo muy concreto dentro de todas las posibilidades e incidencias del metro.,YES,CLAIM,NONE
+2412-34546-2,"No sé si se puede modificar, tendría que mirarlo si me convence otro título.",NO,SPAM,NONE
+2412-34552-0,¿Metro más accesible?,NO,SPAM,NONE
+2412-34552-1,"Así puedes unificar los intereses de la gente que viaja y porta maletas, y a su vez, puedes indicar que favorece que las personas con movilidad reducida, padres con bebes, .",NO,SPAM,NONE
+2412-34552-2,¿Cómo lo ves?.,NO,SPAM,NONE
+2412-34558-0,Hay una propuesta llamada metro accesible y hay otras propuestas para movilidad reducida etc.,YES,CLAIM,NONE
+2412-34558-1,Por eso esta es concreta para viajeros con maletas de hasta 20 kg.,YES,PREMISE,RESULT
+2412-34559-0,"Técnicamente, ¿dan el mismo servicio no?",YES,CLAIM,NONE
+2412-34559-1,"Por eso, lo mismo sería bueno cerrar la propuesta, y concentrarse en una que facilite la movilidad a todos Viajeros con equipaje, personas con movilidad reducida, carritos de bebe, .",YES,CLAIM,NONE
+2412-34607-0,"Sí, los demás pueden cerrar la suya.",NO,SPAM,NONE
+2412-34607-1,También cabe que haya un moderador aquí que se dedicase a unificar propuestas similares que abarcasen todas las opciones planteadas.,NO,SPAM,NONE
+2412-34607-2,Yo no puedo leer todas las que hay y no voy a hacer ese trabajo.,NO,SPAM,NONE
+2412-34816-0,Tiene 48 votos 93 votos 65 votos 105 votos y me ha costado 2 minutos.,NO,SPAM,NONE
+2412-34816-1,"Podemos moderarnos nosotros mismos, y tu que eres el que ha propuesto la idea, puedes hablar con las otras personas para unificar ideas y promover una única propuesta.",YES,CLAIM,NONE
+2412-35015-0,"He entrado en los cuatro enlaces, he comentado que tengo una propuesta similar para intentar unificarlas.",NO,SPAM,NONE
+2412-35015-1,No obstante voy a plantear que haya en el Ayuntamiento un moderador o coordinador que se dedique a unificar propuestas similares para que los votos se concentran en una única propuesta y no se desperdiguen.,NO,SPAM,NONE
+2412-35344-0,Me parece apropiado Vicente.,NO,SPAM,NONE
+2412-35344-1,He podido leer algún post sobre el problema de las duplicidades.,NO,SPAM,NONE
+2412-35344-2,Espero que se propongan soluciones para acumular votos sobre temas similares.,NO,SPAM,NONE
+2412-58533-0,Es muy necesario poner ascensores y/o escaleras mecánicas por la cantidad de turismo que hay sobretodo en la zona centro.,YES,CLAIM,NONE
+2412-58533-1,"Damos muy mala imagen a turistas y estudiantes extranjeros que llegan a la ciudad con sus maletas, intentando subir y bajar con ellas por las escaleras.",YES,PREMISE,REASON
+2412-58533-2,"Tenemos muchos hoteles y muy buenos en el centro de Madrid, pero es un calvario llegar hasta ellos.",YES,PREMISE,REASON
+2412-58533-3,"Por poner un ejemplo: las paradas de metro de Gran Vía, Sevilla, Tribunal, Santo Domingo, Banco de España.",YES,PREMISE,EXEMPLIFICATION
+2412-58533-4,"Chueca, Puerta de Toledo, Atocha.",YES,PREMISE,EXEMPLIFICATION
+2412-58533-5,Todas ellas soportando la mayor cantidad de personas acarreando maletas.,YES,PREMISE,ADDITION
+2412-58533-6,"Dices que las maletas pueden tener un peso de hasta 20 kg, pero incluso veo muy frecuentemente gente que lleva varias maletas.",NO,SPAM,NONE
+2412-58533-7,Es la misión imposible.,NO,SPAM,NONE
 25077-0-0,Medidas más restrictivas de calidad del aire,YES,CLAIM,NONE
 25077-0-0,Propongo ser más restrictivos con el control de la calidad del aire y la contaminación generada por los vehículos de motor.,YES,CLAIM,NONE
 25077-0-1,Creo que en la actualidad se quedan cortas y seguimos igual.,YES,CLAIM,NONE
@@ -562,6 +634,163 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 2551-88145-3,"Nadie en mi barrio quiere esas fiestas, pregunten a comerciantes, también de bares y restaurantes.",YES,CLAIM,NONE
 2551-88145-4,Es la imposición de un colectivo.,YES,PREMISE,PRECISION
 2551-88145-5,Espero que se pueda actuar por parte del ayuntamiento para evitar las múltiples incomodidades que tendremos que aguantar los vecinos.,NO,SPAM,NONE
+2576-0-0,Contratar personal de limpieza,YES,CLAIM,NONE
+2576-0-0,Contratar personal de limpieza en lugar de pedir a universitarios o madres de niños escolarizados limpiar.,YES,CLAIM,NONE
+2576-0-0,"En noticias recientes, hemos visto cómo Carmena pretende que los universitarios barran Madrid, al igual que manifestó hace unos meses con las madres de los niños escolarizados.",NO,SPAM,NONE
+2576-0-1,"Mi propuesta es, en lugar de promover que estudiantes o mujeres trabajadoras hagan ese trabajo, ¿por qué no se contrata a más personal de limpieza?",YES,CLAIM,NONE
+2576-0-2,"De esta forma se podría reducir el paro de la capital, a la vez que no se quita tiempo de estudio a los universitarios o tiempo libre a las mujeres.",YES,PREMISE,RESULT
+2576-0-3,"O si por contra prefiere limpieza de forma gratuita, ¿por qué no limpian las calles los concejales de Ahora Madrid?.",NO,SPAM,NONE
+2576-29487-0,Este sitio no es el lugar creo yo.,YES,CLAIM,NONE
+2576-29487-1,"Pero ya que te poner, haz un esfuerzo por contrastar esa noticia que sé dónde la has leído.",YES,PREMISE,OPPOSITION
+2576-29487-2,Aquí te lo paso: .,NO,SPAM,NONE
+2576-29576-0,"En ese enlace que me has pasado sólo habla de remunicipalizar servicios, no de que limpien universitarios.",NO,SPAM,NONE
+2576-29576-1,"Es una medida que me parece injusta, puesto que la mayoría no ha podido votar la composición del Ayuntamiento de Madrid, las universidades son competencia de la Comunidad de Madrid y, por tanto, la alcaldesa no tiene legitimidad para hacerles limpiar las calles.",YES,CLAIM,NONE
+2576-39087-0,No has entendido o no quieres entender.,YES,CLAIM,NONE
+2576-39087-1,"No se trata de obligarles a limpiar por supuesto, pero si a concienciar a todos los que ensucian de forma innecesaria su entorno lo que no deben hacer y no rasgarnos las vestiduras por ello.",YES,PREMISE,RESTATEMENT
+2576-29604-0,"Perdona pero no has entendido nada, lo de las madres era una propuesta por mi parte muy interesante ya que si dichas madres están en el paro y pueden tener un trabajo además en el colegio donde va su hijo pues mucho mejor y lo de los jovenes estudiantes también es lógico que al que ensucie se le enseñe a dejar de hacerlo, no para no tener que contratar a personas que limpien si no para evitar el que convirtamos a nuestros hijos en unos guarros.",YES,PREMISE,EXPLANATION
+2576-29614-0,"En primer lugar, los empleos públicos no se deberían ofrecer en función de en qué colectivo te encuentres, sino a todos los ciudadanos por igual.",YES,CLAIM,NONE
+2576-29614-1,"En segundo lugar, muéstrame una encuesta que diga que sólo los universitarios ensucian la calle.",YES,CLAIM,NONE
+2576-29614-2,"En tercer lugar, para evitar que la gente ensucie ya están las multas o pueden limpiar ellos, pero no hay que generalizar con todo el colectivo universitario.",YES,CLAIM,NONE
+2576-31661-0,"Por supuesto que no sólo los universitarios ensucian, es que de hecho no todos los universitarios ensucian, posiblemente sean una minoría, pero lo cierto es que encucian muchos de ellos, y no está de más concienciar a todos de que la limpieza no es una deshonrra, en el colegio de mi hijo hacen batallón de reciclaje, hacen grupos de trabajo semanales y conciencian al resto informando y vigilando que cumplen con las normas de limpieza del colegio, que tiene de malo eso.",YES,CLAIM,NONE
+2576-31661-1,"Por otro lado los empleos públicos se deben ofrecer a todos los ciudadano pero si saliera una oferta de empleo público para limpiar un colegio de la zona donde tu vivas y otro donde yo viva, entiendo que tu si estuvieras interesad@o la solicitarías en la zona que más cerca te pille y yo igual, por lo tanto que problema hay?.",YES,PREMISE,OPPOSITION
+2576-31661-2,"Y por último no he visto nunca a un agente multando a nadier por dejar que su perro se cague en la calle y no recoja la caquita, cosa que podían empezar también a vigilar.",YES,CLAIM,NONE
+2576-29702-0,"Yo creo que todo parte de un malentendido por no tener el video completo de todo lo que dijese la alcaldesa ese día, yo propongo que se use la web para aclarar lo sucedido sin llevarnos las manos a la cabeza, que cuelguen el video completo y así podamos opinar.",YES,CLAIM,NONE
+2576-29987-0,"En Aluche tenemos este problema con la suciedad y dejadez del barrio, por favor votad.",NO,SPAM,NONE
+2576-30389-0,"Hola, soy universitaria y mi facultad, la de educación qué ironía da pena verla.",NO,SPAM,NONE
+2576-30389-1,"Los fines de semana, por las noches, se reúne tal cantidad de gente a hacer botellón que hay que ir con cuidado para no atropellar a nadie.",NO,SPAM,NONE
+2576-30389-2,No solo la gente que hace botellón ensucia mi facultad y otras facultades si no que los propios alumnos durante el día no son capaces de tirar sus desperdicios a la basura.,YES,CLAIM,NONE
+2576-32017-0,Coincido contigo.,NO,SPAM,NONE
+2576-32017-1,"En mis tiempos de universitario, todo de muy buen rollo y eso, pero cada vez que se hacía la fiesta de la primavera, o cualquier otra, se pedía insistentemente que la gente tirase los envases en los depósitos habilitados, y que ayudase a dejar la zona limpia para que no quedase como si hubiese pasado Atila con su tropa.",NO,SPAM,NONE
+2576-32017-2,Pues nada de esto funciona.,YES,CLAIM,NONE
+2576-32017-3,"Ni el por favor, ni el buen rollo ni nada de nada.",YES,PREMISE,ADDITION
+2576-32017-4,"Los botelleros solo piensan en divertirse como sea, y les importa un comino si queda destrozado, sucio, o lo que sea.",YES,PREMISE,CONCLUSION
+2576-73836-0,Madrid libre de excrementos vota.,NO,SPAM,NONE
+2576-30752-0,Apoyo y añado otra propuesta.,NO,SPAM,NONE
+2576-33718-0,Creo que nuestras propuestas son complementarias.,NO,SPAM,NONE
+2576-34452-0,"A buen entendederas, pocas palabras bastan, pero en esta propuesta veo muuuchas palabras.",YES,PREMISE,OPPOSITION
+2576-58608-0,"Aplaudo tu iniciativa, y creo podría que además podría tener una repercusión social importante empleo que podría además centrarse en los colectivos más necesitados y más próximos a esa actividad.",NO,SPAM,NONE
+2576-58608-1,"Te Sugiero que consultes, y si te parece apoyes, la propuesta: .",NO,SPAM,NONE
+2576-77498-0,Os proporngo otra forma de generar empleo y ayudar a las familias sin recursos.,NO,SPAM,NONE
+2576-77498-1,"Teniendo en cuenta que en Madrid, los bancos de alimentos independientes que funcionan cuentan con tan sólo 4 asalariados y 450 voluntarios, la creación de un un banco de alimentos de gestión municipal y pública generaría un número de entorno a 500 empleos para la coordinación de la recogida, almacenamiento y entrega de comida a familias sin recursos.",YES,CLAIM,REASON
+2576-89800-0,Te dejo esta propuesta por si te interesa.,NO,SPAM,NONE
+2576-94253-0,Con respecto a la limpieza hay un problema bastante gordo.,YES,CLAIM,NONE
+2576-94253-1,La herencia recibida que tanto les gusta a algunos viene al pelo.,NO,SPAM,NONE
+2576-94253-2,Y es que la señora Botella y Gallardón hicieron contratos con las empresas actuales que superaban sus años de legislatura.,YES,CLAIM,NONE
+2576-94253-3,Empresas como la de Florentino Pérez amiguito de Aznar y gentuza explotadora de la misma calaña que recorta en sus empresas y repercute en el servicio que dan.,YES,PREMISE,ADDITION
+2576-94253-4,Con esto quiero decir que la problemática está en que prepararon la cama a sus amiguitos y ahora las culpas vienen para el que viene detrás.,YES,PREMISE,RESTATEMENT
+2576-94253-5,Con Botella los parques estaban peor.,YES,PREMISE,ADDITION
+2576-94253-6,"Quizá los del barrio Salamanca no, pero los demás estaban hechos una porquería.",YES,PREMISE,CONCESSION
+2576-94253-7,Por otro lado los que hacen botellones deberían recoger los desperdicios y a demás no mear en vía pública o reventar botellas y demás actos vandálicos.,YES,PREMISE,ALTERNATIVE
+2576-94253-8,"No multar por beber, sino multar por ese tipo de comportamientos.",YES,PREMISE,CONCLUSION
+26277-0-0,No a la construcción de 1200 viviendas sociales de la EMVS en el Cañaveral,YES,CLAIM,NONE
+26277-0-0,La vivienda social debe repartirse equitativamente entre todos los barrios de Madrid que ya están consolidados y disponen de los recursos y servicios necesarios para garantizar la integración social.,YES,CLAIM,NONE
+26277-200044-0,Esperamos que el ayuntamiento se conciencie de la barbaridad que son 1200 viviendas.,YES,CLAIM,NONE
+26277-200044-1,Cuando hay más barrios de la capital que no tienen o no tienen tantisimos.,YES,PREMISE,COMPARISON
+26277-200044-2,Y cuando hay miles de viviendas sin ocupar por todo Madrid!.,YES,PREMISE,PRECISION
+26277-200088-0,El Cañaveral pertenece al distrito de Vicálvaro.,YES,CLAIM,NONE
+26277-200088-1,"Ya que miras un plano, hazlo bien.",YES,PREMISE,CONCLUSION
+26277-200103-0,"Distrito13, Claro que intenta confundir, pero solo lo intenta.",NO,SPAM,NONE
+26277-200103-1,"Mire usted, la vivienda social es responsabilidad de todos los barrios y no solo de algunos.",YES,CLAIM,NONE
+26277-200103-2,Concentrar viviendas sociales en solo algunos barrios de Madrid es marginar a esos barrios y a los beneficiarios de las viviendas sociales.,YES,PREMISE,ADDITION
+26277-200112-0,"Distrito13, Claro que intenta confundir, pero solo lo intenta.",NO,SPAM,NONE
+26277-200112-1,"Mire usted, la vivienda social es responsabilidad de todos los barrios y no solo de algunos.",YES,CLAIM,NONE
+26277-200112-2,Concentrar viviendas sociales en solo algunos barrios de Madrid es marginar a esos barrios y a los beneficiarios de las viviendas sociales.,YES,PREMISE,ADDITION
+26277-200135-0,Este tipo de ayuda social debe distribuirse de forma equitativa entre todos los distritos.,YES,CLAIM,NONE
+26277-200135-1,No es justo ayudar a quienes no tienen recursos a costa de que los mismos soporten las consecuencias.,YES,CLAIM,NONE
+26277-200135-2,"Y si alguien piensa que la integración de unos no tiene consecuencias para otros es porque, seguramente, no ha tenido que convivir en esas circunstancias.",YES,PREMISE,CONDITION
+26277-200135-3,"No vale todo, señores y señoras.",NO,SPAM,NONE
+26277-200135-4,Con medidas de este tipo solo consiguen más crispación social y fomentar la desigualdad y las diferencias entre las clases sociales.,YES,CLAIM,NONE
+26277-200135-5,Si quieren igualdad e integración empiecen por repartir la carga de forma justa.,YES,PREMISE,CONCLUSION
+26277-200287-0,"Soy inquilino de la EMVS en un piso en alquiler en el Ensanche de Vallecas, no en el Barrio de Salamanca ni barrios consolidados como dice usted.",NO,SPAM,NONE
+26277-200287-1,"Tengo estudios, y no básicos sino Titulado superior con Master, tengo trabajo desde hace años y todo lo que puede considerarse una vida normal, lo único que no tengo es dinero para poder vivir solo en un alquiler de Madrid, o pago el alquiler o me alimento.",NO,SPAM,NONE
+26277-200371-0,"estoy de acuerdo contigo, vivienda social en todos los barrios pero ya consolidados.",YES,CLAIM,NONE
+26277-200371-1,"El cañaveral carece de servicios y dotaciones, pero no olvides que es distrito de Vicalvaro y aquí tenemos unas cuantas viviendas sociales.",YES,PREMISE,OPPOSITION
+26277-200371-2,En el resto de distritos no pueden decir lo mismo.,YES,CLAIM,NONE
+26277-200371-3,"Así que, por favor, no digas que la propuesta es discriminatoria, eso diselo a los distritos que no tienen viviendas sociales.",NO,SPAM,NONE
+26277-200371-4,En Vicalvaro hay mucha vivienda social.,YES,CLAIM,NONE
+26277-200406-0,"Pero en el Cañaveral no debe haberlas o no en gran número, si nó no se quejaría por ello.",YES,CLAIM,NONE
+26277-200406-1,"Entiendo lo que quiero decir pero no me valen muchos de sus argumentos, es opinión personal.",NO,SPAM,NONE
+26277-200406-2,"Creo que no puede ahora aferrarse al distrito Vicalvaro es como si no hubiera dotaciones en Nueva España, por ejemplo, y le dijeran a un vecino de estas: Pero en el distrito de Chamartín hay muchas.",YES,CLAIM,NONE
+26277-200406-3,"O se queja por Vicalvaro en su conjunto, que no es su fin por lo que veo, o por el barrio en concreto, Cañaveral.",YES,CLAIM,NONE
+26277-202908-0,"A lo mejor, lo que se pretende es que no metan 5 bloques de gitanos como hicieron en Gavia.",YES,CLAIM,NONE
+26277-202908-1,"Ahora cientos de vecinos de esa zona que pagaron barbaridades por su casa y las siguen pagando viven con ruido, inseguridad y suciedad en sus barrios.",YES,PREMISE,RESULT
+26277-202908-2,Solo ese es el problema.,NO,SPAM,NONE
+26277-200433-0,Yo suscribo la parte que dice que las viviendas sociales deben ser repartidas por todos los barrios donde sea posible.,NO,SPAM,NONE
+26277-200433-1,En algunos es prácticamente imposible en estos momentos y en otros es más fácil.,YES,CLAIM,NONE
+26277-200433-2,"Pero leyendo su propuesta, la conclusión que saco es que a usted lo que le interesa no es eso, sino que no construyan viviendas sociales en El Cañaveral, y lo de construir en otros barrios, más parece algo así como a mí que no me construyan cerca de donde vivo.",YES,CLAIM,NONE
+26277-200487-0,El cañaveral es un barrio nuevo que esta en pleno desarrollo y carece de servicios y dotaciones.,YES,CLAIM,NONE
+26277-200487-1,"No hay transporte ni comunicación, ni colegios.",YES,PREMISE,PRECISION
+26277-200487-2,Ve usted ve usted lógico y razonable construir 1200 viviendas aquí en lugar de otros distritos ya consolidados?.,YES,PREMISE,PRECISION
+26277-200775-0,"Ya está bien, repartan las familias entre más barrios, no solo en estos, por que no les llevan a la zona de Aravaca, o algún solar que tengan en el barrio de Salamanca, siempre son los mismos barrios lo que soportan estas viviendas, y si no la señora Carmena que los lleve a su chalet, y les haga un hueco.",YES,CLAIM,NONE
+26277-205328-0,"¿Dónde están las viviendas sociales en Pozuelo de Alarcón, Aravaca, el barrio de Salamanca, etc. ?",NO,SPAM,NONE
+26277-205328-1,o es que por ahí sólo hacen las justas para alojar a los del servicio que tienen en casa?.,NO,SPAM,NONE
+26277-205328-2,Antes de dar viviendas lo que hay que hacer es educar y crear puestos de trabajo y luego hablamos de igualdad Madrid parece un gran ghetto gracias a las políticas que venden una falsa idea de preocupación por los demás cuando en realidad sólo les preocupan los votos de los que viven de las ayudas.,YES,CLAIM,NONE
+26277-205328-3,"Si los que trabajamos de sol a sol luchamos para salir del ghetto, y resulta que nos preparan uno nuevos ghettos en barrios nuevos entonces apaga y vámonos, ¿Quién puede querer quedarse en un lugar así?.",YES,PREMISE,CONDITION
+26277-205328-4,Los jóvenes que se han preparado se irán a otros países dispuestos a desarrollarse y aquí quedará una enorme ONG de gente que vive del cuento.,YES,PREMISE,RESULT
+26277-205328-5,¿Quién querría mantener un país así?.,NO,SPAM,NONE
+26277-205328-6,"No estoy de acuerdo con la especulación, pero menos con la devaluación.",YES,PREMISE,SUMMARY
+26277-205328-7,Quien quiera piso que trabaje y se lo pague.,YES,CLAIM,NONE
+26277-205376-0,"Yo no soy de matemáticas, pero pienso que las ayudas en vivienda y otros tienen que ser para los que trabajan y aportan o han aportado algo para la sociedad.",YES,CLAIM,NONE
+26277-205376-1,"Jóvenes que trabajan mileuristas y pensionistas La gente que vive en chabolas y va teniendo hijos, los cuales se casan y tienen más hijos aumentando las chabolas y que a su vez solicitan más viviendas de protección pagando alquileres de 20 o 40 euros al mes son unos caras.",YES,CLAIM,NONE
+26277-205376-2,Tus padres te traen al mundo y que menos que sean ellos los que te mantengan hasta que te puedas buscar la vida como todos los demás hacemos.,YES,CLAIM,NONE
+26277-205376-3,O no tengas hijos.,NO,SPAM,NONE
+26277-205376-4,¿Por qué tienen que ser otros los que tienen que mantenerte a ti y a tu familia? ¿acaso no tenemos todos derecho a una familia a la que mantener?.,NO,SPAM,NONE
+26277-205376-5,"Estudias, te preparas, trabajas y te pagas un piso para tener familia.",NO,SPAM,NONE
+26277-205376-6,Ese es el orden y no eso de vivir del cuento haciendo hijos y pidiendo ayudas sociales a costa de los impuestos que pagan otros que sí que trabajan.,NO,SPAM,NONE
+2944-0-0,Obras y actividades benéficas en vez del desfile del Día de la Hispanidad,YES,CLAIM,NONE
+2944-0-0,"Cambiar el desfile, que nos cuesta a todos más de 800000 euros, por una jornada de actividades y obras benéficas organizada por el ejército para ayudar al 29 de los compatriotas españoles pobres.",YES,CLAIM,NONE
+2944-32095-0,"No estoy de acuerdo con el desfile militar, pero tampoco estoy de acuerdo con lo que dices.",YES,CLAIM,NONE
+2944-32095-1,"Si por gasto fuera, el actual desfile cuesta menos de la mitad que otros años, y no llega ni a la mitad de los que se gastan otros países en lo mismo.",YES,CLAIM,NONE
+2944-32095-2,"A parte, el dinero viene del ministerio de defensa, no del de sanidad.",YES,PREMISE,PRECISION
+2944-32095-3,Y no se puede pasar un dinero de uno a otro.,YES,PREMISE,SUMMARY
+2944-32095-4,Creo que error el es interpretar ese desfile como una publicidad para la casa real y otros dirigentes.,YES,CLAIM,NONE
+2944-32095-5,"Justo este año se ha visto más claro que nunca uno de los principales motivos, y es el que todos o casi todos los presidentes autonómicos se hayan podido reunir y charlar de forma informal entre ellos.",YES,PREMISE,GOAL
+2944-32095-6,"Algo que puede parecer muy clasista o de élites, opino que indirectamente fomenta el contacto entre las regiones, sus planes y su forma de ver las cosas.",YES,PREMISE,CONCESSION
+2944-32095-7,Justo para que no pase lo que se ve en algunas regiones que viven más aisladas que las tribus del amazonas.,YES,PREMISE,REASON
+2944-32123-0,"Los presidentes autonómicos ya se reunen entre ellos pero podrían reunirse más veces, o más a menudo, tienes razón, y en reuniones de trabajo ¿no? -http: //cadenaser.",YES,CLAIM,NONE
+2944-32135-0,Y ojalá se hiciese más a menudo.,YES,CLAIM,NONE
+2944-32135-1,Casi que por obligación se tendrían que reunir al menos una vez al mes.,YES,PREMISE,PRECISION
+2944-32135-2,"Pero la experiencia no ha mostrado que como no sea el 12 de octubre, o en el funeral de alguien muy importante, es imposible verles a todos juntos.",YES,PREMISE,OPPOSITION
+2944-32135-3,Es como si se repelieran.,NO,SPAM,NONE
+2944-32143-0,"Pues díselo al gobierno de Rajoy que es quien convoca las reuniones pero si esperas un poco ya te dará igual, porque habremos puesto otro presidente.",YES,CLAIM,NONE
+2944-32874-0,Negar que el desfile del 12 de Octubre sea publicidad para la Casa Real y para el Ejército.,YES,CLAIM,NONE
+2944-32874-1,"Pero si es lo que se reivindica practicamente! Lo de los corrillos que se producen alrededor del desfile tanto en el Paseo del Prado, como en el Palacio Real es lo normal en un acto de este tipo.",YES,CLAIM,NONE
+2944-32874-2,Acabas rodeándote de colegas de trabajo y que menos que hablar algo entre ellos.,YES,PREMISE,EXPLANATION
+2944-32874-3,"Para mí, un evento de este calibre me sobra y sinceramente no lo sustituiría por nada.",NO,SPAM,NONE
+2944-32119-0,"Me parece muy buena la propuesta: Un día de solidaridad con AméricaLatina que se va preparando durante todo el año con actuaciones de ayuda y colaboración a estos países ayuda no militar- si acaso los militares pueden realizar muchísimas tareas no armadas ni consideradas de tipo militar: logística y transporte de material de ayuda, ayuda en catástrofes, .",YES,CLAIM,NONE
+2944-32119-1,"Esa podría se la tarea del ejército con respecto a esta celebración, el encontrar en que pueden ayudar a esos países cos sus muy enormes recursos y que se visibiliza una vez al año en el antiguo día de la hispanidad mediante actos de entrega de material o de reunión con las autoridades de estos países en relación a las actividades de colaboración no militar.",YES,PREMISE,ADDITION
+2944-32122-0,Pero antes habría que solucionar el tema de la corrupción interna.,YES,CLAIM,NONE
+2944-32122-1,Y la situalción de la mujer en el ejércto.,YES,PREMISE,ADDITION
+2944-32122-2,"Si el ejército de Estados Unidos estaba como estaba, imaginaros como estará el español: http: //www.",YES,PREMISE,COMPARISON
+2944-32140-0,Creo que cometes un error muy importante en el concepto.,YES,CLAIM,NONE
+2944-32140-1,"¡El ejército no es una ONG En lo que has dicho, el ejército, como mucho, podría ayudar a defender las cosas que se transportan, a asegurar que no haya robos o violaciones diversas durante las catástrofes, etc.",YES,CLAIM,NONE
+2944-32140-2,Pero el ejército no está sólo para transportar cosas.,YES,PREMISE,OPPOSITION
+2944-32140-3,"Para eso están las ONG tanto laicas como religiosas, y para la atención de catástrofes está Protección Civil, que nadie se acuerda de ellos.",YES,PREMISE,EXEMPLIFICATION
+2944-32144-0,¿Cómo te atreves a corregir alos demás y decirles que cometen errores si eres tu el que no tiene ni idea de lo que habla?,NO,SPAM,NONE
+2944-32144-1,¿acaso no conoces las UME si es posible que hasta hayn desfilado hoy?,NO,SPAM,NONE
+2944-32144-2,"El ejército gasta muchísimo dinero de los impuestos, cada año más ¿te parece demasiado que algo de ese dinero revierta a la población civil que paga esos impuestos en forma de ayudas en catástrofes etc. ?.",YES,CLAIM,NONE
+2944-32145-0,"La intervención de la UME podrá ser ordenada cuando alguna de las siguientes situaciones de emergencia se produzca con carácter grave, independientemente de que se trate de una emergencia de interés nacional o no: .",YES,CLAIM,NONE
+2944-32146-0,"Los soldados están acostumbrados a dejar al arma a un lado, y arremangarse para hacer otras tareas literalmente eres tu el que no te lo imaginas y te los imaginas como si estuviesen desfilando a toda horas con el fusil a cuestas.",YES,CLAIM,NONE
+2944-32149-0,No hace falta que eches tal disertación.,NO,SPAM,NONE
+2944-32149-1,Tengo a media familia trabajando en la UME y la otra mitad en Protección Civil.,NO,SPAM,NONE
+2944-32149-2,Lo vivo de primera mano.,NO,SPAM,NONE
+2944-32158-0,"Bueno, pues es que se me había pasado poner lo más importante: en el día de hermanamiento entre España y los países de LatinoAmérica el ejército no tiene nada que ver ni nada que hacer.",YES,CLAIM,NONE
+2944-32158-1,"Debería de ser un encuentro de las sociedades civiles de estos países, y celebrar acuerdos de colaboración futuros, judiciales por ejemplo, para atender las demandas de extradición mutuas, y facilitar la colaboración en las labores de las distintas administraciones de cada país.",YES,PREMISE,RESULT
+2944-32158-2,"Claro que igual, lo mejor es suprimir este día de hoy, y crear un nuevo día de celbración, en otra fecha, con otros objetivos, otras formas etc.",YES,PREMISE,CONCESSION
+2944-32161-0,Estoy de acuerdo con ello.,NO,SPAM,NONE
+2944-32161-1,"A parte de las cosas que ya se han dicho, yo aun no entiendo por qué el 12 de octubre se designó como fiesta nacional.",YES,CLAIM,NONE
+2944-32161-2,Estaría más de acuerdo con que ese día fuese el 6 de diciembre y dejar el 12 de octubre para todo aquello que has mencionado.,YES,PREMISE,EXPLANATION
+2944-32162-0,Esta noticia le puede interesar a los miembros de tu familia.,NO,SPAM,NONE
+2944-32163-0,"Muchas gracias De hecho, más de uno ya optó por ello.",NO,SPAM,NONE
+2944-32202-0,"Tendría que haber más desfiles, en la actualidad se demanda más por parte de la ciudadanía.",YES,CLAIM,NONE
+2944-32202-1,Es un hecho.,NO,SPAM,NONE
+2944-32880-0,¿Desfiles de alta costura no?.,NO,SPAM,NONE
+2944-33111-0,"No lo sé, pero en el día nacional de España, que coincide con la fiesta de la hispanidad y del Pilar el desfile estaba petado de madrileños.",YES,CLAIM,NONE
+2944-33111-1,"Yo no fui pero un acto a nivel español, que se retransmite por cadenas principales y de repercusión internacional excelente para el turismo de Madrid.",YES,CLAIM,NONE
+2944-33111-2,Para hacerte una idea 5000000 de personas siguieron el desfile por RTVE El 42 de sare Además de los miles de madrileños a los que les gusta asistir a la celebración en directo.,YES,PREMISE,EXEMPLIFICATION
+2944-33111-3,Sinceramente veo mucho partidismo y poco amor a Madrid.,YES,PREMISE,CONCLUSION
+2944-32230-0,"A mí opinión 800 mil euros daria de comer a muchas familias y a crear algún puesto de trabajo ya sea funcionarios o privados, se que el ejercito cumple su función pero ese dineral es de todos y debería usarse para todos por ejemplo.",YES,CLAIM,NONE
+2944-95309-0,"Hola, he creado una propuesta en defensa del español, .",NO,SPAM,NONE
 3481-0-0,Impuestos a viviendas vacias,YES,CLAIM,NONE
 3481-0-0,"Esta propuesta es para fomentar el alquiler de las viviendas vacias, se les ponga un impuesto que sea proporcional al tiempo que este desocupada esa vivienda.",YES,CLAIM,NONE
 3481-35448-0,"¿Tu propuesta implica a particulares y a bancos, o solo a los bancos?",NO,SPAM,NONE
@@ -1683,6 +1912,55 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 629-92981-0,"El barrio de Usera lleva mucho tiempo descuidado y faltó de limpieza pero, en los últimos años, sus vecinos también andan faltos de civismo.",NO,SPAM,NONE
 629-92981-1,"Se dejan bolsas de basura en cualquier esquina, muebles, colchones y porquería de todas las clases.",NO,SPAM,NONE
 629-92981-2,Se hace necesaria la aplicación de multas ejemplares en estos barrios en los que parece que únicamente reclamamos nuestros derechos pero no atendemos nuestras obligaciones más básicas para la convivencia y salubridad.,YES,CLAIM,NONE
+7382-0-0,Digitalizar las calles,YES,CLAIM,NONE
+7382-0-0,Sustitución de denominaciones alfabéticas por numerales a las calles.,YES,CLAIM,NONE
+7382-0-0,El callejero de Madrid tiene más de 9000 denominaciones y las consultas a él a través de Internet superan la cifra de 36000 visitas al año.,YES,CLAIM,NONE
+7382-0-1,"Inmersos en el mundo informático, se hace preciso digitalizar las denominaciones a efectos de simplificar trámites y ahorrar tiempos, que repercutirá en la economía general.",YES,CLAIM,NONE
+7382-0-2,"Simplemente, al Listado nominal de calles actual habría que añadir a cada una el número de Distrito Municipal y la Clave de Calle ddcccc comenzando en su orden alfabético y numeral inferior para la clave, ejemplo: a la actual calle a le correspondería 0001 como clave de calle, a la actual calle aa le sería 0002… Para las calles que pertenecieran a más de un Distrito Municipal, podrían tener un único cccc ya que el Distrito municipal las diferenciaría.",YES,PREMISE,PRECISION
+7382-0-3,Este nuevo Callejero habría de mantenerse en Internet a disposición de la ciudadanía.,YES,CLAIM,NONE
+7382-0-4,"Luego se mandaría carta a cada representante de cada una de las fincas con la comunicación de que, de forma muy visible, se colocase cartel con el nuevo número de finca ddcccc   en la entrada de portal o lugar de acceso principal.",YES,CLAIM,NONE
+7382-0-5,"Además de consabidos anuncios a la ciudadanía a través de los medios, la placas actuales en calles con la denominación nominal permanecerían un tiempo antes de ser eliminadas físicamente.",YES,PREMISE,ADDITION
+7382-52943-0,Principales ventajas: .,NO,SPAM,NONE
+7382-53460-0,¿Importante ahorro de espacio en ficheros y su tratamiento informático De verdad? o no se dedica a este sector o no conoce bien el peso que tiene un string.,YES,CLAIM,NONE
+7382-53516-0,La respuesta a este apartado la he dado junto con tu otro anterior.,NO,SPAM,NONE
+7382-53516-1,Espero valga.,NO,SPAM,NONE
+7382-52953-0,"Pueden convivir ambos systemas, no es necesario quitar uno para implanter el otro.",YES,CLAIM,NONE
+7382-53024-0,Efectivamente tienes toda la razón y así lo he previsto para la etapa de adaptación.,YES,CLAIM,NONE
+7382-53024-1,"El pensar en suprimir más tarde las placas de las calles es para ver de quitarnos la eterna lucha de los nombres, que incordian a muchos y pagamos los gastos todos.",YES,PREMISE,EXPLANATION
+7382-53024-2,Gracias por la atención.,NO,SPAM,NONE
+7382-53024-3,Un saludo.,NO,SPAM,NONE
+7382-53195-0,No se si le entendí bien pero quiere cambiar el nombre de la calle por un numeral?,NO,SPAM,NONE
+7382-53195-1,La calle Pintor rosales pasaria allamarse 001 por ejemplo?.,NO,SPAM,NONE
+7382-53204-0,"Sí, es similar al Distrito Postal que usamos actualmente, pero lo que define es la calle.",NO,SPAM,NONE
+7382-53459-0,"Disculpeme pero me parece una propuesta sin sentido práctico, olvidar los nombre para memorizar números, y que le quita toda la belleza a la dirección.",YES,CLAIM,NONE
+7382-53459-1,En mi opinión es una horterada eso de la 5ª avenida con la 43.,YES,PREMISE,EXEMPLIFICATION
+7382-53470-0,"º Informáticamente, en los ficheros ¿cuántos espacios se necesitan para anotar con letras Islas Hébridas o Nuestra Señora de la Consolación? : Numéricamente serían 4 ampliable a 5 en cada caso si las traducimos a numerales.",NO,SPAM,NONE
+7382-53470-1,º En ficheros manuales ¿no es más sencillos de ordenar carpetas a base de numerales que hacerlo peleándonos con las 28 letras alfabéticas º Cuando tome un taxi y le indique la dirección ¿no preferirá el conductor teclear 4 números en su navegador que andar tecleando textos?,YES,CLAIM,NONE
+7382-53470-2,"También los conductores que están detrás del taxi, esperando.",YES,CLAIM,NONE
+7382-53470-3,"Podríamos seguir, pero ya tiene para pensar.",NO,SPAM,NONE
+7382-53525-0,"Informáticamente el nombre de las calles que ha puesto no llegan a ocupar 30 bytes, lo que comprenderá que es un espacio pírrico en comparación con los sistemas de almacenamiento actuales, que además crecen de manera exponencial y no lineal, por cualidades de la física.",YES,CLAIM,NONE
+7382-53525-1,Como comprenderá es despreciable el ahorro en almacenamiento.,YES,PREMISE,RESULT
+7382-53525-2,"Como comprenderá no es un problema grave la ordenación ya que hoy en día se realiza de manera automática, el propio sistema te dice el lugar donde debe ocuparse, y si no es así, sistemas de almacenamiento primitivos o anticuados, no creo que suponga mucho problema a una persona acostumbrada a ello, al igual que si usted revisa el diccionario impreso frecuentemente sabrá que es muy fácil encontrar las palabras buscadas, la práctica es lo que tiene jeje.",YES,PREMISE,EXPLANATION
+7382-53525-3,Por último y no menos importante los taxistas tienen examen para sacar su licencia y la práctica por el uso diario del callejero.,YES,CLAIM,NONE
+7382-53525-4,Como todo siempre hay alguna calle que se les puede escapar.,YES,PREMISE,CONCESSION
+7382-53526-0,Pero eso no es fallo del sistema sino del taxista.,YES,CLAIM,NONE
+7382-53526-1,"Además los gps actuales ya reconocen los comandos por voz, por lo que sigo sin verle las ventajas a lo que porpone.",YES,PREMISE,ADDITION
+7382-53526-2,"Con respecto al dinero empleado en el cambio de nombre sería el mismo, ya que no se cobra por caracter que se cambia sino por el cambio en sí.",YES,CLAIM,NONE
+7382-53526-3,"Si alguien más opina como usted le felicito y animo a que apoye esta propuesta, pero a mi no me ha convencido.",NO,SPAM,NONE
+7382-53534-0,"Para nasa va de hablar de cobrar por carácter, no es un telegrama, está referido al espacio total que ocupan el nombre de calles en ficheros y su tratamiento.",YES,CLAIM,NONE
+7382-53555-0,Parece que no me ha entendido.,YES,CLAIM,NONE
+7382-53555-1,"Claro que no es un telegrama, me referia al coste de cambio de nombre que ha puesto usted.",YES,CLAIM,NONE
+7382-53555-2,": Como guinda de regalo, al ser numerales nos evitaríamos gastos sinos cambian el nombre de la calle.",YES,PREMISE,ADDITION
+7382-53555-3,"Además, le he explicado el espacio que ocupa en ficheros, que no es ni apreciable.",YES,PREMISE,ADDITION
+7382-53561-0,"Tomar el Callejero, abrir una columna y numerar las calles lleva, digamos ¿diez minutos?",YES,CLAIM,NONE
+7382-53561-1,"y luego, como gasto real, la comunicación a las fincas, por correo de papel.",YES,CLAIM,NONE
+7382-53559-0,"Bueno, no toda idea ha de ser compartida por todos y en este caso me conformo conque la vea quien corresponda.",NO,SPAM,NONE
+7382-53559-1,"Con esto no le quito la razón a usted, pero me hace desconfiar de sus razonamientos al pensar que los que nos reíamos del teléfono móvil entonces lo estamos usando ahora.",YES,PREMISE,OPPOSITION
+7382-53472-0,"Ya lo han comentado anteriormente que pueden coexistir ambos sistemas, pero tratamos de facilitarnos la vida, simplificando.",YES,CLAIM,NONE
+7382-53472-1,"Lo de belleza de la dirección no siempre se cumple, que le puedo citar unos cuantos ejemplos de padecerlo.",YES,CLAIM,NONE
+7382-53472-2,Tampoco sería horterada ya que no es igual al modelo que cita.,YES,PREMISE,EXPLANATION
+7382-53472-3,"Como guinda de regalo, al ser numerales nos evitaríamos gastos sinos cambian el nombre de la calle, y no digo cuando tomemos una dirección de nuestra agenda y tratemos de buscar el nombre de una calle que ya ha desaparecido como tal.",YES,CLAIM,NONE
+7382-53472-4,No le parece.,NO,SPAM,NONE
 7482-0-0,Cambiar nombre de la Estación Metro l1 Iglesia por Pintor Sorolla,YES,CLAIM,NONE
 7482-0-0,En la Glorieta del Pintor Sorolla hay una estación de Metro de la l1 Iglesia.,NO,SPAM,NONE
 7482-0-1,"No se entiende en absoluto el nombre, totalmente fuera de lugar, cuando está a 100 metros el museo Sorolla de Madrid.",YES,CLAIM,NONE
