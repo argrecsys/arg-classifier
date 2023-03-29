@@ -412,6 +412,129 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 1937-36535-0,"He creado una propuesta para que todos los dueños de perros y mascotas en general estén informados desde el principio de las normas que regulan la tenencia de animales de compañía, lo que evitaría muchas confrontaciones.",NO,SPAM,NONE
 1937-36535-1,"Si están de acuerdo, pueden votar aquí: .",NO,SPAM,NONE
 1937-43634-0,"Saludos, contribuiría a la solución de algunos problemas el pasar por la escuela canina, por favor apoya esta propuesta, gracias: .",YES,CLAIM,NONE
+19853-0-0,Creación de una nueva línea de metro circular,YES,CLAIM,NONE
+19853-0-0,"Esta línea daría servicio a los barrios de Imperial, Arganzuela Entrevías, Madrid Este, Castilla y a la c Universitaria; a la zona de Madrid Río y a otras calles como Arturo Soria o Pablo Neruda.",YES,PREMISE,EXPLANATION
+19853-0-0,Tendría una de las estaciones principales en el Intercambiador de Príncipe Pío.,YES,PREMISE,ADDITION
+19853-0-1,Continuaría bajo el campo del moro y el Parque de Atenas.,YES,PREMISE,PRECISION
+19853-0-2,Seguría por la calle Imperial con Ronda de Segovia para tener correspondencia con la futura estación de Cercanías Renfe que se construirá allí.,YES,PREMISE,PRECISION
+19853-0-3,"Continuará hasta la glorieta de Pirámides, donde tendrá otra estación.",YES,PREMISE,PRECISION
+19853-0-4,Continuaría por el Paseo de las Yeserías hasta el Puente de Praga.,YES,PREMISE,PRECISION
+19853-0-5,"Bajo la calle Santa María de la cabeza, tendría otra estación, en la Glorieta de Santa María de la Cabeza,  y antes de llegar a la glorieta de Carlos V giraría para tomar la calle de Murcia y desembocar en la estación de Atocha.",YES,PREMISE,PRECISION
+19853-0-6,"Tras esto, continuaría por la calle Méndez Álvaro teniendo estaciones bajo la calle Comercio y en el Intercambiador de Méndez Álvaro.",YES,PREMISE,ADDITION
+19853-0-7,"Seguría hasta la calle San Diego y continuaría por esta hasta la Asamblea de Madrid,  donde habría otra estación.",YES,PREMISE,PRECISION
+19853-0-8,"Después, seguría por la calle Pablo Neruda, donde habría una estación bajo la Avenida Buenos Aires, y continuaría hasta la estación de Alto del Arenal, donde tendría correspondencia con la línea 1.",YES,PREMISE,PRECISION
+19853-0-9,"Seguría por la calle Fuente Carrantona, donde tendría una estación junto al puente sobre la A-3 Continuaría por esta calle pasando por la estación de Pavones y cruzando la Avenida del Doctor García Tapia, para llegar a la glorieta de Alsacia y tomar la calle de Hermanos García Noblejas.",YES,PREMISE,ADDITION
+19853-0-10,"Tras esto, tendría una estación junto a la calle Arcos de Jalón, continuaría hasta las estaciones de García Noblejas y Ciudad Lineal.",YES,PREMISE,PRECISION
+19853-0-11,"Seguría por la calle Arturo Soria, teniendo estaciones bajo el cruce de la calle del Marqués de Portugalete, en la estación de Arturo Soria y la creación de una nueva estación en la calle Costa Rica con correspondencia con la línea 8 Tras esto, cruzaría la M-30 para llegar a la zona de la calle de Pío XII Norte, donde tendría una estación para dar servicio al barrio de Castilla.",YES,PREMISE,ADDITION
+19853-0-12,"Continuaría hasta la estación de Chamartín, y seguiría por la calle Sinesio Delgado, teniendo parada al lado del Hospital Carlos III estación del Barrio del Pilar, calle Betanzos y la estación de Valdezarza.",YES,PREMISE,ADDITION
+19853-0-13,"Después, continuaría por la calle Isla de Alegranza para llegar a la Dehesa de la Villa.",YES,PREMISE,ADDITION
+19853-0-14,"Tras atravesarla, llegaría a la Ciudad Univesitaria, donde tendría una estación en el Paraninfo y otra en la estación de Ciudad Universitaria.",YES,PREMISE,PRECISION
+19853-0-15,"Tras esto, giraría a la calle arquitecto López Otero y llegaría a la Calle Martín Fierro, donde tendría una estación junto al Consejo Superior de Deportes.",YES,PREMISE,ADDITION
+19853-0-16,"Después tomaría la calle Avenida de Valladolid teniendo una estación junto al Puente de los Franceses y en la Ermita de San Antonio de la Florida, donde tomaría el Paseo de la Florida para llegar de nuevo a Príncipe Pío.",YES,PREMISE,ADDITION
+19853-0-17,En negrita:  Nombre de las estaciones.,NO,SPAM,NONE
+19853-0-18,"Esta línea pretende dar mejor servicio al barrio de Imperial, además de ser el único servicio de transporte público que conectaría la mayor parte del Madrid Río.",YES,PREMISE,EXPLANATION
+19853-0-19,También pretende dar servicio a la calle de Santa María de la Cabeza.,YES,PREMISE,ADDITION
+19853-0-20,También conctaría el barrio de Entrevías con el centro de forma rápida.,YES,PREMISE,ADDITION
+19853-0-21,"Uno de los puntos fuertes de esta línea sería que conectaría todas las líneas que se alargan por el este de Madrid, sin necesidad de tener que retroceder a la línea 6 y que además, sería otra línea de metro con la que poder llegar al nuevo estadio del Atletico de Madrid, el Wanda Metropolitano.",YES,PREMISE,GOAL
+19853-0-22,Daría también un mejor servicio a la zona de Chamartín y conectaría la parte norte de las líneas 7 y 9 con Chamartín.,YES,PREMISE,ADDITION
+19853-0-23,Conectaría mejor el barrio de Valdezarza y daría mejor servicio a la Ciudad Universitaria.,YES,PREMISE,PRECISION
+19853-0-24,"Además, también descongestionaría la línea 6 en la zona de Ciudad Univesitaria y lalínea 5 ya que esta línea también haría un recorrido oeste-este.",YES,PREMISE,ADDITION
+19853-148091-0,Es una buena idea para mejorar el transporte público en la Universidad y en la zona este de Madrid.,YES,CLAIM,NONE
+19853-148134-0,"Muy necesaria una nueva línea de metro que comunique toda la zona en torno a la m30, que discurra por zonas tan mal comunicadas.",YES,CLAIM,NONE
+19853-148134-1,"Supongo que se irían definiendo estaciones y puntos, en general me parece muy bien.",YES,CLAIM,NONE
+19853-148134-2,"Lo único pasando por la zona este, en el tramo que propones entre puente de Vallecas y moratalaz, personalmente creo que se aleja demasiado y se haría muy larga habría que plantear una línea más en la zona este pasaría de la estación que llamas Pablo Neruda a conectar con Buenos Aires l1 y haría una estación llamada Cerro Tío Pío zona muy mal comunicada antes de unir Moratalaz y juntar con la l9 Artilleros y ya pasar a Alsalcia y continuar recorrido.",YES,PREMISE,ALTERNATIVE
+19853-148134-3,"Planteas una línea muy completa que discurre por principales estaciones tren y cercanías, zonas aisladas y zona universitaria.",YES,CLAIM,NONE
+19853-148134-4,Suerte con la propuesta.,NO,SPAM,NONE
+19853-148465-0,Creo que mi proposición está bien.,YES,CLAIM,NONE
+19853-148465-1,"Es verdad que el cerro tio pio está mal comunicado, pero no hay calles anchas por esa zona, y date cuenta de que mucha gente tendria que retroceder más para tomar la nueva circular para coger otra linea del este.",YES,PREMISE,OPPOSITION
+19853-148465-2,Tampoco creo que sea tan larga.,YES,CLAIM,NONE
+19853-148465-3,Muchas gracias por el apoyo.,NO,SPAM,NONE
+19853-148199-0,¿No hay un plano que podamos ver con más facilidad?.,NO,SPAM,NONE
+19853-148466-0,No la había visto.,NO,SPAM,NONE
+19853-148466-1,Es una gran propuesta.,YES,CLAIM,NONE
+19853-148466-2,Por eso digo que esta linea englobaria los proyectos de varias lineas en una sola.,YES,PREMISE,EXPLANATION
+19853-148472-0,Ya está.,NO,SPAM,NONE
+19853-148472-1,He dejado un plano como información extra.,NO,SPAM,NONE
+19853-148472-2,"Perdonad, pero no tengo mucha habilidad con el ratón.",NO,SPAM,NONE
+19853-148392-0,"¿Cuantas veces se ha dicho que el Ayuntamiento de Madrid no tiene la competencia para construir nuevas líneas de Metro, que eso depende de la Comunidad de Madrid, y que esta herramienta no sirve para eso?",NO,SPAM,NONE
+19853-148392-1,Aparte de la completa inviabilidad presupuestaria y más que dudosa funcional de la propuesta.,NO,SPAM,NONE
+19853-148461-0,"Tienes razón que es competencia de la comunidad, pero se dejan propuedtas y se supone que el ayuntamiento y la comunidad están en unión en diversos temas uno de ellos es el metro Se que no hay dinero, pero es una propuesta.",YES,CLAIM,NONE
+19853-148461-1,Puede tardar 5 años como tardar 50 o más.,NO,SPAM,NONE
+19853-148461-2,"Solo se aportan ideas, y algunas se tendran en consideración y otras no.",NO,SPAM,NONE
+19853-148676-0,"Por favor, apoyar a los vecinos de la zona de Comillas que también es Madrid Rio y está muy mal comunicada a conseguir la parada de metro de la Linea 11 Puente Praga.",NO,SPAM,NONE
+19853-148676-1,La llevamos esperando 20 años.,NO,SPAM,NONE
+19853-148676-2,Muchas gracias!.,NO,SPAM,NONE
+19853-149338-0,Yo vivo muy cerca y tienes razón.,NO,SPAM,NONE
+19853-149338-1,Tal vez se pueda añadir un proyecto a esta linea!.,NO,SPAM,NONE
+19853-149148-0,Magnifica propuesta y muy trabajada.,NO,SPAM,NONE
+19853-149148-1,Öjala salga adelante.,NO,SPAM,NONE
+19853-149148-2,Revisemos propuestas similares y votemos todas para hacer fuerza.,NO,SPAM,NONE
+19853-149148-3,Si se pudieran agrupar los votos sería factibel.,NO,SPAM,NONE
+19853-149150-0,Hace tiempo hice esta misma propuesta por si hubiera comunicación entre ayuntamiento y comunidad.,NO,SPAM,NONE
+19853-149150-1,Aunque es difícil llegar al número de votos que son necesarios para que salga adelante.,YES,CLAIM,NONE
+19853-149150-2,Échale un vistazo.,NO,SPAM,NONE
+19853-149818-0,Yo también tengo una propuesta muy parecida.,NO,SPAM,NONE
+19853-163043-0,"Hola, muy útil tu propuesta, ya hay una propuesta parecida, unamos apoyos!.",NO,SPAM,NONE
+19853-179263-0,"Perdonad la intromisión, pero esta propuesta me parece muy importante y no es mía.",NO,SPAM,NONE
+19853-193754-0,Por que no puede recibir apoyos.,NO,SPAM,NONE
+2121-0-0,Hospital público veterinario,YES,CLAIM,NONE
+2121-0-0,Que lxs animales obtengan un seguimiento de salubridad es una cuestión de salud pública y nos interesa a todxs.,YES,CLAIM,NONE
+2121-0-1,"Estableciendo un sistema regulado por declaración de la renta, más carnet de servicio.",YES,PREMISE,ADDITION
+2121-0-0,"Hola a todxs,   Hay muchxs animales en la comunidad de Madrid, muchxs más de los que están registradxs con chip.",YES,CLAIM,NONE
+2121-0-1,Hay muchísimas familias que no pueden llevar un control de la salud de sus mascotas porque los precios se salen completamente de su presupuesto.,YES,CLAIM,NONE
+2121-0-2,Que lxs animales obtengan un seguimiento de salubridad es una cuestión de salud pública y nos interesa a todxs.,YES,CLAIM,NONE
+2121-0-3,"Estableciendo un sistema regulado por declaración de la renta, más carnet de servicio anual vinculado a esta misma renta.",YES,PREMISE,ADDITION
+2121-0-4,"No solo lo que paguen unxs cubrirían las cuotas de los otrxs, si no que además crearía puestos de empleo para todos lxs veterinarixs que esten sin trabajo.",YES,PREMISE,RESULT
+2121-0-5,"Muchas gracias,  .",NO,SPAM,NONE
+2121-25948-0,"Bueno, tal vez habría que pedir la bajada de impuestos y no tendríamos que pagar tanto por cada cosa.",YES,CLAIM,NONE
+2121-25948-1,"Por otro lado, me pregunto por qué una familia coge una mascota si no va a poder pagarle un veterinario.",YES,PREMISE,ALTERNATIVE
+2121-25948-2,"Pero bueno, aceptando barco.",NO,SPAM,NONE
+2121-25948-3,Creo que tu propuesta es novedosa y puede ser una solución al problema que planteas.,YES,CLAIM,NONE
+2121-26321-0,Considero que se debían poner impuestos mayores a la tenencia de animales por capricho.,YES,CLAIM,NONE
+2121-26321-1,Pagamos bolsas que no se usan pagamos motos para recoger las cacas y tenemos que soportar el incivismo del 90 de propietarios de animales de compañía por capricho.,YES,PREMISE,EXPLANATION
+2121-26371-0,"Hola Tteleda, .",NO,SPAM,NONE
+2121-60842-0,"Para tteleda, Cierto es que una gran parte de la gente que tiene mascotas son incívicas por no recoger las cacas de sus mascotas, todo es una cuestión de educación y respeto, pero también lo pido para los que sí tenemos mascotas y somos responsables de ellos en todos los sentidos.",YES,CLAIM,NONE
+2121-60842-1,"Claro que a todos nos vendría bien una bajada de impuestos, pero ya puestos a pedir, también en lugar de que hubiera una casilla en la declaración de la renta que financia la iglesia, que hubiera otra que quien quiera pueda poner una por en apoyo a los animales sin hogar, que desaparezcan las perreras y estos animales vayan a albergues donde estén bien controlados, cuidados hasta que encuentren familias que los quieran.",YES,PREMISE,ALTERNATIVE
+2121-60842-2,"Podría explayarme, pero no es necesario porque cada uno expondría miles de temas a subsanar.",NO,SPAM,NONE
+2121-60842-3,Mas respeto y más empatia hacia todo y todos.,NO,SPAM,NONE
+2121-61304-0,"Hola Maria cm, si tenemos que esperar a que la gente se haga civica, mis nietos tendrán que jugar en parques infantiles llenos de cacas de perros y de personas que dejan a sus perros en libertad en estos lugares, habiendo letreros que prohíben estas situaciones.",YES,CLAIM,NONE
+2121-61304-1,"Disculpeme, he tenido perro, los cuales no tienen culpa ningúna.",YES,CLAIM,NONE
+2121-61304-2,Pero a esas personas hay que castigarlas de alguna forma y la única que veo es rascarles el bolsillo.,YES,PREMISE,OPPOSITION
+2121-26365-0,"Hola Mimi, .",NO,SPAM,NONE
+2121-74904-0,"Yo tengo gatos, cuando los adopte, tenía trabajo y medios de vida para mantenerlos, ahora estoy en el paro y aún así los cuido y procuro tenerlos al día, no soy de las que su mascota, es su mascota mientras no le aburra o le estorbe, no los voy a poner ni en la calle ni en la perrera.",NO,SPAM,NONE
+2121-26108-0,"Yo adopte un perro, y lo primero que hice fue echar cuentas si me lo podía permitir o no.",NO,SPAM,NONE
+2121-26108-1,Lo siento pero una mascota es un lujo y con el dinero de todos no se pagan lujos de unos pocos.,YES,CLAIM,NONE
+2121-26364-0,"Hola Adlir, .",NO,SPAM,NONE
+2121-26178-0,"Yo creo que público sería demasiado gasto, pero al menos subvencionado.",YES,CLAIM,NONE
+2121-26363-0,"Hola Bibi, .",NO,SPAM,NONE
+2121-26594-0,"Cuando consideremos a las mascotas habitantes de la ciudad, en igualdad de condiciones y respeto que las personas, el debate cobraría otro significiado.",YES,CLAIM,NONE
+2121-26594-1,No se trata de un lujo o un objeto.,YES,PREMISE,RESTATEMENT
+2121-26594-2,Apoyo esta iniciativa.,NO,SPAM,NONE
+2121-36394-0,Son un capricho,NO,SPAM,NONE
+2121-74906-0,"Yo tengo gatos, cuando los adopte, tenía trabajo y medios de vida para mantenerlos, ahora estoy en el paro y aún así los cuido y procuro tenerlos al día, no soy de las que su mascota, es su mascota mientras no le aburra o le estorbe, no los voy a poner ni en la calle ni en la perrera.",NO,SPAM,NONE
+2121-29438-0,Apoyo y apoyar esta otra gracias.,NO,SPAM,NONE
+2121-34475-0,"Yo tengo perros, pero los perros no son una necesidad.",YES,CLAIM,NONE
+2121-34475-1,El que tiene un perro es por que quiere y a nadie más que a esa persona debería costarle dinero el capricho.,YES,PREMISE,ADDITION
+2121-60839-0,"Quizás los perros no sean una necesidad, pero tampoco es un lujo, muchos tenemos mascotas porque fueron abandonados por personas sin pizca de alma ni corazón, y algunos decidimos darles un hogar.",YES,PREMISE,REASON
+2121-60839-1,"Quizás si hubiera más control de la cría y venta de mascotas, nos existiría el posterior abandono causando mucho sufrimiento a estos animales sin hogar.",YES,CLAIM,NONE
+2121-60839-2,"Por otra parte hay una gran población anciana que tiene mascotas y desde luego les hace mucho bien esta compañía, pero desgraciadamente si tienen que hacer frente a facturas del veterinario con las escuálidas pensiones que tienen nos les llega y quien sufre, como siempre el animal, que acaba sacrificado o abandonado a su suerte.",YES,PREMISE,ALTERNATIVE
+2121-60839-3,"Un poquito de amor, un poquito de empatía y un poquito de corazón es lo que deberíamos tener todos.",YES,CLAIM,NONE
+2121-60847-0,Tienes razón María.,YES,CLAIM,NONE
+2121-60847-1,No había pensado en este caso y eso que mi abuela tiene esta situación que comentas.,YES,PREMISE,CONCESSION
+2121-60847-2,Pero quizá la solución es dejar de pagar pensiones de miseria no poner sanidad pública para animales.,YES,PREMISE,OPPOSITION
+2121-61129-0,"yo no pido una sanidad pública gratuita para mascotas, pido hospitales públicos para mascotas con algún tipo de subvención, el resto lo pagaríamos quienes hiciéramos uso de ella.",YES,CLAIM,NONE
+2121-61129-1,¿No obtienen subvenciones asociaciones casi de todo tipo?,NO,SPAM,NONE
+2121-61129-2,y algunas de dudosa actividad sin ánimo de lucro.,NO,SPAM,NONE
+2121-61129-3,"En cuanto a las pensiones estoy de acuerdo en subirlas, como también estoy de acuerdo en perseguir a los corruptos y que devuelvan lo robado, a los estafadores, a los malos gestores de fondos públicos, a los políticos que prometen hasta que la me.",YES,CLAIM,NONE
+2121-61129-4,"Pero el caso que nos ocupa es el de crear centros con personal cualificado no amiguitos de políticos que realmente se involucren que el bienestar de estos animales, que revierta el dinero subvencionado en ellos, y no en sus bolsillos.",YES,PREMISE,OPPOSITION
+2121-61129-5,"Con esto denuncio muchas perreras que si entrais dan una pena terrible ver en qué condiciones tienen a los animales, apenas comen, apenas tienen atención veterinaria.",YES,PREMISE,ADDITION
+2121-61129-6,Digo no a las perreras.,YES,CLAIM,NONE
+2121-74910-0,"Según para qué personas son un capricho, a lo mejor para ti lo son, para mi vecina que es ciega es una necesidad.",YES,CLAIM,NONE
+2121-74910-1,Todo es cuestión de empatía.,YES,PREMISE,NONE
+2121-74910-2,"Es probable que a ti te moleste el que los demás tengan perro, pero yo cuando hago la declaración de la renta pongo la por cosa que como dice el dicho haz el bien y no mires a quien.",YES,CLAIM,NONE
+2121-60834-0,"Necesitamos hospitales públicos de mascotas, muchos dueños no pueden hacer frente a las abultadas facturas de los veterinarios, que en muchos casos son abusivas.",YES,CLAIM,NONE
+2121-60834-1,"Muchas mascotas sufren el abandono de sus dueños por no poder hacer frente a los gastos veterinarios, es una lacra y una desgracia que se podría evitar.",YES,PREMISE,ADDITION
+2121-60834-2,El abandono masivo de mascotas.,NO,SPAM,NONE
 21567-0-0,Sanciones significativas para los vecinos ruidosos,YES,CLAIM,NONE
 21567-0-0,Sanciones elevadas para vecinos ruidosos reincidentes.,YES,CLAIM,NONE
 21567-159899-0,"Es increible como ciertas personas creen que todo es valido mientras se cumplan las horas de restrigción o que en fin de semnana o fechas sñaladas, se puede hacer lo que uno quiera sin ningún limite de falta de respeto al que vive al lado.",YES,CLAIM,NONE
@@ -446,6 +569,84 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 21567-182852-0,El ruido es un problema que va un aumento y que la mayoría de los vecinos de Madrid sufrimos.,YES,CLAIM,NONE
 21567-182852-1,"Apoyo esta iniciativa y os dejo por aquí esta otra, que también lucha contra el ruido, por si os interesa apoyarla.",NO,SPAM,NONE
 21567-187603-0,y pido colaboración para Implantar red cámaras que registren comportamientos incívicos.,NO,SPAM,NONE
+23131-0-0,Preferencia circulatoria de las bicicletas sobre los coches,YES,CLAIM,NONE
+23131-0-0,"Siempre se dice que en Madrid, por calles estrechas, es muy difícil implementar carriles bicicleta.",YES,CLAIM,NONE
+23131-0-1,En Amsterdam y Holanda en general han solucionado dando preferencia circulatoria sobre los coches.,YES,CLAIM,NONE
+23131-0-0,"No sé si puede corresponder al gobierno de la ciudad legislar este tipo de cosas, pero estuve viviendo en Amsterdam y en las calles conflictivas, esa preferencia marcaba la diferencia en las calles céntricas y extremadamente estrechas de Amsterdam, que eran carril bicicleta por definición y por donde también se dejaba circular coches.",NO,SPAM,NONE
+23131-0-1,"Si no me equivoco, incluso tenían preferencia sobre los peatones.",YES,CLAIM,NONE
+23131-0-2,"El orden era: tranvías, bicicletas, peatones, coches.",YES,PREMISE,PRECISION
+23131-0-3,Allí funciona perfectamente y resuelve el problema de falta de espacio para carriles bicicletas.,YES,CLAIM,NONE
+23131-0-4,"Tema con el que, por cierto, ya estaría bien de hacer populismo y gastar dinero en algunos carriles bicicleta que sólo suman para las estadísticas y no para la circulación.",YES,CLAIM,NONE
+23131-178695-0,"Buena propuesta José Manuel, pero en Madrid es muy difícil La gente adora a su coche por encima de todas las cosas y bajar a la gente del coche es una cosa como que te toque la primitiva.",YES,CLAIM,NONE
+23131-178695-1,Pero creo que la bicicleta puede fomentar una ciudad más saludable y cambiar radicalmente Madrid.,YES,PREMISE,OPPOSITION
+23131-178695-2,Al menos el Ayuntamiento ha dado algunos pasos para fomentar la bicicleta pero por ejemplo bicimad que se vendió como que iba a ser una tarjeta única finalmente si quieres usar una bicicleta también tienes que darte de alta y no sé cuántas historias con lo cual no es tan sencillo Tarjeta Única de bicimad significaría que con el mismo abono transporte puedes ir pasar tu tarjeta por un totem y coger una bicicleta así de sencillo y la bicicleta desde luego ha cambiado bastante la imagen de la ciudad aunque muy tímidamente.,YES,PREMISE,OPPOSITION
+23131-178695-3,Ojalá el Ayuntamiento siga fomentando la bicicleta con algunas medidas cómo desgravaciones fiscales para el que deja el coche en casa teletrabajo etc.,YES,CLAIM,NONE
+23131-178722-0,"Bueno, el anterior gobierno lo hizo por postureo, ahora parece que se lo toman más en serio.",YES,CLAIM,NONE
+23131-178722-1,Y lo cierto es que Bicimad ha ayudado a que los conductores estén un poco más concienciados.,YES,PREMISE,CONCESSION
+23131-178722-2,"Un amigo, que siempre va en bicicleta, dice que ha notado una enorme diferencia de respeto desde que salió lo de Bicimad.",NO,SPAM,NONE
+23131-179549-0,Acabo de darme de baja de la tarjeta de bicimad hace poco.,NO,SPAM,NONE
+23131-179549-1,"Si con el abono estuviera incluida, sería un gran avance.",NO,SPAM,NONE
+23131-184475-0,Totalmente de acuerdo contigo,YES,CLAIM,NONE
+23131-184475-1,si no hubiera que sacas una tarjetita aparte del abono transporte mucha gente más lo utilizaría.,YES,CLAIM,NONE
+23131-179542-0,"Tienes buena intención, pero culturalmente aquí es muy difícil.",YES,CLAIM,NONE
+23131-179542-1,En Madrid la gente conduce como si estuvieran en Mad Max.,YES,PREMISE,REASON
+23131-179542-2,Y los profesionales del volante no entienden de otra prioridad que no sea la suya.,YES,PREMISE,ADDITION
+23131-185128-0,Que sea así ahora no significa que tenga que seguir siendo así siempre.,YES,CLAIM,NONE
+23131-185128-1,La educación lo es todo y la movilidad en este tipo de ciudades necesita de un cambio inminente.,YES,CLAIM,NONE
+23131-185128-2,No es sostenible seguir así.,NO,SPAM,NONE
+23131-179652-0,"Si: - La edad media de los madrileños es superior a los 50 años, y la tendencia es al alza -Los usuarios de la bicicleta son menos del 3 de los madrileños, día de 13000 uso/dia, osea que las usan menos de 7000 personas viajes de ida y vuelta -Hay más de dos accidentes diarios de ciclistas.",YES,CLAIM,NONE
+23131-179652-1,"-Los ciclistas no respetan, ni las más elementales normas de circulación semáforos, direcciones prohibidas, luces, seguros, que en otros países se respetan y se multa.",YES,CLAIM,NONE
+23131-179652-2,"-La velocidad a la que circulan los ciclistas, sobre todo en en cruces de calles y zonas peatonales, es totalmente inapropiada para su seguridad y para los peatones -Son ninis ni luces, ni seguros, impuestos de circulación, sin casco, con cascos sin normas, sin respeto ni a peatones, ¿Qué iluminado cree que la bicicleta es la solución a la movilidad en Madrid?",YES,CLAIM,NONE
+23131-179652-3,¿en qué criterios objetivos se basa?,YES,CLAIM,NONE
+23131-179652-4,y ¿por qué se gasta los presupuestos de todos los madrileños en beneficio de un 3 ¿Alguien me responde?.,YES,CLAIM,NONE
+23131-179827-0,"A ver, hay varias cosas ciertas en tu discurso y varias que has llevado a tu terreno.",YES,CLAIM,NONE
+23131-179827-1,"Es cierto que una parte de los ciclistas no respetan nada y van por la acera, en contra dirección y muchas otras cosas peores.",YES,PREMISE,CONCESSION
+23131-179827-2,"Desde mi punto de vista, porque llevamos años, por no decir décadas, utilizando el ciclismo como herramienta política, creando ineficientes y populistas infraestructuras sin legislar convenientemente.",YES,CLAIM,NONE
+23131-179827-3,"Pero vamos, que ha pasado lo mismo con las cacas de los perros, las basuras de reciclaje y otras muchas cosas.",YES,PREMISE,OPPOSITION
+23131-179827-4,"Hay una cosa personal que te quiero remarcar y es que ojito con los pequeños porcentajes, porque puede que algún día se vuelvan en tu contra.",NO,SPAM,NONE
+23131-179827-5,"Primero, en el caso de los ciclistas, te diría que en Holanda, por ejemplo, con una buena política: Me respondo a mí mismo para continuar por el límite de espacio.",NO,SPAM,NONE
+23131-179828-0,Holanda es todo un paraíso para los ciclistas.,YES,CLAIM,NONE
+23131-179828-1,"Se calcula que hay más de 18 millones de bicicletas en el país, cuando la población actual es de 17 millones de habitantes.",YES,PREMISE,REASON
+23131-200123-0,"Que ingenuo, más bicicletas que habitantes, que locura.",NO,SPAM,NONE
+23131-200123-1,"Cada habitante tiene más de una bicicleta, incluyendo los recien nacidos y los ancianos de 91 años, van en bicicleta?",NO,SPAM,NONE
+23131-200123-2,No me vale el ejemplo.,NO,SPAM,NONE
+23131-204341-0,En Tenerife hay más coches que habitantes.,NO,SPAM,NONE
+23131-200122-0,Holanda no es comparable.,NO,SPAM,NONE
+23131-200122-1,No tiene nada que ver.,NO,SPAM,NONE
+23131-204342-0,¿por qué no?.,NO,SPAM,NONE
+23131-182825-0,"Lo siento, pero discrepo seriamente.",NO,SPAM,NONE
+23131-182825-1,"Tengo más de 50 utilizo todos los días la bicicleta para ir al trabajo - los de lluvia Voy siempre a pie por la acera, no me salto semáforos, en fin intento ser con la bicicleta aún más cívico que cuando uso el coche.",YES,CLAIM,NONE
+23131-182825-2,Por cierto en general no he tenido problemas con los coches.,YES,PREMISE,SUMMARY
+23131-182825-3,Algún tron me he cruzado pero entiendo que no puedo generalizar Es cierto según el Ayun.,NO,SPAM,NONE
+23131-182825-4,Madrid BICIMAD tiene una media de 13000 usos al día.,YES,CLAIM,NONE
+23131-182825-5,A los que hay que sumar la gente que va en su propia bicicleta y los que usan otras medios por los carriles habilitados.,YES,PREMISE,ADDITION
+23131-182825-6,No somos legión pero.,NO,SPAM,NONE
+23131-182825-7,Desde 1-enero hasta octubre 2018 sumamos solo más de 3000000 de viajes.,NO,SPAM,NONE
+23131-182825-8,El mundo cambia.,NO,SPAM,NONE
+23131-182825-9,"La movilidad en las ciudades esta evolucionando, utilizáremos más coches compartidos y transporte de 2 ruedas.",YES,CLAIM,NONE
+23131-182825-10,Así que me encuentro en posición de preguntarle.,NO,SPAM,NONE
+23131-182825-11,¿qué sentido tiene seguir gastando dinero de los pptos en beneficio de un modelo de movilidad caduco y contaminante?.,NO,SPAM,NONE
+23131-200120-0,"Será caso único, mayor de 50 y en bicicleta, al igual en lo de respetar las normas.",YES,CLAIM,NONE
+23131-200120-1,Más del 80 no las respeta.,YES,CLAIM,NONE
+23131-200120-2,"Cuando no se pasan el semáforo en rojo se suben a la acera y por el paso de peatones cruzan al otro lado, es decir no les para nada.",YES,PREMISE,REASON
+23131-185130-0,Discrepo totalmente.,NO,SPAM,NONE
+23131-185130-1,Si no se utiliza más la bicicleta es porque la infraestructura actual es mortal.,YES,CLAIM,NONE
+23131-185130-2,Arriesgo mi vida cada día moviéndome en bicicleta por Madrid.,YES,CLAIM,NONE
+23131-185130-3,Seré valiente.,NO,SPAM,NONE
+23131-185130-4,"A cada porcentaje de mejora de la infraestructura del carril bicicleta, porcentaje de aumento del uso de la misma.",YES,CLAIM,NONE
+23131-185130-5,Los números hablan por si solos.,NO,SPAM,NONE
+23131-185130-6,"Es evidente que como vehículo hay que respetar las normas de tráfico y para eso deberían hacerse campañas de sensibilidad en este aspecto, en las escuelas, distritos, etc. Si se ejecutase un buen plan de movillidad ciclista y se invirtiese todo lo necesario para llevarlo a cabo, el ayuntamiento tendría un mes o dos de críticas y a partir de ahí todo serán felicitaciones y agradeciemintos.",YES,PREMISE,CONDITION
+23131-185130-7,Carril bicicleta de verdad por todo Madrid ya Mejoráremos la ciudad y su aire.,YES,CLAIM,NONE
+23131-185130-8,Mejoráremos en salud y por tanto ahorráremos en sanidad pública.,YES,PREMISE,RESULT
+23131-185130-9,Disminuiremos el ruido.,NO,SPAM,NONE
+23131-185130-10,Y un largo etc.,NO,SPAM,NONE
+23131-200121-0,"Invertir más para unos cuantos, no se ha invertido ya demasiado con tanto carril bicicleta?.",NO,SPAM,NONE
+23131-185129-0,"Sí, por favor.",NO,SPAM,NONE
+23131-185129-1,Carril bicicleta de verdad por todo Madrid ya Mejoráremos la ciudad y su aire.,YES,CLAIM,NONE
+23131-185129-2,Mejoráremos en salud y por tanto ahorráremos en sanidad pública.,YES,PREMISE,RESULT
+23131-185129-3,Disminuiremos el ruido.,NO,SPAM,NONE
+23131-185129-4,Y un largo etc.,NO,SPAM,NONE
+23131-185353-0,Insisto no es tanto cuestión de carril Bici como de un cambio en la legislación.,NO,SPAM,NONE
 2412-0-0,Metro para viajeros de tren y avión,YES,CLAIM,NONE
 2412-0-0,Muchas estaciones son utilizadas por viajeros con destino a estaciones de tren y al aeropuerto y trasladando maletas.,YES,CLAIM,NONE
 2412-28158-0,Estupenda propuesta!.,NO,SPAM,NONE
@@ -1912,6 +2113,75 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 629-92981-0,"El barrio de Usera lleva mucho tiempo descuidado y faltó de limpieza pero, en los últimos años, sus vecinos también andan faltos de civismo.",NO,SPAM,NONE
 629-92981-1,"Se dejan bolsas de basura en cualquier esquina, muebles, colchones y porquería de todas las clases.",NO,SPAM,NONE
 629-92981-2,Se hace necesaria la aplicación de multas ejemplares en estos barrios en los que parece que únicamente reclamamos nuestros derechos pero no atendemos nuestras obligaciones más básicas para la convivencia y salubridad.,YES,CLAIM,NONE
+6931-0-0,sin colillas,YES,CLAIM,NONE
+6931-0-0,"Tenemos registro de huellas dactilares, así que se puede identificar a muchas personas que tiran colillas.",YES,CLAIM,NONE
+6931-0-1,La multa y propaganda dejarán las calles y carreteras sin colillas.,YES,PREMISE,RESULT
+6931-49982-0,Sabes que los fumadores que tiran colillas al suelo pueden ser identificados por su huella dactilar y luego confirmado con prueba de ADN.,YES,CLAIM,NONE
+6931-50174-0,Es un sistema muy caro.,YES,CLAIM,NONE
+6931-50174-1,No le veo viabilidad económica en este momento.,YES,PREMISE,RESULT
+6931-50308-0,¿Sistema caro?,YES,CLAIM,NONE
+6931-50308-1,"Mejor, que lo va a pagar el que ha tirado la colilla.",YES,CLAIM,NONE
+6931-50308-2,"Lo que duele, se aprende.",NO,SPAM,NONE
+6931-50315-0,Piense que habría que realizar un test de adn para tener una base de datos de contraste.,YES,CLAIM,NONE
+6931-50315-1,"Primero, un test a los habitantes de Madrid.",YES,PREMISE,PRECISION
+6931-50315-2,"Súmele esto, a los habitantes de la Comunidad de Madrid de vez en cuando vendrá algún fumador a la ciudad ¿no?.",YES,PREMISE,PRECISION
+6931-50315-3,"Igualmente, habría que hacer un test a todos los habitantes del país puede que algún día venga de turismo algún ciudadano de otra Comunidad Autónoma y por último del mundo.",YES,PREMISE,SIMILARITY
+6931-50315-4,"El sistema es caro, ya que primero requiere la base de datos de contraste algo inexistente en la actualidad y luego cada test requiere una suma elevada.",YES,CLAIM,NONE
+6931-50315-5,"A día de hoy, lo veo un sistema poco viable.",YES,PREMISE,CONCLUSION
+6931-50534-0,Amos por pasos: Tenemos la colilla y se puede intentar sacar huella dactilar.,YES,CLAIM,NONE
+6931-50534-1,"De obenerse una huella válida, se compara con ficheros existentes, por ejemplo del DNI De aquí ya tenemos al individuo y sus señas.",YES,PREMISE,CONDITION
+6931-50534-2,Se le cita y se le saca ADN Se compara y. Si coincide: multa y cobro de gastos.,YES,PREMISE,RESULT
+6931-50534-3,"Como verás, cosas más difíciles venimos haciendo los humanos.",NO,SPAM,NONE
+6931-50534-4,Un saludo.,NO,SPAM,NONE
+6931-50538-0,"Las huellas dactilares que se sacan de los ficheros del Ministerio de Interior por ejemplo, las que tienen a través de los registros dactilares del DNI no pueden ser usadas para identificar a posibles delincuentes.",YES,CLAIM,NONE
+6931-50538-1,"Se estaría pisoteando el derecho de presunción de inocencia hay varios artículos que tratan sobre este tema, y le recomiendo que se los lea tranquilamente Por ello, no es constitucionalmente viable el sistema que me ha indicado anteriormente.",YES,PREMISE,RESULT
+6931-50680-0,"Vale, pero seguimos igual o intentamos hacer cambios Además ¿con una colilla con huellas, donde está la presunción de inocencia o nos buscamos soluciones o más vale olvidarnos y seguir siendo una ciudad sucia, pueblerina y atrasada ci cívicamente.",YES,CLAIM,NONE
+6931-50766-0,Te doy un ejemplo.,NO,SPAM,NONE
+6931-50766-1,"Puedo sentarme en el suelo por por razón, tocar alguna colilla que yo no haya tirado en el suelo, y ya la hemos liado.",YES,CLAIM,NONE
+6931-50766-2,"La administración presumiría que yo fuí la persona que tiró la colilla al suelo pese a no ser fumador Igualmente, hay gente que en invierno fuma con guantes, y no quedarían huellas en el cigarro.",YES,PREMISE,ALTERNATIVE
+6931-50766-3,"Sinceramente, creo que sería mejor solución el fomento de la educación cívica.",YES,PREMISE,CONCLUSION
+6931-50766-4,"Cada ciudadano debe respetar a la ciudad, y hacerla respetar.",YES,CLAIM,NONE
+6931-52098-0,Estoy totalmente de acuerdo con ABG La única solución pasa por la educación cívica.,YES,CLAIM,NONE
+6931-52118-0,¿Crees que la única solución es la educación cívica?.,NO,SPAM,NONE
+6931-52118-1,¿piensas que no lo sabe el que tira la colilla?,NO,SPAM,NONE
+6931-52118-2,"Te contaré un caso real de hace unos años: Los señores de un ayuntamiento solían desayunar en un bar próximo a la Casa Consistorial y era costumbre que los clientes tirasen cáscaras, huesos, palillos y demás al suelo, que se solía preservan echando serrín.",NO,SPAM,NONE
+6931-52118-3,"Un concejal se metía con el del bar criticándole que no tuviese papeleras, así que las puso y al verle esa mañana entrar, le dijo Señor XXX que ya tiene usted sus papeleras.",NO,SPAM,NONE
+6931-52118-4,"Resultado: dejó de acudir dicho señor, algunos más y aparecieron en cambio funcionarios con libreta en mano, un día si y otro también, hasta que le hicieron cerrar el bar.",NO,SPAM,NONE
+6931-52118-5,Moraleja: Para qué te crees que los humanos han inventado las multas y sanciones? Te lo diré: para convencer cuando falla la educación.,YES,CLAIM,NONE
+6931-52567-0,Perdona Carlos.,NO,SPAM,NONE
+6931-52567-1,Pero no se si te has explicado mal o no lo comprendí bíen.,NO,SPAM,NONE
+6931-52567-2,"Los concejales le pidieron al dueño del bar que pusiera papeleras en el local, el dueño las puso, ¿y dejaron de ir?",NO,SPAM,NONE
+6931-52567-3,y encima luego fueron a denunciar al dueño del bar?,NO,SPAM,NONE
+6931-52567-4,No tiene mucha lógica tu historia.,YES,CLAIM,NONE
+6931-52567-5,Con perdón.,NO,SPAM,NONE
+6931-52568-0,Y por qué tenía que ser lógico?,YES,CLAIM,NONE
+6931-52568-1,"Ha sido realizado por humanos y te lo pongo de ejemplo de que únicamente la educación y el conocimiento no son suficiente en algunos casos, y que el predica, no lo practica luego cuando le parece.",YES,CLAIM,NONE
+6931-52568-2,Mira alrededor y verá.,NO,SPAM,NONE
+6931-52568-3,Gracias por la atención que me prestas.,NO,SPAM,NONE
+6931-52568-4,Un saludo.,NO,SPAM,NONE
+6931-52571-0,Es que no veo correlación entre acción y reacción.,NO,SPAM,NONE
+6931-52571-1,Simplemente eso.,NO,SPAM,NONE
+6931-52581-0,¿Sostienes que cito La única solución pasa por la educación cívica para que no se tiren colillas al suelo ¿Crees que el que la tira no lo sabe?,NO,SPAM,NONE
+6931-52581-1,"Así pues, dinos cómo piensas inculcar educación cívica y en qué consiste dicha educación.",NO,SPAM,NONE
+6931-52581-2,"Quedando a la espera, un saludo.",NO,SPAM,NONE
+6931-53132-0,"El cerdo que tira las colillas al suelo, sabe que tenemos un sistema de limpieza pública que se ocupará de recoger la mierda que no se molestará en tirar a la basura.",YES,CLAIM,NONE
+6931-53132-1,"Lo triste de ello, es que se delega en estos servicios de limpieza, una acción que podríamos hacer nosotros mismos a coste 0 No me considero un hombre de mundo, pero he viajado bastante por Europa, y si he podido ver a ciudadanos recriminar comportamientos incívicos de otras personas gente bebiendo en la calle, fumando y tirando colillas, .",YES,PREMISE,RESULT
+6931-53132-2,"Será por el sistema educativo, o por la educación aportada por las familias; pero la gente es más respetuosa.",YES,CLAIM,NONE
+6931-53132-3,"Igualmente, he visto situaciones similares en Madrid, y me alegró mucho ese compromiso hacia la ciudad.",YES,PREMISE,SIMILARITY
+6931-53132-4,Que para eso es de todos los que vivimos en ella.,NO,SPAM,NONE
+6931-53132-5,Vuelvo a lo mismo.,NO,SPAM,NONE
+6931-53132-6,"Creo que cada ciudadano puede ayudar a construir una ciudad mucho mejor, y podemos actuar para corregir acciones incívicas.",YES,CLAIM,NONE
+6931-53186-0,"Cuando se tira una colilla al suelo lo hacemos por costumbre y si pensar lo que hacemos, ya que tenemos la mente ocupada en otras cosas.",YES,CLAIM,NONE
+6931-53186-1,"Y sabemos que está feo, pero prevalece la costumbre.",YES,PREMISE,EXPLANATION
+6931-53186-2,"Tampoco estamos acostumbrados a que nos afeen la conducta, así que reaccionamos agresivamente.",YES,CLAIM,NONE
+6931-53186-3,Y aquí puede influir el ayuntamiento ampliando la actual campaña propagandística emprendida de mantener el suelo limpio con el tema de las colillas.,YES,PREMISE,ADDITION
+6931-53186-4,"Pero en este país no estamos acostumbrados a que nos pidan colaboración pero sí a que haya prohibiciones de todo tipo, así que no hacemos caso, y para esto y para ciertas personas olvidadizas hay que animarlas a animarse al grupo de los buenos ciudadanos cumplidores con un poco de tocarles el bolsillo, que es efectivo.",YES,PREMISE,OPPOSITION
+6931-53186-5,"Aunque siempre quedará una minoría, pero sería ya insignificante.",YES,PREMISE,CONCESSION
+6931-53186-6,Un saludo.,NO,SPAM,NONE
+6931-50047-0,Para conseguir suelos sin colillas habría que empezar por poner ceniceros por todas partes.,YES,CLAIM,NONE
+6931-55654-0,"Además podríamos exigir la entrega de dos fotocopias compulsadas del DNI cada vez que se compre una cajetilla de tabaco, llamar al 112 cada vez que alguien te pida fuego, que los policías vayan de paisano diciendo: perdona ¿tienes un piti? y que el Centro Nacional de Inteligencia implante microcámaras en los ojos de las palomas para que esos malditos fumadores no se escapen!",YES,CLAIM,NONE
+6931-55654-1,Democracia Real ya.,YES,CLAIM,NONE
+6931-55871-0,"No te parece mejor, en vez de pedir tantas cosas que indicas, practicar la Limpieza Real ya En qué lugar quieres vivir.",YES,CLAIM,NONE
 7382-0-0,Digitalizar las calles,YES,CLAIM,NONE
 7382-0-0,Sustitución de denominaciones alfabéticas por numerales a las calles.,YES,CLAIM,NONE
 7382-0-0,El callejero de Madrid tiene más de 9000 denominaciones y las consultas a él a través de Internet superan la cifra de 36000 visitas al año.,YES,CLAIM,NONE
@@ -2522,6 +2792,65 @@ sent_id,sent_text,sent_label1,sent_label2,sent_label3
 7-91145-2,Por otro lado dejan ropa tirada por el suelo de toda la calle y muebles y basura.,NO,SPAM,NONE
 7-91145-3,Esto empeora si el único servicio que hay es un barrendero que pasa como mucho una vez a la semana.,NO,SPAM,NONE
 7-91145-4,"Por favor, nosotros también merecemos un barrio limpio.",NO,SPAM,NONE
+8188-0-0,Crear carriles bicicleta con separación de los demás vehículos,YES,CLAIM,NONE
+8188-0-0,"Crear carriles bicicletas independientes, con separación de los demás vehículos y aparcamientos propios, como en otros países Europeos.",YES,CLAIM,NONE
+8188-59745-0,"Totalmente de acuerdo, el carril bicicleta se ha convertido en pista de atletismo, carril carrito de niño, carril transeúntes, carril juvenil de chiquillos.",YES,CLAIM,NONE
+8188-59753-0,Creo que ya hay como 100 propuestas de este tipo.,YES,CLAIM,NONE
+8188-59753-1,No estaría ed más usar el buscador.,YES,PREMISE,ALTERNATIVE
+8188-59753-2,Ya da pereza intentar discutir sobre alguna de ellas.,YES,PREMISE,CONCLUSION
+8188-112605-0,"Para todos aquellos que usan la bicicleta los domingos pares de cada mes, siempre que los niveles de contaminación sean 40 mg/m3, no sea época ni de mucho frío ni de mucho calor, ni época de caída de hojas, ni época primaveral en pleno florecimiento, son muy útiles los carriles bicicleta.",YES,CLAIM,NONE
+8188-59764-0,Tiene que haber carril bicicleta pero no incorporado en las aceras como el que va por odonel que van mezclados peatones y ciclistas.,YES,CLAIM,NONE
+8188-59764-1,Sin seguridad para ningúno.,NO,SPAM,NONE
+8188-59903-0,Propuesta que integra la bicicleta en la ciudad: .,NO,SPAM,NONE
+8188-60001-0,"Ya la he votado, me parece mucho más acertada.",NO,SPAM,NONE
+8188-59917-0,"Claro, al principio es un carril para todo, porque falta cultura de carril bicicleta.",YES,CLAIM,NONE
+8188-59917-1,Y no me refiero a que la gente no sea culta sino a que todavía no estamos acostumbrados a convivir en el día a día con ese elemento extraño en nuestra ciudad.,YES,PREMISE,EXPLANATION
+8188-59917-2,"En mi opinión, para darle el definitivo empujón a la relación Madrid&Bici, es necesaria una importante inversión inicial que incluya un mínimo e importante número km de carril bien señalizados y diferenciados del resto de carriles, que unieran lugares importantes y emblemáticos del centro de la ciudad y que tuvieran muy en cuenta, además para la incorporación a los mismos, estos puntos estratégicos como aparcamientos disuasorios, estaciones de tren etc.",YES,CLAIM,NONE
+8188-59917-3,Donde sea posible hacerse con una bicicleta de alquiler.,YES,PREMISE,ADDITION
+8188-59917-4,"Y por supuesto, que su alquiler esté incluido dentro del bono transporte, como ya alguien ha propuesto por ahí.",YES,CLAIM,NONE
+8188-59917-5,"Con el tiempo solo se tratará de ampliar con criterio, y afrontar pequeños inconvenientes que tiene la ciudad como las cuestas.",YES,PREMISE,ADDITION
+8188-59978-0,Apoyo tu propuesta y pido tu apoyo para esta otra que pide una verdadera Red de Carril Bici Seguro en todo Madrid.,NO,SPAM,NONE
+8188-59978-1,¡Ya tenemos más de 4300 apoyos!,NO,SPAM,NONE
+8188-59978-2,Gracias y un saludo.,NO,SPAM,NONE
+8188-114336-0,"Jrcomposer, la propuesta que me sale esta injustamente archivada ya que tenia más de 10000 apoyos.",NO,SPAM,NONE
+8188-60231-0,"Pues en Múnich, donde he vivido mucho tiempo, una de esas ciudades de Europa, el carril bicicleta suele estar en la calzada y en muchas calles hasta en sentido contrario al de los coches.",NO,SPAM,NONE
+8188-60231-1,"El separar los carriles no es garantía ningúna de seguridad, sino más bien el acostumbrar a los coches a darse cuenta de que no son los dueños de la calle.",YES,CLAIM,NONE
+8188-60448-0,"Claro! Es muy lógico pedir que se invierta un dinero que no hay en carriles bicicletas por delante de muchas otras cosas, tonterías como sanidad limpieza ayudas sociales y sería perfecto en el centro de Madrid tener dicho carril bicicleta eliminando un carril de coches ya que los atascos no son un problema acuciante Seguro que todo el mundo cambia el coche por la bicicleta No?.",YES,CLAIM,NONE
+8188-60664-0,Antes que gastar pasta en mejoras para los ciclistas haría otras mejoras sociales más urgentes.,YES,CLAIM,NONE
+8188-60664-1,"Y por cierto, lo que tienen que hacer es implantar un carnet de ciclista, por que estoy hasta las narices de ver como se saltan todos los semáforos incluso mientras estamos cruzando los peatones.",YES,PREMISE,REASON
+8188-60754-0,"Estoy contigo, algunos ciclistas van a su aire sin tener en cuenta ni coches ni peatones.",YES,CLAIM,NONE
+8188-60754-1,Debería haber guardias para multarlos en lugar de tanto agente de movilidad o vigilantes de tiket de la hora.,YES,PREMISE,ALTERNATIVE
+8188-106935-0,"Totalmente de acuerdo, Pero cuántos años pasarán para que Todos podamos Respetarnos, Porq así como hay ciclistas que se la suda no respetando a los peatones, semaforos y etc. , igual los peatones deberían hacer lo mismo!.",NO,SPAM,NONE
+8188-61249-0,Carril bicicleta a la calzada.,NO,SPAM,NONE
+8188-61249-1,Siempre acaban pagando los peatones y beneficiado los coches.,YES,CLAIM,NONE
+8188-78261-0,La propuesta es interesante pero me temo que nos estamos olvidando de temas que son prioritarios para la vida de muchas familias sin recursos que no pueden alimentar a sus hijos.,YES,CLAIM,NONE
+8188-78261-1,Os recuerdo que España es el país de la OCDE donde más avanzó la desigualdad durante la crisis.,YES,PREMISE,ADDITION
+8188-78261-2,La desigualdad en España avanza a un ritmo que supera hasta 14 veces a Grecia.,YES,PREMISE,ADDITION
+8188-78261-3,"La pobreza y la exclusión en España han aumentado alarmantemente en los últimos años, con 134 millones de personas en riesgo de exclusión en el año 2014 292 de la población española según concluye el informe Una economía al servicio del 1 hecha pública en 2016 por Oxfam Intermon.",NO,SPAM,NONE
+8188-78261-4,"Por otra lado, estamos a la espera de que nos apliquen 10000 millones de euros en recortes desde Europa.",NO,SPAM,NONE
+8188-78261-5,"Podemos seguir obviando este tema, pensar que no pasa nada pero ahora es el momento de plantear acciones contra la pobreza: .",NO,SPAM,NONE
+8188-99747-0,Que lindo ver que se desarrolla una cultura de transporte sostenible y saludable.,NO,SPAM,NONE
+8188-106939-0,"Apoyo tu propuesta! aya El que quiera ir por la Calzada, Por esperar que a un conductor respete y tenga paciencia al paso que va el ciclista uffff van a pasar más de 50 años.",YES,CLAIM,NONE
+8188-112606-0,Nivelazo de comentario.,NO,SPAM,NONE
+8188-109138-0,Si el carril bicicleta está segregado también tiene sus desventajas.,YES,CLAIM,NONE
+8188-109138-1,"Calramente hay dos posturas a reconciliar, el carrilbicismo, favorable a la instalación de infraestructuras segregadas y por otro lado el calzadismo, que apuesta por la coexistencia de las bicicletas con el resto del tráfico rodado en todo momento.",YES,CLAIM,NONE
+8188-109138-2,"Los carriles bicicleta segregados no son baratos, es quitarle estorbos al coche y si el diseño no está muy bien cuidado e integrado es sólo para bicicleta de ocio, no sirve como vía real para dar movilidad del día a día.",YES,PREMISE,EXPLANATION
+8188-109138-3,Cuidado con las propuestas bienintencionadas pero poco definidas.,YES,CLAIM,NONE
+8188-112164-0,"No es una buena decisión, en mi opinión, porque la demanda es baja, la frecuencia también habría de serlo, la inseguridad aumenta por esos motivos, y el incremento de gasto es muy importante efectos en el control de accesos, trenes y mantenimiento de la red sería mucho más barata una red equivalente de autobuses en superficie además de proporcionar mayor calidad ya que la velocidad de circulación a esas horas es similar o superior a la del Metro, las unidades de transporte son menores y la oferta sería con mayor frecuencia, se ahorraría tiempo en bajar y subir al/de las estaciones de Metro, y la inseguridad en superficie sería menor que en los túneles de la red subterránea.",YES,PREMISE,REASON
+8188-112164-1,Esta solución sería lógica también para una red nocturna de transporte disminuyendo el horario de servicio de Metro.,YES,PREMISE,ADDITION
+8188-116886-0,"Yo quiero ir en patines, ¿hacemos otro para patines?",NO,SPAM,NONE
+8188-116886-1,"Tengo un primo que prefiere ir en Segway, ¿qué os parece si hacemos otro para él?",NO,SPAM,NONE
+8188-116886-2,"Con esto, más el de la bicicleta, ya hemos liquidado los 3 carriles por sentido de la castellana los laterales los peatonalizamos, qué demonios Buen trabajo.",NO,SPAM,NONE
+8188-117685-0,"Me parece una buena propuesta, unos carriles bicicleta a lo estilo londinense.",NO,SPAM,NONE
+8188-120246-0,Apoyo la propuesta.,NO,SPAM,NONE
+8188-120246-1,Sinceramente ahora mismo circular en bicicleta por la calzada en el centro de Madrid es jugarte el tipo y algo realmente peligroso.,YES,CLAIM,NONE
+8188-120246-2,Si hubiera seguridad para los usuarios de bicicletas mucha más gente la usaría como transporte habitual.,YES,PREMISE,CONDITION
+8188-121621-0,Apoyar en todo la alternativa a movernos en bicicleta por Madrid.,NO,SPAM,NONE
+8188-121621-1,Para que la gente se decida hay que fomentarlo.,NO,SPAM,NONE
+8188-121621-2,Es una ciudad estupenda para trasladarse en bicicleta.,YES,CLAIM,NONE
+8188-121621-3,Tenemos muchos meses de buen clima para su uso si lo compáramos con el resto de Europa donde se mueven sobre calles nevadas.,YES,PREMISE,REASON
+8188-121621-4,Tenemos que aprovecharlo y disfrutarlo.,NO,SPAM,NONE
+8188-121621-5,Carriles bicicleta por favor.,NO,SPAM,NONE
 8253-0-0,Más bibliotecas con puestos de estudio y 24 horas,YES,CLAIM,NONE
 8253-0-0,"Es una vergüenza que en Madrid tengas que luchar por conseguir un puesto de estudio en una biblioteca pública, si los jóvenes somos el futuro, ayudarnos a seguir estudiando.",YES,CLAIM,NONE
 8253-0-0,En la comunidad de Madrid hay muy pocas bibliotecas públicas y ningúna de ellas abierta 24 horas ni en época de exámenes.,YES,CLAIM,NONE
