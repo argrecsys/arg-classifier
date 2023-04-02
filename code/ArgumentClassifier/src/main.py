@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.3
+    Version: 1.3.0
     Created on: Aug 27, 2021
-    Updated on: Mar 24, 2023
+    Updated on: Apr 01, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -17,6 +17,7 @@ from ml.constant import TaskType
 import time
 import json
 from datetime import datetime
+import gc
 
 ######################
 ### CORE FUNCTIONS ###
@@ -85,21 +86,22 @@ def create_model_filename(folder_path:str, model_id:str, ml_algo:str) -> str:
 # Start application
 def start_app(logger:mll.MLLog, app_setup:dict):
     tasks = app_setup["tasks"]
+    dr_algos = ["svd", "pca"]
     
-    for task in tasks:
+    for task, dr_algo in product(tasks, dr_algos):
         start_time = time.time()
         logger.log_info("\n>> Scenario begins")
     
         # 0. Program variables
         feat_setup = app_setup["features"]
         pipeline_setup = app_setup["pipeline"]
+        pipeline_setup["dim_red_algo"] = dr_algo
         train_setup = app_setup["train"]
         create_dataset = app_setup["create_dataset"]
         data_folder = app_setup["data_folder"]
         language = app_setup["language"]
         model_folder = app_setup["model_folder"]
         result_folder = app_setup["result_folder"]
-        dr_algo = pipeline_setup["dim_red_algo"]
         ml_algo = pipeline_setup["ml_algo"]
         model_state = train_setup["model_state"]
         y_label = get_target_label(task)
@@ -161,7 +163,7 @@ if __name__ == "__main__":
         logger.log_error(">> ERROR - The application configuration could not be read.")
     
     logger.log_info(">> END PROGRAM")
-    logger = None
+    gc.collect()
 #####################
 #### END PROGRAM ####
 #####################
