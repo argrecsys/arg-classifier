@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.3
+    Version: 1.3.0
     Created on: Oct 07, 2021
-    Updated on: Mar 24, 2023
+    Updated on: Apr 01, 2023
     Description: ML engine class.
 """
 
@@ -72,17 +72,20 @@ class MLEngine:
         if len(lines) > 1:
             header = lines[0].replace("\n", "").split(",")
             n_labels = sum([1 if col_name.startswith(label_pattern) else 0 for col_name in header])
+            n = 0
             
             for line in lines[1:]:
                 data = line.replace("\n", "").split(",")
                 n_cols = len(data)
                 
                 # Save data
-                label = {"id": data[0]}
+                label = {"id": data[0], "ix": n}
                 for i in range(0, n_labels):
                     ix = n_cols - n_labels + i
-                    label[label_pattern+str(i+1)] = data[ix]
+                    key = label_pattern + str(i+1)
+                    label[key] = data[ix]
                 labels.append(label)
+                n += 1
         
         return labels
     
@@ -236,6 +239,25 @@ class MLEngine:
         
         return df
     
+    # Core function - Apply filtering and data augmentation for task 3 (Argument Relation Classification)
+    def __data_augmentation(self, dataset:pd.DataFrame, labels:list) -> pd.DataFrame:
+        #labels = [label for label in labels if label["sent_label2"].lower() != "spam"]
+        #print(len(labels))
+        #print(labels)
+        
+        #ind_keys = {label["ix"]: label["id"] for label in labels}
+        #print(len(ind_keys))
+        #print(ind_keys)
+        
+        #dataset = dataset[dataset.index.isin(ind_keys.keys())]
+        #print(len(dataset))
+        #print(dataset)
+        
+        # Filtering data
+        dataset = dataset[dataset["label"] != "none"]
+        
+        return dataset
+    
     # Core function - Create model pipeline with default params
     def __create_model(self, pipeline_setup:dict, model_params:dict, model_classes:list) -> Pipeline:
         ml_algo = pipeline_setup["ml_algo"]
@@ -271,18 +293,18 @@ class MLEngine:
             estimators.append(("binarizer", Binarizer()))
             estimators.append(("model", MultinomialNB(**model_params)))
         
-        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            estimators.append(("model", GradientBoostingClassifier(**model_params)))
-        
-        elif ml_algo == ModelType.SVM.value:
-            estimators.append(("model", SVC(**model_params)))
-        
         elif ml_algo == ModelType.LOG_REG.value:
             model_params.pop("random_state", None)
             if len(model_classes) > 2:
                 model_params["multi_class"] = "multinomial"
             estimators.append(("model", LogisticRegression(**model_params)))
-            
+        
+        elif ml_algo == ModelType.SVM.value:
+            estimators.append(("model", SVC(**model_params)))
+        
+        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            estimators.append(("model", GradientBoostingClassifier(**model_params)))    
+        
         # Create model pipeline
         pipe = Pipeline(estimators)
         self.logger.log_info(str(pipe))
@@ -307,44 +329,44 @@ class MLEngine:
         
         if ml_algo == ModelType.NAIVE_BAYES.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {"alpha": 1, "fit_prior": True}
+                params = {"alpha": 1, "fit_prior": False}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"alpha": 1, "fit_prior": True}
+                params = {"alpha": 1, "fit_prior": False}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {"alpha": 1, "fit_prior": True}
             
         elif ml_algo == ModelType.LOG_REG.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {"C": 1, "penalty": "l2", "solver": "newton-cg"}
+                params = {"C": 0.1, "penalty": "l2", "solver": "liblinear"}
                 
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"C": 0.1, "penalty": "l2", "solver": "newton-cg"}
+                params = {"C": 1, "penalty": "l2", "solver": "saga"}
         
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {"C": 10, "penalty": "l1", "solver": "saga"}
+        
+        elif ml_algo == ModelType.SVM.value:
+            if self.task_type == TaskType.ARG_DETECTION.value:
+                params = {"C": 10, "gamma": 0.01, "kernel": "rbf", "random_state": model_state}
+                
+            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
+                params = {"C": 0.1, "kernel": "linear", "random_state": model_state}
+                
+            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
+                params = {"C": 10, "gamma": 0.001, "kernel": "rbf", "random_state": model_state}
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
             
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
+                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
-                
-        elif ml_algo == ModelType.SVM.value:
-            if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {"C": 0.1, "kernel": "linear", "random_state": model_state}
-                
-            elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"C": 0.1, "kernel": "linear"}
-                
-            elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = {"C": 10, "gamma": 0.001, "kernel": "rbf", "random_state": model_state}
-                
+        
         self.logger.log_info(params)
         return params
     
