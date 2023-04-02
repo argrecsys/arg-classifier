@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.2.3
+    Version: 1.3.0
     Created on: Aug 27, 2021
-    Updated on: Mar 24, 2023
+    Updated on: Apr 01, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -17,6 +17,7 @@ from ml.constant import TaskType
 import time
 import json
 from datetime import datetime
+import gc
 
 ######################
 ### CORE FUNCTIONS ###
@@ -161,7 +162,7 @@ if __name__ == "__main__":
         logger.log_error(">> ERROR - The application configuration could not be read.")
     
     logger.log_info(">> END PROGRAM")
-    logger = None
+    gc.collect()
 #####################
 #### END PROGRAM ####
 #####################
