@@ -1,5 +1,5 @@
 # Argumentative Proposition Classifier
-![version](https://img.shields.io/badge/version-1.3.0-blue)
+![version](https://img.shields.io/badge/version-1.3.1-blue)
 ![last-update](https://img.shields.io/badge/last_update-4/01/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 

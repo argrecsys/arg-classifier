@@ -19,13 +19,13 @@
 	},
 	"pipeline": {
 		"data_scale_algo": "normalize",
-		"dim_red_algo": "svd",
-		"ml_algo": "support-vector-machine"
+		"dim_red_algo": "",
+		"ml_algo": "gradient-boosting"
 	},
 	"train": {
 		"cv_k": 10,
 		"cv_stratified": true,
-		"hp_tuning": true,
+		"hp_tuning": false,
 		"model_state": 42,
 		"perc_test": 0.2
 	},
