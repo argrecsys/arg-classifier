@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.3.0
+    Version: 1.3.1
     Created on: Oct 07, 2021
     Updated on: Apr 01, 2023
     Description: ML engine class.
@@ -241,20 +241,17 @@ class MLEngine:
     
     # Core function - Apply filtering and data augmentation for task 3 (Argument Relation Classification)
     def __data_augmentation(self, dataset:pd.DataFrame, labels:list) -> pd.DataFrame:
-        #labels = [label for label in labels if label["sent_label2"].lower() != "spam"]
-        #print(len(labels))
-        #print(labels)
+        labels = [label for label in labels if label["sent_label2"].lower() != "spam"]
+        # print(len(labels))
+        # print(labels)
         
-        #ind_keys = {label["ix"]: label["id"] for label in labels}
-        #print(len(ind_keys))
-        #print(ind_keys)
+        ind_keys = {label["ix"]: label["id"] for label in labels}
+        # print(len(ind_keys))
+        # print(ind_keys)
         
-        #dataset = dataset[dataset.index.isin(ind_keys.keys())]
-        #print(len(dataset))
-        #print(dataset)
-        
-        # Filtering data
-        dataset = dataset[dataset["label"] != "none"]
+        dataset = dataset[dataset.index.isin(ind_keys.keys())]
+        # print(len(dataset))
+        # print(dataset)
         
         return dataset
     
@@ -335,7 +332,7 @@ class MLEngine:
                 params = {"alpha": 1, "fit_prior": False}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = {"alpha": 1, "fit_prior": True}
+                params = {"alpha": 1, "fit_prior": False}
             
         elif ml_algo == ModelType.LOG_REG.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
@@ -345,7 +342,7 @@ class MLEngine:
                 params = {"C": 1, "penalty": "l2", "solver": "saga"}
         
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = {"C": 10, "penalty": "l1", "solver": "saga"}
+                params = {"C": 1, "penalty": "l1", "solver": "saga"}
         
         elif ml_algo == ModelType.SVM.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
@@ -355,16 +352,19 @@ class MLEngine:
                 params = {"C": 0.1, "kernel": "linear", "random_state": model_state}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                params = {"C": 10, "gamma": 0.001, "kernel": "rbf", "random_state": model_state}
+                params = {"C": 10, "gamma": 0.1, "kernel": "rbf", "random_state": model_state}
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
                 params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
+                # params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
             
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
                 params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
+                # params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
+                # params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
                 params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
         
         self.logger.log_info(params)
@@ -383,13 +383,6 @@ class MLEngine:
                      "model__penalty": ["none", "elasticnet", "l1", "l2"],
                      "model__C": [0.001, 0.01, 0.1, 1, 10, 100]}
         
-        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            space = {"model__learning_rate": [0.15, 0.1, 0.05, 0.02, 0.01],
-                     "model__n_estimators": [150, 175, 200, 225, 250],
-                     "model__max_depth": [2, 3, 4, 5, 6],
-                     "model__min_samples_leaf": [1, 2, 5, 7],
-                     "model__min_samples_split": [2, 3]}
-        
         elif ml_algo == ModelType.SVM.value:
             space = [
                 {"model__C": [0.1, 1, 10, 100, 1000],
@@ -398,6 +391,13 @@ class MLEngine:
                  "model__kernel": ["rbf"],
                  "model__gamma": [1, 0.1, 0.01, 0.001, 0.0001]}
                 ]
+        
+        elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
+            space = {"model__learning_rate": [0.15, 0.1, 0.05, 0.02, 0.01],
+                     "model__n_estimators": [150, 175, 200, 225, 250],
+                     "model__max_depth": [2, 3, 4, 5, 6],
+                     "model__min_samples_leaf": [1, 2, 5, 7],
+                     "model__min_samples_split": [2, 3]}
         
         self.logger.log_info(space)
         return space
@@ -419,6 +419,10 @@ class MLEngine:
             labels = self.__read_label_file(data_path)
             stopwords = self.__read_stopword_list(data_path)
             dataset = self.__create_dataset(features, labels, y_label, feat_setup, stopwords)
+            
+            # If is task3 then apply filter and data augmentation
+            if self.task_type == TaskType.REL_CLASSIFICATION.value:
+                dataset = self.__data_augmentation(dataset, labels)
             
             # Save it to disk
             if dataset is not None:
