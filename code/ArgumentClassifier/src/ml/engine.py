@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.4.0
+    Version: 1.4.1
     Created on: Oct 07, 2021
     Updated on: Apr 06, 2023
     Description: ML engine class.
@@ -37,7 +37,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import SVC
-from lightgbm import LGBMClassifier
+from lightgbm import LGBMClassifier   # https://lightgbm.readthedocs.io/en/latest/Parameters.html
 
 # Machine Learning API class
 class MLEngine:
@@ -46,8 +46,8 @@ class MLEngine:
     def __init__(self, language:str, task_type:str, logger:mll.MLLog):
         self.encoding = "utf-8"
         self.label_column = "label"
-        self.metric_avg = "micro"
         self.language = language
+        self.opt_metric = "f1_weighted"   # https://scikit-learn.org/stable/modules/model_evaluation.html
         self.task_type = task_type
         self.logger = logger
         self.mislabeled_records = {"t1_error":[], "t2_error":[]}
@@ -310,8 +310,8 @@ class MLEngine:
         return pipe
     
     # Core function - Calculate model errors
-    def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list, avg_type:str) -> tuple:
-        results = mlu.calculate_errors(self.task_type, y_real, y_pred, model_classes, avg_type)
+    def __calculate_model_errors(self, y_real:list, y_pred:list, model_classes:list) -> tuple:
+        results = mlu.calculate_errors(self.task_type, y_real, y_pred, model_classes)
         conf_mx, accuracy, precision, recall, f1_score, roc_score, report = results
         
         self.logger.log_info(conf_mx)
@@ -393,7 +393,8 @@ class MLEngine:
             space = {"model__learning_rate": [0.01, 0.05, 0.1, 0.15, 0.2],
                      "model__n_estimators": [150, 175, 200, 225, 250],
                      "model__max_depth": [2, 3, 4, 5, 6],
-                     "model__min_samples_leaf": [2, 5, 7, 11]}
+                     "model__min_samples_leaf": [2, 5, 7, 11],
+                     "model__colsample_bytree": [0.7, 0.8, 0.9, 1.0]}
         
         self.logger.log_info(space)
         return space
@@ -499,8 +500,7 @@ class MLEngine:
         space = self.__get_model_param_space(ml_algo)        
             
         # Model tuning
-        metric = "f1_" + self.metric_avg
-        tuning = GridSearchCV(estimator=clf, param_grid=space, scoring=metric, cv=cv_k, n_jobs=8, refit=True)
+        tuning = GridSearchCV(estimator=clf, param_grid=space, scoring=self.opt_metric, cv=cv_k, n_jobs=8, refit=True)
         tuning.fit(X_train, y_train)
         
         # Keep the best
@@ -526,7 +526,7 @@ class MLEngine:
         self.mislabeled_records = mlu.calc_mislabeled_records(y_test, y_test_pred)
         
         # Calculate and return error metrics
-        return self.__calculate_model_errors(y_test, y_test_pred, model_classes, self.metric_avg)
+        return self.__calculate_model_errors(y_test, y_test_pred, model_classes)
     
     # ML function - Get ids of mislabeled records
     def get_mislabeled_records(self) -> dict:

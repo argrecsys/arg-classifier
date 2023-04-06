@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 0.11.0
+    Version: 0.12.0
     Created on: Oct 19, 2021
-    Updated on: Mar 22, 2023
+    Updated on: Apr 06, 2023
     Description: ML engine utility functions.
 """
 
@@ -96,7 +96,7 @@ def get_df_col_stats(df:pd.DataFrame, col_name:str) -> pd.DataFrame:
 ######################
 
 # Core function - Calculate difference between real and predicted
-def calculate_errors(task_type:str, y_real:list, y_pred:list, target_names:list, avg_type:str="") -> tuple:
+def calculate_errors(task_type:str, y_real:list, y_pred:list, target_names:list) -> tuple:
     
     # Calculate model metrics
     conf_mx = confusion_matrix(y_real, y_pred)
