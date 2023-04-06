@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.3.1
+    Version: 1.4.0
     Created on: Aug 27, 2021
-    Updated on: Apr 01, 2023
+    Updated on: Apr 06, 2023
     Description: Main class of the argument classifier.
 """
 
@@ -62,6 +62,7 @@ def save_error_ids(error_ids, X_test):
 def save_metrics(task_type:str, dataset_name:str, configuration:str, pipeline_setup:dict, params:dict, metrics:tuple, elapsed_time:float):
     result = []
     if metrics:
+        params = {k.replace("model__", "") : v for k, v in params.items()}
         result = [task_type, dataset_name, configuration, json.dumps(pipeline_setup), json.dumps(params), *metrics, elapsed_time, datetime.now()]
     return result
 
@@ -78,9 +79,9 @@ def save_results(result_folder:str, data:list, ml_ngx:mle.MLEngine) -> int:
     return model_id
 
 # Create a valid and descriptive model file path
-def create_model_filename(folder_path:str, model_id:str, ml_algo:str) -> str:
+def create_model_filename(folder_path:str, model_id:str, am_task:str, ml_algo:str, sep:str="-") -> str:
     model_ext = "joblib"
-    file_path = folder_path + "model-" + str(model_id) + "-" + ml_algo.replace(" ", "-") + "." + model_ext
+    file_path = folder_path + "model-" + str(model_id) + sep + am_task.replace(" ", sep) + sep + ml_algo.replace(" ", sep) + "." + model_ext
     return file_path
 
 # Start application
@@ -137,7 +138,7 @@ def start_app(logger:mll.MLLog, app_setup:dict):
         
         # 8. Create final model and save it
         if model_id > 0:
-            filepath = create_model_filename(model_folder, model_id, ml_algo)
+            filepath = create_model_filename(model_folder, model_id, task, ml_algo)
             fnl_clf = ml_ngx.create_and_save_model(filepath, dataset, pipeline_setup, model_classes, model_state)
             
             #  9. Use model (make predictions)
@@ -149,8 +150,6 @@ def start_app(logger:mll.MLLog, app_setup:dict):
 #####################
 ### START PROGRAM ###
 #####################
-from itertools import product
-
 if __name__ == "__main__":
     logger = mll.MLLog(verbose=True)
     logger.log_info("\n>> START PROGRAM")

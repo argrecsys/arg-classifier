@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
     Created by: Andrés Segura-Tinoco
-    Version: 1.3.1
+    Version: 1.4.0
     Created on: Oct 07, 2021
-    Updated on: Apr 01, 2023
+    Updated on: Apr 06, 2023
     Description: ML engine class.
 """
 
@@ -37,7 +37,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import SVC
-from sklearn.ensemble import GradientBoostingClassifier
+from lightgbm import LGBMClassifier
 
 # Machine Learning API class
 class MLEngine:
@@ -300,7 +300,7 @@ class MLEngine:
             estimators.append(("model", SVC(**model_params)))
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            estimators.append(("model", GradientBoostingClassifier(**model_params)))    
+            estimators.append(("model", LGBMClassifier(**model_params)))    
         
         # Create model pipeline
         pipe = Pipeline(estimators)
@@ -356,16 +356,13 @@ class MLEngine:
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
             if self.task_type == TaskType.ARG_DETECTION.value:
-                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
-                # params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
+                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "random_state": model_state}
             
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
-                # params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
+                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "random_state": model_state}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
-                # params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "min_samples_split": 2, "random_state": model_state}
-                params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "min_samples_split": 2, "random_state": model_state}
+                params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "random_state": model_state}
         
         self.logger.log_info(params)
         return params
@@ -393,11 +390,10 @@ class MLEngine:
                 ]
         
         elif ml_algo == ModelType.GRADIENT_BOOSTING.value:
-            space = {"model__learning_rate": [0.15, 0.1, 0.05, 0.02, 0.01],
+            space = {"model__learning_rate": [0.01, 0.05, 0.1, 0.15, 0.2],
                      "model__n_estimators": [150, 175, 200, 225, 250],
                      "model__max_depth": [2, 3, 4, 5, 6],
-                     "model__min_samples_leaf": [1, 2, 5, 7],
-                     "model__min_samples_split": [2, 3]}
+                     "model__min_samples_leaf": [2, 5, 7, 11]}
         
         self.logger.log_info(space)
         return space
