@@ -359,7 +359,7 @@ class MLEngine:
                 params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "random_state": model_state}
             
             elif self.task_type == TaskType.ARG_CLASSIFICATION.value:
-                params = {"learning_rate": 0.1, "n_estimators": 200, "max_depth": 3, "min_samples_leaf": 5, "random_state": model_state}
+                params = {"learning_rate": 0.2, "n_estimators": 175, "max_depth": 5, "min_samples_leaf": 5, "colsample_bytree": 0.8, "random_state": model_state}
                 
             elif self.task_type == TaskType.REL_CLASSIFICATION.value:
                 params = {"learning_rate": 0.1, "n_estimators": 150, "max_depth": 5, "min_samples_leaf": 1, "random_state": model_state}
