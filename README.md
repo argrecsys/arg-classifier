@@ -1,6 +1,6 @@
 # Argumentative Proposition Classifier
 ![version](https://img.shields.io/badge/version-1.4.0-blue)
-![last-update](https://img.shields.io/badge/last_update-4/6/2023-orange)
+![last-update](https://img.shields.io/badge/last_update-4/21/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
@@ -22,21 +22,22 @@ Below are links to all datasets (both intermediate and final) created and used b
 ## Dependencies
 The implemented solutions depend on or make use of the following libraries:
 - Data processor (Python module):
-  - python v3.9.x
+  - python v3.9.13
   - spaCy v3.3.1
 
 - Feature extractor (Java module):
-  - JDK 16
+  - JDK 17
   - <a href="https://stanfordnlp.github.io/CoreNLP/" target="_blank">Stanford CoreNLP</a> v4.5.3
   - <a href="https://mongodb.github.io/mongo-java-driver/" target="_blank">MongoDB Java Driver</a> v3.12.10
   - Snake YAML v1.9
   - JSON Java v20210307
 
 - Argument classifier (Python module):
-  - python v3.9.x
+  - python v3.9.13
   - sklearn v0.24.2
-  - <a href="https://github.com/Microsoft/LightGBM" target="_blank">lightgbm</a> v3.3.5
-  - nltk v3.6.3
+  - <a href="https://lightgbm.readthedocs.io/en/latest/" target="_blank">lightgbm</a> v3.3.5
+  - <a href="https://www.nltk.org/" target="_blank">nltk</a> v3.6.3
+  - <a href="https://optuna.org/" target="_blank">optuna</a> v3.1.1
 
 ## Authors
 Created on Aug 18, 2021  
