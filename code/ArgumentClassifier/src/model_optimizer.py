@@ -21,7 +21,6 @@ def load_dataset():
     filepath = "../../../data/dataset.csv"
     label_column = "label"
     dataset = ufl.get_df_from_csv(filepath)
-    print("len:", len(dataset))
     
     # Features (X) and labels (y)
     X = dataset.drop(label_column, axis=1).values
@@ -47,10 +46,11 @@ def objective(trial):
         "seed": 42,
         "learning_rate": trial.suggest_float("learning_rate", 1e-3, 1),
         "n_estimators": trial.suggest_int("n_estimators", 150, 250),
-        "max_depth": trial.suggest_int("max_depth", 1, 7),
+        "max_depth": trial.suggest_int("max_depth", 2, 12),
+        "max_bin": trial.suggest_int("max_bin", 200, 300),
         "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
         "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
-        "num_leaves": trial.suggest_int("num_leaves", 2, 256),
+        "num_leaves": trial.suggest_int("num_leaves", 20, 512),
         "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
         "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
         "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
