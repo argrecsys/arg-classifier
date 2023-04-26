@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 24 23:27:29 2023
+Created on Mon Apr 24, 2023
+Updated on Wen Apr 26, 2023
 
-@author: Usuario
+@author: Andrés Segura-Tinoco
 """
 
 # Import Custom libraries
 from util import files as ufl
 
 # Import ML libraries
-import pandas as pd
 import numpy as np
 import optuna
 import lightgbm as lgb
@@ -36,14 +36,18 @@ def load_dataset():
 def objective(trial):
     data, target = load_dataset()
     
-    train_x, valid_x, train_y, valid_y = train_test_split(data, target, test_size=0.2)
-    dtrain = lgb.Dataset(train_x, label=train_y)
+    X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
+    dtrain = lgb.Dataset(X_train, label=y_train)
 
     param = {
         "objective": "binary",
         "metric": "binary_logloss",
         "verbosity": -1,
         "boosting_type": "gbdt",
+        "seed": 42,
+        "learning_rate": trial.suggest_float("learning_rate", 1e-3, 1),
+        "n_estimators": trial.suggest_int("n_estimators", 150, 250),
+        "max_depth": trial.suggest_int("max_depth", 1, 7),
         "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
         "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
         "num_leaves": trial.suggest_int("num_leaves", 2, 256),
@@ -54,15 +58,15 @@ def objective(trial):
     }
 
     gbm = lgb.train(param, dtrain)
-    preds = gbm.predict(valid_x)
-    pred_labels = np.rint(preds)
-    accuracy = sklearn.metrics.accuracy_score(valid_y, pred_labels)
+    preds = gbm.predict(X_test)
+    y_pred = np.rint(preds)
+    accuracy = sklearn.metrics.accuracy_score(y_test, y_pred)
     
     return accuracy
 
 if __name__ == "__main__":
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials=100)
+    study.optimize(objective, n_trials=200)
 
     print("Number of finished trials: {}".format(len(study.trials)))
 
