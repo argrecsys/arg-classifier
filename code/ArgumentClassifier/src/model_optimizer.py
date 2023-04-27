@@ -10,6 +10,7 @@ Updated on Wen Apr 26, 2023
 from util import files as ufl
 
 # Import ML libraries
+import time
 import numpy as np
 import optuna
 import lightgbm as lgb
@@ -44,17 +45,18 @@ def objective(trial):
         "verbosity": -1,
         "boosting_type": "gbdt",
         "seed": 42,
-        "learning_rate": trial.suggest_float("learning_rate", 1e-3, 1),
-        "n_estimators": trial.suggest_int("n_estimators", 150, 250),
-        "max_depth": trial.suggest_int("max_depth", 2, 12),
-        "max_bin": trial.suggest_int("max_bin", 200, 300),
+        "learning_rate": trial.suggest_float("learning_rate", 1e-2, 1),
+        "n_estimators": trial.suggest_int("n_estimators", 150, 300),
+        "num_leaves": trial.suggest_int("num_leaves", 20, 3000, step=20),
+        "max_depth": trial.suggest_int("max_depth", 2, 10),
+        "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", 5, 50),
+        "max_bin": trial.suggest_int("max_bin", 100, 300),
         "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
         "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
-        "num_leaves": trial.suggest_int("num_leaves", 20, 512),
+        "min_gain_to_split": trial.suggest_float("min_gain_to_split", 0, 10),
         "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
         "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
         "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
-        "min_child_samples": trial.suggest_int("min_child_samples", 5, 100),
     }
 
     gbm = lgb.train(param, dtrain)
@@ -65,8 +67,10 @@ def objective(trial):
     return accuracy
 
 if __name__ == "__main__":
+    start_time = time.time()
     study = optuna.create_study(direction="maximize")
     study.optimize(objective, n_trials=200)
+    elapsed_time = (time.time() - start_time)
 
     print("Number of finished trials: {}".format(len(study.trials)))
 
@@ -78,3 +82,5 @@ if __name__ == "__main__":
     print("  Params: ")
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
+    
+    print("Elapsed time:", elapsed_time)
