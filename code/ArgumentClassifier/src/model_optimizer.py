@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 24 23:27:29 2023
+Created on Mon Apr 24, 2023
+Updated on Wen Apr 26, 2023
 
-@author: Usuario
+@author: Andrés Segura-Tinoco
 """
 
 # Import Custom libraries
 from util import files as ufl
 
 # Import ML libraries
-import pandas as pd
+import time
 import numpy as np
 import optuna
 import lightgbm as lgb
@@ -21,7 +22,6 @@ def load_dataset():
     filepath = "../../../data/dataset.csv"
     label_column = "label"
     dataset = ufl.get_df_from_csv(filepath)
-    print("len:", len(dataset))
     
     # Features (X) and labels (y)
     X = dataset.drop(label_column, axis=1).values
@@ -36,33 +36,41 @@ def load_dataset():
 def objective(trial):
     data, target = load_dataset()
     
-    train_x, valid_x, train_y, valid_y = train_test_split(data, target, test_size=0.2)
-    dtrain = lgb.Dataset(train_x, label=train_y)
+    X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
+    dtrain = lgb.Dataset(X_train, label=y_train)
 
     param = {
         "objective": "binary",
         "metric": "binary_logloss",
         "verbosity": -1,
         "boosting_type": "gbdt",
+        "seed": 42,
+        "learning_rate": trial.suggest_float("learning_rate", 1e-2, 1),
+        "n_estimators": trial.suggest_int("n_estimators", 150, 300),
+        "num_leaves": trial.suggest_int("num_leaves", 20, 3000, step=20),
+        "max_depth": trial.suggest_int("max_depth", 2, 10),
+        "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", 5, 50),
+        "max_bin": trial.suggest_int("max_bin", 100, 300),
         "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
         "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
-        "num_leaves": trial.suggest_int("num_leaves", 2, 256),
+        "min_gain_to_split": trial.suggest_float("min_gain_to_split", 0, 10),
         "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
         "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
         "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
-        "min_child_samples": trial.suggest_int("min_child_samples", 5, 100),
     }
 
     gbm = lgb.train(param, dtrain)
-    preds = gbm.predict(valid_x)
-    pred_labels = np.rint(preds)
-    accuracy = sklearn.metrics.accuracy_score(valid_y, pred_labels)
+    preds = gbm.predict(X_test)
+    y_pred = np.rint(preds)
+    accuracy = sklearn.metrics.accuracy_score(y_test, y_pred)
     
     return accuracy
 
 if __name__ == "__main__":
+    start_time = time.time()
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials=100)
+    study.optimize(objective, n_trials=200)
+    elapsed_time = (time.time() - start_time)
 
     print("Number of finished trials: {}".format(len(study.trials)))
 
@@ -74,3 +82,5 @@ if __name__ == "__main__":
     print("  Params: ")
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
+    
+    print("Elapsed time:", elapsed_time)
