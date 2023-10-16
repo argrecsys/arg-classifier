@@ -14,7 +14,7 @@ Have you identified an oversight or problem? Have a feature request? We want to 
 > **Note:** If you already know what you want to change, feel free to just fork/clone the repo, change it, and submit a pull request. No need to add overhead by creating an issue!
 
 ### Look For an Existing Issue
-Before you create a new issue, please do a search in [open issues](https://github.com/argrecsys/arg-ir-tool/issues) to see if the issue or feature request has already been filed.
+Before you create a new issue, please do a search in [open issues](https://github.com/argrecsys/arg-classifier/issues) to see if the issue or feature request has already been filed.
 
 If you cannot find an existing issue that describes your bug or feature, create a new issue using the guidelines below.
 
