@@ -1,11 +1,14 @@
 # Argumentative Proposition Classifier
 ![version](https://img.shields.io/badge/version-1.4.0-blue)
-![last-update](https://img.shields.io/badge/last_update-4/21/2023-orange)
+![last-update](https://img.shields.io/badge/last_update-10/27/2023-orange)
 ![license](https://img.shields.io/badge/license-Apache_2.0-brightgreen)
 
 Implementation of a traditional classifier of argumentative components (claims and premises), trained with features/metadata previously extracted from manually annotated argumentative sentences from the citizen proposals available in the <a href="https://decide.madrid.es/" target="_blank">Decide Madrid</a> platform.
 
 The complete solution consists of a pipeline of 6 modules, which are in charge of: data extraction from the source database (Decide Madrid), manual annotation of the data using the <a href="https://github.com/argrecsys/argael" target="_blank">ARGAEL</a> tool (also supports annotations from <a href="https://prodi.gy/" target="_blank">Prodigy</a>), the subsequent feature extraction and the final construction and validation of the feature-based classification models.
+
+## Papers
+This work (v1.4) has been accepted as a paper at <a href="https://argmining-org.github.io/2023/">the 10th Workshop on Argument Mining</a> co-located with the 2023 Conference on Empirical Methods in Natural Language Processing (<a href="https://2023.emnlp.org/">EMNLP 2023</a>). A draft of the paper can be found <a href="https://github.com/argrecsys/arg-classifier/tree/main/papers/emnlp23">here</a>.
 
 ## Pipeline diagram
 ![Pipeline diagram](https://raw.githubusercontent.com/argrecsys/arg-classifier/main/image/pipeline-diagram.svg)
